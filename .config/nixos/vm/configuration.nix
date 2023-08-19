@@ -18,6 +18,8 @@
   boot.loader.grub.useOSProber = true;
   boot.loader.grub.gfxmodeEfi = "1920x1080";
   boot.loader.grub.gfxmodeBios = "1920x1080";
+  boot.loader.grub.gfxpayloadEfi = "keep";
+  boot.loader.grub.gfxpayloadBios = "keep";
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
