@@ -6,3 +6,5 @@
 !.config/home-manager/**
 !.config/nixos
 !.config/nixos/**
+!.config/hypr
+!.config/hypr/**

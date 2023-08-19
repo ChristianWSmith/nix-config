@@ -72,6 +72,7 @@
   programs.git.enable = true;
   programs.git.userEmail = "smith.christian.william@gmail.com";
   programs.git.userName = "Christian Smith";
+  wayland.windowManager.hyprland.enable = true;
   wayland.windowManager.hyprland.extraConfig = ''
     source=~/.config/hypr/_hyprland.conf
   '';
