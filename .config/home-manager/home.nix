@@ -19,6 +19,7 @@
   # environment.
   home.packages = [
     pkgs.qrencode
+    pkgs.vim
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
@@ -71,4 +72,7 @@
   programs.git.enable = true;
   programs.git.userEmail = "smith.christian.william@gmail.com";
   programs.git.userName = "Christian Smith";
+  wayland.windowManager.hyprland.extraConfig = ''
+    source=~/.config/hypr/_hyprland.conf
+  '';
 }
