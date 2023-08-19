@@ -16,6 +16,8 @@
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/vda";
   boot.loader.grub.useOSProber = true;
+  boot.loader.grub.gfxmodeEfi = "1920x1080";
+  boot.loader.grub.gfxmodeBios = "1920x1080";
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -50,8 +52,6 @@
     layout = "us";
     xkbVariant = "";
   };
-
-  services.qemuGuest.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.christian = {
