@@ -18,9 +18,7 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
-    pkgs.qrencode
     pkgs.vim
-    pkgs.neofetch
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
@@ -65,7 +63,7 @@
   #
   # if you don't want to manage your shell through Home Manager.
   home.sessionVariables = {
-    # EDITOR = "emacs";
+    EDITOR = "vim";
   };
 
   # Let Home Manager install and manage itself.
@@ -74,14 +72,6 @@
   programs.git.userEmail = "smith.christian.william@gmail.com";
   programs.git.userName = "Christian Smith";
 
-  wayland.windowManager.sway.enable = true;
-  wayland.windowManager.sway.config.modifier = "Mod4";
-  wayland.windowManager.sway.config.terminal = "footclient";
-  wayland.windowManager.sway.extraConfig = ''
-    exec foot --server
-    exec eww --config .config/home-manager/eww/ open bar
-  '';
-
   programs.foot.enable = true;
   programs.foot.server.enable = true;
 
@@ -89,8 +79,8 @@
   programs.eww.enable = true;
   programs.eww.configDir = ./eww;
 
-  # wayland.windowManager.hyprland.enable = true;
-  # wayland.windowManager.hyprland.extraConfig = ''
-  #   source=~/.config/hypr/_hyprland.conf
-  # '';
+  wayland.windowManager.hyprland.enable = true;
+  wayland.windowManager.hyprland.extraConfig = ''
+    source=~/.config/hypr/_hyprland.conf
+  '';
 }

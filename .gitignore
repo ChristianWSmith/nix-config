@@ -1,10 +1,21 @@
+# Ignore by default
 *
+
+# GitHub
 !LICENSE
 !README.md
+
+# System + Home Manager
 !.config
 !.config/home-manager
 !.config/home-manager/**
 !.config/nixos
 !.config/nixos/**
+
+# Hyprland
 !.config/hypr
 !.config/hypr/**
+.config/hypr/hyprland.conf
+
+# 
+
