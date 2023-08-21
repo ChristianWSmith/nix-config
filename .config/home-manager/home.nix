@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, hostname, ... }:
+{ config, pkgs, hostname, ... }:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -7,6 +7,10 @@
   home.homeDirectory = "/home/${hostname}";
 
   home.stateVersion = "22.11";
+
+  imports = [
+    ./hyprland.nix
+  ];
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
@@ -62,16 +66,6 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-
-  wayland.windowManager.hyprland.enable = true;
-  wayland.windowManager.hyprland.extraConfig = ''
-    source=~/.config/hypr/binds.conf
-    source=~/.config/hypr/autoexec.conf
-    source=~/.config/hypr/windowrules.conf
-    source=~/.config/hypr/input.conf
-    source=~/.config/hypr/appearance.conf
-    source=~/.config/hypr/environment.conf
-  '';
 
   programs.eww.package = pkgs.eww-wayland;
   programs.eww.enable = true;
