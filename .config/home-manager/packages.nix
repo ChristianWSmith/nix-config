@@ -4,7 +4,7 @@
   home.packages = with pkgs; [
 
     vim
-
+    firefox
     nixgl.auto.nixGLDefault
     # pkgs.nixgl.auto.nixGLNvidia
     # pkgs.auto.nixGLNvidiaBumblebee

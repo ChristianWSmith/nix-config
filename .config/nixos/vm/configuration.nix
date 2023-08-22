@@ -5,6 +5,7 @@
 { config, pkgs, ... }:
 
 {
+  # Flakes + Nix Command
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   imports =
@@ -60,16 +61,14 @@
 
   # Enable automatic login for the user.
   services.getty.autologinUser = "christian";
-
+  
   # Swap Meta and Alt Keys
   services.keyd.enable = true;
   services.keyd.keyboards.default = {
     ids = [ "*" ];
     settings.main = {
-      leftalt = "meta";
-      rightalt = "meta";
-      leftmeta = "alt";
-      rightmeta = "alt";
+      alt = "layer(meta)";
+      meta = "layer(alt)";
     };
   };
 
