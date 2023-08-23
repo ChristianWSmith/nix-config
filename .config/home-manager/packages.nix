@@ -4,7 +4,6 @@
   home.packages = with pkgs; [
 
     # Shells
-    fish
 
     # nixGL
     nixgl.auto.nixGLDefault

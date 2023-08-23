@@ -13,6 +13,7 @@ in
   imports = [
     ./packages.nix
     ./environment.nix
+    ./fish.nix
     ./hyprland.nix
     ./eww.nix
   ];
