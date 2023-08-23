@@ -14,11 +14,9 @@ let
     export XDG_SESSION_DESKTOP=Hyprland
     export QT_AUTO_SCREEN_SCALE_FACTOR=1
     export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
-    export QT_QPA_PLATFORMTHEME=qt5ct
-    export GTK_THEME=Adwaita
     export XCURSOR_THEME=Adwaita
     export XCURSOR_SIZE=40
-    
+
     # NVIDIA
     # export GBM_BACKEND=nvidia-drm
     # export __GLX_VENDOR_LIBRARY_NAME=nvidia
@@ -44,11 +42,11 @@ in
   wayland.windowManager.hyprland = {
     enable = true;
     extraConfig = ''
-      source=~/.config/hypr/binds.conf
-      source=~/.config/hypr/autoexec.conf
-      source=~/.config/hypr/windowrules.conf
-      source=~/.config/hypr/input.conf
       source=~/.config/hypr/appearance.conf
+      source=~/.config/hypr/autoexec.conf
+      source=~/.config/hypr/input.conf
+      source=~/.config/hypr/binds.conf
+      source=~/.config/hypr/windowrules.conf
       source=~/.config/hypr/environment.conf 
     '';
   };

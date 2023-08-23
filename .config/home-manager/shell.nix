@@ -64,6 +64,7 @@
       gc = "git commit -m \"$argv\"";
       gp = "git push";
       gs = "git status";
+      gd = "git diff \"$argv\"";
       bash = "BASH_BYPASS=1 /${pkgs.bashInteractive}/bin/bash";
     };
   };
