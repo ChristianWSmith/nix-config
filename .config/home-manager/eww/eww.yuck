@@ -23,7 +23,8 @@
 ; WALLPAPER
 
 (defwidget wallpaper [] 
-  (box :orientation "horizontal"))
+  (box :class "wallpaper"
+       :orientation "horizontal"))
 
 (defwindow wallpaper0
   :monitor 0
