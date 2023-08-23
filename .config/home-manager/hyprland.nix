@@ -27,7 +27,16 @@ let
     # export __GL_VRR_ALLOWED=0
     # export WLR_DRM_NO_ATOMIC=1
 
-    nixGL ${pkgs.hyprland}/bin/Hyprland
+    OS=$(cat /etc/os-release | grep -e "^NAME=" | sed s/NAME=//g)
+
+    if [[ "$OS" == "NixOS" ]]
+    then
+      # ${pkgs.hyprland}/bin/Hyprland # TODO: uncomment this once distro-independence is reached
+      nixGL ${pkgs.hyprland}/bin/Hyprland
+    else
+      nixGL ${pkgs.hyprland}/bin/Hyprland
+    fi
+
   '';
 in
 {
