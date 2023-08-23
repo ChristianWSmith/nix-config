@@ -1,6 +1,6 @@
 { pkgs, ... }:
 let
-  launcher = pkgs.writeShellScriptBin "hypr" ''
+  launcher = pkgs.writeShellScriptBin "hyprland-launcher" ''
     #!/${pkgs.bash}/bin/bash
 
     . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"

@@ -3,7 +3,7 @@
 {
   home.packages = with pkgs; [
 
-    vim
+    vim wget
     firefox
     nixgl.auto.nixGLDefault
     # pkgs.nixgl.auto.nixGLNvidia

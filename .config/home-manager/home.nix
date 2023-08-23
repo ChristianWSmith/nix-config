@@ -14,6 +14,7 @@ in
     ./packages.nix
     ./environment.nix
     ./hyprland.nix
+    ./eww.nix
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -23,6 +24,8 @@ in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
     # ".screenrc".source = dotfiles/screenrc;
+    ".wallpapers".source = files/wallpapers;
+
 
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
@@ -33,10 +36,6 @@ in
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-
-  programs.eww.package = pkgs.eww-wayland;
-  programs.eww.enable = true;
-  programs.eww.configDir = ./eww;
 
   programs.foot.enable = true;
   programs.foot.server.enable = true;

@@ -9,6 +9,8 @@
 !.config
 !.config/home-manager
 !.config/home-manager/**
+.config/home-manager/files/wallpapers/*
+!.config/home-manager/files/wallpapers/.gitkeep
 !.config/nixos
 !.config/nixos/**
 
