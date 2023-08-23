@@ -20,8 +20,8 @@ let
   '';
   get-wallpapers = pkgs.writeShellScriptBin "eww-get-wallpapers" ''
     #!/${pkgs.bash}/bin/bash
-    wget -O ~/.config/home-manager/files/wallpapers/god.jpeg i.imgur.com/hAwDl3p.jpeg
-    wget -O ~/.config/home-manager/files/wallpapers/nature.png i.imgur.com/tgAaO3G.png
+    wget -nc -O ~/.config/home-manager/files/wallpapers/god.jpeg i.imgur.com/hAwDl3p.jpeg
+    wget -nc -O ~/.config/home-manager/files/wallpapers/nature.png i.imgur.com/tgAaO3G.png
     
   '';
 in

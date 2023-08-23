@@ -13,7 +13,7 @@ in
   imports = [
     ./packages.nix
     ./environment.nix
-    ./fish.nix
+    ./shell.nix
     ./hyprland.nix
     ./eww.nix
   ];
@@ -44,4 +44,15 @@ in
   programs.git.enable = true;
   programs.git.userEmail = "smith.christian.william@gmail.com";
   programs.git.userName = "Christian Smith";
+
+  gtk.enable = true;
+  # gtk.cursorTheme.name = "Adwaita";
+  # gtk.theme.package = pkgs.adw-gtk3;
+  gtk.theme.name = "adw-gtk3";
+  # gtk.iconTheme.name = "Adwaita";
+
+  qt.enable = true;
+
+  qt.platformTheme = "gtk";
+  qt.style.name = "adwaita-dark";
 }

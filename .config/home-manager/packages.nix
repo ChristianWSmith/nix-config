@@ -4,6 +4,7 @@
   home.packages = with pkgs; [
 
     # Shells
+    bashInteractive
 
     # nixGL
     nixgl.auto.nixGLDefault
@@ -34,6 +35,8 @@
     # 
     # steam discord
     firefox 
+
+    dconf
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the

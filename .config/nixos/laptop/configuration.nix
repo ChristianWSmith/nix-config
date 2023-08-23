@@ -7,6 +7,9 @@
 {
   # Flakes + Nix Command
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  
+  # dconf
+  programs.dconf.enable = true;
 
   imports =
     [ # Include the results of the hardware scan.
