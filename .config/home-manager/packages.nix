@@ -14,6 +14,10 @@
 
     # Command Line Tools
     wget
+    yafetch
+    starfetch
+    lolcat
+    figlet
     # rar unrar zip unzip p7zip
 
     # Daemon Tools

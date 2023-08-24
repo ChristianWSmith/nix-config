@@ -32,7 +32,7 @@
           hyprland-launcher;
         end;
       else;
-        echo "My Fetch Here";
+        yafetch;
       end;
     '';
     functions = {

@@ -14,6 +14,7 @@ in
     ./packages.nix
     ./environment.nix
     ./shell.nix
+    ./terminal.nix
     ./hyprland.nix
     ./eww.nix
     ./browser.nix
@@ -38,9 +39,6 @@ in
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-
-  programs.foot.enable = true;
-  programs.foot.server.enable = true;
 
   programs.git.enable = true;
   programs.git.userEmail = "smith.christian.william@gmail.com";
