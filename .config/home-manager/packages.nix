@@ -25,32 +25,33 @@
 
     # TUI Tools
     vim
-    # ranger btop pulsemixer networkmanager
+    ranger
+    btop
+    pulsemixer
+    networkmanager
 
     # GUI Tools
     grim
     slurp
     wl-clipboard
-    xclip
     cliphist
     inotify-tools
     libnotify
     hyprpicker
     xdg-utils
+    
     # 
-    # noto-fonts
-    # noto-fonts-emoji
     imv
     mpv
     cinnamon.nemo
     transmission-qt
  
     # 
-    gimp-with-plugins
+    gimp
 
     #
     discord 
-    # steam discord
+    # steam
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the

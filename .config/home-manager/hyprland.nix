@@ -63,13 +63,13 @@ let
         notify-send -t 5000 "Screenshot canceled."
     fi
   '';
+  colorPicker = pkgs.writeShellScriptBin "hyprland-colorpicker" ''
+    #!/${pkgs.bash}/bin/bash
+    hyprpicker | wl-copy
+  '';
 in
 {
-  home.packages = [ launcher screenshot enableScreenSharing ];
-  services.clipman = {
-    enable = true;
-    systemdTarget = "hyprland-session.target";
-  };
+  home.packages = [ launcher screenshot enableScreenSharing colorPicker ];
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
