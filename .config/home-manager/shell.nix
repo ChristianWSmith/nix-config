@@ -37,7 +37,7 @@
     '';
     functions = {
       nixos-up = "sudo nix-channel --update && sudo nixos-rebuild switch";
-      nix-up = "nix-channel --update && home-manager switch --impure";
+      nix-up = "nix-channel --update && home-manager switch -b backup --impure";
       full-up = "nixosup && nixup";
       nixos-flash = ''
         if test -d ~/.config/nixos/$argv && count $argv > /dev/null;

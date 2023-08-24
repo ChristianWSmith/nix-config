@@ -16,6 +16,7 @@ in
     ./shell.nix
     ./hyprland.nix
     ./eww.nix
+    ./browser.nix
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
