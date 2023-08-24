@@ -16,6 +16,7 @@ in
     ./shell.nix
     ./terminal.nix
     ./hyprland.nix
+    ./theme.nix
     ./eww.nix
     ./browser.nix
   ];
@@ -43,16 +44,4 @@ in
   programs.git.enable = true;
   programs.git.userEmail = "smith.christian.william@gmail.com";
   programs.git.userName = "Christian Smith";
-
-  gtk.enable = true;
-  gtk.cursorTheme.package = pkgs.gnome.adwaita-icon-theme;
-  gtk.cursorTheme.name = "Adwaita";
-  gtk.cursorTheme.size = 40;
-  gtk.theme.package = pkgs.adw-gtk3;
-  gtk.theme.name = "adw-gtk3-dark";
-  gtk.iconTheme.package = pkgs.papirus-icon-theme;
-  gtk.iconTheme.name = "Papirus";
-  qt.enable = true;
-  qt.platformTheme = "gtk";
-  qt.style.name = "adwaita-dark";
 }

@@ -63,9 +63,12 @@
         end;
         mkdir -p ~/.config/nixos/$argv
         for file in $(find /etc/nixos/* | grep -ve '\.old$');
-          sudo cp $file ~/.config/nixos/$argv/;
+          cp $file ~/.config/nixos/$argv/;
         end;
       '';
+      nixos-gc = "sudo nix-collect-garbage -d && sudo /run/current/system/bin/switch-to-configuration boot";
+      nix-gc = "nix-collect-garbage -d";
+      full-gc = "nixos-gc && nix-gc";
       ga = "git add $argv";
       gr = "git restore $argv";
       gc = "git commit -m \"$argv\"";

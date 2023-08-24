@@ -38,6 +38,8 @@
     hyprpicker
 
     # 
+    # noto-fonts
+    # noto-fonts-emoji
     imv
     mpv
     cinnamon.nemo

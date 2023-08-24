@@ -28,6 +28,7 @@
   hardware.opengl.enable = true;
   boot.initrd.systemd.dbus.enable = true;
   security.rtkit.enable = true;
+  security.polkit.enable = true;
 
   imports =
     [ # Include the results of the hardware scan.
