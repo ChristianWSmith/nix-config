@@ -13,16 +13,17 @@
   outputs = { nixpkgs, home-manager, nixgl, ... }@inputs:
     let
       system = "x86_64-linux";
-      hostname = "christian";
+      user = "christian";
+      userHome = "/home/${user}";
       pkgs = import nixpkgs {
         inherit system;
         overlays = [ nixgl.overlay ];
         config.allowUnfree = true;
       };
     in {
-      homeConfigurations."${hostname}" = home-manager.lib.homeManagerConfiguration {
+      homeConfigurations."${user}" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        extraSpecialArgs = { inherit inputs hostname pkgs; };
+        extraSpecialArgs = { inherit inputs user userHome pkgs; };
         modules = [ ./home.nix ];
       };
     };

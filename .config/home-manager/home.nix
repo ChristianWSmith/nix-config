@@ -1,12 +1,9 @@
-{ config, pkgs, hostname, ... }:
-let
-  homeDirectory = "/home/${hostname}";
-in
+{ config, pkgs, user, userHome, ... }:
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
-  home.username = hostname;
-  home.homeDirectory = homeDirectory;
+  home.username = user;
+  home.homeDirectory = userHome;
 
   home.stateVersion = "22.11";
 
@@ -30,7 +27,6 @@ in
     # # symlink to the Nix store copy.
     # ".screenrc".source = dotfiles/screenrc;
     ".wallpapers".source = files/wallpapers;
-
 
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''

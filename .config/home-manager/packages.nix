@@ -43,11 +43,13 @@
     # 
     imv
     mpv
-    cinnamon.nemo
+    cinnamon.nemo-with-extensions
+    cinnamon.nemo-emblems
+    cinnamon.nemo-fileroller
     transmission-qt
  
     # 
-    gimp
+    gimp-with-plugins
 
     #
     discord 
