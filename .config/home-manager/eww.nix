@@ -14,7 +14,7 @@ let
   '';
   random-wallpaper = pkgs.writeShellScriptBin "eww-random-wallpaper" ''
     #!/${pkgs.bash}/bin/bash
-    ln -sf $(echo ~/.wallpapers/$(ls ~/.wallpapers/ sort -R | tail -1)) ~/.active-wallpaper
+    ln -sf $(echo ~/.wallpapers/$(ls ~/.wallpapers/ | sort -R | tail -1)) ~/.active-wallpaper
     eww reload
     
   '';

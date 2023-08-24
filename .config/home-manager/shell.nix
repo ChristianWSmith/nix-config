@@ -3,7 +3,7 @@
   programs.bash = {
     enable = true;
     initExtra = ''
-      if [[ $- == *i* && "$BASH_BYPASS" != "1" ]]
+      if [[ $- == *i* ]] && [[ "$BASH_BYPASS" != "1" ]] && [[ "$buildCommandPath" != *"nix-shell"* ]]
       then
           /${pkgs.fish}/bin/fish
           exit
@@ -27,6 +27,13 @@
     enable = true;
     interactiveShellInit = ''
       set fish_greeting
+      if test (tty) = /dev/tty1;
+        while test -f ~/.tty1-gui-only;
+          hyprland-launcher;
+        end;
+      else;
+        echo "My Fetch Here";
+      end;
     '';
     functions = {
       nixos-up = "sudo nix-channel --update && sudo nixos-rebuild switch";
