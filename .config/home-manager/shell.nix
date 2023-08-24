@@ -38,7 +38,7 @@
     functions = {
       nixos-up = "sudo nix-channel --update && sudo nixos-rebuild switch";
       nix-up = "nix-channel --update && home-manager switch -b backup --impure";
-      full-up = "nixosup && nixup";
+      full-up = "nixos-up && nix-up";
       nixos-flash = ''
         if test -d ~/.config/nixos/$argv && count $argv > /dev/null;
           :;
@@ -72,6 +72,8 @@
       gp = "git push";
       gs = "git status";
       gd = "git diff \"$argv\"";
+      poweroff = "sudo systemctl poweroff --no-wall";
+      reboot = "sudo systemctl reboot --no-wall";
       bash = "BASH_BYPASS=1 /${pkgs.bashInteractive}/bin/bash";
     };
   };

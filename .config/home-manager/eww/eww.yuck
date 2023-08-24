@@ -13,7 +13,7 @@
   :stacking "fg"
   :focusable false
   :namespace "overlay"
-  :geometry (geometry :x "18px"
+  :geometry (geometry :x "5px"
                       :y "0px"
                       :width "30px"
                       :height "100%"

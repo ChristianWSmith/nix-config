@@ -17,6 +17,14 @@ let
     export XCURSOR_THEME=Adwaita
     export XCURSOR_SIZE=40
 
+    # export QT_QPA_PLATFORM="wayland;xcb"
+    # export QT_QPA_PLATFORMTHEME=qt5ct
+    # export QT_PLUGINS_PATH=/usr/lib/qt/plugins/
+    # export XDG_CURRENT_DESKTOP=hyprland
+    # export XDG_CONFIG_HOME=$HOME/.config
+    # export TUI_VOLUME_CONTROL=pulsemixer
+    # export GUI_VOLUME_CONTROL=pavucontrol
+
     # NVIDIA
     # export GBM_BACKEND=nvidia-drm
     # export __GLX_VENDOR_LIBRARY_NAME=nvidia
@@ -29,18 +37,40 @@ let
 
     if [[ "$OS" == "NixOS" ]]
     then
-      # ${pkgs.hyprland}/bin/Hyprland # TODO: uncomment this once distro-independence is reached
-      nixGL ${pkgs.hyprland}/bin/Hyprland
+      ${pkgs.hyprland}/bin/Hyprland # TODO: uncomment this once distro-independence is reached
+      # nixGL ${pkgs.hyprland}/bin/Hyprland
     else
       nixGL ${pkgs.hyprland}/bin/Hyprland
     fi
+  '';
+  enableScreenSharing = pkgs.writeShellScriptBin "hyprland-enable-screen-sharing" ''
+    #!/${pkgs.bash}/bin/bash
 
+    systemctl --user import-environment DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+    dbus-update-activation-environment
+    dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+    systemctl --user start xdg-desktop-portal
+    systemctl --user start xdg-desktop-portal-hyprland
+  '';
+  screenshot = pkgs.writeShellScriptBin "hyprland-screenshot" ''
+    #!/${pkgs.bash}/bin/bash
+
+    dimensions="$(slurp)"
+
+    if [ "$dimensions" ]
+    then
+        grim -g "$dimensions" - | wl-copy
+        echo notify-send -t 5000 "Screenshot copied to clipboard."
+    else
+        echo notify-send -t 5000 "Screenshot canceled."
+    fi
   '';
 in
 {
-  home.packages = [ launcher ];
+  home.packages = [ launcher screenshot enableScreenSharing ];
   wayland.windowManager.hyprland = {
     enable = true;
+    xwayland.enable = true;
     extraConfig = ''
       source=~/.config/hypr/appearance.conf
       source=~/.config/hypr/autoexec.conf

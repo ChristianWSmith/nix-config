@@ -12,7 +12,22 @@
   programs.dconf.enable = true;
 
   # Hyprland
-  programs.hyprland.enable = true;
+  # programs.hyprland.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    jack.enable = true;
+    wireplumber.enable = true;
+  };
+  xdg.portal = {
+    wlr.enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
+  };
+  hardware.opengl.enable = true;
+  boot.initrd.systemd.dbus.enable = true;
+  security.rtkit.enable = true;
 
   imports =
     [ # Include the results of the hardware scan.

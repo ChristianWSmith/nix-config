@@ -28,16 +28,26 @@
     # ranger btop pulsemixer networkmanager
 
     # GUI Tools
-    # grim
-    # slurp
-    # hyprpicker
+    grim
+    slurp
+    wl-clipboard
+    xclip
+    cliphist
+    inotify-tools
+    libnotify
+    hyprpicker
 
     # 
-    # imv mpv
+    imv
+    mpv
     cinnamon.nemo
     transmission-qt
  
     # 
+    gimp
+
+    #
+    discord 
     # steam discord
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
