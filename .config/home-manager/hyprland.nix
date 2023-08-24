@@ -52,17 +52,16 @@ let
     systemctl --user start xdg-desktop-portal
     systemctl --user start xdg-desktop-portal-hyprland
   '';
-  screenshot = pkgs.writeScriptBin "hyprland-screenshot" ''
-#!/usr/bin/env fish
-
-set dimensions "$(slurp -d)"
-
-if [ "$dimensions" ]
-    grim -g $dimensions - | wl-copy # --type image/png
-    echo notify-send -t 5000 "Screenshot copied to clipboard."
-else
-    echo notify-send -t 5000 "Screenshot canceled."
-end
+  screenshot = pkgs.writeShellScriptBin "hyprland-screenshot" ''
+    #!/${pkgs.bash}/bin/bash
+    dimensions="$(slurp -d)"
+    if [ "$dimensions" ]
+    then
+        grim -g "$dimensions" - | wl-copy
+        notify-send -t 5000 "Screenshot copied to clipboard."
+    else
+        notify-send -t 5000 "Screenshot canceled."
+    fi
   '';
 in
 {
