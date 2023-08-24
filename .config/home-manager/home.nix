@@ -19,6 +19,7 @@ in
     ./theme.nix
     ./eww.nix
     ./browser.nix
+    ./git.nix
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -40,8 +41,4 @@ in
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-
-  programs.git.enable = true;
-  programs.git.userEmail = "smith.christian.william@gmail.com";
-  programs.git.userName = "Christian Smith";
 }

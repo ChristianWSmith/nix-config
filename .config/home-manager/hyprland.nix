@@ -37,8 +37,8 @@ let
 
     if [[ "$OS" == "NixOS" ]]
     then
-      ${pkgs.hyprland}/bin/Hyprland # TODO: uncomment this once distro-independence is reached
-      # nixGL ${pkgs.hyprland}/bin/Hyprland
+      # ${pkgs.hyprland}/bin/Hyprland # TODO: uncomment this once distro-independence is reached
+      nixGL ${pkgs.hyprland}/bin/Hyprland
     else
       nixGL ${pkgs.hyprland}/bin/Hyprland
     fi
@@ -52,22 +52,25 @@ let
     systemctl --user start xdg-desktop-portal
     systemctl --user start xdg-desktop-portal-hyprland
   '';
-  screenshot = pkgs.writeShellScriptBin "hyprland-screenshot" ''
-    #!/${pkgs.bash}/bin/bash
+  screenshot = pkgs.writeScriptBin "hyprland-screenshot" ''
+#!/usr/bin/env fish
 
-    dimensions="$(slurp)"
+set dimensions "$(slurp -d)"
 
-    if [ "$dimensions" ]
-    then
-        grim -g "$dimensions" - | wl-copy
-        echo notify-send -t 5000 "Screenshot copied to clipboard."
-    else
-        echo notify-send -t 5000 "Screenshot canceled."
-    fi
+if [ "$dimensions" ]
+    grim -g $dimensions - | wl-copy # --type image/png
+    echo notify-send -t 5000 "Screenshot copied to clipboard."
+else
+    echo notify-send -t 5000 "Screenshot canceled."
+end
   '';
 in
 {
   home.packages = [ launcher screenshot enableScreenSharing ];
+  services.clipman = {
+    enable = true;
+    systemdTarget = "hyprland-session.target";
+  };
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;

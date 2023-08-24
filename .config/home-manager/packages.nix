@@ -36,7 +36,7 @@
     inotify-tools
     libnotify
     hyprpicker
-
+    xdg-utils
     # 
     # noto-fonts
     # noto-fonts-emoji
@@ -46,7 +46,7 @@
     transmission-qt
  
     # 
-    gimp
+    gimp-with-plugins
 
     #
     discord 
