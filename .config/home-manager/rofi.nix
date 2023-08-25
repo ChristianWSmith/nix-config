@@ -1,14 +1,14 @@
 { pkgs, config, ... }:
 let
   launcher = pkgs.writeShellScriptBin "rofi-launcher" ''
-    if [ -f /tmp/rofi-launcher-active ];
+    PIDFILE="/tmp/rofi-launcher.pid"
+    COMMAND="rofi -show drun"
+    if ps -p $(cat $PIDFILE);
     then
-      rm /tmp/rofi-launcher-active
-      pkill -f rofi-launcher
+      pkill -f "$COMMAND"
     else
-      touch /tmp/rofi-launcher-active
-      rofi -show drun
-      rm /tmp/rofi-launcher-active
+      echo "$$" > $PIDFILE
+      $COMMAND
     fi
   '';
 in
