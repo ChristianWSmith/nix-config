@@ -1,8 +1,6 @@
 { pkgs, ... }:
 let
   launcher = pkgs.writeShellScriptBin "hyprland-launcher" ''
-    #!/${pkgs.bash}/bin/bash
-
     . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
 
     export GDK_BACKEND=wayland,x11
@@ -44,8 +42,6 @@ let
     fi
   '';
   enableScreenSharing = pkgs.writeShellScriptBin "hyprland-enable-screen-sharing" ''
-    #!/${pkgs.bash}/bin/bash
-
     systemctl --user import-environment DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
     dbus-update-activation-environment
     dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
@@ -53,7 +49,6 @@ let
     systemctl --user start xdg-desktop-portal-hyprland
   '';
   screenshot = pkgs.writeShellScriptBin "hyprland-screenshot" ''
-    #!/${pkgs.bash}/bin/bash
     dimensions="$(slurp -d)"
     if [ "$dimensions" ]
     then
@@ -64,7 +59,6 @@ let
     fi
   '';
   colorPicker = pkgs.writeShellScriptBin "hyprland-colorpicker" ''
-    #!/${pkgs.bash}/bin/bash
     hyprpicker | wl-copy
   '';
 in
