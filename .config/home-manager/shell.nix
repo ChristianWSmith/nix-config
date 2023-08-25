@@ -66,7 +66,7 @@
           cp $file ~/.config/nixos/$argv/;
         end;
       '';
-      nixos-gc = "sudo nix-collect-garbage -d && sudo /run/current/system/bin/switch-to-configuration boot";
+      nixos-gc = "sudo nix-collect-garbage && sudo nix-collect-garbage -d && sudo /run/current/system/bin/switch-to-configuration boot";
       nix-gc = "nix-collect-garbage -d";
       full-gc = "nixos-gc && nix-gc";
       ga = "git add $argv";
