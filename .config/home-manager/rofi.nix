@@ -1,5 +1,19 @@
-{ config, ... }:
+{ pkgs, config, ... }:
+let
+  launcher = pkgs.writeShellScriptBin "rofi-launcher" ''
+    if [ -f /tmp/rofi-launcher-active ];
+    then
+      rm /tmp/rofi-launcher-active
+      pkill -f rofi-launcher
+    else
+      touch /tmp/rofi-launcher-active
+      rofi -show drun
+      rm /tmp/rofi-launcher-active
+    fi
+  '';
+in
 {
+  home.packages = [ launcher ];
   programs.rofi.enable = true;
 
 
