@@ -1,7 +1,7 @@
 ; BAR
 
 (defwidget bar [] 
-  (box :class "eww_bar"
+  (box :class "eww-bar"
        :orientation "v"
        :vexpand "false"
        :hexpand "false"))
@@ -12,7 +12,7 @@
   :exclusive true
   :stacking "fg"
   :focusable false
-  :namespace "blur"
+  :namespace "eww-bar"
   :geometry (geometry :x "5px"
                       :y "0px"
                       :width "30px"
@@ -31,7 +31,7 @@
   :exclusive false
   :stacking "bg"
   :focusable false
-  :namespace "background"
+  :namespace "eww-wallpaper"
   :geometry (geometry :x "0%"
                       :y "0%"
                       :width "100%"
@@ -44,7 +44,7 @@
   :exclusive false
   :stacking "bg"
   :focusable false
-  :namespace "background"
+  :namespace "eww-wallpaper"
   :geometry (geometry :x "0%"
                       :y "0%"
                       :width "100%"
@@ -57,7 +57,7 @@
   :exclusive false
   :stacking "bg"
   :focusable false
-  :namespace "background"
+  :namespace "eww-wallpaper"
   :geometry (geometry :x "0%"
                       :y "0%"
                       :width "100%"
