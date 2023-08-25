@@ -14,35 +14,21 @@
 
     # Command Line Tools
     wget
-    yafetch
-    starfetch
-    lolcat
-    figlet
-    # rar unrar zip unzip p7zip
+    yafetch starfetch lolcat figlet
+    rar zip unzip p7zip
 
     # Daemon Tools
     # xboxdrv
 
     # TUI Tools
-    vim
-    ranger
-    btop
-    pulsemixer
-    networkmanager
+    vim ranger btop pulsemixer networkmanager
 
     # GUI Tools
-    grim
-    slurp
-    wl-clipboard
-    cliphist
-    inotify-tools
-    libnotify
-    hyprpicker
-    xdg-utils
+    grim slurp wl-clipboard cliphist xdg-utils hyprpicker
+    inotify-tools libnotify
     
     # 
-    imv
-    mpv
+    imv mpv
     cinnamon.nemo-with-extensions
     cinnamon.nemo-emblems
     cinnamon.nemo-fileroller

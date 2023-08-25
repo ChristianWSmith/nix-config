@@ -12,7 +12,7 @@
   :exclusive true
   :stacking "fg"
   :focusable false
-  :namespace "overlay"
+  :namespace "blur"
   :geometry (geometry :x "5px"
                       :y "0px"
                       :width "30px"
@@ -44,7 +44,7 @@
   :exclusive false
   :stacking "bg"
   :focusable false
-  :namespace "bottom"
+  :namespace "background"
   :geometry (geometry :x "0%"
                       :y "0%"
                       :width "100%"
