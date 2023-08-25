@@ -15,6 +15,7 @@
     ./hyprland.nix
     ./theme.nix
     ./eww.nix
+    ./rofi.nix
     ./browser.nix
     ./git.nix
   ];
