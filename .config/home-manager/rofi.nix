@@ -1,6 +1,8 @@
 { config, ... }:
 {
   programs.rofi.enable = true;
+
+
   programs.rofi.theme = 
     let
       inherit (config.lib.formats.rasi) mkLiteral;
@@ -105,7 +107,71 @@
     margin = mkLiteral "0px";
     padding = mkLiteral "0px";
     border = mkLiteral "0px solid";
+    border-radius=               mkLiteral "0px";
+    border-color=                mkLiteral "@selected";
+    background-color=            mkLiteral "transparent";
+    text-color=                  mkLiteral "@foreground";
+    cursor=                      "default";
+};
+"scrollbar" = {
+    handle-width=                mkLiteral "5px";
+    handle-color=                mkLiteral "@selected";
+    border-radius=               mkLiteral "0px";
+    background-color=            mkLiteral "@background-alt";
+};
+
+"element" = {
+    enabled=                     mkLiteral "true";
+    spacing=                     mkLiteral "15px";
+    margin=                      mkLiteral "0px";
+    padding=                     mkLiteral "35px 10px";
+    border=                      mkLiteral "0px solid";
+    border-radius=               mkLiteral "15px";
+    border-color=                mkLiteral "@selected";
+    background-color=            mkLiteral "transparent";
+    text-color=                  mkLiteral "@foreground";
+    orientation=                 mkLiteral "vertical";
+    cursor=                      mkLiteral "pointer";
+};
+"element normal.normal" = {
+    background-color=            mkLiteral "transparent";
+    text-color=                  mkLiteral "@foreground";
+};
+"element selected.normal" = {
+    background-color=            mkLiteral "white / 5%";
+    text-color=                  mkLiteral "@foreground";
+};
+"element-icon" = {
+    background-color=            mkLiteral "transparent";
+    text-color=                  mkLiteral "inherit";
+    size=                        mkLiteral "72px";
+    cursor=                      mkLiteral "inherit";
+};
+"element-text" = {
+    background-color=            mkLiteral "transparent";
+    text-color=                  mkLiteral "inherit";
+    highlight=                   mkLiteral "inherit";
+    cursor=                      mkLiteral "inherit";
+    vertical-align=              mkLiteral "0.5";
+    horizontal-align=            mkLiteral "0.5";
+};
+
+"error-message" = {
+    padding=                     mkLiteral "100px";
+    border=                      mkLiteral "0px solid";
+    border-radius=               mkLiteral "0px";
+    border-color=                mkLiteral "@selected";
+    background-color=            mkLiteral "black / 10%";
+    text-color=                  mkLiteral "@foreground";
+};
+"textbox" = {
+    background-color=            mkLiteral "transparent";
+    text-color=                  mkLiteral "@foreground";
+    vertical-align=              mkLiteral "0.5";
+    horizontal-align=            mkLiteral "0.0";
+    highlight=                   mkLiteral "none";
 };
 # TODO: -FORMAT THIS
+
     };
 }
