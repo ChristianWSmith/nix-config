@@ -19,3 +19,14 @@ $HOME: "env($HOME)";
   margin-right: 1px;
   border-radius: 5px;
 }
+
+.app-launcher {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 2px;
+  margin-right: 2px;
+  padding: 1rem 0 .85rem 0; // TODO: FIGURE THIS OUT
+  background-image: url("./assets/nixos-icon.svg");
+  background-size: contain;
+  // background-repeat = no-repeat;
+}

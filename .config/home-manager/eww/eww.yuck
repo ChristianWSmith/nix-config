@@ -1,13 +1,37 @@
 ; BAR
 
-(defwidget bar [] 
-  (box :class "eww-bar"
-       :orientation "v"
-       :vexpand "false"
-       :hexpand "false"))
+(defwidget launcher []
+  (box
+    :orientation "v"
+    :space-evently "false"
+    :spacing -15
+    (button
+      :class "app-launcher"
+      :onclick "rofi-launcher"
+    )
+   )
+)
 
-(defwindow bar
-  
+(defwidget top []
+  (box
+    :orientation "v"
+    :space-evenly "false"
+    :valign "start"
+    (launcher)
+  )
+)
+
+(defwidget bar [] 
+  (box 
+    :class "eww-bar"
+    :orientation "v"
+    :vexpand "false"
+    :hexpand "false"
+    (top)
+  )
+)
+
+(defwindow bar  
   :monitor 0
   :exclusive true
   :stacking "fg"
@@ -23,8 +47,11 @@
 ; WALLPAPER
 
 (defwidget wallpaper [] 
-  (box :class "wallpaper"
-       :orientation "horizontal"))
+  (box 
+    :class "wallpaper"
+    :orientation "horizontal"
+  )
+)
 
 (defwindow wallpaper0
   :monitor 0
@@ -32,12 +59,14 @@
   :stacking "bg"
   :focusable false
   :namespace "eww-wallpaper"
-  :geometry (geometry :x "0%"
-                      :y "0%"
-                      :width "100%"
-                      :height "100%"
-                      :anchor "center right")
-  (wallpaper))
+  :geometry
+    (geometry :x "0%"
+      :y "0%"
+      :width "100%"
+      :height "100%"
+      :anchor "center right")
+  (wallpaper)
+)
 
 (defwindow wallpaper1
   :monitor 1
@@ -45,12 +74,15 @@
   :stacking "bg"
   :focusable false
   :namespace "eww-wallpaper"
-  :geometry (geometry :x "0%"
-                      :y "0%"
-                      :width "100%"
-                      :height "100%"
-                      :anchor "center right")
-  (wallpaper))
+  :geometry 
+    (geometry 
+      :x "0%"
+      :y "0%"
+      :width "100%"
+      :height "100%"
+      :anchor "center right")
+  (wallpaper)
+)
 
 (defwindow wallpaper2
   :monitor 2
@@ -58,10 +90,13 @@
   :stacking "bg"
   :focusable false
   :namespace "eww-wallpaper"
-  :geometry (geometry :x "0%"
-                      :y "0%"
-                      :width "100%"
-                      :height "100%"
-                      :anchor "center right")
-  (wallpaper))
+  :geometry 
+    (geometry 
+      :x "0%"
+      :y "0%"
+      :width "100%"
+      :height "100%"
+      :anchor "center right")
+  (wallpaper)
+)
 
