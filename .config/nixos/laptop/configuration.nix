@@ -41,7 +41,7 @@
       systemd.dbus.enable = true;
     };
     plymouth.enable = true;
-    kernelParams = [ "quiet" "splash" "rd.systemd.show_status=false" "rd.udev.log_level=3" "udev.log_priority=3" "boot.shell_on_fail" "vt.global_cursor_default=0" ];
+    kernelParams = [ "nowatchdog" "audit=0" "modprobe.blacklist=sp5100_tco" "loglevel=3" "reboot=bios" "quiet" "splash" "rd.systemd.show_status=false" "rd.udev.log_level=3" "udev.log_priority=3" "boot.shell_on_fail" "vt.global_cursor_default=0" ];
 
     loader =
     {

@@ -78,7 +78,7 @@
       nt = "footclient & disown"; # TODO: decouple foot here
       chx = "chmod +x \$argv\"";
       poweroff = "sudo systemctl poweroff --no-wall";
-      reboot = "sudo systemctl reboot --no-wall";
+      reboot = "sudo systemctl reboot -i --no-wall";
       bash = "BASH_BYPASS=1 /${pkgs.bashInteractive}/bin/bash";
     };
   };
