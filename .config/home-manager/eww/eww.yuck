@@ -28,7 +28,7 @@
     :spacing -15
     (button
       :class "app-launcher"
-      :onclick "rofi-launcher"
+      :onclick "app-launcher"
     )
    )
 )

@@ -1,7 +1,7 @@
 { pkgs, config, ... }:
 let
-  launcher = pkgs.writeShellScriptBin "rofi-launcher" ''
-    PIDFILE="/tmp/rofi-launcher.pid"
+  launcher = pkgs.writeShellScriptBin "app-launcher" ''
+    PIDFILE="/tmp/app-launcher.pid"
     COMMAND="rofi -show drun -drun-use-desktop-cache"
     if ps -p $(cat $PIDFILE);
     then

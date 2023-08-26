@@ -1,4 +1,11 @@
+{ pkgs, ... }:
+let
+  launcher = pkgs.writeShellScriptBin "terminal" ''
+    footclient $@
+  '';
+in
 {
+  home.packages = [ launcher ];
   programs.foot = {
     enable = true;
     server.enable = true;
