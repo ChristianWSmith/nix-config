@@ -3,6 +3,8 @@ let
   launcher = pkgs.writeShellScriptBin "hyprland-launcher" ''
     . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
 
+    # TODO: DO THESE DO ANYTHING??
+
     export GDK_BACKEND=wayland,x11
     export QT_QPA_PLATFORM="wayland;xcb"
     export SDL_VIDEODRIVER=wayland
@@ -14,14 +16,6 @@ let
     export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
     export XCURSOR_THEME=Adwaita
     export XCURSOR_SIZE=40
-
-    # export QT_QPA_PLATFORM="wayland;xcb"
-    # export QT_QPA_PLATFORMTHEME=qt5ct
-    # export QT_PLUGINS_PATH=/usr/lib/qt/plugins/
-    # export XDG_CURRENT_DESKTOP=hyprland
-    # export XDG_CONFIG_HOME=$HOME/.config
-    # export TUI_VOLUME_CONTROL=pulsemixer
-    # export GUI_VOLUME_CONTROL=pavucontrol
 
     # NVIDIA
     # export GBM_BACKEND=nvidia-drm
@@ -35,10 +29,10 @@ let
 
     if [[ "$OS" == "NixOS" ]]
     then
-      # ${pkgs.hyprland}/bin/Hyprland # TODO: uncomment this once distro-independence is reached
-      nixGL ${pkgs.hyprland}/bin/Hyprland
+      # ${pkgs.hyprland}/bin/Hyprland &> /dev/null # TODO: uncomment this once distro-independence is reached
+      nixGL ${pkgs.hyprland}/bin/Hyprland &> /dev/null
     else
-      nixGL ${pkgs.hyprland}/bin/Hyprland
+      nixGL ${pkgs.hyprland}/bin/Hyprland &> /dev/null
     fi
   '';
   enableScreenSharing = pkgs.writeShellScriptBin "hyprland-enable-screen-sharing" ''

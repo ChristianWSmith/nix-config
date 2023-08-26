@@ -41,7 +41,7 @@
       systemd.dbus.enable = true;
     };
     plymouth.enable = true;
-    kernelParams = [ "quiet" "splash" "rd.systemd.show_status=false" "rd.udev.log_level=3" "udev.log_priority=3" "boot.shell_on_fail" ];
+    kernelParams = [ "quiet" "splash" "rd.systemd.show_status=false" "rd.udev.log_level=3" "udev.log_priority=3" "boot.shell_on_fail" "vt.global_cursor_default=0" ];
 
     loader =
     {
@@ -94,7 +94,12 @@
   };
 
   # Enable automatic login for the user.
-  services.getty.autologinUser = "christian";
+  services.getty = {
+    autologinUser = "christian";
+    helpLine = "";
+    greetingLine = "";
+    extraArgs = [ "--skip-login" ];
+  };
   
   # Swap Meta and Alt Keys
   services.keyd.enable = true;

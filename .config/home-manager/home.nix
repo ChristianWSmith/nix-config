@@ -28,6 +28,7 @@
     # # symlink to the Nix store copy.
     # ".screenrc".source = dotfiles/screenrc;
     ".wallpapers".source = files/wallpapers;
+    ".hushlogin".text = "";
 
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
