@@ -76,7 +76,7 @@
       gs = "git status";
       gd = "git diff \"$argv\"";
       nt = "footclient & disown"; # TODO: decouple foot here
-      chx = "chmod +x \$argv\"";
+      chx = "chmod +x \"$argv\"";
       poweroff = "systemctl poweroff --no-wall";
       reboot = "systemctl reboot -i --no-wall";
       bash = "BASH_BYPASS=1 /${pkgs.bashInteractive}/bin/bash";
