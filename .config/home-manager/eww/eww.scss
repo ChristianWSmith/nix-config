@@ -4,8 +4,6 @@
 
 $HOME: "env($HOME)";
 
-//Global Styles
-// THESE STYLE WINDOWS
 .wallpaper {
   background-image: url("${HOME}/.active-wallpaper");
   background-size: 100% 100%;
@@ -13,20 +11,32 @@ $HOME: "env($HOME)";
 
 .eww-bar {
   background-color: rgba(17, 17, 17, 0.8);
+
   margin-top: 5px;
   margin-bottom: 5px;
   margin-left: 1px;
   margin-right: 1px;
+
   border-radius: 5px;
 }
 
 .app-launcher {
-  margin-top: 5px;
-  margin-bottom: 5px;
+  border-radius: 5px;
+    
+  margin-top: 2px;
+  margin-bottom: 2px;
   margin-left: 2px;
   margin-right: 2px;
-  padding: 1rem 0 .85rem 0; // TODO: FIGURE THIS OUT
+  
+  padding: 1rem 0 1.4rem 0; // TODO: FIGURE THIS OUT
+
   background-image: url("./assets/nixos-icon.svg");
   background-size: contain;
-  // background-repeat = no-repeat;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: rgba(34, 34, 34, 0.8);
+}
+
+.app-launcher:hover {
+  background-color: rgba(51, 51, 51, 0.8);
 }

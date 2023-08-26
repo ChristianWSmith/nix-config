@@ -39,7 +39,7 @@
   :namespace "eww-bar"
   :geometry (geometry :x "5px"
                       :y "0px"
-                      :width "30px"
+                      :width "40px"
                       :height "100%"
                       :anchor "center left")
   (bar))

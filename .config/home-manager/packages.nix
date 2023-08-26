@@ -22,6 +22,7 @@
 
     # TUI Tools
     vim ranger btop pulsemixer networkmanager
+    vimPlugins.yuck-vim
 
     # GUI Tools
     grim slurp wl-clipboard cliphist xdg-utils hyprpicker
