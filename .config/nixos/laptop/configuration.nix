@@ -1,8 +1,4 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   # Flakes + Nix Command
@@ -42,7 +38,6 @@
     };
     plymouth.enable = true;
     kernelParams = [ "nowatchdog" "audit=0" "modprobe.blacklist=sp5100_tco" "loglevel=3" "reboot=bios" "quiet" "splash" "rd.systemd.show_status=false" "rd.udev.log_level=3" "udev.log_priority=3" "boot.shell_on_fail" "vt.global_cursor_default=0" ];
-
     loader =
     {
       timeout = 0;
@@ -96,7 +91,7 @@
   # Enable automatic login for the user.
   services.getty = {
     autologinUser = "christian";
-    helpLine = "";
+    helpLine = lib.mkForce "";
     greetingLine = "";
     extraArgs = [ "--skip-login" ];
   };
@@ -147,5 +142,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.05"; # Did you read the comment?
-
 }
