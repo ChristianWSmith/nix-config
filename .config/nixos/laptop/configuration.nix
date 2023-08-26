@@ -1,6 +1,8 @@
 { config, pkgs, lib, ... }:
 
 {
+  # TODO: clean up structure / formatting
+
   # Flakes + Nix Command
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   
