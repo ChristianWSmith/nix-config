@@ -5,7 +5,6 @@ Nix config files.
 - finish eww bar
   - color picker
   - power menu
-  - workspaces
   - screenshot
   - system tray?
   - emoji picker?

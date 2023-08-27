@@ -48,6 +48,9 @@
     )
   )
 
+(deflisten poweroff-icon-path :initial ""
+  `scripts/get-icon system-shutdown`)
+
 (defwidget poweroff []
   (box
     :orientation "v"
@@ -56,7 +59,7 @@
       :onclick "poweroff"
       :class "bar-button"
       (image
-        :path "assets/poweroff.svg"
+        :path poweroff-icon-path
         :image-height 36
         :image-width 36
         )
