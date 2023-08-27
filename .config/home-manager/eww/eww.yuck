@@ -24,8 +24,7 @@
 (defwidget launcher []
   (box
     :orientation "v"
-    :space-evently "false"
-    :spacing -15
+    :space-evenly "false"
     (button
       :class "app-launcher"
       :onclick "app-launcher"
@@ -36,7 +35,6 @@
 (defwidget top []
   (box
     :orientation "v"
-    :space-evenly "false"
     :valign "start"
     (launcher)
   )
@@ -45,9 +43,18 @@
 (defwidget middle []
   (box
     :orientation "v"
-    :space-evenly "false"
-    :valign "start"
+    ; :space-evenly "false"
+    :valign "center"
     (workspaces)
+  )
+)
+
+(defwidget bottom []
+  (box
+    :orientation "v"
+    ; :space-evenly "false"
+    :valign "end"
+    (launcher)
   )
 )
 
@@ -59,6 +66,7 @@
     :hexpand "false"
     (top)
     (middle)
+    (bottom)
   )
 )
 
