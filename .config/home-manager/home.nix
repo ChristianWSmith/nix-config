@@ -11,6 +11,7 @@
     ./packages.nix
     ./environment.nix
     ./shell.nix
+    ./editor.nix
     ./terminal.nix
     ./hyprland.nix
     ./theme.nix
