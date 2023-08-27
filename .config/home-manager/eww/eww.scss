@@ -23,12 +23,15 @@ $HOME: "env($HOME)";
 
 .bar-button {
   margin: 1px 2px 1px 2px;
+  padding: 0 0 0 0;
   border-radius: 5px;
 }
 
 .workspace-current {
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
   border-radius: 5px;
-  background-color: rgba(100, 100, 100, 0.8);
+  background-color: rgba(255, 255, 255, 0.3);
   font-size: 1.5em;
 }
 

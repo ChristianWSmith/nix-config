@@ -15,9 +15,11 @@
         :visible "${workspace.windows > 0 || workspace.id == current_workspace ?"true" : "false"}"        
         :onclick "hyprctl dispatch workspace ${workspace.id}"
         (box
+        :class "${workspace.id == current_workspace ? "workspace-current" : ""}"
           :height 36
           :width 36
-          :class "workspace-entry ${workspace.id == current_workspace ? "workspace-current" : ""}"
+          :valign "center"
+          :halign "center"
           (label 
             :text "${workspace.id}"
             )
@@ -65,9 +67,14 @@
 (defwidget top []
   (box
     :orientation "v"
-    :space-evently "false"
+    :space-evenly "false"
     :valign "start"
     (launcher)
+    ; (launcher)
+    ; (launcher)
+    ; (launcher)
+    ; (launcher)
+    ; (launcher)
     )
   )
 
@@ -86,6 +93,11 @@
     :space-evenly "false"
     :valign "end"
     (poweroff)
+    ; (poweroff)
+    ; (poweroff)
+    ; (poweroff)
+    ; (poweroff)
+    ; (poweroff)
     )
   )
 
