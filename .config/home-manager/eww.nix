@@ -11,7 +11,7 @@ let
       eww daemon
       for monitor in $(hyprctl monitors -j | jq '.[].id')
       do
-        eww open wallpaper --screen $monitor
+        eww open wallpaper --screen "$monitor"
       done
       eww open bar
     '';
