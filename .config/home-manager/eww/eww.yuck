@@ -2,15 +2,26 @@
 (deflisten workspaces :initial "[]" "bash ~/.config/eww/scripts/get-workspaces")
 (deflisten current_workspace :initial "1" "bash ~/.config/eww/scripts/get-active-workspace")
 (defwidget workspaces []
-  (eventbox :onscroll "bash ~/.config/eww/scripts/change-active-workspace {} ${current_workspace}" :class "workspaces-widget"
-    (box :space-evenly true
-         :orientation "vertical"
-      (label :text "${workspaces}${current_workspace}" :visible false)
+  (eventbox 
+    :onscroll "bash ~/.config/eww/scripts/change-active-workspace {} ${current_workspace}" :class "workspaces-widget"
+    (box 
+      :space-evenly true   
+      :orientation "vertical"
+      (label 
+        :text "${workspaces}${current_workspace}" 
+        :visible false)
       (for workspace in workspaces
-        (eventbox :visible "${workspace.windows > 0 || workspace.id == current_workspace ?"true" : "false"}"
-                  :onclick "hyprctl dispatch workspace ${workspace.id}"
-          (box :class "workspace-entry ${workspace.id == current_workspace ? "current" : ""} ${workspace.windows > 0 ? "occupied" : "empty"}"
-            (label :text "${workspace.id}")
+        (button
+          :class "bar-button"
+          :visible "${workspace.windows > 0 || workspace.id == current_workspace ?"true" : "false"}"        
+          :onclick "hyprctl dispatch workspace ${workspace.id}"
+          (box
+            :height 36
+            :width 36
+            :class "workspace-entry ${workspace.id == current_workspace ? "workspace-current" : ""}"
+            (label 
+              :text "${workspace.id}"
+              )
             )
           )
         )
@@ -26,37 +37,47 @@
     :orientation "v"
     :space-evenly "false"
     (button
-      :class "app-launcher"
       :onclick "app-launcher"
+      :class "bar-button"
+      ;(box
+      ;  :height 36
+      ;  :width 36
+      ;  )
+      (image
+        :path "assets/nixos-icon.svg"
+        :image-height 36
+        :image-width 36
+        )
+      )
     )
-   )
-)
+  )
 
 (defwidget top []
   (box
     :orientation "v"
+    :space-evently "false"
     :valign "start"
     (launcher)
+    )
   )
-)
 
 (defwidget middle []
   (box
     :orientation "v"
-    ; :space-evenly "false"
+    :space-evenly "false"
     :valign "center"
     (workspaces)
+    )
   )
-)
 
 (defwidget bottom []
   (box
     :orientation "v"
-    ; :space-evenly "false"
+    :space-evenly "false"
     :valign "end"
     (launcher)
+    )
   )
-)
 
 (defwidget bar [] 
   (box 
@@ -67,8 +88,8 @@
     (top)
     (middle)
     (bottom)
+    )
   )
-)
 
 (defwindow bar  
   :monitor 0
@@ -76,12 +97,15 @@
   :stacking "fg"
   :focusable false
   :namespace "eww-bar"
-  :geometry (geometry :x "5px"
-                      :y "0px"
-                      :width "40px"
-                      :height "100%"
-                      :anchor "center left")
-  (bar))
+  :geometry 
+    (geometry 
+      :x "5px"
+      :y "0px"
+      :width "40px"
+      :height "100%"
+      :anchor "center left")
+  (bar)
+  )
 
 ; WALLPAPER
 
@@ -89,8 +113,8 @@
   (box 
     :class "wallpaper"
     :orientation "horizontal"
+    )
   )
-)
 
 (defwindow wallpaper0
   :monitor 0
@@ -105,7 +129,7 @@
       :height "100%"
       :anchor "center right")
   (wallpaper)
-)
+  )
 
 (defwindow wallpaper1
   :monitor 1
@@ -121,7 +145,7 @@
       :height "100%"
       :anchor "center right")
   (wallpaper)
-)
+  )
 
 (defwindow wallpaper2
   :monitor 2
@@ -137,5 +161,5 @@
       :height "100%"
       :anchor "center right")
   (wallpaper)
-)
+  )
 

@@ -1,5 +1,5 @@
 * {
-  all: unset; //Unsets everything so you can style everything from scratch
+  all: unset;
 }
 
 $HOME: "env($HOME)";
@@ -11,40 +11,22 @@ $HOME: "env($HOME)";
 
 .eww-bar {
   background-color: rgba(17, 17, 17, 0.8);
-
-  margin-top: 5px;
-  margin-bottom: 5px;
-  margin-left: 1px;
-  margin-right: 1px;
-
+  margin: 5px 0px 5px 0px;
   border-radius: 5px;
 }
 
-.app-launcher {
+.bar-button {
+  margin: 2px 2px 2px 2px;
   border-radius: 5px;
-    
-  margin-top: 2px;
-  margin-bottom: 2px;
-  margin-left: 2px;
-  margin-right: 2px;
-  
-  padding: 1rem 0 1.4rem 0; // TODO: FIGURE THIS OUT
-
-  background-image: url("./assets/nixos-icon.svg");
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
   background-color: rgba(34, 34, 34, 0.8);
 }
 
-.app-launcher:hover {
+.bar-button:hover {
   background-color: rgba(51, 51, 51, 0.8);
 }
 
-.workspace-entry {
-  //padding: 1rem 0 1rem 0;
-  padding: 0;
+.workspace-current {
+  border-radius: 5px;
+  background-color: rgba(68, 68, 68, 0.8);
 }
 
-.empty {
-}
