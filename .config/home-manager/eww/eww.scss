@@ -12,11 +12,12 @@ $HOME: "env($HOME)";
 .eww-bar {
   background-color: rgba(17, 17, 17, 0.8);
   margin: 5px 0px 5px 0px;
+  padding: 1px 0px 1px 0px;
   border-radius: 5px;
 }
 
 .bar-button {
-  margin: 2px 2px 2px 2px;
+  margin: 1px 2px 1px 2px;
   border-radius: 5px;
   background-color: rgba(34, 34, 34, 0.8);
 }
@@ -28,5 +29,6 @@ $HOME: "env($HOME)";
 .workspace-current {
   border-radius: 5px;
   background-color: rgba(68, 68, 68, 0.8);
+  font-size: 1.5em;
 }
 

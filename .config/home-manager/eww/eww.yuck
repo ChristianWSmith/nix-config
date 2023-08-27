@@ -116,8 +116,7 @@
     )
   )
 
-(defwindow wallpaper0
-  :monitor 0
+(defwindow wallpaper
   :exclusive false
   :stacking "bg"
   :focusable false
@@ -130,36 +129,3 @@
       :anchor "center right")
   (wallpaper)
   )
-
-(defwindow wallpaper1
-  :monitor 1
-  :exclusive false
-  :stacking "bg"
-  :focusable false
-  :namespace "eww-wallpaper"
-  :geometry 
-    (geometry 
-      :x "0%"
-      :y "0%"
-      :width "100%"
-      :height "100%"
-      :anchor "center right")
-  (wallpaper)
-  )
-
-(defwindow wallpaper2
-  :monitor 2
-  :exclusive false
-  :stacking "bg"
-  :focusable false
-  :namespace "eww-wallpaper"
-  :geometry 
-    (geometry 
-      :x "0%"
-      :y "0%"
-      :width "100%"
-      :height "100%"
-      :anchor "center right")
-  (wallpaper)
-  )
-

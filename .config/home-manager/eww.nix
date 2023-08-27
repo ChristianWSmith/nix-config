@@ -2,14 +2,17 @@
 let
   launcher = pkgs.writeShellApplication { # TODO: convert everything to writeShellApplication!!
     name = "eww-launcher";
-    runtimeInputs = [ pkgs.eww-wayland ];
+    runtimeInputs = [ pkgs.eww-wayland pkgs.jq pkgs.hyprland ];
     text = ''
       if pgrep -f "eww daemon" > /dev/null
       then
         pkill -f "eww daemon"
       fi
       eww daemon
-      eww open wallpaper0
+      for monitor in $(hyprctl monitors -j | jq '.[].id')
+      do
+        eww open wallpaper --screen $monitor
+      done
       eww open bar
     '';
   };
