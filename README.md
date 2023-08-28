@@ -4,7 +4,6 @@ Nix config files.
 ## TODO:
 - finish eww bar
   - fetch icons intelligently
-  - tooltips
   - ADD clock
   - ADD ram / cpu usage?
   - ADD CPU temp?

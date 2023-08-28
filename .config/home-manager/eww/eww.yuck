@@ -11,6 +11,7 @@
       )
     (for workspace in workspaces
       (button
+        :tooltip "Workspace ${workspace.id}"
         :class "bar-button"
         :visible "${workspace.windows > 0 || workspace.id == current_workspace ?"true" : "false"}"        
         :onclick "hyprctl dispatch workspace ${workspace.id}"
@@ -37,6 +38,7 @@
     :orientation "v"
     :space-evenly "false"
     (button
+      :tooltip "Applications"
       :onclick "app-launcher"
       :class "bar-button"
       (image
@@ -52,6 +54,7 @@
     :orientation "v"
     :space-evenly "false"
     (button
+      :tooltip "Screenshot"
       :onclick "hyprland-screenshot"
       :class "bar-button"
       (image
@@ -67,6 +70,7 @@
     :orientation "v"
     :space-evenly "false"
     (button
+      :tooltip "Color Picker"
       :onclick "hyprland-colorpicker"
       :class "bar-button"
       (image
@@ -85,6 +89,7 @@
     :orientation "v"
     :space-evenly "false"
     (button
+      :tooltip "Network"
       :onclick "nm-connection-editor & disown"
       :onrightclick "terminal nmtui & disown"
       :class "bar-button"
@@ -105,6 +110,7 @@
     :orientation "v"
     :space-evenly "false"
     (button
+      :tooltip "Audio Settings"
       :onclick "pavucontrol & disown"
       :onrightclick "terminal pulsemixer & disown"
       :class "bar-button"
@@ -122,6 +128,7 @@
     :orientation "v"
     :space-evenly "false"
     (button
+      :tooltip "Power Off"
       :onclick "poweroff"
       :class "bar-button"
       (image
