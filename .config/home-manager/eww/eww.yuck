@@ -55,7 +55,7 @@
     :space-evenly "false"
     (button
       :tooltip "Screenshot"
-      :onclick "hyprland-screenshot"
+      :onclick "hyprland-screenshot & disown"
       :class "bar-button"
       (image
         :path "assets/camera.svg"
