@@ -71,7 +71,7 @@
     :space-evenly "false"
     (button
       :tooltip "Color Picker"
-      :onclick "hyprland-colorpicker"
+      :onclick "hyprland-colorpicker & disown"
       :class "bar-button"
       (image
         :path "assets/eyedropper.svg"

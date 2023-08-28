@@ -17,6 +17,7 @@
     ./theme.nix
     ./eww.nix
     ./rofi.nix
+    ./mako.nix
     ./browser.nix
     ./git.nix
   ];

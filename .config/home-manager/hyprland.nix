@@ -47,17 +47,26 @@ let
     if [ "$dimensions" ]
     then
         grim -g "$dimensions" - | wl-copy
-        notify-send -t 5000 "Screenshot copied to clipboard."
+        notify-send "Screenshot copied to clipboard."
     else
-        notify-send -t 5000 "Screenshot canceled."
+        notify-send "Screenshot canceled."
     fi
   '';
   colorPicker = pkgs.writeShellScriptBin "hyprland-colorpicker" ''
-    hyprpicker | wl-copy
+    hyprpicker | tr -d '\n' | wl-copy
+    notify-clipboard
+  '';
+  notifyClipboard = pkgs.writeShellScriptBin "notify-clipboard" ''
+    paste=$(wl-paste)
+
+    if [ "$paste" ]
+    then
+      notify-send "Clipboard: $paste"
+    fi
   '';
 in
 {
-  home.packages = [ launcher screenshot enableScreenSharing colorPicker ];
+  home.packages = [ launcher screenshot enableScreenSharing colorPicker notifyClipboard ];
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;

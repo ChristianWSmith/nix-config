@@ -13,4 +13,4 @@ Nix config files.
 - power menu
 - test gaming
 - system tray
-- notification daemon
+- notification daemon styling
