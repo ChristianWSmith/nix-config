@@ -1,4 +1,4 @@
-{ pkgs, userHome, ... }:
+{ pkgs, userHome, iconTheme, ... }:
 {
   home.pointerCursor = {
     package = pkgs.gnome.adwaita-icon-theme;
@@ -20,7 +20,7 @@
   gtk.theme.package = pkgs.adw-gtk3;
   gtk.theme.name = "adw-gtk3-dark";
   gtk.iconTheme.package = pkgs.papirus-icon-theme;
-  gtk.iconTheme.name = "Papirus";
+  gtk.iconTheme.name = iconTheme;
   gtk.gtk3.bookmarks = [
     "file://${userHome}/Documents"
     "file://${userHome}/Videos"

@@ -15,6 +15,7 @@
       system = "x86_64-linux";
       user = "christian";
       userHome = "/home/${user}";
+      iconTheme = "Papirus";
       pkgs = import nixpkgs {
         inherit system;
         overlays = [ nixgl.overlay ];
@@ -23,7 +24,7 @@
     in {
       homeConfigurations."${user}" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        extraSpecialArgs = { inherit inputs user userHome pkgs; };
+        extraSpecialArgs = { inherit inputs user userHome iconTheme pkgs; };
         modules = [ ./home.nix ];
       };
     };
