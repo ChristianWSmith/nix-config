@@ -47,6 +47,36 @@
     )
   )
 
+(defwidget screenshot []
+  (box
+    :orientation "v"
+    :space-evenly "false"
+    (button
+      :onclick "hyprland-screenshot"
+      :class "bar-button"
+      (image
+        :path "assets/camera.svg"
+        :image-height 36
+        )
+      )
+    )
+  )
+
+(defwidget colorpicker []
+  (box
+    :orientation "v"
+    :space-evenly "false"
+    (button
+      :onclick "hyprland-colorpicker"
+      :class "bar-button"
+      (image
+        :path "assets/eyedropper.svg"
+        :image-height 36
+        )
+      )
+    )
+  )
+
 (deflisten network-icon-path :initial "assets/system-error.svg"
   `scripts/get-network-icon`)
 
@@ -108,8 +138,8 @@
     :space-evenly "false"
     :valign "start"
     (launcher)
-    ; (launcher) ; FREE SLOT
-    ; (launcher) ; FREE SLOT
+    (screenshot)
+    (colorpicker)
     ; (launcher) ; FREE SLOT
     ; (launcher) ; FREE SLOT
     ; (launcher) ; FREE SLOT

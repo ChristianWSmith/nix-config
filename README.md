@@ -4,12 +4,11 @@ Nix config files.
 ## TODO:
 - finish eww bar
   - fetch icons intelligently
-  - ADD color picker
+  - tooltips
   - ADD clock
   - ADD ram / cpu usage?
   - ADD CPU temp?
   - ADD Power profile?
-  - ADD screenshot
   - ADD emoji picker?
   - ADD clipboard history?
 - power menu
