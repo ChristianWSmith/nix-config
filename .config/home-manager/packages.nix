@@ -29,7 +29,7 @@
     # GUI Tools
     grim slurp wl-clipboard cliphist xdg-utils hyprpicker
     inotify-tools libnotify
-    pavucontrol
+    pavucontrol networkmanagerapplet
 
     # 
     imv mpv
@@ -39,7 +39,7 @@
     transmission-qt
  
     # 
-    gimp-with-plugins
+    gimp inkscape
 
     #
     discord 

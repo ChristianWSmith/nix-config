@@ -47,7 +47,26 @@
     )
   )
 
-(deflisten volume-icon-path :initial "assets/audio-volume-high.svg"
+(deflisten network-icon-path :initial "assets/system-error.svg"
+  `scripts/get-network-icon`)
+
+(defwidget network []
+  (box
+    :orientation "v"
+    :space-evenly "false"
+    (button
+      :onclick "nm-connection-editor & disown"
+      :class "bar-button"
+      (image
+        :path network-icon-path
+        :image-height 36
+        )
+      )
+    )
+  )
+
+
+(deflisten volume-icon-path :initial "assets/system-error.svg"
   `scripts/get-volume-icon`)
 
 (defwidget volume []
@@ -109,12 +128,12 @@
     :orientation "v"
     :space-evenly "false"
     :valign "end"
+    ; (poweroff) ; FREE SLOT
+    ; (poweroff) ; FREE SLOT
+    ; (poweroff) ; FREE SLOT
+    (network)
     (volume)
     (poweroff)
-    ; (poweroff) ; FREE SLOT
-    ; (poweroff) ; FREE SLOT
-    ; (poweroff) ; FREE SLOT
-    ; (poweroff) ; FREE SLOT
     )
   )
 

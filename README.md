@@ -7,7 +7,6 @@ Nix config files.
   - ADD color picker
   - ADD clock
   - ADD ram / cpu usage?
-  - ADD network
   - ADD CPU temp?
   - ADD Power profile?
   - ADD screenshot

@@ -1,0 +1,59 @@
+#!/usr/bin/env bash
+
+PATH_SYSTEM_ERROR="assets/system-error.svg"
+PATH_NETWORK_ERROR="assets/network-error.svg"
+PATH_IDLE="assets/network-idle.svg"
+PATH_DISCONNECTED="assets/network-disconnected.svg"
+PATH_RECEIVE="assets/network-receive.svg"
+PATH_TRANSMIT="assets/network-transmit.svg"
+PATH_TRANSMIT_RECEIVE="assets/network-transmit-receive.svg"
+
+CURRENT_PATH=$PATH_TRANSMIT_RECEIVE
+
+interval=1 # TODO: interval as arg?
+
+device=$(ip addr | awk '/state UP/ {print $2}' | sed 's/://g')
+tx_old="$(</sys/class/net/$device/statistics/tx_bytes)"
+rx_old="$(</sys/class/net/$device/statistics/rx_bytes)"
+
+while $(sleep $interval)
+do 
+  device=$(ip addr | awk '/state UP/ {print $2}' | sed 's/://g')
+
+  if [ "$device" == "" ]
+  then
+    new_path=$PATH_DISCONNECTED
+  else
+    tx_now=$(</sys/class/net/$device/statistics/tx_bytes)
+    rx_now=$(</sys/class/net/$device/statistics/rx_bytes)
+    up=$(($tx_now-$tx_old))
+    down=$(($rx_now-$rx_old))
+    tx_old=$tx_now
+    rx_old=$rx_now
+
+    new_path=$PATH_ERROR
+    if [ $up -eq 0 ]
+    then
+      if [ $down -eq 0 ]
+      then
+        new_path=$PATH_IDLE
+      else
+        new_path=$PATH_RECEIVE
+      fi
+    else
+      if [ $down -eq 0 ]
+      then
+        new_path=$PATH_TRANSMIT
+      else
+        new_path=$PATH_TRANSMIT_RECEIVE
+      fi
+    fi
+
+    if [ "$new_path" != "$CURRENT_PATH" ]
+    then
+      CURRENT_PATH=$new_path
+      echo $CURRENT_PATH
+    fi
+  fi
+done
+
