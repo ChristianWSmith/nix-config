@@ -20,7 +20,15 @@ callback () {
 }
 
 get-volume () {
-  output=$(awk -F"[][]" '/Left:/ { print $2 $4 }' <(amixer sget Master))
+  if [ "$1" == "init" ]
+  then
+    while [ "$output" == "" ]
+    do
+      output=$(awk -F"[][]" '/Left:/ { print $2 $4 }' <(amixer sget Master))
+    done
+  else
+    output=$(awk -F"[][]" '/Left:/ { print $2 $4 }' <(amixer sget Master))
+  fi
   volume=$(echo $output | cut -d'%' -f1)
   onoff=$(echo $output | cut -d'%' -f2)
 
@@ -51,6 +59,6 @@ get-volume () {
   fi
 }
 
-get-volume
+get-volume init
 listen | callback get-volume
 

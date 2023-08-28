@@ -30,6 +30,7 @@
     grim slurp wl-clipboard cliphist xdg-utils hyprpicker
     inotify-tools libnotify
     pavucontrol networkmanagerapplet
+    gtklock
 
     # 
     imv mpv

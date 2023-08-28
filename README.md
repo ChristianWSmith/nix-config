@@ -11,7 +11,6 @@ Nix config files.
   - ADD emoji picker?
   - ADD clipboard history?
 - power menu
-- lock screen
 - test gaming
 - system tray
 - notification daemon
