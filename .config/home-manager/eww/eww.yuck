@@ -87,11 +87,11 @@
     :space-evenly "false"
     :valign "start"
     (launcher)
-    ; (launcher)
-    ; (launcher)
-    ; (launcher)
-    ; (launcher)
-    ; (launcher)
+    ; (launcher) ; FREE SLOT
+    ; (launcher) ; FREE SLOT
+    ; (launcher) ; FREE SLOT
+    ; (launcher) ; FREE SLOT
+    ; (launcher) ; FREE SLOT
     )
   )
 
@@ -111,10 +111,10 @@
     :valign "end"
     (volume)
     (poweroff)
-    ; (poweroff)
-    ; (poweroff)
-    ; (poweroff)
-    ; (poweroff)
+    ; (poweroff) ; FREE SLOT
+    ; (poweroff) ; FREE SLOT
+    ; (poweroff) ; FREE SLOT
+    ; (poweroff) ; FREE SLOT
     )
   )
 

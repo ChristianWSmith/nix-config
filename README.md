@@ -3,18 +3,18 @@ Nix config files.
 
 ## TODO:
 - finish eww bar
-  - color picker
-  - clock
-  - ram / cpu usage?
-  - network
-  - CPU temp?
-  - Power profile?
-  - power menu
-  - screenshot
-  - system tray?
-  - emoji picker?
-  - clipboard history?
+  - fetch icons intelligently
+  - ADD color picker
+  - ADD clock
+  - ADD ram / cpu usage?
+  - ADD network
+  - ADD CPU temp?
+  - ADD Power profile?
+  - ADD screenshot
+  - ADD emoji picker?
+  - ADD clipboard history?
 - power menu
 - lock screen
 - test gaming
 - system tray
+- notification daemon
