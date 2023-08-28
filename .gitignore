@@ -19,5 +19,6 @@
 !.config/hypr/**
 .config/hypr/hyprland.conf
 
-# 
-
+# gtklock 
+!.config/gtklock
+!.config/gtklock/**

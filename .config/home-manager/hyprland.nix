@@ -62,8 +62,8 @@ in
     enable = true;
     xwayland.enable = true;
     extraConfig = ''
-      source=~/.config/hypr/appearance.conf
       source=~/.config/hypr/autoexec.conf
+      source=~/.config/hypr/appearance.conf
       source=~/.config/hypr/input.conf
       source=~/.config/hypr/binds.conf
       source=~/.config/hypr/windowrules.conf
