@@ -76,6 +76,7 @@
     :space-evenly "false"
     (button
       :onclick "pavucontrol & disown"
+      :onrightclick "terminal pulsemixer & disown"
       :class "bar-button"
       (image
         :path volume-icon-path
