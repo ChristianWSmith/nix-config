@@ -19,8 +19,7 @@ let
 
   wallpaper = pkgs.writeShellScriptBin "eww-wallpaper" ''
     ln -sf ''${1} ~/.active-wallpaper
-    eww reload
-    
+    eww reload  
   '';
   random-wallpaper = pkgs.writeShellScriptBin "eww-random-wallpaper" ''
     ln -sf $(echo ~/.wallpapers/$(ls ~/.wallpapers/ | sort -R | tail -1)) ~/.active-wallpaper

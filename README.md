@@ -4,6 +4,11 @@ Nix config files.
 ## TODO:
 - finish eww bar
   - color picker
+  - clock
+  - ram / cpu usage?
+  - network
+  - CPU temp?
+  - Power profile?
   - power menu
   - screenshot
   - system tray?

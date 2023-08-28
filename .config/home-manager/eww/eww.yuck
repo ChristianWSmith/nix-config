@@ -48,8 +48,25 @@
     )
   )
 
-(deflisten poweroff-icon-path :initial ""
-  `scripts/get-icon system-shutdown`)
+(deflisten volume-icon-path :initial "assets/audio-volume-high.svg"
+  `scripts/get-volume-icon`)
+
+(defwidget volume []
+  (box
+    :orientation "v"
+    :space-evenly "false"
+    (button
+      :onclick "pavucontrol & disown"
+      :class "bar-button"
+      (image
+        :path volume-icon-path
+        :image-height 36
+        :image-width 36
+        )
+      )
+    )
+  )
+
 
 (defwidget poweroff []
   (box
@@ -59,7 +76,7 @@
       :onclick "poweroff"
       :class "bar-button"
       (image
-        :path poweroff-icon-path
+        :path "assets/system-shutdown.svg"
         :image-height 36
         :image-width 36
         )
@@ -95,8 +112,8 @@
     :orientation "v"
     :space-evenly "false"
     :valign "end"
+    (volume)
     (poweroff)
-    ; (poweroff)
     ; (poweroff)
     ; (poweroff)
     ; (poweroff)

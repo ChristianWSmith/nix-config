@@ -13,6 +13,7 @@
     # pkgs.nixGLIntel
 
     # Command Line Tools
+    pulseaudio alsa-utils
     wget
     yafetch starfetch lolcat figlet
     rar zip unzip p7zip
@@ -28,7 +29,8 @@
     # GUI Tools
     grim slurp wl-clipboard cliphist xdg-utils hyprpicker
     inotify-tools libnotify
-    
+    pavucontrol
+
     # 
     imv mpv
     cinnamon.nemo-with-extensions

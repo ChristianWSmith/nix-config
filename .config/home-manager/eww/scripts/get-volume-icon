@@ -1,0 +1,56 @@
+#!/usr/bin/env bash
+
+PATH_ERROR="assets/system-error.svg"
+PATH_MUTED="assets/audio-volume-muted.svg"
+PATH_LOW="assets/audio-volume-low.svg"
+PATH_MEDIUM="assets/audio-volume-medium.svg"
+PATH_HIGH="assets/audio-volume-high.svg"
+
+CURRENT_PATH=$PATH_ERROR
+
+listen () {
+  pactl subscribe | grep --line-buffered change
+}
+
+callback () {
+  while true
+  do
+    read && "$@"
+  done
+}
+
+get-volume () {
+  output=$(awk -F"[][]" '/Left:/ { print $2 $4 }' <(amixer sget Master))
+  volume=$(echo $output | cut -d'%' -f1)
+  onoff=$(echo $output | cut -d'%' -f2)
+
+  new_path=$PATH_ERROR
+  if [ "$onoff" == "on" ]
+  then
+    if [ "$volume" -eq 0 ]
+    then
+      new_path=$PATH_MUTED
+    elif [ "$volume" -lt 33 ]
+    then
+      new_path=$PATH_LOW
+    elif [ "$volume" -lt 66 ]
+    then
+      new_path=$PATH_MEDIUM
+    else
+      new_path=$PATH_HIGH
+    fi
+  elif [ "$onoff" == "off" ]
+  then
+    new_path=$PATH_MUTED
+  fi
+
+  if [ "$new_path" != "$CURRENT_PATH" ]
+  then
+    CURRENT_PATH=$new_path
+    echo $CURRENT_PATH
+  fi
+}
+
+get-volume
+listen | callback get-volume
+

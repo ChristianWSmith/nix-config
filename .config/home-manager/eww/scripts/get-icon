@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-ICON_THEME="Papirus"
-ICON_DIR="$HOME/.nix-profile/share/icons"
-
-find $ICON_DIR/$ICON_THEME/ -name "$1.*" | sort -n | tail -n 1
-
-sleep infinity
