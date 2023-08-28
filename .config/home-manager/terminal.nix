@@ -1,7 +1,8 @@
 { pkgs, ... }:
 let
   launcher = pkgs.writeShellScriptBin "terminal" ''
-    footclient $@
+    footclient -E $(which ''${1}) ''${@:2}
+
   '';
 in
 {

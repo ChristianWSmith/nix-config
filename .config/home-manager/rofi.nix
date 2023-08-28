@@ -11,9 +11,13 @@ let
       $COMMAND
     fi
   '';
+
+  dmenu = pkgs.writeShellScriptBin "dmenu" ''
+    rofi -dmenu $@
+  '';
 in
 {
-  home.packages = [ launcher ];
+  home.packages = [ launcher dmenu ];
   programs.rofi.enable = true;
 
 

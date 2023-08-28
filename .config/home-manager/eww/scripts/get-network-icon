@@ -8,13 +8,24 @@ PATH_RECEIVE="assets/network-receive.svg"
 PATH_TRANSMIT="assets/network-transmit.svg"
 PATH_TRANSMIT_RECEIVE="assets/network-transmit-receive.svg"
 
-CURRENT_PATH=$PATH_TRANSMIT_RECEIVE
+CURRENT_PATH=$PATH_NETWORK_ERROR
 
 interval=1 # TODO: interval as arg?
 
 device=$(ip addr | awk '/state UP/ {print $2}' | sed 's/://g')
-tx_old="$(</sys/class/net/$device/statistics/tx_bytes)"
-rx_old="$(</sys/class/net/$device/statistics/rx_bytes)"
+
+if [ "$device" == "" ]
+then
+  CURRENT_PATH=$PATH_DISCONNECTED
+  tx_old=0
+  rx_old=0
+else
+  CURRENT_PATH=$PATH_IDLE
+  tx_old="$(</sys/class/net/$device/statistics/tx_bytes)"
+  rx_old="$(</sys/class/net/$device/statistics/rx_bytes)"
+fi
+
+echo $CURRENT_PATH
 
 while $(sleep $interval)
 do 

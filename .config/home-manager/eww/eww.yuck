@@ -56,6 +56,7 @@
     :space-evenly "false"
     (button
       :onclick "nm-connection-editor & disown"
+      :onrightclick "terminal nmtui & disown"
       :class "bar-button"
       (image
         :path network-icon-path
