@@ -16,7 +16,7 @@
         :onclick "hyprctl dispatch workspace ${workspace.id}"
         (box
         :class "${workspace.id == current_workspace ? "workspace-current" : ""}"
-          :height 36
+          :height 23
           :width 36
           :valign "center"
           :halign "center"
@@ -42,7 +42,6 @@
       (image
         :path "assets/nixos-icon.svg"
         :image-height 36
-        :image-width 36
         )
       )
     )
@@ -61,7 +60,6 @@
       (image
         :path volume-icon-path
         :image-height 36
-        :image-width 36
         )
       )
     )
@@ -78,7 +76,6 @@
       (image
         :path "assets/system-shutdown.svg"
         :image-height 36
-        :image-width 36
         )
       )
     )
