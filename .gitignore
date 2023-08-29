@@ -10,7 +10,7 @@
 !.config/home-manager
 !.config/home-manager/**
 .config/home-manager/files/wallpapers/*
-!.config/home-manager/files/wallpapers/.gitkeep
+!.config/home-manager/files/wallpapers/default.jpg
 !.config/nixos
 !.config/nixos/**
 
