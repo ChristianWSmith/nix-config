@@ -16,6 +16,8 @@
       user = "christian";
       userHome = "/home/${user}";
       iconTheme = "WhiteSur-dark";
+      font = "Noto Sans";
+      fontMono = "Noto Sans Mono";
       pkgs = import nixpkgs {
         inherit system;
         overlays = [ nixgl.overlay ];
@@ -24,7 +26,7 @@
     in {
       homeConfigurations."${user}" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        extraSpecialArgs = { inherit inputs user userHome iconTheme pkgs; };
+        extraSpecialArgs = { inherit inputs user userHome iconTheme font fontMono pkgs; };
         modules = [ ./home.nix ];
       };
     };

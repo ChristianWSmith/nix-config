@@ -1,4 +1,4 @@
-{ pkgs, userHome, iconTheme, ... }:
+{ pkgs, userHome, iconTheme, font, ... }:
 {
   home.pointerCursor = {
     # package = pkgs.gnome.adwaita-icon-theme;
@@ -16,7 +16,7 @@
   gtk.enable = true;
   gtk.font = {
     package = pkgs.noto-fonts;
-    name = "Noto Sans";
+    name = "${font}";
     size = 11;
   };
   # gtk.theme.package = pkgs.adw-gtk3;

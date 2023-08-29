@@ -1,4 +1,4 @@
-{ pkgs, config, userHome, ... }:
+{ pkgs, config, userHome, font, ... }:
 let
   launcher = pkgs.writeShellScriptBin "app-launcher" ''
     PIDFILE="/tmp/app-launcher.pid"
@@ -43,7 +43,7 @@ in
     selected = mkLiteral "#61AFEFFF";
     active = mkLiteral "#98C379FF";
     urgent = mkLiteral "#E06C75FF";
-    font = "Noto Sans 11";
+    font = "${font} 11";
 };
 
 "window" = {

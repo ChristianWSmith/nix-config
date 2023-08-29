@@ -15,15 +15,13 @@
         :class "bar-button"
         :visible "${workspace.windows > 0 || workspace.id == current_workspace ?"true" : "false"}"        
         :onclick "hyprctl dispatch workspace ${workspace.id}"
-        (box
-        :class "${workspace.id == current_workspace ? "workspace-current" : ""}"
+        (label 
+          :class "${workspace.id == current_workspace ? "workspace-current" : ""}"
           :height 23
           :width 36
           :valign "center"
           :halign "center"
-          (label 
-            :text "${workspace.id}"
-            )
+          :text "${workspace.id}"
           )
         )
       )

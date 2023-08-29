@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, fontMono, ... }:
 let
   launcher = pkgs.writeShellScriptBin "terminal" ''
     footclient -E $(which ''${1}) ''${@:2}
@@ -12,7 +12,7 @@ in
     server.enable = true;
     settings = {
       main = {
-        font = "Noto Sans Mono:pixelsize=16";
+        font = "${fontMono}:pixelsize=16";
       };
       colors = {
         alpha=0.8;
