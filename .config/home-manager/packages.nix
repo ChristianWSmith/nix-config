@@ -37,6 +37,7 @@
     inotify-tools libnotify
     pavucontrol networkmanagerapplet
     gtklock
+    gnome.gnome-font-viewer
 
     # 
     imv mpv
