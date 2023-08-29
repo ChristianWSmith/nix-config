@@ -29,8 +29,8 @@ let
 
     if [[ "$OS" == "NixOS" ]]
     then
-      # ${pkgs.hyprland}/bin/Hyprland &> /dev/null # TODO: uncomment this once distro-independence is reached
-      nixGL ${pkgs.hyprland}/bin/Hyprland &> /dev/null
+      ${pkgs.hyprland}/bin/Hyprland &> /dev/null # TODO: uncomment this once distro-independence is reached
+      # nixGL ${pkgs.hyprland}/bin/Hyprland &> /dev/null
     else
       nixGL ${pkgs.hyprland}/bin/Hyprland &> /dev/null
     fi

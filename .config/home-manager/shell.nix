@@ -75,7 +75,7 @@
       gp = "git push";
       gs = "git status";
       gd = "git diff \"$argv\"";
-      nt = "footclient & disown"; # TODO: decouple foot here
+      nt = "terminal & disown";
       chx = "chmod +x \"$argv\"";
       poweroff = "systemctl poweroff --no-wall";
       reboot = "systemctl reboot -i --no-wall";

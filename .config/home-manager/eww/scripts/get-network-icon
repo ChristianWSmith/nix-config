@@ -9,7 +9,7 @@ PATH_TRANSMIT_RECEIVE=$(get-icon knemo-network-transmit-receive)
 
 CURRENT_PATH=$PATH_NETWORK_ERROR
 
-interval=1 # TODO: interval as arg?
+interval=$1
 
 device=$(ip addr | awk '/state UP/ {print $2}' | sed 's/://g')
 

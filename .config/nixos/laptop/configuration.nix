@@ -10,7 +10,7 @@
   programs.dconf.enable = true;
 
   # Hyprland
-  # programs.hyprland.enable = true;
+  programs.hyprland.enable = true;
   services.pipewire = {
     enable = true;
     alsa.enable = true;

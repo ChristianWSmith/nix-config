@@ -89,7 +89,7 @@
   )
 
 (deflisten network-icon-path :initial "assets/blank.svg"
-  `scripts/get-network-icon`)
+  `scripts/get-network-icon 1`)
 
 (defwidget network []
   (box
