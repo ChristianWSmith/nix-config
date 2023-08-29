@@ -2,7 +2,7 @@
 let
   launcher = pkgs.writeShellScriptBin "app-launcher" ''
     PIDFILE="/tmp/app-launcher.pid"
-    COMMAND="rofi -show drun -drun-use-desktop-cache"
+    COMMAND="rofi -show drun -drun-use-desktop-cache -cache-dir ~/.cache"
     if ps -p $(cat $PIDFILE);
     then
       pkill -f "$COMMAND"
