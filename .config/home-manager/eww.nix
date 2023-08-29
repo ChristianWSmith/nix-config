@@ -68,7 +68,7 @@ let
         fi
       done
       echo $query $best_file >> $cache
-      echo $best_file
+      readlink -f $best_file
     fi
   '';
 in
