@@ -12,4 +12,3 @@ Nix config files.
   - ADD clipboard history?
 - power menu
 - test gaming
-- system tray

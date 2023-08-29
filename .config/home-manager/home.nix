@@ -18,6 +18,7 @@
     ./eww.nix
     ./rofi.nix
     ./mako.nix
+    ./trayer.nix
     ./browser.nix
     ./git.nix
   ];
