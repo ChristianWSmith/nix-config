@@ -17,7 +17,7 @@ let
     '';
   };
   wallpaper = pkgs.writeShellScriptBin "eww-wallpaper" ''
-    ln -sf ''${1} ~/.active-wallpaper
+    ln -sf $(readlink -f $1) ~/.active-wallpaper
     eww reload  
   '';
   random-wallpaper = pkgs.writeShellScriptBin "eww-random-wallpaper" ''
@@ -28,13 +28,11 @@ let
   get-wallpapers = pkgs.writeShellScriptBin "eww-get-wallpapers" ''
     wallpaper_dir=${userHome}/.config/home-manager/files/wallpapers
     got_wallpapers=${userHome}/.got-wallpapers
-
     if [ -f $got_wallpapers ]
     then
       exit
     fi
-
-    wget -nc -O $wallpaper_dir/bigsur.jpg https://4kwallpapers.com/images/wallpapers/macos-big-sur-apple-layers-fluidic-colorful-wwdc-stock-4096x2304-1455.jpg
+    # wget -nc -O $wallpaper_dir/<image_name> <url>
     touch $got_wallpapers
 '';
   get-icon = pkgs.writeShellScriptBin "get-icon" ''

@@ -36,9 +36,7 @@
     xboxdrv
 
     # TUI Tools
-    vim 
     ranger 
-    btop 
     pulsemixer 
     networkmanager
     vimPlugins.yuck-vim

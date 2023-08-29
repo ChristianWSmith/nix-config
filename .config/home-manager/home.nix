@@ -13,6 +13,7 @@
     ./shell.nix
     ./editor.nix
     ./terminal.nix
+    ./btop.nix
     ./hyprland.nix
     ./theme.nix
     ./eww.nix

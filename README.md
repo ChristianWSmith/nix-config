@@ -12,3 +12,5 @@ Nix config files.
 - power menu
 - test gaming
 - printer / scanner
+- thunderbird
+- configure all packages as programs
