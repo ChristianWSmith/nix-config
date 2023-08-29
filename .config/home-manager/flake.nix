@@ -15,7 +15,7 @@
       system = "x86_64-linux";
       user = "christian";
       userHome = "/home/${user}";
-      iconTheme = "BeautyLine";
+      iconTheme = "WhiteSur";
       pkgs = import nixpkgs {
         inherit system;
         overlays = [ nixgl.overlay ];

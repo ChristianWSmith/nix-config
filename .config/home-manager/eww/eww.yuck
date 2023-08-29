@@ -34,7 +34,7 @@
 ; BAR
 
 (deflisten app-launcher-icon-path :initial "assets/blank.svg"
-  `get-icon nixos`)
+  `get-icon applications-all`)
 
 (defwidget launcher []
   (box
@@ -42,7 +42,7 @@
     :space-evenly "false"
     (button
       :tooltip "Applications"
-      :onclick "app-launcher"
+      :onclick "app-launcher & disown"
       :class "bar-button"
       (image
         :path app-launcher-icon-path
