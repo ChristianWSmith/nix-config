@@ -22,6 +22,7 @@
     wget
     yafetch starfetch lolcat figlet
     rar zip unzip p7zip
+    imagemagick
     jq socat # TODO: these are required for eww workspaces, make them a proper dependency
 
     # Daemon Tools

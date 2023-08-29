@@ -22,3 +22,7 @@
 # gtklock 
 !.config/gtklock
 !.config/gtklock/**
+
+# get-icon-cache
+!.get-icon-cache
+!.get-icon-cache/**
