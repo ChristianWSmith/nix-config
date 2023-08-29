@@ -26,8 +26,17 @@ let
     
   '';
   get-wallpapers = pkgs.writeShellScriptBin "eww-get-wallpapers" ''
-    wget -nc -O ~/.config/home-manager/files/wallpapers/god.jpeg i.imgur.com/hAwDl3p.jpeg
-  '';
+    wallpaper_dir=${userHome}/.config/home-manager/files/wallpapers
+    got_wallpapers=${userHome}/.got-wallpapers
+
+    if [ -f $got_wallpapers ]
+    then
+      exit
+    fi
+
+    wget -nc -O $wallpaper_dir/bigsur.jpg https://4kwallpapers.com/images/wallpapers/macos-big-sur-apple-layers-fluidic-colorful-wwdc-stock-4096x2304-1455.jpg
+    touch $got_wallpapers
+'';
   get-icon = pkgs.writeShellScriptBin "get-icon" ''
     cache_dir=${userHome}/.get-icon-cache
     cache=$cache_dir/${iconTheme}
