@@ -31,6 +31,9 @@ in
     show-icons = true;
     display-drun = ">";
     drun-display-format = "{name}";
+    hover-select = true;
+    me-select-entry = "";
+    me-accept-entry = map mkLiteral [ "MousePrimary" "MouseSecondary" "MouseDPrimary" ];
 };
 
 "*" = {

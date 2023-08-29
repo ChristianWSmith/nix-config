@@ -1,8 +1,10 @@
 { pkgs, userHome, iconTheme, ... }:
 {
   home.pointerCursor = {
-    package = pkgs.gnome.adwaita-icon-theme;
-    name = "Adwaita";
+    # package = pkgs.gnome.adwaita-icon-theme;
+    # name = "Adwaita";
+    package = pkgs.capitaine-cursors;
+    name = "capitaine-cursors";
     size = 40;
     gtk.enable = true;
     x11 = {
@@ -17,10 +19,10 @@
     name = "Noto Sans";
     size = 11;
   };
-  gtk.theme.package = pkgs.adw-gtk3;
-  gtk.theme.name = "adw-gtk3-dark";
-  # gtk.iconTheme.package = pkgs.papirus-icon-theme;
-  # gtk.iconTheme.package = pkgs.beauty-line-icon-theme;
+  # gtk.theme.package = pkgs.adw-gtk3;
+  # gtk.theme.name = "adw-gtk3-dark";
+  gtk.theme.package = pkgs.whitesur-gtk-theme;
+  gtk.theme.name = "WhiteSur-Dark";
   gtk.iconTheme.package = pkgs.whitesur-icon-theme;
   gtk.iconTheme.name = iconTheme;
   gtk.gtk3.bookmarks = [
@@ -33,5 +35,6 @@
   ];
   qt.enable = true;
   qt.platformTheme = "gtk";
-  qt.style.name = "adwaita-dark";
+  # qt.style.name = "adwaita-dark";
+  qt.style.name = "WhiteSur-Dark";
 }

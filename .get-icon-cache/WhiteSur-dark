@@ -1,1 +1,15 @@
 system-shutdown /home/christian/.nix-profile/share/icons/WhiteSur-dark/actions/32/system-shutdown.svg
+applications-all /home/christian/.nix-profile/share/icons/WhiteSur-dark/categories@2x/32/applications-all.svg
+accessories-screenshot /home/christian/.nix-profile/share/icons/WhiteSur-dark/apps/scalable/accessories-screenshot.svg
+system-error /home/christian/.nix-profile/share/icons/WhiteSur-dark/apps/scalable/system-error.svg
+knemo-network-error /home/christian/.nix-profile/share/icons/WhiteSur-dark/status/24/knemo-network-error.svg
+volume-level-muted /home/christian/.nix-profile/share/icons/WhiteSur-dark/status/24/volume-level-muted.svg
+color-picker /home/christian/.nix-profile/share/icons/WhiteSur-dark/apps/scalable/color-picker.svg
+knemo-network-idle /home/christian/.nix-profile/share/icons/WhiteSur-dark/status/24/knemo-network-idle.svg
+volume-level-low /home/christian/.nix-profile/share/icons/WhiteSur-dark/status/24/volume-level-low.svg
+knemo-network-offline /home/christian/.nix-profile/share/icons/WhiteSur-dark/status/24/knemo-network-offline.svg
+volume-level-medium /home/christian/.nix-profile/share/icons/WhiteSur-dark/status/24/volume-level-medium.svg
+knemo-network-receive /home/christian/.nix-profile/share/icons/WhiteSur-dark/status/24/knemo-network-receive.svg
+volume-level-high /home/christian/.nix-profile/share/icons/WhiteSur-dark/status/24/volume-level-high.svg
+knemo-network-transmit /home/christian/.nix-profile/share/icons/WhiteSur-dark/status/24/knemo-network-transmit.svg
+knemo-network-transmit-receive /home/christian/.nix-profile/share/icons/WhiteSur-dark/status/24/knemo-network-transmit-receive.svg
