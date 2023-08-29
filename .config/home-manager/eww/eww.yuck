@@ -33,6 +33,9 @@
 
 ; BAR
 
+(deflisten app-launcher-icon-path :initial "assets/blank.svg"
+  `get-icon nixos`)
+
 (defwidget launcher []
   (box
     :orientation "v"
@@ -42,12 +45,15 @@
       :onclick "app-launcher"
       :class "bar-button"
       (image
-        :path "assets/nixos-icon.svg"
+        :path app-launcher-icon-path
         :image-height 36
         )
       )
     )
   )
+
+(deflisten screenshot-icon-path :initial "assets/blank.svg"
+  `get-icon accessories-screenshot`)
 
 (defwidget screenshot []
   (box
@@ -58,12 +64,15 @@
       :onclick "hyprland-screenshot & disown"
       :class "bar-button"
       (image
-        :path "assets/camera.svg"
+        :path screenshot-icon-path
         :image-height 36
         )
       )
     )
   )
+
+(deflisten colorpicker-icon-path :initial "assets/blank.svg"
+  `get-icon color-picker`)
 
 (defwidget colorpicker []
   (box
@@ -74,14 +83,14 @@
       :onclick "hyprland-colorpicker & disown"
       :class "bar-button"
       (image
-        :path "assets/eyedropper.svg"
+        :path colorpicker-icon-path
         :image-height 36
         )
       )
     )
   )
 
-(deflisten network-icon-path :initial "assets/system-error.svg"
+(deflisten network-icon-path :initial "assets/blank.svg"
   `scripts/get-network-icon`)
 
 (defwidget network []
@@ -102,7 +111,7 @@
   )
 
 
-(deflisten volume-icon-path :initial "assets/system-error.svg"
+(deflisten volume-icon-path :initial "assets/blank.svg"
   `scripts/get-volume-icon`)
 
 (defwidget volume []
@@ -123,6 +132,9 @@
   )
 
 
+(deflisten power-menu-icon-path :initial "assets/blank.svg"
+  `get-icon system-shutdown`)
+
 (defwidget poweroff []
   (box
     :orientation "v"
@@ -132,7 +144,7 @@
       :onclick "poweroff"
       :class "bar-button"
       (image
-        :path "assets/system-shutdown.svg"
+        :path power-menu-icon-path
         :image-height 36
         )
       )

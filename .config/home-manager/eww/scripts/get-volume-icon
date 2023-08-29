@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
-PATH_ERROR="assets/system-error.svg"
-PATH_MUTED="assets/audio-volume-muted.svg"
-PATH_LOW="assets/audio-volume-low.svg"
-PATH_MEDIUM="assets/audio-volume-medium.svg"
-PATH_HIGH="assets/audio-volume-high.svg"
+PATH_ERROR=$(get-icon system-error)
+PATH_MUTED=$(get-icon volume-level-muted)
+PATH_LOW=$(get-icon volume-level-low)
+PATH_MEDIUM=$(get-icon volume-level-medium)
+PATH_HIGH=$(get-icon volume-level-high)
 
 CURRENT_PATH=$PATH_ERROR
 

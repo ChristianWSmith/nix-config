@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, userHome, iconTheme, ... }:
 let
   launcher = pkgs.writeShellApplication { # TODO: convert everything to writeShellApplication!!
     name = "eww-launcher";
@@ -16,7 +16,6 @@ let
       eww open bar
     '';
   };
-
   wallpaper = pkgs.writeShellScriptBin "eww-wallpaper" ''
     ln -sf ''${1} ~/.active-wallpaper
     eww reload  
@@ -28,11 +27,13 @@ let
   '';
   get-wallpapers = pkgs.writeShellScriptBin "eww-get-wallpapers" ''
     wget -nc -O ~/.config/home-manager/files/wallpapers/god.jpeg i.imgur.com/hAwDl3p.jpeg
-    
+  '';
+  get-icon = pkgs.writeShellScriptBin "get-icon" ''
+    find -L "${userHome}/.nix-profile/share/icons/${iconTheme}/" -type f -name "''${1}.*" | sort -n | tail -n1
   '';
 in
 {
-  home.packages = [ launcher wallpaper random-wallpaper get-wallpapers ];
+  home.packages = [ launcher wallpaper random-wallpaper get-wallpapers get-icon ];
   
   programs.eww.package = pkgs.eww-wayland;
   programs.eww.enable = true;

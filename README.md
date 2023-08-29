@@ -3,7 +3,6 @@ Nix config files.
 
 ## TODO:
 - finish eww bar
-  - fetch icons intelligently
   - ADD clock
   - ADD ram / cpu usage?
   - ADD CPU temp?

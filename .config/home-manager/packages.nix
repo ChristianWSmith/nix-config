@@ -3,6 +3,11 @@
 {
   home.packages = with pkgs; [
 
+    # Icons
+    # kora-icon-theme tela-icon-theme beauty-line-icon-theme
+    # fluent-icon-theme qogir-icon-theme whitesur-icon-theme
+    # zafiro-icons nordzy-icon-theme vimix-icon-theme
+
     # Shells
     bashInteractive
 

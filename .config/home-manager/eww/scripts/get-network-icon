@@ -1,12 +1,11 @@
 #!/usr/bin/env bash
 
-PATH_SYSTEM_ERROR="assets/system-error.svg"
-PATH_NETWORK_ERROR="assets/network-error.svg"
-PATH_IDLE="assets/network-idle.svg"
-PATH_DISCONNECTED="assets/network-disconnected.svg"
-PATH_RECEIVE="assets/network-receive.svg"
-PATH_TRANSMIT="assets/network-transmit.svg"
-PATH_TRANSMIT_RECEIVE="assets/network-transmit-receive.svg"
+PATH_NETWORK_ERROR=$(get-icon knemo-network-error)
+PATH_IDLE=$(get-icon knemo-network-idle)
+PATH_DISCONNECTED=$(get-icon knemo-network-offline)
+PATH_RECEIVE=$(get-icon knemo-network-receive)
+PATH_TRANSMIT=$(get-icon knemo-network-transmit)
+PATH_TRANSMIT_RECEIVE=$(get-icon knemo-network-transmit-receive)
 
 CURRENT_PATH=$PATH_NETWORK_ERROR
 
