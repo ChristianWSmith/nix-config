@@ -1,5 +1,12 @@
 { pkgs, ... }:
 {
+  programs.imv = {
+    enable = true;
+    settings = {
+      options.overlay = true;
+    };
+  };
+
   home.packages = with pkgs; [
 
     # Fonts
@@ -56,7 +63,6 @@
     gamescope
 
     # Files
-    imv 
     mpv
     mpd
     zathura
