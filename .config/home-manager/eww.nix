@@ -60,7 +60,7 @@ let
     fi
     if [ "$(cat $cache | grep -E "^$query ")" ]
     then
-      cat $cache | grep -E "^$query" | cut -d' ' -f2
+      cat $cache | grep -E "^$query " | cut -d' ' -f2
     else
       best_resolution=0
       best_file=""

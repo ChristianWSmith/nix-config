@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
-PATH_NETWORK_ERROR=$(get-icon knemo-network-error)
-PATH_IDLE=$(get-icon knemo-network-idle)
-PATH_DISCONNECTED=$(get-icon knemo-network-offline)
-PATH_RECEIVE=$(get-icon knemo-network-receive)
-PATH_TRANSMIT=$(get-icon knemo-network-transmit)
-PATH_TRANSMIT_RECEIVE=$(get-icon knemo-network-transmit-receive)
+PATH_NETWORK_ERROR=$(get-icon network-error)
+PATH_IDLE=$(get-icon network-idle)
+PATH_DISCONNECTED=$(get-icon network-offline)
+PATH_RECEIVE=$(get-icon network-receive)
+PATH_TRANSMIT=$(get-icon network-transmit)
+PATH_TRANSMIT_RECEIVE=$(get-icon network-transmit-receive)
 
 CURRENT_PATH=$PATH_NETWORK_ERROR
 
