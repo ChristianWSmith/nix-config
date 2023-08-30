@@ -5,7 +5,6 @@ let
     OS=$(cat /etc/os-release | grep -e "^NAME=" | sed s/NAME=//g)
     if [[ "$OS" == "NixOS" ]]
     then
-      # TODO: so far, nixGL is just more stable
       ${pkgs.hyprland}/bin/Hyprland &> /dev/null
     else
       nixGL ${pkgs.hyprland}/bin/Hyprland &> /dev/null

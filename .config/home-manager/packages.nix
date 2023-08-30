@@ -11,7 +11,7 @@
     bashInteractive
 
     # nixGL
-    ## nixgl.auto.nixGLDefault
+    nixgl.auto.nixGLDefault
     # pkgs.nixgl.auto.nixGLNvidia
     # pkgs.auto.nixGLNvidiaBumblebee
     # pkgs.nixGLIntel
@@ -80,5 +80,6 @@
 
     # Internet
     discord
+    steam
   ];
 }
