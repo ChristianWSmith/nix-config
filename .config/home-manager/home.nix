@@ -25,6 +25,16 @@
   home.file = {
     ".wallpapers".source = files/wallpapers;
     ".hushlogin".text = "";
+    ".local/share/applications/scanner.desktop".text = ''
+      [Desktop Entry]
+      Name=Scanner
+      Comment=Scan documents.
+      Exec=utsushi
+      Icon=scanner
+      Terminal=false
+      Type=Application
+      Categories=Office; 
+    '';
   };
 
   programs.home-manager.enable = true;
