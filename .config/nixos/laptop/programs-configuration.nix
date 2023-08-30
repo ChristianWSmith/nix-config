@@ -1,11 +1,13 @@
 { pkgs, ... }:
 {
-  programs.dconf.enable = true;
-  programs.hyprland.enable = true;
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
+  programs = {
+    dconf.enable = true;
+    hyprland.enable = true;
+    steam = {
+      enable = true;
+      remotePlay.openFirewall = true;
+      dedicatedServer.openFirewall = true;
+    };
   };
   xdg.portal = {
     wlr.enable = true;
