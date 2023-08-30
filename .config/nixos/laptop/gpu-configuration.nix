@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ pkgs, ... }:
 {
   boot.initrd.kernelModules = [ "amdgpu" ];
   # To enforce HIP
