@@ -129,6 +129,28 @@
     )
   )
 
+(defpoll time :interval "1s" "date +%H:%M")
+(defpoll date :interval "1s" "date")
+
+(defwidget clock []
+  (box
+    :orientation "v"
+    :space-evenly "false"
+    (button
+      :tooltip date
+      ; :onclick "" ; TODO: do something when clicking clock
+      :class "bar-button"
+      (label
+        :class "clock-text"
+        :height 36
+        :width 36
+        :valign "center"
+        :halign "center"
+        :text time
+        )
+      )
+    )
+  )
 
 (deflisten power-menu-icon-path :initial "assets/blank.svg"
   `get-icon system-shutdown`)
@@ -179,9 +201,9 @@
     :valign "end"
     ; (poweroff) ; FREE SLOT
     ; (poweroff) ; FREE SLOT
-    ; (poweroff) ; FREE SLOT
     (network)
     (volume)
+    (clock)
     (poweroff)
     )
   )
