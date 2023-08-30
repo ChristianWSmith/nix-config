@@ -27,10 +27,17 @@
   security.rtkit.enable = true;
   security.polkit.enable = true;
   security.pam.services.gtklock.text = lib.readFile "${pkgs.gtklock}/etc/pam.d/gtklock";
+  security.pam.services."christian".enableGnomeKeyring = true;
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
+  };
 
   imports =
-    [ # Include the results of the hardware scan.
+    [
       ./hardware-configuration.nix
+      ./gpu-configuration.nix
     ];
 
   boot = {

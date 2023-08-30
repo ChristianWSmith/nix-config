@@ -20,6 +20,14 @@ let
     ln -sf $(readlink -f $1) ~/.active-wallpaper
     eww reload  
   '';
+  toggle-bar = pkgs.writeShellScriptBin "eww-toggle-bar" ''
+    if [ "$(eww windows | grep \*bar)" ]
+    then
+      eww close bar
+    else
+      eww open bar
+    fi
+  '';
   random-wallpaper = pkgs.writeShellScriptBin "eww-random-wallpaper" ''
     ln -sf $(echo ~/.wallpapers/$(ls ~/.wallpapers/ | sort -R | tail -1)) ~/.active-wallpaper
     eww reload
@@ -71,7 +79,7 @@ let
   '';
 in
 {
-  home.packages = [ launcher wallpaper random-wallpaper get-wallpapers get-icon ];
+  home.packages = [ launcher wallpaper random-wallpaper get-wallpapers get-icon toggle-bar ];
   
   programs.eww.package = pkgs.eww-wayland;
   programs.eww.enable = true;

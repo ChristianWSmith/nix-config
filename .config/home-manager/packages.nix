@@ -1,5 +1,4 @@
 { pkgs, ... }:
-
 {
   home.packages = with pkgs; [
 
@@ -12,7 +11,7 @@
     bashInteractive
 
     # nixGL
-    nixgl.auto.nixGLDefault
+    ## nixgl.auto.nixGLDefault
     # pkgs.nixgl.auto.nixGLNvidia
     # pkgs.auto.nixGLNvidiaBumblebee
     # pkgs.nixGLIntel
@@ -29,7 +28,7 @@
     zip 
     unzip 
     p7zip
-    imagemagick
+    imagemagick # TODO: this is required by get-icon, make it a proper dependency
     jq socat # TODO: these are required for eww workspaces, make them a proper dependency
 
     # Daemon Tools
@@ -80,7 +79,6 @@
     meld
 
     # Internet
-    discord 
-    steam
+    discord
   ];
 }
