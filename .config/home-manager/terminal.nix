@@ -1,8 +1,12 @@
 { pkgs, fontMono, ... }:
 let
   launcher = pkgs.writeShellScriptBin "terminal" ''
-    footclient -E $(which ''${1}) ''${@:2}
-
+    if [ "$1" == "" ]
+    then
+      footclient
+    else
+      footclient -E $(which $1) ''${@:2}
+    fi
   '';
 in
 {

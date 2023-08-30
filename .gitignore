@@ -19,6 +19,11 @@
 !.config/hypr/**
 .config/hypr/hyprland.conf
 
+# Rofi
+!.config/rofi
+!.config/rofi/**
+.config/rofi/config.rasi
+
 # gtklock 
 !.config/gtklock
 !.config/gtklock/**
