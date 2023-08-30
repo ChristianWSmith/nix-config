@@ -13,6 +13,7 @@
       ./networking-configuration.nix
       ./programs-configuration.nix
       ./users-configuration.nix
+      ./printer-configuration.nix
     ];
 
   nixpkgs.config.allowUnfree = true;
