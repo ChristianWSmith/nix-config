@@ -3,7 +3,7 @@
   users.users.christian = {
     isNormalUser = true;
     description = "Christian Smith";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "scanner" "lp" ];
     packages = with pkgs; [];
   };
 }
