@@ -32,34 +32,16 @@ window {
 
 mainbox {
   enabled: true;
-  spacing: 100px;
+  spacing: 10%;
   margin: 0px;
-  padding: 100px 225px;
+  padding: 40% 20%;
   border: 0px solid;
   border-radius: 0px 0px 0px 0px;
   border-color: @selected;
   background-color: transparent;
-  children: [ "inputbar", "listview" ];
+  children: [ "listview" ];
 }
 
-inputbar {
-  enabled: true;
-  spacing: 10px;
-  margin: 0% 28%;
-  padding: 10px;
-  border: 1px solid;
-  border-radius: 5px;
-  border-color: white / 25%;
-  background-color: white / 5%;
-  text-color: @foreground;
-  children: [ "prompt", "entry" ];
-}
-
-prompt {
-  enabled: true;
-  background-color: transparent;
-  text-color: inherit;
-}
 textbox-prompt-colon {
   enabled: true;
   expand: false;
@@ -67,23 +49,15 @@ textbox-prompt-colon {
   background-color: transparent;
   text-color: inherit;
 }
-entry {
-  enabled: true;
-  background-color: transparent;
-  text-color: inherit;
-  cursor: text;
-  placeholder: "Search";
-  placeholder-color: inherit;
-}
 
 listview {
   enabled: true;
-  columns: 7;
-  lines: 4;
+  columns: 1;
+  lines: 3;
   cycle: true;
   dynamic: true;
   scrollbar: false;
-  layout: vertical;
+  layout: horizontal;
   reverse: false;
   fixed-height: true;
   fixed-columns: true;
@@ -98,18 +72,13 @@ listview {
   text-color: @foreground;
   cursor: "default";
 }
-scrollbar {
-  handle-width: 5px ;
-  handle-color: @selected;
-  border-radius: 0px;
-  background-color: @background-alt;
-}
 
 element {
   enabled: true;
-  spacing: 15px;
-  margin: 0px;
-  padding: 35px 10px;
+  spacing: 0%;
+  margin: 0% 5%;
+  padding: 1% 1%;
+  width: 20%;
   border: 0px solid;
   border-radius: 5px;
   border-color: @selected;
@@ -141,14 +110,6 @@ element-text {
   horizontal-align: 0.5;
 }
 
-error-message {
-  padding: 100px;
-  border: 0px solid;
-  border-radius: 0px;
-  border-color: @selected;
-  background-color: black / 10%;
-  text-color: @foreground;
-}
 textbox {
   background-color: transparent;
   text-color: @foreground;

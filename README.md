@@ -12,7 +12,6 @@ My install notes are found [here](https://docs.google.com/document/d/1AH0DahjBLn
   - ADD Power profile?
   - ADD emoji picker?
   - ADD clipboard history?
-- power menu
 - printer / scanner
 - thunderbird
 - configure all packages as programs

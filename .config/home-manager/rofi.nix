@@ -1,8 +1,21 @@
 { pkgs, config, userHome, font, ... }:
 let
-  launcher = pkgs.writeShellScriptBin "app-launcher" ''
-    PIDFILE="/tmp/app-launcher.pid"
-    COMMAND="rofi -show drun -theme ${userHome}/.config/rofi/launcher.rasi"
+  pidFile = "/tmp/rofi.pid";
+  appLauncher = pkgs.writeShellScriptBin "app-launcher" ''
+    PIDFILE="${pidFile}"
+    COMMAND="rofi -show drun -drun-categories AudioVideo,Audio,Video,Development,Education,Game,Graphics,Network,Office,Science,Settings,System,Utility -theme ${userHome}/.config/rofi/launcher.rasi"
+    if ps -p $(cat $PIDFILE);
+    then
+      pkill -f "$COMMAND"
+    else
+      echo "$$" > $PIDFILE
+      $COMMAND
+    fi
+  '';
+
+  powerMenu = pkgs.writeShellScriptBin "power-menu" ''
+    PIDFILE="${pidFile}"
+    COMMAND="rofi -show drun -drun-categories Session -theme ${userHome}/.config/rofi/powermenu.rasi"
     if ps -p $(cat $PIDFILE);
     then
       pkill -f "$COMMAND"
@@ -17,7 +30,41 @@ let
   '';
 in
 {
-  home.packages = [ launcher dmenu ];
+  home.packages = [ appLauncher powerMenu dmenu ];
+
+  home.file = {
+    ".local/share/applications/poweroff.desktop".text = ''
+      [Desktop Entry]
+      Name=Power Off
+      Comment=Turn off the system.
+      Exec=poweroff
+      Icon=system-shutdown-symbolic
+      Terminal=false
+      Type=Application
+      Categories=Session;
+    '';
+    ".local/share/applications/reboot.desktop".text = ''
+      [Desktop Entry]
+      Name=Reboot
+      Comment=Reboot the system.
+      Exec=reboot
+      Icon=system-reboot-symbolic
+      Terminal=false
+      Type=Application
+      Categories=Session;
+    '';
+    ".local/share/applications/lock.desktop".text = ''
+      [Desktop Entry]
+      Name=Lock
+      Comment=Lock the screen.
+      Exec=gtklock
+      Icon=system-lock-screen-symbolic
+      Terminal=false
+      Type=Application
+      Categories=Session;
+    '';
+  };
+
   programs.rofi.enable = true;
 
 

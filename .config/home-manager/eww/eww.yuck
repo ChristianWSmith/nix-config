@@ -138,8 +138,8 @@
     :orientation "v"
     :space-evenly "false"
     (button
-      :tooltip "Power Off"
-      :onclick "poweroff"
+      :tooltip "Power Menu"
+      :onclick "power-menu"
       :class "bar-button"
       (image
         :path power-menu-icon-path
