@@ -129,7 +129,7 @@
     )
   )
 
-(defpoll time :interval "1s" "date +%H:%M")
+(defpoll time :interval "1s" "date +%I:%M")
 (defpoll date :interval "1s" "date")
 
 (defwidget clock []

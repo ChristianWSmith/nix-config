@@ -11,6 +11,6 @@ My install notes are found [here](https://docs.google.com/document/d/1AH0DahjBLn
   - ADD Power profile?
   - ADD emoji picker?
   - ADD clipboard history?
-- printer / scanner
+- scanner: going to have to patch utsushi as seen [here](https://wiki.archlinux.org/title/SANE/Scanner-specific_problems#Image_Scan_v3)
 - thunderbird
 - configure all packages as programs
