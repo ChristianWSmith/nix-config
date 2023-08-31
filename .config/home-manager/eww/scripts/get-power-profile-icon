@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -m
 
 POWER_SAVER_PATH=$(get-icon power-profile-power-saver-symbolic)
 BALANCED_PATH=$(get-icon power-profile-balanced-symbolic)

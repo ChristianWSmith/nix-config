@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+SCRIPT=$1
+BROKER_FILE=$2
+INTERVAL=$3
+
+DIR=$(dirname $(readlink -f $0))
+
+python $DIR/$SCRIPT $BROKER_FILE $INTERVAL &
+tail -F $BROKER_FILE 2> /dev/null

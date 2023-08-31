@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -m
 
 powerprofilesctl set $1
 powerprofilesctl get > ~/.power-profile

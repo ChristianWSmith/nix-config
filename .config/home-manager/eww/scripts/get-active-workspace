@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -m
 
 hyprctl monitors -j | jq '.[] | select(.focused) | .activeWorkspace.id'
 

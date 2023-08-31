@@ -1,4 +1,9 @@
 { pkgs, ... }:
+let
+  my-python-packages = ps: with ps; [
+    psutil
+  ];
+in
 {
   programs.imv = {
     enable = true;
@@ -8,6 +13,8 @@
   };
 
   home.packages = with pkgs; [
+
+    (python3.withPackages my-python-packages)
 
     # Fonts
     noto-fonts-emoji
