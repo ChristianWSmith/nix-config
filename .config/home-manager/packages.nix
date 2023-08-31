@@ -50,6 +50,7 @@
     # GUI Tools
     grim 
     slurp 
+    wf-recorder
     wl-clipboard 
     cliphist 
     xdg-utils 
@@ -83,6 +84,7 @@
     handbrake
     libreoffice-fresh
     meld
+    swappy
 
     # Internet
     discord

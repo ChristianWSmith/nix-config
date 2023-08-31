@@ -18,13 +18,23 @@ let
     systemctl --user start xdg-desktop-portal-hyprland
   '';
   screenshot = pkgs.writeShellScriptBin "hyprland-screenshot" ''
-    dimensions="$(slurp -d)"
+    dimensions=$(slurp -d)
     if [ "$dimensions" ]
     then
-        grim -g "$dimensions" - | wl-copy
-        notify-send "Screenshot copied to clipboard."
+      grim -g "$dimensions" - | swappy -f -
+    fi
+  '';
+  recordScreen = pkgs.writeShellScriptBin "record-screen" ''
+    PIDFILE="/tmp/wf-recorder.pid"
+    COMMAND="${pkgs.wf-recorder}/bin/wf-recorder"
+    if ps -p $(cat $PIDFILE);
+    then
+      pkill -f "$COMMAND"
+      notify-send "Screen recording ended."
     else
-        notify-send "Screenshot canceled."
+      echo "$$" > $PIDFILE
+      notify-send "Screen recording started."
+      $COMMAND
     fi
   '';
   colorPicker = pkgs.writeShellScriptBin "hyprland-colorpicker" ''
@@ -41,7 +51,7 @@ let
   '';
 in
 {
-  home.packages = [ launcher screenshot enableScreenSharing colorPicker notifyClipboard ];
+  home.packages = [ launcher screenshot enableScreenSharing colorPicker notifyClipboard recordScreen ];
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;

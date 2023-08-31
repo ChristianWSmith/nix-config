@@ -20,3 +20,4 @@ network-offline-symbolic /home/christian/.nix-profile/share/icons/WhiteSur-dark/
 network-receive-symbolic /home/christian/.nix-profile/share/icons/WhiteSur-dark/status/symbolic/network-receive-symbolic.svg
 network-transmit-symbolic /home/christian/.nix-profile/share/icons/WhiteSur-dark/status/symbolic/network-transmit-symbolic.svg
 system-shutdown-symbolic /home/christian/.nix-profile/share/icons/WhiteSur-dark/status/24/system-shutdown-symbolic.svg
+screen-recorder /home/christian/.nix-profile/share/icons/WhiteSur-dark/apps/scalable/screen-recorder.svg

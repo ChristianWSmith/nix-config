@@ -88,6 +88,25 @@
     )
   )
 
+(deflisten screen-recorder-icon-path :initial "assets/blank.svg"
+  `get-icon screen-recorder`)
+
+(defwidget screen-recorder []
+  (box
+    :orientation "v"
+    :space-evenly "false"
+    (button
+      :tooltip "Record Screen"
+      :onclick "record-screen & disown"
+      :class "bar-button"
+      (image
+        :path screen-recorder-icon-path
+        :image-height 36
+        )
+      )
+    )
+  )
+
 (deflisten network-icon-path :initial "assets/blank.svg"
   `scripts/get-network-icon 1`)
 
@@ -179,7 +198,7 @@
     (launcher)
     (screenshot)
     (colorpicker)
-    ; (launcher) ; FREE SLOT
+    (screen-recorder)
     ; (launcher) ; FREE SLOT
     ; (launcher) ; FREE SLOT
     )
