@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
+interval=$1
+
 while true
 do
   date +%I:%M
-  sleep $1
+  sleep $interval
 done
