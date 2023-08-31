@@ -25,12 +25,39 @@ let
     fi
   '';
 
+  rofimoji = pkgs.writeShellScriptBin "emoji" ''
+    PIDFILE="${pidFile}"
+    if ps -p $(cat $PIDFILE);
+    then
+      pkill rofimoji
+    else
+      echo "$$" > $PIDFILE
+      rofimoji --selector-args "-theme ${userHome}/.config/rofi/picker.rasi" --action $1
+      if [ "$1" == "copy" ]
+      then
+        notify-clipboard
+      fi
+    fi
+  '';
+
+  clipboard = pkgs.writeShellScriptBin "clipboard-picker" ''
+    PIDFILE="${pidFile}"
+    if ps -p $(cat $PIDFILE);
+    then
+      kill $(cat $PIDFILE)
+    else
+      echo "$$" > $PIDFILE
+      cliphist list | rofi -theme ${userHome}/.config/rofi/picker.rasi -dmenu -p ">" | cliphist decode | wl-copy
+    fi
+
+  '';
+
   dmenu = pkgs.writeShellScriptBin "dmenu" ''
     rofi -dmenu $@
   '';
 in
 {
-  home.packages = [ appLauncher powerMenu dmenu ];
+  home.packages = [ appLauncher powerMenu dmenu rofimoji clipboard ];
 
   home.file = {
     ".local/share/applications/poweroff.desktop".text = ''
@@ -66,7 +93,6 @@ in
   };
 
   programs.rofi.enable = true;
-
 
   programs.rofi.theme = 
     let

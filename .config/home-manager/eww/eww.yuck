@@ -107,6 +107,45 @@
     )
   )
 
+(deflisten emoji-picker-icon-path :initial "assets/blank.svg"
+  `get-icon face-smile`)
+
+(defwidget emoji-picker []
+  (box
+    :orientation "v"
+    :space-evenly "false"
+    (button
+      :tooltip "Emoji Picker"
+      :onclick "emoji copy & disown"
+      :class "bar-button"
+      (image
+        :path emoji-picker-icon-path
+        :image-height 36
+        )
+      )
+    )
+  )
+
+
+(deflisten clipboard-icon-path :initial "assets/blank.svg"
+  `get-icon xclipboard`)
+
+(defwidget clipboard-picker []
+  (box
+    :orientation "v"
+    :space-evenly "false"
+    (button
+      :tooltip "Clipboard History"
+      :onclick "clipboard-picker & disown"
+      :class "bar-button"
+      (image
+        :path clipboard-icon-path
+        :image-height 36
+        )
+      )
+    )
+  )
+
 (deflisten network-icon-path :initial "assets/blank.svg"
   `scripts/get-network-icon 1`)
 
@@ -199,8 +238,8 @@
     (screenshot)
     (colorpicker)
     (screen-recorder)
-    ; (launcher) ; FREE SLOT
-    ; (launcher) ; FREE SLOT
+    (emoji-picker)
+    (clipboard-picker)
     )
   )
 

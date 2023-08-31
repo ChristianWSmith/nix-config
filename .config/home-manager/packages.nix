@@ -48,7 +48,8 @@
     vimPlugins.yuck-vim
 
     # GUI Tools
-    grim 
+    grim
+    rofimoji
     slurp 
     wf-recorder
     wl-clipboard 
