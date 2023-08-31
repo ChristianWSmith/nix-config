@@ -146,7 +146,32 @@
     )
   )
 
-(deflisten cpu-usage :initial "assets/blank.svg"
+(defpoll power-profile :interval "1s" "powerprofilesctl get")
+(deflisten power-profile-icon :initial "assets/blank.svg"
+  `scripts/get-power-profile-icon 1`)
+
+(defwidget power-profile []
+  (box
+    :orientation "v"
+    :space-evenly "false"
+    (button
+      :tooltip "Power Profile: ${power-profile}"
+      :onclick "powerprofilesctl set power-saver"
+      :onmiddleclick "powerprofilesctl set balanced"
+      :onrightclick "powerprofilesctl set performance"
+      :class "bar-button"
+      (box
+        :height 36
+        (image
+          :path power-profile-icon
+          :image-height 30
+          )
+        )
+      )
+    )
+  )
+
+(deflisten cpu-usage :initial "-1%"
   `scripts/get-cpu-usage 1`)
 
 (defwidget cpu-usage []
@@ -280,7 +305,7 @@
     :orientation "v"
     :space-evenly "false"
     :valign "end"
-    ; (poweroff) ; FREE SLOT
+    (power-profile)
     (cpu-usage)
     (network)
     (volume)

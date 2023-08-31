@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+POWER_SAVER_PATH=$(get-icon power-profile-power-saver-symbolic)
+BALANCED_PATH=$(get-icon power-profile-balanced-symbolic)
+PERFORMANCE_PATH=$(get-icon power-profile-performance-symbolic)
+ERROR_PATH=$(get-icon system-error)
+
+CURRENT_PATH="assets/blank.svg"
+
+interval=$1
+
+while true
+do
+  profile=$(powerprofilesctl get)
+  if [ "$profile" == "power-saver" ]
+  then
+    new_path=$POWER_SAVER_PATH
+  elif  [ "$profile" == "balanced" ]
+  then
+    new_path=$BALANCED_PATH
+  elif [ "$profile" == "performance" ]
+  then
+    new_path=$PERFORMANCE_PATH
+  else
+    new_path=$ERROR_PATH
+  fi
+
+  if [ "$new_path" != "$CURRENT_PATH" ]
+  then
+    CURRENT_PATH=$new_path
+    echo $CURRENT_PATH
+  fi
+
+  sleep $interval
+done

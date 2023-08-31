@@ -6,8 +6,6 @@ My install notes are found [here](https://docs.google.com/document/d/1AH0DahjBLn
 
 ## TODO:
 - get rofi toggling working correctly
-- finish eww bar
-  - bottom
-    - ADD Power profile?
+- eww bar symbolic icons?
 - thunderbird
 - configure all packages as programs
