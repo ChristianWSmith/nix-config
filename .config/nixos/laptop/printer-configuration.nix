@@ -1,19 +1,21 @@
 { pkgs, ... }:
 let
-  myUtsushi = pkgs.utsushi.override { withNetworkScan = true; };
-  myPatchedUtsushi = myUtsushi.overrideAttrs (oldAttrs: {
-        postInstall = oldAttrs.postInstall or "" + ''
-            echo "[devices]"                                               > $out/etc/utsushi/utsushi.conf
-            echo "myscanner.udi    = esci:networkscan://192.168.1.2:1865" >> $out/etc/utsushi/utsushi.conf
-            echo "myscanner.vendor = Epson"                               >> $out/etc/utsushi/utsushi.conf
-            echo "myscanner.model  = ET-3830 Series"                      >> $out/etc/utsushi/utsushi.conf
-        '';
-      });
+  utsushi = (pkgs.utsushi.override { withNetworkScan = true; }).overrideAttrs (oldAttrs: {
+    postInstall = oldAttrs.postInstall or "" + ''
+      rm -f $out/etc/utsushi/utsushi.conf
+      tee -a $out/etc/utsushi/utsushi.conf << EOF
+      [devices]
+      myscanner.udi    = esci:networkscan://192.168.1.2:1865
+      myscanner.vendor = Epson
+      myscanner.model  = ET-3830 Series
+      EOF
+    '';
+  });
 in
 {
   services = {
     udev.packages = [ 
-      myPatchedUtsushi
+      utsushi
     ];
     avahi = {
       enable = true;
@@ -27,6 +29,6 @@ in
   };
   hardware.sane = {
     enable = true;
-    extraBackends = [ myPatchedUtsushi ];
+    extraBackends = [ utsushi ];
   };
 }
