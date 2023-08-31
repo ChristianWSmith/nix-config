@@ -239,7 +239,7 @@
 (deflisten time :initial ""
   `scripts/python-launcher get-time.py /ram/time 1`)
 (deflisten date :initial ""
-  `scripts/get-date 1`)
+  `scripts/python-launcher get-date.py /ram/date 1`)
 
 (defwidget clock []
   (box
