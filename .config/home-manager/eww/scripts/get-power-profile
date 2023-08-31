@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+while true
+do
+  if ! [ -f ~/.power-profile ]
+  then
+    powerprofilesctl get > ~/.power-profile
+  fi
+    
+  cat ~/.power-profile
+  sleep $1
+done

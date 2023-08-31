@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+while true
+do
+  date +%I:%M
+  sleep $1
+done

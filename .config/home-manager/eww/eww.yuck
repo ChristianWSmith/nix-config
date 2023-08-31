@@ -146,7 +146,8 @@
     )
   )
 
-(defpoll power-profile :interval "1s" "powerprofilesctl get")
+(deflisten power-profile :initial ""
+  `scripts/get-power-profile 1`)
 (deflisten power-profile-icon :initial "assets/blank.svg"
   `scripts/get-power-profile-icon 1`)
 
@@ -156,9 +157,9 @@
     :space-evenly "false"
     (button
       :tooltip "Power Profile: ${power-profile}"
-      :onclick "powerprofilesctl set power-saver"
-      :onmiddleclick "powerprofilesctl set balanced"
-      :onrightclick "powerprofilesctl set performance"
+      :onclick "scripts/set-power-profile power-saver"
+      :onmiddleclick "scripts/set-power-profile balanced"
+      :onrightclick "scripts/set-power-profile performance"
       :class "bar-button"
       (box
         :height 36
@@ -235,8 +236,10 @@
     )
   )
 
-(defpoll time :interval "1s" "date +%I:%M")
-(defpoll date :interval "1s" "date")
+(deflisten time :initial ""
+  `scripts/get-time 1`)
+(deflisten date :initial ""
+  `scripts/get-date 1`)
 
 (defwidget clock []
   (box
