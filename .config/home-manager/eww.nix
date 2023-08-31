@@ -23,9 +23,9 @@ let
   toggle-bar = pkgs.writeShellScriptBin "eww-toggle-bar" ''
     if [ "$(eww windows | grep \*bar)" ]
     then
-      eww close bar
+      hyprctl dispatch exec eww close bar
     else
-      eww open bar
+      hyprctl dispatch exec eww open bar
     fi
   '';
   random-wallpaper = pkgs.writeShellScriptBin "eww-random-wallpaper" ''
