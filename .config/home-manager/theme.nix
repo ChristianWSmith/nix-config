@@ -28,6 +28,7 @@
     "file://${userHome}/Downloads"
     "file://${userHome}/Templates"
     "file://${userHome}/Desktop"
+    "file://${userHome}/Pictures"
   ];
   qt.enable = true;
   qt.platformTheme = "gtk";
