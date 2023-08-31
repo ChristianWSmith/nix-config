@@ -35,8 +35,9 @@ let
       dimensions=$(slurp -d)
       if [ "$dimensions" ]
       then
-        notify-send "Screen recording started."
-        wf-recorder -g "$dimensions" -f ${userHome}/Videos/recording-$(date +%s).mp4
+        filename="recording-$(date +%s).mp4"
+        notify-send "Screen recording started: ~/Videos/$filename"
+        wf-recorder -g "$dimensions" -f ${userHome}/Videos/$filename
       else
         notify-send "Screen recording cancelled."
       fi
