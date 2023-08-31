@@ -237,7 +237,7 @@
   )
 
 (deflisten time :initial ""
-  `scripts/get-time 1`)
+  `scripts/python-launcher get-time.py /ram/time 1`)
 (deflisten date :initial ""
   `scripts/get-date 1`)
 

@@ -11,6 +11,6 @@ def broker(callback):
 
   while True:
     file = open(buffer_file_path, "w")
-    file.write(f"{psutil.cpu_percent(interval)}%\n")
+    file.write(callback(interval))
     file.close()
     os.rename(buffer_file_path, file_path)
