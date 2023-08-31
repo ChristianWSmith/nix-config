@@ -173,7 +173,7 @@
   )
 
 (deflisten cpu-usage :initial "-1%"
-  `scripts/python-launcher get-cpu-usage.py /tmp/cpu-usage 1`)
+  `scripts/python-launcher get-cpu-usage.py /ram/cpu-usage 1`)
 
 (defwidget cpu-usage []
   (box
