@@ -8,7 +8,6 @@ My install notes are found [here](https://docs.google.com/document/d/1AH0DahjBLn
 - get rofi toggling working correctly
 - finish eww bar
   - bottom
-    - ADD CPU temp?
     - ADD Power profile?
 - thunderbird
 - configure all packages as programs

@@ -146,6 +146,29 @@
     )
   )
 
+(deflisten cpu-usage :initial "assets/blank.svg"
+  `scripts/get-cpu-usage 1`)
+
+(defwidget cpu-usage []
+  (box
+    :orientation "v"
+    :space-evenly "false"
+    (button
+      :tooltip "CPU Usage"
+      :onclick "terminal btop"
+      :class "bar-button"
+      (label
+        :class "clock-text"
+        :height 36
+        :width 36
+        :valign "center"
+        :halign "center"
+        :text cpu-usage
+        )
+      )
+    )
+  )
+
 (deflisten network-icon-path :initial "assets/blank.svg"
   `scripts/get-network-icon 1`)
 
@@ -258,7 +281,7 @@
     :space-evenly "false"
     :valign "end"
     ; (poweroff) ; FREE SLOT
-    ; (poweroff) ; FREE SLOT
+    (cpu-usage)
     (network)
     (volume)
     (clock)
