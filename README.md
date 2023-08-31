@@ -6,10 +6,12 @@ My install notes are found [here](https://docs.google.com/document/d/1AH0DahjBLn
 
 ## TODO:
 - finish eww bar
-  - ADD ram / cpu usage?
-  - ADD CPU temp?
-  - ADD Power profile?
-  - ADD emoji picker?
-  - ADD clipboard history?
+  - top
+    - ADD emoji picker
+    - ADD clipboard history
+  - bottom
+    - ADD ram / cpu usage?
+    - ADD CPU temp?
+    - ADD Power profile?
 - thunderbird
 - configure all packages as programs
