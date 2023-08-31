@@ -89,7 +89,7 @@
   )
 
 (deflisten screen-recorder-icon-path :initial "assets/blank.svg"
-  `get-icon screen-recorder`)
+  `scripts/get-screen-recorder-icon 1`)
 
 (defwidget screen-recorder []
   (box

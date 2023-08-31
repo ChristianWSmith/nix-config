@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+PATH_NOT_RECORDING=$(get-icon screen-recorder)
+PATH_RECORDING=$(get-icon media-record)
+
+interval=$1
+
+while true
+do
+  if pgrep wf-recorder &> /dev/null
+  then
+    new_path=$PATH_RECORDING
+  else
+    new_path=$PATH_NOT_RECORDING
+  fi
+  if [ "$new_path" != "$CURRENT_PATH" ]
+  then
+    CURRENT_PATH=$new_path
+    echo $CURRENT_PATH
+  fi
+  sleep $interval
+done
+
