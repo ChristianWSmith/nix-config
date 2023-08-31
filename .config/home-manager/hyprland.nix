@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, userHome, ... }:
 let
   launcher = pkgs.writeShellScriptBin "hyprland-launcher" ''
     . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
@@ -25,16 +25,21 @@ let
     fi
   '';
   recordScreen = pkgs.writeShellScriptBin "record-screen" ''
-    PIDFILE="/tmp/wf-recorder.pid"
-    COMMAND="${pkgs.wf-recorder}/bin/wf-recorder"
+    PIDFILE="/tmp/record-screen.pid"
     if ps -p $(cat $PIDFILE);
     then
-      pkill -f "$COMMAND"
+      pkill -f wf-recorder
       notify-send "Screen recording ended."
     else
       echo "$$" > $PIDFILE
-      notify-send "Screen recording started."
-      $COMMAND
+      dimensions=$(slurp -d)
+      if [ "$dimensions" ]
+      then
+        notify-send "Screen recording started."
+        wf-recorder -g "$dimensions" -f ${userHome}/Videos/recording-$(date +%s).mp4
+      else
+        notify-send "Screen recording cancelled."
+      fi
     fi
   '';
   colorPicker = pkgs.writeShellScriptBin "hyprland-colorpicker" ''

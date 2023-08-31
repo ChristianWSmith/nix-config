@@ -97,7 +97,7 @@
     :space-evenly "false"
     (button
       :tooltip "Record Screen"
-      :onclick "record-screen & disown"
+      :onclick "hyprctl dispatch exec record-screen"
       :class "bar-button"
       (image
         :path screen-recorder-icon-path
