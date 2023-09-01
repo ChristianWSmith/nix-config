@@ -1,24 +1,23 @@
 { pkgs, userHome, iconTheme, ... }:
 let
-  launcher = pkgs.writeShellScriptBin "eww-launcher" ''
-      for monitor in $(hyprctl monitors -j | jq '.[].id')
-      do
-        eww open wallpaper --screen "$monitor"
-      done
-    '';
-  wallpaper = pkgs.writeShellScriptBin "eww-wallpaper" ''
-    ln -sf $(readlink -f $1) ~/.active-wallpaper
-  '';
-  toggle-bar = pkgs.writeShellScriptBin "eww-toggle-bar" ''
-    if [ "$(eww windows | grep \*bar)" ]
+  launcher = pkgs.writeShellScriptBin "eww-wallpaper-launcher" ''
+    if ! [ -f ${userHome}/.active-wallpaper ]
     then
-      hyprctl dispatch exec eww close bar
-    else
-      hyprctl dispatch exec eww open bar
+      ln -sf ${userHome}/.wallpapers/default.jpg ${userHome}/.active-wallpaper
     fi
+    ${pkgs.eww-wayland}/bin/eww close wallpaper
+    for monitor in $(hyprctl monitors -j | jq '.[].id')
+    do
+      ${pkgs.eww-wayland}/bin/eww open wallpaper --screen "$monitor"
+    done
+  '';
+  wallpaper = pkgs.writeShellScriptBin "eww-set-wallpaper" ''
+    ln -sf $(readlink -f $1) ${userHome}/.active-wallpaper
+    ${pkgs.eww-wayland}/bin/eww-wallpaper-launcher
   '';
   random-wallpaper = pkgs.writeShellScriptBin "eww-random-wallpaper" ''
-    ln -sf $(echo ~/.wallpapers/$(ls ~/.wallpapers/ | sort -R | tail -1)) ~/.active-wallpaper
+    ln -sf $(echo ${userHome}/.wallpapers/$(ls ${userHome}/.wallpapers/ | sort -R | tail -1)) ${userHome}/.active-wallpaper
+    ${pkgs.eww-wayland}/bin/eww-wallpaper-launcher
   '';
   get-wallpapers = pkgs.writeShellScriptBin "eww-get-wallpapers" ''
     wallpaper_dir=${userHome}/.config/home-manager/files/wallpapers
@@ -29,7 +28,15 @@ let
     fi
     # wget -nc -O $wallpaper_dir/<image_name> <url>
     touch $got_wallpapers
-'';
+  '';
+  toggle-bar = pkgs.writeShellScriptBin "eww-toggle-bar" ''
+    if [ "$(${pkgs.eww-wayland}/bin/eww windows | grep \*bar)" ]
+    then
+      ${pkgs.eww-wayland}/bin/eww close bar
+    else
+      ${pkgs.eww-wayland}/bin/eww open bar
+    fi
+  '';
   get-icon = pkgs.writeShellScriptBin "get-icon" ''
     cache_dir=${userHome}/.get-icon-cache
     cache=$cache_dir/${iconTheme}
@@ -70,8 +77,10 @@ let
 in
 {
   home.packages = [ launcher wallpaper random-wallpaper get-wallpapers get-icon toggle-bar ];
-  
-  programs.eww.package = pkgs.eww-wayland;
-  programs.eww.enable = true;
-  programs.eww.configDir = ./eww;
+ 
+  programs.eww = {
+    enable = true;
+    package = pkgs.eww-wayland;
+    configDir = ./eww;
+  };
 }
