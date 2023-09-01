@@ -1,20 +1,15 @@
 { pkgs, userHome, iconTheme, ... }:
 let
   launcher = pkgs.writeShellScriptBin "eww-launcher" ''
-      if pgrep -f "eww daemon" > /dev/null
-      then
-        pkill -f "eww daemon"
-      fi
-      eww daemon
+      eww daemon --restart
+      eww open bar
       for monitor in $(hyprctl monitors -j | jq '.[].id')
       do
         eww open wallpaper --screen "$monitor"
       done
-      eww open bar
     '';
   wallpaper = pkgs.writeShellScriptBin "eww-wallpaper" ''
     ln -sf $(readlink -f $1) ~/.active-wallpaper
-    eww reload  
   '';
   toggle-bar = pkgs.writeShellScriptBin "eww-toggle-bar" ''
     if [ "$(eww windows | grep \*bar)" ]
@@ -26,8 +21,6 @@ let
   '';
   random-wallpaper = pkgs.writeShellScriptBin "eww-random-wallpaper" ''
     ln -sf $(echo ~/.wallpapers/$(ls ~/.wallpapers/ | sort -R | tail -1)) ~/.active-wallpaper
-    eww reload
-    
   '';
   get-wallpapers = pkgs.writeShellScriptBin "eww-get-wallpapers" ''
     wallpaper_dir=${userHome}/.config/home-manager/files/wallpapers
