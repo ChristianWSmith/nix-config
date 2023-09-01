@@ -1,8 +1,6 @@
 { pkgs, userHome, iconTheme, ... }:
 let
   launcher = pkgs.writeShellScriptBin "eww-launcher" ''
-      eww daemon --restart
-      eww open bar
       for monitor in $(hyprctl monitors -j | jq '.[].id')
       do
         eww open wallpaper --screen "$monitor"
