@@ -1,9 +1,6 @@
 { pkgs, userHome, iconTheme, ... }:
 let
-  launcher = pkgs.writeShellApplication { # TODO: convert everything to writeShellApplication!!
-    name = "eww-launcher";
-    runtimeInputs = [ pkgs.eww-wayland pkgs.jq pkgs.hyprland ];
-    text = ''
+  launcher = pkgs.writeShellScriptBin "eww-launcher" ''
       if pgrep -f "eww daemon" > /dev/null
       then
         pkill -f "eww daemon"
@@ -15,7 +12,6 @@ let
       done
       eww open bar
     '';
-  };
   wallpaper = pkgs.writeShellScriptBin "eww-wallpaper" ''
     ln -sf $(readlink -f $1) ~/.active-wallpaper
     eww reload  
