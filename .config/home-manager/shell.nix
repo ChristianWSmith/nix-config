@@ -36,38 +36,33 @@
       end;
     '';
     functions = {
-      nixos-up = "sudo nix-channel --update && sudo nixos-rebuild switch";
-      nix-up = "cd && nix-channel --update && home-manager switch -b backup --impure && cd -";
-      flake-up = "nix flake update ${userHome}/.config/home-manager/";
-      full-up = "nixos-up && nix-up";
-      nixos-flash = ''
-        if test -d ~/.config/nixos/$argv && count $argv > /dev/null;
-          :;
-        else;
-          echo No such NixOS config: \"$argv\", available: $(ls ~/.config/nixos);
-          return 1;
-        end;
-        for file in $(find /etc/nixos/* | grep -ve '\.old$');
-          sudo cp $file $file.$(date +%s).old;
-        end;
-        for file in $(find ~/.config/nixos/$argv/*);
-          sudo cp $file /etc/nixos/
-        end;
-        nixos-up
+      nixos-up = ''
+        if ! test "$argv"
+	  echo "Usage: nixos-up <machine_profile> (flake)"
+	  return
+	end
+        sudo nix-channel --update
+	cp -r ${userHome}/.config/nixos /tmp
+	if test "$argv[2]" = "flake"
+          nix flake update /tmp/nixos/
+	end
+	sudo nixos-rebuild switch --flake /tmp/nixos/#$argv
+	rm -rf /tmp/nixos
       '';
-      nixos-dump = ''
-        if count $argv > /dev/null;
-          :;
-        else
-          echo Enter the name of a NixOS config to dump to.;
-          return 1;
-        end;
-        mkdir -p ~/.config/nixos/$argv
-        for file in $(find /etc/nixos/* | grep -ve '\.old$');
-          cp $file ~/.config/nixos/$argv/;
-        end;
+      nix-up = ''
+        if test "$argv[1]" = "flake"
+          nix flake update ${userHome}/.config/home-manager/
+	end
+        cd
+	nix-channel --update
+	home-manager switch -b backup --impure
+	cd -
       '';
-      nixos-gc = "sudo nix-collect-garbage && sudo nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot";
+      nixos-gc = ''
+        sudo nix-collect-garbage
+	sudo nix-collect-garbage -d
+	sudo /run/current-system/bin/switch-to-configuration boot
+      '';
       nix-gc = "nix-collect-garbage -d";
       full-gc = "nixos-gc && nix-gc";
       ga = "git add $argv";
