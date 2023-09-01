@@ -13,11 +13,11 @@ let
   '';
   wallpaper = pkgs.writeShellScriptBin "eww-set-wallpaper" ''
     ln -sf $(readlink -f $1) ${userHome}/.active-wallpaper
-    ${pkgs.eww-wayland}/bin/eww-wallpaper-launcher
+    eww-wallpaper-launcher
   '';
   random-wallpaper = pkgs.writeShellScriptBin "eww-random-wallpaper" ''
     ln -sf $(echo ${userHome}/.wallpapers/$(ls ${userHome}/.wallpapers/ | sort -R | tail -1)) ${userHome}/.active-wallpaper
-    ${pkgs.eww-wayland}/bin/eww-wallpaper-launcher
+    eww-wallpaper-launcher
   '';
   get-wallpapers = pkgs.writeShellScriptBin "eww-get-wallpapers" ''
     wallpaper_dir=${userHome}/.config/home-manager/files/wallpapers
