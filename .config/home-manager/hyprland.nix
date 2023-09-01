@@ -64,12 +64,13 @@ in
     enable = true;
     xwayland.enable = true;
     extraConfig = ''
-      source=~/.config/hypr/autoexec.conf
-      source=~/.config/hypr/appearance.conf
-      source=~/.config/hypr/input.conf
-      source=~/.config/hypr/binds.conf
-      source=~/.config/hypr/windowrules.conf
-      source=~/.config/hypr/environment.conf 
+      source=${userHome}/.config/hypr/autoexec.conf
+      source=${userHome}/.config/hypr/appearance.conf
+      source=${userHome}/.config/hypr/input.conf
+      source=${userHome}/.config/hypr/binds.conf
+      source=${userHome}/.config/hypr/windowrules.conf
+      source=${userHome}/.config/hypr/environment.conf
+      source=/etc/display.conf
     '';
   };
 }
