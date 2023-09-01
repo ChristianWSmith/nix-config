@@ -2,6 +2,7 @@
 let
   my-python-packages = ps: with ps; [
     psutil
+    pygobject3
   ];
 in
 {
