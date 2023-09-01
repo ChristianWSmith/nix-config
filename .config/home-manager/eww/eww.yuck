@@ -149,7 +149,7 @@
 (deflisten power-profile :initial ""
   `scripts/python-launcher get-power-profile.py /ram/get-power-profile 1`)
 (deflisten power-profile-icon :initial "assets/blank.svg"
-  `scripts/get-power-profile-icon 1`)
+  `scripts/python-launcher get-power-profile-icon.py /ram/get-power-profile-icon 1`)
 
 (defwidget power-profile []
   (box
@@ -157,9 +157,9 @@
     :space-evenly "false"
     (button
       :tooltip "Power Profile: ${power-profile}"
-      :onclick "scripts/set-power-profile power-saver"
-      :onmiddleclick "scripts/set-power-profile balanced"
-      :onrightclick "scripts/set-power-profile performance"
+      :onclick "powerprofilesctl set power-saver"
+      :onmiddleclick "powerprofilesctl set balanced"
+      :onrightclick "powerprofilesctl set performance"
       :class "bar-button"
       (box
         :height 36
