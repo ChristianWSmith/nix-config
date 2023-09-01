@@ -147,7 +147,7 @@
   )
 
 (deflisten power-profile :initial ""
-  `scripts/get-power-profile 1`)
+  `scripts/python-launcher get-power-profile.py /ram/get-power-profile 1`)
 (deflisten power-profile-icon :initial "assets/blank.svg"
   `scripts/get-power-profile-icon 1`)
 

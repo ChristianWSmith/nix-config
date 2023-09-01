@@ -12,11 +12,11 @@ def broker(callback):
   state = None
 
   while True:
-    file = open(buffer_file_path, "w")
     message, slept, state = callback(interval, state)
     if message is not None:
-      file.write(message)
+      file = open(buffer_file_path, "w")
+      file.write(f"{message.strip()}\n")
+      file.close()
+      os.rename(buffer_file_path, file_path)
     if not slept:
         time.sleep(interval)
-    file.close()
-    os.rename(buffer_file_path, file_path)
