@@ -44,19 +44,23 @@
         sudo nix-channel --update
 	cp -r ${userHome}/.config/nixos /tmp
 	if test "$argv[2]" = "flake"
+	  echo "Updating flake.lock..."
           nix flake update /tmp/nixos/
 	end
-	sudo nixos-rebuild switch --flake /tmp/nixos/#$argv
+	sudo nixos-rebuild switch --flake /tmp/nixos/#$argv[1]
+	if test "$argv[2]" = "flake"
+          cp /tmp/nixos/flake.lock ${userHome}/.config/nixos/flake.lock
+	end
 	rm -rf /tmp/nixos
       '';
       nix-up = ''
         if test "$argv[1]" = "flake"
           nix flake update ${userHome}/.config/home-manager/
 	end
-        cd
+        pushd $(pwd)
 	nix-channel --update
 	home-manager switch -b backup --impure
-	cd -
+	popd
       '';
       nixos-gc = ''
         sudo nix-collect-garbage
