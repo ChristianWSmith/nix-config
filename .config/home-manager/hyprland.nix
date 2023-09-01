@@ -18,6 +18,7 @@ let
     systemctl --user start xdg-desktop-portal-hyprland
   '';
   screenshot = pkgs.writeShellScriptBin "hyprland-screenshot" ''
+    sleep 1
     dimensions=$(slurp -d)
     if [ "$dimensions" ]
     then
@@ -28,10 +29,11 @@ let
     PIDFILE="/tmp/record-screen.pid"
     if ps -p $(cat $PIDFILE);
     then
-      pkill -f wf-recorder
+      kill -SIGINT $(pgrep wf-recorder)
       notify-send "Screen recording ended."
     else
       echo "$$" > $PIDFILE
+      sleep 1
       dimensions=$(slurp -d)
       if [ "$dimensions" ]
       then
