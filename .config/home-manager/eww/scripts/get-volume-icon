@@ -2,10 +2,10 @@
 set -m
 
 PATH_ERROR=$(get-icon system-error)
-PATH_MUTED=$(get-icon volume-level-muted)
-PATH_LOW=$(get-icon volume-level-low)
-PATH_MEDIUM=$(get-icon volume-level-medium)
-PATH_HIGH=$(get-icon volume-level-high)
+PATH_MUTED=$(get-icon audio-volume-muted-symbolic)
+PATH_LOW=$(get-icon audio-volume-low-symbolic)
+PATH_MEDIUM=$(get-icon audio-volume-medium-symbolic)
+PATH_HIGH=$(get-icon audio-volume-high-symbolic)
 
 CURRENT_PATH=$PATH_ERROR
 

@@ -231,9 +231,12 @@
       :onclick "pavucontrol & disown"
       :onrightclick "terminal pulsemixer & disown"
       :class "bar-button"
-      (image
-        :path volume-icon-path
-        :image-height 36
+      (box
+        :height 36
+        (image
+          :path volume-icon-path
+          :image-height 30
+          )
         )
       )
     )

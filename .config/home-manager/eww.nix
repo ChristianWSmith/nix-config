@@ -69,8 +69,11 @@ let
           best_file=$file
         fi
       done
-      echo $query $best_file >> $cache
-      readlink -f $best_file
+      if [ "$best_file" != "" ]
+      then
+        echo $query $best_file >> $cache
+        readlink -f $best_file
+      fi
     fi
   '';
 in
