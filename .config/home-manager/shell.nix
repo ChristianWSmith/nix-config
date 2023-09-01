@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, userHome, ... }:
 {
   programs.bash = {
     enable = true;
@@ -38,6 +38,7 @@
     functions = {
       nixos-up = "sudo nix-channel --update && sudo nixos-rebuild switch";
       nix-up = "cd && nix-channel --update && home-manager switch -b backup --impure && cd -";
+      flake-up = "nix flake update ${userHome}/.config/home-manager/";
       full-up = "nixos-up && nix-up";
       nixos-flash = ''
         if test -d ~/.config/nixos/$argv && count $argv > /dev/null;

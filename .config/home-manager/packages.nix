@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, userHome, ... }:
 let
   my-python-packages = ps: with ps; [
     psutil
@@ -43,8 +43,8 @@ in
     zip 
     unzip 
     p7zip
-    imagemagick # TODO: this is required by get-icon, make it a proper dependency
-    jq socat # TODO: these are required for eww workspaces, make them a proper dependency
+    imagemagick
+    jq socat
 
     # Daemon Tools
     xboxdrv
@@ -54,6 +54,7 @@ in
     pulsemixer 
     networkmanager
     vimPlugins.yuck-vim
+    khal
 
     # GUI Tools
     grim

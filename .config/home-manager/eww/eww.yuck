@@ -253,7 +253,7 @@
     :space-evenly "false"
     (button
       :tooltip date
-      ; :onclick "" ; TODO: do something when clicking clock
+      :onclick "khal calendar"
       :class "bar-button"
       (label
         :class "clock-text"
