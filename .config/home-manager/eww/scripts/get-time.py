@@ -1,11 +1,10 @@
 #!/usr/bin/env python
 
-import datetime, time
+import datetime
 from common import broker
 
-def callback(interval):
-  time.sleep(interval)
-  return f"{datetime.datetime.now().strftime('%I:%M')}\n" 
+def callback(interval, _):
+  return f"{datetime.datetime.now().strftime('%I:%M')}\n", False, None
 
 broker(callback)
 

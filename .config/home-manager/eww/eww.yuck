@@ -89,7 +89,7 @@
   )
 
 (deflisten screen-recorder-icon-path :initial "assets/blank.svg"
-  `scripts/get-screen-recorder-icon 1`)
+  `scripts/python-launcher get-screen-recorder-icon.py /ram/get-screen-recorder-icon 1`)
 
 (defwidget screen-recorder []
   (box
@@ -196,7 +196,7 @@
   )
 
 (deflisten network-icon-path :initial "assets/blank.svg"
-  `scripts/get-network-icon 1`)
+  `scripts/python-launcher get-network-icon.py /ram/get-network-icon 1`)
 
 (defwidget network []
   (box

@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+rint(message)
 set -m
 
 PATH_NOT_RECORDING=$(get-icon screen-recorder)

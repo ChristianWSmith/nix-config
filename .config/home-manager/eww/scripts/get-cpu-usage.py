@@ -3,8 +3,8 @@
 import psutil
 from common import broker
 
-def callback(interval):
-  return f"{psutil.cpu_percent(interval)}%\n" 
+def callback(interval, _):
+  return f"{psutil.cpu_percent(interval)}%\n", True, None
 
 broker(callback)
 
