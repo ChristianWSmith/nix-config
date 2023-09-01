@@ -15,6 +15,7 @@
       ./users-configuration.nix
       ./printer-configuration.nix
       ./tmpfs-configuration.nix
+      ./display-configuration.nix
     ];
 
   nixpkgs.config.allowUnfree = true;
