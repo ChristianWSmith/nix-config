@@ -6,7 +6,7 @@
     [
       ./modules/hardware-configuration-default.nix
       ./modules/display-configuration-default.nix
-      ./modules/gpu-configuration.nix
+      ./modules/gpu-configuration-default.nix
       ./modules/boot-configuration.nix
       ./modules/services-configuration.nix
       ./modules/security-configuration.nix
