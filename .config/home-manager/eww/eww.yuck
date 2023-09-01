@@ -207,9 +207,12 @@
       :onclick "nm-connection-editor & disown"
       :onrightclick "terminal nmtui & disown"
       :class "bar-button"
-      (image
-        :path network-icon-path
-        :image-height 36
+      (box
+        :height 36
+        (image
+          :path network-icon-path
+          :image-height 30
+          )
         )
       )
     )

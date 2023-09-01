@@ -3,12 +3,12 @@
 import psutil, subprocess, socket
 from common import broker
 
-PATH_ERROR = subprocess.check_output(['get-icon', 'network-error']).decode('utf-8')
-PATH_IDLE = subprocess.check_output(['get-icon', 'network-idle']).decode('utf-8')
-PATH_DISCONNECTED = subprocess.check_output(['get-icon', 'network-offline']).decode('utf-8')
-PATH_RECEIVE = subprocess.check_output(['get-icon', 'network-receive']).decode('utf-8')
-PATH_TRANSMIT = subprocess.check_output(['get-icon', 'network-transmit']).decode('utf-8')
-PATH_TRANSMIT_RECEIVE = subprocess.check_output(['get-icon', 'network-transmit-receive']).decode('utf-8')
+PATH_ERROR = subprocess.check_output(['get-icon', 'network-error-symbolic']).decode('utf-8')
+PATH_IDLE = subprocess.check_output(['get-icon', 'network-idle-symbolic']).decode('utf-8')
+PATH_DISCONNECTED = subprocess.check_output(['get-icon', 'network-offline-symbolic']).decode('utf-8')
+PATH_RECEIVE = subprocess.check_output(['get-icon', 'network-receive-symbolic']).decode('utf-8')
+PATH_TRANSMIT = subprocess.check_output(['get-icon', 'network-transmit-symbolic']).decode('utf-8')
+PATH_TRANSMIT_RECEIVE = subprocess.check_output(['get-icon', 'network-transmit-receive-symbolic']).decode('utf-8')
 
 SENT_KEY = "sent"
 RECV_KEY = "recv"
