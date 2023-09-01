@@ -44,7 +44,7 @@
         sudo nix-channel --update
 	cp -r ${userHome}/.config/nixos /tmp
 	if test "$argv[2]" = "flake"
-	  echo "Updating flake.lock..."
+	  echo "updating flake.lock..."
           nix flake update /tmp/nixos/
 	end
 	sudo nixos-rebuild switch --flake /tmp/nixos/#$argv[1]
@@ -55,6 +55,7 @@
       '';
       nix-up = ''
         if test "$argv[1]" = "flake"
+	  echo "updating flake.lock..."
           nix flake update ${userHome}/.config/home-manager/
 	end
         pushd $(pwd)

@@ -15,6 +15,12 @@
   in
   {
     nixosConfigurations = {
+      default = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit system; };
+	modules = [
+          ./default-configuration.nix
+	];
+      }; 
       desktop = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit system; };
 	modules = [
