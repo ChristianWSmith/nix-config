@@ -2,7 +2,7 @@
 let
   tray = pkgs.writeShellScriptBin "system-tray" ''
     PIDFILE="/tmp/system-tray.pid"
-    COMMAND="trayer --alpha 0 --tint 0xcc1e1e1e --transparent true --height 40 --width 10 --distance 5"
+    COMMAND="trayer --monitor 1 --alpha 0 --tint 0xcc1e1e1e --transparent true --height 40 --width 10 --distance 5"
     if ps -p $(cat $PIDFILE);
     then
       pkill -f "$COMMAND"
