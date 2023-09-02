@@ -16,7 +16,7 @@ in
   home.packages = with pkgs; [
 
     # GLIB
-    glib
+    gvfs glib
 
     # Python
     (python3.withPackages my-python-packages)
