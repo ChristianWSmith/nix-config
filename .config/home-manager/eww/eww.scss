@@ -3,12 +3,6 @@
   padding: 0px 0px 0px 0px;
 }
 
-$HOME: "env($HOME)";
-
-.wallpaper {
-  background-image: url("${HOME}/.active-wallpaper");
-  background-size: 100% 100%;
-}
 
 .bar { // the defwindow
   background-color: rgba(0, 0, 0, 0);

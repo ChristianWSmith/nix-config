@@ -1,34 +1,5 @@
 { pkgs, userHome, iconTheme, ... }:
 let
-  launcher = pkgs.writeShellScriptBin "eww-wallpaper-launcher" ''
-    if ! [ -f ${userHome}/.active-wallpaper ]
-    then
-      ln -sf ${userHome}/.wallpapers/default.jpg ${userHome}/.active-wallpaper
-    fi
-    ${pkgs.eww-wayland}/bin/eww close wallpaper
-    for monitor in $(hyprctl monitors -j | jq '.[].id')
-    do
-      ${pkgs.eww-wayland}/bin/eww open wallpaper$monitor
-    done
-  '';
-  wallpaper = pkgs.writeShellScriptBin "eww-set-wallpaper" ''
-    ln -sf $(readlink -f $1) ${userHome}/.active-wallpaper
-    eww-wallpaper-launcher
-  '';
-  random-wallpaper = pkgs.writeShellScriptBin "eww-random-wallpaper" ''
-    ln -sf $(echo ${userHome}/.wallpapers/$(ls ${userHome}/.wallpapers/ | sort -R | tail -1)) ${userHome}/.active-wallpaper
-    eww-wallpaper-launcher
-  '';
-  get-wallpapers = pkgs.writeShellScriptBin "eww-get-wallpapers" ''
-    wallpaper_dir=${userHome}/.config/home-manager/files/wallpapers
-    got_wallpapers=${userHome}/.got-wallpapers
-    if [ -f $got_wallpapers ]
-    then
-      exit
-    fi
-    # wget -nc -O $wallpaper_dir/<image_name> <url>
-    touch $got_wallpapers
-  '';
   toggle-bar = pkgs.writeShellScriptBin "eww-toggle-bar" ''
     if [ "$(${pkgs.eww-wayland}/bin/eww windows | grep \*bar)" ]
     then
@@ -76,7 +47,7 @@ let
   '';
 in
 {
-  home.packages = [ launcher wallpaper random-wallpaper get-wallpapers get-icon toggle-bar ];
+  home.packages = [ get-icon toggle-bar ];
  
   programs.eww = {
     enable = true;

@@ -57,12 +57,31 @@ let
       notify-send "Clipboard: $paste"
     fi
   '';
+  set-wallpaper = pkgs.writeShellScriptBin "set-wallpaper" ''
+    ln -sf $(readlink -f $1) ${userHome}/.active-wallpaper
+    pkill hyprpaper
+    hyprpaper
+  '';
+  random-wallpaper = pkgs.writeShellScriptBin "random-wallpaper" ''
+    ln -sf $(echo ${userHome}/.wallpapers/$(ls ${userHome}/.wallpapers/ | sort -R | tail -1)) ${userHome}/.active-wallpaper
+    pkill hyprpaper
+  '';
+  get-wallpapers = pkgs.writeShellScriptBin "eww-get-wallpapers" ''
+    wallpaper_dir=${userHome}/.config/home-manager/files/wallpapers
+    got_wallpapers=${userHome}/.got-wallpapers
+    if [ -f $got_wallpapers ]
+    then
+      exit
+    fi
+    # wget -nc -O $wallpaper_dir/<image_name> <url>
+    touch $got_wallpapers
+  '';
 in
 {
   home.file = {
     ".tty1-gui-only".text = "";
   };
-  home.packages = [ launcher screenshot enableScreenSharing colorPicker notifyClipboard recordScreen ];
+  home.packages = [ launcher screenshot enableScreenSharing colorPicker notifyClipboard recordScreen set-wallpaper random-wallpaper get-wallpapers ];
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;

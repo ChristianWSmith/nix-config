@@ -57,6 +57,7 @@ in
     khal
 
     # GUI Tools
+    hyprpaper
     grim
     rofimoji
     slurp 
