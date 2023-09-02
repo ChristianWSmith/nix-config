@@ -59,6 +59,9 @@ let
   '';
 in
 {
+  home.file = {
+    ".tty1-gui-only".text = "";
+  };
   home.packages = [ launcher screenshot enableScreenSharing colorPicker notifyClipboard recordScreen ];
   wayland.windowManager.hyprland = {
     enable = true;

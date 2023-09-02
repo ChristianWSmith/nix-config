@@ -8,7 +8,7 @@ let
     ${pkgs.eww-wayland}/bin/eww close wallpaper
     for monitor in $(hyprctl monitors -j | jq '.[].id')
     do
-      ${pkgs.eww-wayland}/bin/eww open wallpaper --screen "$monitor"
+      ${pkgs.eww-wayland}/bin/eww open wallpaper$monitor
     done
   '';
   wallpaper = pkgs.writeShellScriptBin "eww-set-wallpaper" ''
