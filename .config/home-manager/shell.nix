@@ -78,6 +78,7 @@
       gd = "git diff \"$argv\"";
       nt = "terminal & disown";
       chx = "chmod +x \"$argv\"";
+      nix-goto = "cd $(dirname $(readlink -f $(which $argv)))";
       poweroff = "systemctl poweroff --no-wall";
       reboot = "systemctl reboot -i --no-wall";
       bash = "BASH_BYPASS=1 /${pkgs.bashInteractive}/bin/bash";

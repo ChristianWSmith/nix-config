@@ -15,7 +15,7 @@ let
 
   powerMenu = pkgs.writeShellScriptBin "power-menu" ''
     PIDFILE="${pidFile}"
-    COMMAND="rofi -show drun -drun-categories Session -theme ${userHome}/.config/rofi/powermenu.rasi"
+    COMMAND="rofi -show drun -drun-categories Session -theme ${userHome}/.config/rofi/powermenu.rasi -sort"
     if ps -p $(cat $PIDFILE);
     then
       pkill -f "$COMMAND"

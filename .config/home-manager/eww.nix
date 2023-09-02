@@ -1,11 +1,11 @@
 { pkgs, userHome, iconTheme, ... }:
 let
   toggle-bar = pkgs.writeShellScriptBin "eww-toggle-bar" ''
-    if [ "$(${pkgs.eww-wayland}/bin/eww windows | grep \*bar)" ]
+    LOCKFILE=/ram/eww-bar
+    touch $LOCKFILE
+    if ! flock -n $LOCKFILE eww open bar
     then
-      ${pkgs.eww-wayland}/bin/eww close bar
-    else
-      ${pkgs.eww-wayland}/bin/eww open bar
+      pkill eww
     fi
   '';
   get-icon = pkgs.writeShellScriptBin "get-icon" ''

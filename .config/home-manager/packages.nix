@@ -15,6 +15,10 @@ in
 
   home.packages = with pkgs; [
 
+    # GLIB
+    glib
+
+    # Python
     (python3.withPackages my-python-packages)
 
     # Fonts

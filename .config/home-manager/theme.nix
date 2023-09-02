@@ -22,13 +22,12 @@
   gtk.iconTheme.package = pkgs.whitesur-icon-theme;
   gtk.iconTheme.name = iconTheme;
   gtk.gtk3.bookmarks = [
-    "file://${userHome}/Documents"
-    "file://${userHome}/Videos"
-    "file://${userHome}/Music"
-    "file://${userHome}/Downloads"
-    "file://${userHome}/Templates"
-    "file://${userHome}/Desktop"
-    "file://${userHome}/Pictures"
+    "file://${userHome}/Documents Documents"
+    "file://${userHome}/Downloads Downloads"
+    "file://${userHome}/Music Music"
+    "file://${userHome}/Pictures Pictures"
+    "file://${userHome}/Templates Templates"
+    "file://${userHome}/Videos Videos"
   ];
   qt.enable = true;
   qt.platformTheme = "gtk";
