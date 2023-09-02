@@ -1,14 +1,15 @@
 { pkgs, userHome, iconTheme, ... }:
 let
-  toggle-bar = pkgs.writeShellScriptBin "eww-toggle-bar" ''
-    LOCKFILE=/ram/eww-bar
+  lockFile = "/ram/eww.lock";
+  toggleBar = pkgs.writeShellScriptBin "eww-toggle-bar" ''
+    LOCKFILE=${lockFile}
     touch $LOCKFILE
     if ! flock -n $LOCKFILE eww open bar
     then
       pkill eww
     fi
   '';
-  get-icon = pkgs.writeShellScriptBin "get-icon" ''
+  getIcon = pkgs.writeShellScriptBin "get-icon" ''
     cache_dir=${userHome}/.get-icon-cache
     cache=$cache_dir/${iconTheme}
     icon_dir=${userHome}/.nix-profile/share/icons/${iconTheme}
@@ -47,7 +48,7 @@ let
   '';
 in
 {
-  home.packages = [ get-icon toggle-bar ];
+  home.packages = [ getIcon toggleBar ];
  
   programs.eww = {
     enable = true;

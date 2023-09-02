@@ -1,59 +1,45 @@
 { pkgs, config, userHome, font, ... }:
 let
-  pidFile = "/tmp/rofi.pid";
-  appLauncher = pkgs.writeShellScriptBin "app-launcher" ''
-    PIDFILE="${pidFile}"
-    COMMAND="rofi -show drun -drun-categories AudioVideo,Audio,Video,Development,Education,Game,Graphics,Network,Office,Science,Settings,System,Utility -theme ${userHome}/.config/rofi/launcher.rasi"
-    if ps -p $(cat $PIDFILE);
+  lockFile = "/ram/rofi.lock";
+
+  _rofiBroker = pkgs.writeShellScriptBin "rb" ''
+    touch ${lockFile}
+    COMMAND="$@"
+    FLOCK_COMMAND="flock -n ${lockFile} $COMMAND"
+    LOCKING_PIDS=$(lsof -t ${lockFile})
+    if [ "$LOCKING_PIDS" ]
     then
-      pkill -f "$COMMAND"
-    else
-      echo "$$" > $PIDFILE
-      $COMMAND
+      kill -SIGINT $LOCKING_PIDS
     fi
+    if ! lsof -t ${lockFile}
+    then
+      bash -c "$FLOCK_COMMAND"
+    fi
+  '';
+
+  appLauncher = pkgs.writeShellScriptBin "app-launcher" ''
+    COMMAND="rofi -show drun -drun-categories AudioVideo,Audio,Video,Development,Education,Game,Graphics,Network,Office,Science,Settings,System,Utility -theme ${userHome}/.config/rofi/launcher.rasi"
+    ${_rofiBroker}/bin/rb $COMMAND
   '';
 
   powerMenu = pkgs.writeShellScriptBin "power-menu" ''
-    PIDFILE="${pidFile}"
     COMMAND="rofi -show drun -drun-categories Session -theme ${userHome}/.config/rofi/powermenu.rasi -sort"
-    if ps -p $(cat $PIDFILE);
-    then
-      pkill -f "$COMMAND"
-    else
-      echo "$$" > $PIDFILE
-      $COMMAND
-    fi
+    ${_rofiBroker}/bin/rb $COMMAND
   '';
 
   rofimoji = pkgs.writeShellScriptBin "emoji" ''
-    PIDFILE="${pidFile}"
-    if ps -p $(cat $PIDFILE);
-    then
-      pkill rofimoji
-    else
-      echo "$$" > $PIDFILE
-      rofimoji --selector-args "-theme ${userHome}/.config/rofi/picker.rasi" --action $1
-      if [ "$1" == "copy" ]
-      then
-        notify-clipboard
-      fi
-    fi
+    COMMAND='rofimoji --selector-args "-theme ${userHome}/.config/rofi/picker.rasi" --action'
+    ${_rofiBroker}/bin/rb $COMMAND $1
   '';
 
   clipboard = pkgs.writeShellScriptBin "clipboard-picker" ''
-    PIDFILE="${pidFile}"
-    if ps -p $(cat $PIDFILE);
-    then
-      kill $(cat $PIDFILE)
-    else
-      echo "$$" > $PIDFILE
-      cliphist list | rofi -theme ${userHome}/.config/rofi/picker.rasi -dmenu -p ">" | cliphist decode | wl-copy
-    fi
-
+    COMMAND='cliphist list | rofi -theme ${userHome}/.config/rofi/picker.rasi -dmenu -p ">" | cliphist decode | wl-copy'
+    ${_rofiBroker}/bin/rb $COMMAND
   '';
 
   dmenu = pkgs.writeShellScriptBin "dmenu" ''
-    rofi -dmenu $@
+    COMMAND="rofi -dmenu $@"
+    ${_rofiBroker}/bin/rb $COMMAND
   '';
 in
 {

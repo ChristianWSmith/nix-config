@@ -36,6 +36,8 @@ in
     # pkgs.nixGLIntel
 
     # Command Line Tools
+    gdb
+    lsof
     pulseaudio 
     alsa-utils
     wget
