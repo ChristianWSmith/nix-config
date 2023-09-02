@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-set -m
 
 PATH_ERROR=$(get-icon system-error)
 PATH_MUTED=$(get-icon audio-volume-muted-symbolic)
