@@ -64,6 +64,7 @@ in
     khal
 
     # GUI Tools
+    xorg.xrandr
     hyprpaper
     grim
     rofimoji

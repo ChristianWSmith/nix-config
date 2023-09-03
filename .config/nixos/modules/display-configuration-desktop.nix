@@ -15,6 +15,8 @@
         workspace=5,monitor:DP-1
         workspace=6,monitor:DP-1
         workspace=7,monitor:DP-1
+        
+	exec-once=xrandr --output DP-1 --primary
       '';
     };
   };
