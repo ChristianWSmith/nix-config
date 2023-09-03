@@ -22,6 +22,7 @@
     ./trayer.nix
     ./browser.nix
     ./git.nix
+    ./hitbox.nix
   ];
 
   home.file = {
