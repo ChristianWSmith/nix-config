@@ -13,6 +13,10 @@ in
       options.overlay = true;
     };
   };
+  programs.thunderbird = {
+    enable = true;
+    profiles."smith.christian.william@gmail.com".isDefault = true;
+  };
 
   home.packages = with pkgs; [
 
