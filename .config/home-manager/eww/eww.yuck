@@ -228,8 +228,8 @@
     :space-evenly "false"
     (button
       :tooltip "Audio Settings"
-      :onclick "terminal pulsemixer & disown"
-      :onrightclick "pavucontrol & disown"
+      :onrightclick "terminal pulsemixer & disown"
+      :onclick "pavucontrol & disown"
       :class "bar-button"
       (box
         :height 36
@@ -253,7 +253,8 @@
     :space-evenly "false"
     (button
       :tooltip date
-      :onclick "terminal khal interactive"
+      :onclick "thunderbird -calendar"
+      :onrightclick "terminal khal interactive"
       :class "bar-button"
       (label
         :class "clock-text"
