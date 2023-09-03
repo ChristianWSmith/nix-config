@@ -7,3 +7,5 @@ My install notes are found [here](https://docs.google.com/document/d/1AH0DahjBLn
 ## TODO:
 - fix eww bar first time launch
 - add more xdg mime types
+- webcam
+- obs
