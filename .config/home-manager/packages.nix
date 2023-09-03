@@ -84,6 +84,7 @@ in
     gtklock
     gnome.gnome-font-viewer
     gamescope
+    ffmpegthumbnailer
 
     # Files
     mpv
