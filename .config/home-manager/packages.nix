@@ -72,7 +72,6 @@ in
     wf-recorder
     wl-clipboard 
     cliphist 
-    xdg-utils 
     hyprpicker
     inotify-tools
     libnotify

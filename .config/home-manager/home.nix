@@ -14,6 +14,7 @@
     ./btop.nix
     ./hyprland.nix
     ./gammastep.nix
+    ./default_applications.nix
     ./theme.nix
     ./eww.nix
     ./rofi.nix
