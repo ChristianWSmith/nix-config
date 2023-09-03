@@ -13,6 +13,7 @@
     ./terminal.nix
     ./btop.nix
     ./hyprland.nix
+    ./gammastep.nix
     ./theme.nix
     ./eww.nix
     ./rofi.nix

@@ -204,8 +204,8 @@
     :space-evenly "false"
     (button
       :tooltip "Network"
-      :onclick "nm-connection-editor & disown"
-      :onrightclick "terminal nmtui & disown"
+      :onclick "terminal nmtui & disown"
+      :onrightclick "nm-connection-editor & disown"
       :class "bar-button"
       (box
         :height 36
@@ -228,8 +228,8 @@
     :space-evenly "false"
     (button
       :tooltip "Audio Settings"
-      :onclick "pavucontrol & disown"
-      :onrightclick "terminal pulsemixer & disown"
+      :onclick "terminal pulsemixer & disown"
+      :onrightclick "pavucontrol & disown"
       :class "bar-button"
       (box
         :height 36
@@ -253,7 +253,7 @@
     :space-evenly "false"
     (button
       :tooltip date
-      :onclick "khal calendar"
+      :onclick "terminal khal interactive"
       :class "bar-button"
       (label
         :class "clock-text"

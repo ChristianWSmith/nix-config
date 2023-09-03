@@ -3,6 +3,7 @@ let
   my-python-packages = ps: with ps; [
     psutil
     pygobject3
+    xdg
   ];
 in
 {
@@ -14,9 +15,6 @@ in
   };
 
   home.packages = with pkgs; [
-
-    # GLIB
-    gvfs glib
 
     # Python
     (python3.withPackages my-python-packages)
@@ -36,6 +34,8 @@ in
     # pkgs.nixGLIntel
 
     # Command Line Tools
+    gvfs
+    glib
     gdb
     lsof
     pulseaudio 
@@ -50,7 +50,8 @@ in
     unzip 
     p7zip
     imagemagick
-    jq socat
+    jq
+    socat
 
     # Daemon Tools
     xboxdrv
