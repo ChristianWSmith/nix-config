@@ -4,8 +4,17 @@ let
   toggleBar = pkgs.writeShellScriptBin "eww-toggle-bar" ''
     LOCKFILE=${lockFile}
     touch $LOCKFILE
-    if ! flock -n $LOCKFILE eww open bar
+    if flock -n $LOCKFILE eww open bar
     then
+      hyprctl keyword general:gaps_in 3
+      hyprctl keyword general:gaps_out 5
+      hyprctl keyword general:border_size 1
+      hyprctl keyword decoration:rounding 5
+    else
+      hyprctl keyword general:gaps_in 0
+      hyprctl keyword general:gaps_out 0
+      hyprctl keyword general:border_size 0
+      hyprctl keyword decoration:rounding 0
       pkill eww
     fi
   '';
