@@ -1,8 +1,7 @@
 {
   services.gammastep = {
     enable = true;
-    latitude = 27.999020;
-    longitude = -80.672661;
+    provider = "geoclue2";
     tray = true;
     temperature = {
       day = 5500;

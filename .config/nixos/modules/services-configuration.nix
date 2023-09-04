@@ -29,6 +29,7 @@
       greetingLine = "";
       extraArgs = [ "--skip-login" ];
     };
+    geoclue2.enable = true;
     power-profiles-daemon.enable = true;
   };
 }

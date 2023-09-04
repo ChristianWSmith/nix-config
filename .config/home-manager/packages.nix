@@ -17,6 +17,10 @@ in
     enable = true;
     profiles."smith.christian.william@gmail.com".isDefault = true;
   };
+  programs.vscode = {
+    enable = true;
+    package = pkgs.vscodium;
+  };
 
   home.packages = with pkgs; [
 
