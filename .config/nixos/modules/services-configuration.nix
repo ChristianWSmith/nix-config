@@ -1,6 +1,7 @@
 { pkgs, lib, ... }:
 {
   services = {
+    gnome.gnome-keyring.enable = true;
     udisks2.enable = true;
     pipewire = {
       enable = true;

@@ -15,6 +15,7 @@
       ./modules/programs-configuration.nix
       ./modules/users-configuration.nix
       ./modules/tmpfs-configuration.nix
+      ./modules/systemd-configuration.nix
     ];
 
   nixpkgs.config.allowUnfree = true;
