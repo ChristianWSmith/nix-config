@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   programs = {
+    gnome-disks.enable = true;
     dconf.enable = true;
     hyprland.enable = true;
     steam = {
