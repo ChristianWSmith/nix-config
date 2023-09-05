@@ -90,6 +90,7 @@ in
     gamescope
     ffmpegthumbnailer
     obs-studio
+    blueberry
 
     # Files
     mpv

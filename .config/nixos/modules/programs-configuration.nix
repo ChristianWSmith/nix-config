@@ -14,5 +14,8 @@
     wlr.enable = true;
     extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
   };
-  hardware.opengl.enable = true;
+  hardware = {
+    opengl.enable = true;
+    bluetooth.enable = true;
+  };
 }
