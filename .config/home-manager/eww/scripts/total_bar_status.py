@@ -18,15 +18,15 @@ SCREEN_RECORDER_ICON_KEY = "screen_recorder_icon"
 TIME_KEY = "time"
 
 
-def subcall(interval, state, message_map, slept, subcallback, key):
-  submessage, subslept, substate = subcallback(interval, state[key])
+def subcall(state, message_map, subcallback, key):
+  submessage, substate = subcallback(state[key])
   state[key] = substate
   if submessage is not None:
     message_map[key] = f"{submessage.strip()}"
-  return message_map, slept or subslept, state
+  return message_map, state
 
 
-def callback(interval, state):
+def callback(state):
   if state is None:
     state = {
       CPU_USAGE_KEY: None,
@@ -37,17 +37,16 @@ def callback(interval, state):
       SCREEN_RECORDER_ICON_KEY: None,
       TIME_KEY: None
     }
-  slept = False
   message_map = {}
-  message_map, slept, state = subcall(interval, state, message_map, slept, cpu_usage_callback, CPU_USAGE_KEY)
-  message_map, slept, state = subcall(interval, state, message_map, slept, date_callback, DATE_KEY)
-  message_map, slept, state = subcall(interval, state, message_map, slept, network_icon_callback, NETWORK_ICON_KEY)
-  message_map, slept, state = subcall(interval, state, message_map, slept, power_profile_icon_callback, POWER_PROFILE_ICON_KEY)
-  message_map, slept, state = subcall(interval, state, message_map, slept, power_profile_callback, POWER_PROFILE_KEY)
-  message_map, slept, state = subcall(interval, state, message_map, slept, screen_recorder_icon_callback, SCREEN_RECORDER_ICON_KEY)
-  message_map, slept, state = subcall(interval, state, message_map, slept, time_callback, TIME_KEY)
+  message_map, state = subcall(state, message_map, cpu_usage_callback, CPU_USAGE_KEY)
+  message_map, state = subcall(state, message_map, date_callback, DATE_KEY)
+  message_map, state = subcall(state, message_map, network_icon_callback, NETWORK_ICON_KEY)
+  message_map, state = subcall(state, message_map, power_profile_icon_callback, POWER_PROFILE_ICON_KEY)
+  message_map, state = subcall(state, message_map, power_profile_callback, POWER_PROFILE_KEY)
+  message_map, state = subcall(state, message_map, screen_recorder_icon_callback, SCREEN_RECORDER_ICON_KEY)
+  message_map, state = subcall(state, message_map, time_callback, TIME_KEY)
 
-  return json.dumps(message_map), slept, state
+  return json.dumps(message_map), state
 
 
 if __name__ == "__main__":

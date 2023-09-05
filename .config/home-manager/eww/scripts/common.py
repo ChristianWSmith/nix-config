@@ -10,9 +10,8 @@ def broker(callback):
   state = None
 
   while True:
-    message, slept, state = callback(interval, state)
+    message, state = callback(state)
     if message is not None:
       sys.stdout.write(f"{message.strip()}\n")
       sys.stdout.flush()
-    if not slept:
-        time.sleep(interval)
+    time.sleep(interval)

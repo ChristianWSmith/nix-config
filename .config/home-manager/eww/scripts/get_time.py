@@ -3,8 +3,8 @@
 import datetime
 from common import broker
 
-def callback(interval, _):
-  return f"{datetime.datetime.now().strftime('%I:%M')}\n", False, None
+def callback(_):
+  return f"{datetime.datetime.now().strftime('%I:%M')}\n", None
 
 if __name__ == "__main__":
   broker(callback)

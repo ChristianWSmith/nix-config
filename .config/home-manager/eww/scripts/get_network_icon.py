@@ -21,7 +21,7 @@ def active_interface():
   return False
 
 
-def callback(interval, state):
+def callback(state):
   message = None
   if state is None:
     state = {SENT_KEY: 0, RECV_KEY: 0, PATH_KEY: ""}
@@ -48,7 +48,7 @@ def callback(interval, state):
     state[PATH_KEY] = new_path
     message = new_path
 
-  return message, False, state
+  return message, state
 
 if __name__ == "__main__":
   broker(callback)

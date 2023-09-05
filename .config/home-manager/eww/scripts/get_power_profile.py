@@ -9,7 +9,7 @@ PROXY_KEY="proxy"
 PROFILE_KEY="profile"
 
 
-def callback(interval, state):
+def callback(state):
   message = None
   if state is None:
     state = {PROXY_KEY: get_proxy(), PROFILE_KEY: ""}
@@ -17,7 +17,7 @@ def callback(interval, state):
   if profile != state[PROFILE_KEY]:
     message = profile
     state[PROFILE_KEY] = profile
-  return message, False, state
+  return message, state
 
 if __name__ == "__main__":
   broker(callback)

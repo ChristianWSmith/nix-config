@@ -8,7 +8,7 @@ PATH_NOT_RECORDING = subprocess.check_output(['get-icon', 'screen-recorder']).de
 
 PATH_KEY = "path"
 
-def callback(interval, state):
+def callback(state):
   message = None
   if state is None:
       state = {PATH_KEY: None}
@@ -23,7 +23,7 @@ def callback(interval, state):
     message = new_path
     state[PATH_KEY] = new_path
 
-  return message, False, state
+  return message, state
 
 if __name__ == "__main__":
   broker(callback)

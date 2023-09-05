@@ -20,7 +20,7 @@ PATH_MAP = {
   "performance": PATH_PERFORMANCE
 }
 
-def callback(interval, state):
+def callback(state):
   message = None
   if state is None:
     state = {PROXY_KEY: get_proxy(), PROFILE_KEY: "", PATH_KEY: ""}
@@ -35,7 +35,7 @@ def callback(interval, state):
     message = new_path
     state[PATH_KEY] = new_path
 
-  return message, False, state
+  return message, state
 
 if __name__ == "__main__":
   broker(callback)
