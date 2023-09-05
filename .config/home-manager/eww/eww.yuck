@@ -31,6 +31,9 @@
 
 ; BAR
 
+(deflisten total_bar_status :initial "{}"
+  `scripts/python-launcher total_bar_status.py 1`)
+
 (deflisten app-launcher-icon-path :initial "assets/blank.svg"
   `scripts/bash-launcher get-icon applications-all`)
 
@@ -100,7 +103,7 @@
       :onclick "hyprctl dispatch exec record-screen"
       :class "bar-button"
       (image
-        :path screen-recorder-icon-path
+        :path "${total_bar_status.screen_recorder_icon}"
         :image-height 36
         )
       )
@@ -156,7 +159,7 @@
     :orientation "v"
     :space-evenly "false"
     (button
-      :tooltip "Power Profile: ${power-profile}"
+      :tooltip "Power Profile: ${total_bar_status.power_profile}"
       :onclick "powerprofilesctl set power-saver"
       :onmiddleclick "powerprofilesctl set balanced"
       :onrightclick "powerprofilesctl set performance"
@@ -164,7 +167,7 @@
       (box
         :height 36
         (image
-          :path power-profile-icon
+          :path "${total_bar_status.power_profile_icon}"
           :image-height 30
           )
         )
@@ -189,7 +192,7 @@
         :width 36
         :valign "center"
         :halign "center"
-        :text cpu-usage
+        :text "${total_bar_status.cpu_usage}"
         )
       )
     )
@@ -210,7 +213,7 @@
       (box
         :height 36
         (image
-          :path network-icon-path
+          :path "${total_bar_status.network_icon}"
           :image-height 30
           )
         )
@@ -252,7 +255,7 @@
     :orientation "v"
     :space-evenly "false"
     (button
-      :tooltip date
+      :tooltip "${total_bar_status.date}"
       :onclick "thunderbird -calendar"
       :onrightclick "terminal khal interactive"
       :class "bar-button"
@@ -262,7 +265,7 @@
         :width 36
         :valign "center"
         :halign "center"
-        :text time
+        :text "${total_bar_status.time}"
         )
       )
     )

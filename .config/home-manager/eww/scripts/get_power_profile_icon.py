@@ -37,5 +37,6 @@ def callback(interval, state):
 
   return message, False, state
 
-broker(callback)
+if __name__ == "__main__":
+  broker(callback)
 

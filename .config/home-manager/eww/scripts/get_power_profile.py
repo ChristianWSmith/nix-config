@@ -19,5 +19,6 @@ def callback(interval, state):
     state[PROFILE_KEY] = profile
   return message, False, state
 
-broker(callback)
+if __name__ == "__main__":
+  broker(callback)
 
