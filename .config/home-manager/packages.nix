@@ -89,6 +89,8 @@ in
     gnome.gnome-font-viewer
     gamescope
     ffmpegthumbnailer
+    gnome.cheese
+    obs-studio
 
     # Files
     mpv
