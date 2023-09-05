@@ -24,6 +24,7 @@ in
 
   home.packages = with pkgs; [
 
+
     # Python
     (python3.withPackages my-python-packages)
 
@@ -86,17 +87,14 @@ in
     pavucontrol 
     networkmanagerapplet
     gtklock
-    gnome.gnome-font-viewer
     gamescope
     ffmpegthumbnailer
-    gnome.cheese
     obs-studio
 
     # Files
     mpv
     mpd
     zathura
-    evince
     vlc
     gst_all_1.gst-plugins-base
     gst_all_1.gst-plugins-good
@@ -119,5 +117,36 @@ in
     # Internet
     discord
     steam
+
+    # GNOME Apps
+    gnome.simple-scan
+    gnome.cheese
+    gnome.gnome-font-viewer
+    evince
+    # gnome.gnome-calculator
+    # gnome.gnome-calendar
+    # gnome.gnome-characters
+    # gnome.gnome-clocks
+    # gnome-connections
+    # gnome-usage
+    # gnome.eog
+    # gnome.gnome-maps
+    # gnome.gnome-music
+    # gnome.gnome-system-monitor
+    # gnome-text-editor
+    # gnome.gnome-weather
+    # gnome.gnome-notes
+    # gnome.gnome-boxes
+    # gnome.gnome-nettool
+    # gnome.gnome-contacts
+    # gnome.gnome-bluetooth
+    # gnome.gnome-screenshot
+    # gnome.gnome-dictionary
+    # gnome.gnome-power-manager
+    # gnome.gnome-sound-recorder
+    # gnome.gnome-remote-desktop
+    # gnome-photos
+    # gnome-decoder
+    # gnome.totem
   ];
 }
