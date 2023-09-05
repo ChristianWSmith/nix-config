@@ -123,30 +123,6 @@ in
     gnome.cheese
     gnome.gnome-font-viewer
     evince
-    # gnome.gnome-calculator
-    # gnome.gnome-calendar
-    # gnome.gnome-characters
-    # gnome.gnome-clocks
-    # gnome-connections
-    # gnome-usage
-    # gnome.eog
-    # gnome.gnome-maps
-    # gnome.gnome-music
-    # gnome.gnome-system-monitor
-    # gnome-text-editor
-    # gnome.gnome-weather
-    # gnome.gnome-notes
-    # gnome.gnome-boxes
-    # gnome.gnome-nettool
-    # gnome.gnome-contacts
-    # gnome.gnome-bluetooth
-    # gnome.gnome-screenshot
-    # gnome.gnome-dictionary
-    # gnome.gnome-power-manager
-    # gnome.gnome-sound-recorder
-    # gnome.gnome-remote-desktop
-    # gnome-photos
-    # gnome-decoder
-    # gnome.totem
+    gnome.gnome-boxes
   ];
 }
