@@ -32,7 +32,7 @@
 ; BAR
 
 (deflisten app-launcher-icon-path :initial "assets/blank.svg"
-  `get-icon applications-all`)
+  `scripts/bash-launcher get-icon applications-all`)
 
 (defwidget launcher []
   (box
@@ -51,7 +51,7 @@
   )
 
 (deflisten screenshot-icon-path :initial "assets/blank.svg"
-  `get-icon accessories-screenshot`)
+  `scripts/bash-launcher get-icon accessories-screenshot`)
 
 (defwidget screenshot []
   (box
@@ -70,7 +70,7 @@
   )
 
 (deflisten colorpicker-icon-path :initial "assets/blank.svg"
-  `get-icon color-picker`)
+  `scripts/bash-launcher get-icon color-picker`)
 
 (defwidget colorpicker []
   (box
@@ -89,7 +89,7 @@
   )
 
 (deflisten screen-recorder-icon-path :initial "assets/blank.svg"
-  `scripts/python-launcher get-screen-recorder-icon.py /ram/get-screen-recorder-icon 1`)
+  `scripts/python-launcher get-screen-recorder-icon.py 1`)
 
 (defwidget screen-recorder []
   (box
@@ -108,7 +108,7 @@
   )
 
 (deflisten emoji-picker-icon-path :initial "assets/blank.svg"
-  `get-icon face-smile`)
+  `scripts/bash-launcher get-icon face-smile`)
 
 (defwidget emoji-picker []
   (box
@@ -128,7 +128,7 @@
 
 
 (deflisten clipboard-icon-path :initial "assets/blank.svg"
-  `get-icon xclipboard`)
+  `scripts/bash-launcher get-icon xclipboard`)
 
 (defwidget clipboard-picker []
   (box
@@ -147,9 +147,9 @@
   )
 
 (deflisten power-profile :initial ""
-  `scripts/python-launcher get-power-profile.py /ram/get-power-profile 1`)
+  `scripts/python-launcher get-power-profile.py 1`)
 (deflisten power-profile-icon :initial "assets/blank.svg"
-  `scripts/python-launcher get-power-profile-icon.py /ram/get-power-profile-icon 1`)
+  `scripts/python-launcher get-power-profile-icon.py 1`)
 
 (defwidget power-profile []
   (box
@@ -173,7 +173,7 @@
   )
 
 (deflisten cpu-usage :initial "-1%"
-  `scripts/python-launcher get-cpu-usage.py /ram/cpu-usage 1`)
+  `scripts/python-launcher get-cpu-usage.py 1`)
 
 (defwidget cpu-usage []
   (box
@@ -196,7 +196,7 @@
   )
 
 (deflisten network-icon-path :initial "assets/blank.svg"
-  `scripts/python-launcher get-network-icon.py /ram/get-network-icon 1`)
+  `scripts/python-launcher get-network-icon.py 1`)
 
 (defwidget network []
   (box
@@ -243,9 +243,9 @@
   )
 
 (deflisten time :initial ""
-  `scripts/python-launcher get-time.py /ram/time 1`)
+  `scripts/python-launcher get-time.py 1`)
 (deflisten date :initial ""
-  `scripts/python-launcher get-date.py /ram/date 1`)
+  `scripts/python-launcher get-date.py 1`)
 
 (defwidget clock []
   (box
@@ -269,7 +269,7 @@
   )
 
 (deflisten power-menu-icon-path :initial "assets/blank.svg"
-  `get-icon system-shutdown`)
+  `scripts/bash-launcher get-icon system-shutdown`)
 
 (defwidget poweroff []
   (box

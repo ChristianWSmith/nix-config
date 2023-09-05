@@ -1,10 +1,8 @@
 #!/usr/bin/env bash
 
 SCRIPT=$1
-RAM_FILE=$2
-INTERVAL=$3
+INTERVAL=$2
 
 DIR=$(dirname $(readlink -f $0))
 
-python $DIR/$SCRIPT $RAM_FILE $INTERVAL &
-tail -F $RAM_FILE 2> /dev/null
+python $DIR/$SCRIPT $INTERVAL

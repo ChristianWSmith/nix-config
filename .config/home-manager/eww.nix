@@ -1,21 +1,19 @@
 { pkgs, userHome, iconTheme, ... }:
 let
-  lockFile = "/ram/eww.lock";
   toggleBar = pkgs.writeShellScriptBin "eww-toggle-bar" ''
-    LOCKFILE=${lockFile}
-    touch $LOCKFILE
-    if flock -n $LOCKFILE eww open bar
+    if [[ "$(eww windows)" == *"*bar"* ]]
     then
-      hyprctl keyword general:gaps_in 3
-      hyprctl keyword general:gaps_out 5
-      hyprctl keyword general:border_size 1
-      hyprctl keyword decoration:rounding 5
-    else
       hyprctl keyword general:gaps_in 0
       hyprctl keyword general:gaps_out 0
       hyprctl keyword general:border_size 0
       hyprctl keyword decoration:rounding 0
-      pkill eww
+      eww close bar
+    else
+      hyprctl keyword general:gaps_in 3
+      hyprctl keyword general:gaps_out 5
+      hyprctl keyword general:border_size 1
+      hyprctl keyword decoration:rounding 5
+      eww open bar
     fi
   '';
   getIcon = pkgs.writeShellScriptBin "get-icon" ''
@@ -51,7 +49,7 @@ let
       if [ "$best_file" != "" ]
       then
         echo $query $best_file >> $cache
-        readlink -f $best_file
+        echo $(readlink -f $best_file)
       fi
     fi
   '';
