@@ -5,18 +5,17 @@ let
     pygobject3
     xdg
     requests
-    # TODO: SAVED AS AN EXAMPLE FOR MYSELF, ADD TO NOTES AND REMOVE FROM HERE
-    #(buildPythonPackage rec {
-    #  pname = "hyprland";
-    #  version = "0.2.53";
-    #  format = "pyproject";
-    #  src = fetchPypi {
-    #    inherit pname version;
-    #    sha256 = "sha256-Pykim94255i0swr1CUlOviS/dXkb5BhtYPDDOJaiP+U=";
-    #  };
-    #  doCheck = false;
-    #  propagatedBuildInputs = [ rich beautifulsoup4 ];
-    #})
+    (buildPythonPackage rec {
+      pname = "pyalsaaudio";
+      version = "0.10.0";
+      format = "setuptools";
+      src = pythonPackages.fetchPypi {
+        inherit pname version;
+	sha256 = "sha256-4hF1UAor0xCuOGfnmRY53vweKlySzxufcIMpazRnOKs=";
+      };
+      doCheck = false;
+      buildInputs = [ pkgs.alsa-lib ];
+    })
   ];
 in
 {

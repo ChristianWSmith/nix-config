@@ -205,7 +205,7 @@
 
 
 (deflisten volume-icon-path :initial "assets/blank.svg"
-  `scripts/get-volume-icon`)
+  `scripts/python-launcher get_volume_icon.py`)
 
 (defwidget volume []
   (box
