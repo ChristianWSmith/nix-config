@@ -8,6 +8,7 @@ import subprocess
 import os
 import psutil
 import alsaaudio
+import time
 
 PATH_ERROR = subprocess.check_output(['get-icon', 'system-error']).decode('utf-8')
 PATH_MUTED = subprocess.check_output(['get-icon', 'audio-volume-muted-symbolic']).decode('utf-8')
@@ -48,7 +49,13 @@ def writer(current_path, muted, volume):
         return current_path
 
 
-mixer = alsaaudio.Mixer()
+
+mixer = None
+while mixer is None:
+    try:
+        mixer = alsaaudio.Mixer()
+    except:
+        time.sleep(1)
 current_path = writer(PATH_ERROR, mixer.getmute()[0] == 1, mixer.getvolume()[0])
 Thread(target=runner, args={current_path,}).start()
 
