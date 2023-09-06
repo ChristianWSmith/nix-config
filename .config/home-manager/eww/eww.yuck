@@ -91,9 +91,6 @@
     )
   )
 
-(deflisten screen-recorder-icon-path :initial "assets/blank.svg"
-  `scripts/python-launcher get-screen-recorder-icon.py 1`)
-
 (defwidget screen-recorder []
   (box
     :orientation "v"
@@ -149,11 +146,6 @@
     )
   )
 
-(deflisten power-profile :initial ""
-  `scripts/python-launcher get-power-profile.py 1`)
-(deflisten power-profile-icon :initial "assets/blank.svg"
-  `scripts/python-launcher get-power-profile-icon.py 1`)
-
 (defwidget power-profile []
   (box
     :orientation "v"
@@ -175,9 +167,6 @@
     )
   )
 
-(deflisten cpu-usage :initial "-1%"
-  `scripts/python-launcher get-cpu-usage.py 1`)
-
 (defwidget cpu-usage []
   (box
     :orientation "v"
@@ -197,9 +186,6 @@
       )
     )
   )
-
-(deflisten network-icon-path :initial "assets/blank.svg"
-  `scripts/python-launcher get-network-icon.py 1`)
 
 (defwidget network []
   (box
@@ -244,11 +230,6 @@
       )
     )
   )
-
-(deflisten time :initial ""
-  `scripts/python-launcher get-time.py 1`)
-(deflisten date :initial ""
-  `scripts/python-launcher get-date.py 1`)
 
 (defwidget clock []
   (box
