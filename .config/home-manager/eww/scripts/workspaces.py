@@ -43,6 +43,7 @@ def writer(in_queue, workspaces, active_workspace):
 
 
 workspaces = set(str(workspace['id']) for workspace in json.loads(subprocess.check_output(['hyprctl', 'workspaces', '-j']).decode('utf-8')))
+workspaces = workspaces.intersection({'1', '2', '3', '4', '5', '6', '7'})
 active_workspace = str(json.loads(subprocess.check_output(['hyprctl', 'activeworkspace', '-j']).decode('utf-8'))['id'])
 in_out_queue = Queue()
 Thread(target=writer, args=(in_out_queue, workspaces, active_workspace,)).start()
