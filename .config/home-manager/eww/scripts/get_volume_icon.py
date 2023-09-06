@@ -1,29 +1,25 @@
 #!/usr/bin/env python
 
-import json
 from sys import stdout
-from queue import Queue
 from threading import Thread
-import subprocess
-import os
-import psutil
-import alsaaudio
-import time
+from subprocess import check_output, Popen, PIPE
+from alsaaudio import Mixer
+from time import sleep
 
-PATH_ERROR = subprocess.check_output(['get-icon', 'system-error']).decode('utf-8')
-PATH_MUTED = subprocess.check_output(['get-icon', 'audio-volume-muted-symbolic']).decode('utf-8')
-PATH_LOW = subprocess.check_output(['get-icon', 'audio-volume-low-symbolic']).decode('utf-8')
-PATH_MEDIUM = subprocess.check_output(['get-icon', 'audio-volume-medium-symbolic']).decode('utf-8')
-PATH_HIGH = subprocess.check_output(['get-icon', 'audio-volume-high-symbolic']).decode('utf-8')
+PATH_ERROR = check_output(['get-icon', 'system-error']).decode('utf-8')
+PATH_MUTED = check_output(['get-icon', 'audio-volume-muted-symbolic']).decode('utf-8')
+PATH_LOW = check_output(['get-icon', 'audio-volume-low-symbolic']).decode('utf-8')
+PATH_MEDIUM = check_output(['get-icon', 'audio-volume-medium-symbolic']).decode('utf-8')
+PATH_HIGH = check_output(['get-icon', 'audio-volume-high-symbolic']).decode('utf-8')
 
 
 def runner(current_path):
     command = ["pactl", "subscribe"]
-    proc = proc = subprocess.Popen(command ,stdout=subprocess.PIPE)
+    proc = proc = Popen(command ,stdout=PIPE)
     for line in iter(proc.stdout.readline, ''):
         line = line.rstrip().decode('utf-8')
         if line.split(' ')[1] == "'change'":
-            mixer = alsaaudio.Mixer()
+            mixer = Mixer()
             current_path = writer(current_path, mixer.getmute()[0] == 1, mixer.getvolume()[0])
 
 
@@ -53,9 +49,9 @@ def writer(current_path, muted, volume):
 mixer = None
 while mixer is None:
     try:
-        mixer = alsaaudio.Mixer()
+        mixer = Mixer()
     except:
-        time.sleep(1)
+        sleep(1)
 current_path = writer(PATH_ERROR, mixer.getmute()[0] == 1, mixer.getvolume()[0])
 Thread(target=runner, args={current_path,}).start()
 
