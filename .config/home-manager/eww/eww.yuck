@@ -1,22 +1,18 @@
 ; WORKSPACES
-(deflisten workspaces :initial "[]" "scripts/get-workspaces")
-(deflisten current_workspace :initial "1" "scripts/get-active-workspace")
+(deflisten workspaces :initial "[{'id': '1', 'active': true}]" 
+  `scripts/python-launcher workspaces.py`)
 (defwidget workspaces []
   (box 
     :space-evenly true   
     :orientation "vertical"
-    (label 
-      :text "${workspaces}${current_workspace}" 
-      :visible false
-      )
     (for workspace in workspaces
       (button
         :tooltip "Workspace ${workspace.id}"
         :class "bar-button"
-        :visible "${workspace.windows > 0 || workspace.id == current_workspace ?"true" : "false"}"        
+        ; :visible "${workspace.alive}"        
         :onclick "hyprctl dispatch workspace ${workspace.id}"
         (label 
-          :class "${workspace.id == current_workspace ? "workspace-current" : ""}"
+          :class "${workspace.active ? "workspace-current" : ""}"
           :height 23
           :width 36
           :valign "center"

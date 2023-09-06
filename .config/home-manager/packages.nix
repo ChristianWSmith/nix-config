@@ -5,17 +5,18 @@ let
     pygobject3
     xdg
     requests
-    (buildPythonPackage rec {
-      pname = "hyprland";
-      version = "0.2.53";
-      format = "pyproject";
-      src = fetchPypi {
-        inherit pname version;
-        sha256 = "sha256-Pykim94255i0swr1CUlOviS/dXkb5BhtYPDDOJaiP+U=";
-      };
-      doCheck = false;
-      propagatedBuildInputs = [ rich beautifulsoup4 ];
-    })
+    # TODO: SAVED AS AN EXAMPLE FOR MYSELF, ADD TO NOTES AND REMOVE FROM HERE
+    #(buildPythonPackage rec {
+    #  pname = "hyprland";
+    #  version = "0.2.53";
+    #  format = "pyproject";
+    #  src = fetchPypi {
+    #    inherit pname version;
+    #    sha256 = "sha256-Pykim94255i0swr1CUlOviS/dXkb5BhtYPDDOJaiP+U=";
+    #  };
+    #  doCheck = false;
+    #  propagatedBuildInputs = [ rich beautifulsoup4 ];
+    #})
   ];
 in
 {
