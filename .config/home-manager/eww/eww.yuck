@@ -1,5 +1,5 @@
 ; WORKSPACES
-(deflisten workspaces :initial "[{'id': '1', 'active': true}]" 
+(deflisten workspaces :initial "[]" 
   `scripts/python-launcher workspaces.py`)
 (defwidget workspaces []
   (box 

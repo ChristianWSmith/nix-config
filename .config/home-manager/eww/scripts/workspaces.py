@@ -22,9 +22,7 @@ def reader(out_queue):
             out_queue.put((REMOVE, line.replace("destroyworkspace>>", "")))
 
 
-def writer(in_queue):
-    workspaces = {'1'}
-    active_workspace = '1'
+def writer(in_queue, workspaces, active_workspace):
     
     while True:
         message = []
@@ -44,7 +42,9 @@ def writer(in_queue):
             workspaces.discard(workspace)
 
 
+workspaces = set(str(workspace['id']) for workspace in json.loads(subprocess.check_output(['hyprctl', 'workspaces', '-j']).decode('utf-8')))
+active_workspace = str(json.loads(subprocess.check_output(['hyprctl', 'activeworkspace', '-j']).decode('utf-8'))['id'])
 in_out_queue = Queue()
-Thread(target=writer, args={in_out_queue,}).start()
-Thread(target=reader, args={in_out_queue,}).start()
+Thread(target=writer, args=(in_out_queue, workspaces, active_workspace,)).start()
+Thread(target=reader, args=(in_out_queue,)).start()
 
