@@ -71,25 +71,6 @@
         "type": "github"
       }
     },
-    "gBar": {
-      "inputs": {
-        "flake-utils": "flake-utils_2",
-        "nixpkgs": "nixpkgs"
-      },
-      "locked": {
-        "lastModified": 1694100281,
-        "narHash": "sha256-im+yd3Iq3qKjFvY5dM3PFaa34R7cyB5SWqC+poIOMOA=",
-        "owner": "scorpion-26",
-        "repo": "gBar",
-        "rev": "0812c3680f054f5b1e2e92d58ff3e7befd0d0134",
-        "type": "github"
-      },
-      "original": {
-        "owner": "scorpion-26",
-        "repo": "gBar",
-        "type": "github"
-      }
-    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -179,7 +160,6 @@
     "root": {
       "inputs": {
         "firefox-addons": "firefox-addons",
-        "gBar": "gBar",
         "home-manager": "home-manager",
         "nixgl": "nixgl",
         "nixpkgs": "nixpkgs_3"

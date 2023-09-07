@@ -1,4 +1,4 @@
-{ config, pkgs, user, userHome, iconTheme, gBar, ... }:
+{ config, pkgs, user, userHome, iconTheme, ... }:
 {
   home.username = user;
   home.homeDirectory = userHome;
@@ -23,7 +23,6 @@
     ./browser.nix
     ./git.nix
     ./hitbox.nix
-    gBar.homeManagerModules.x86_64-linux.default 
   ];
 
   home.file = {
