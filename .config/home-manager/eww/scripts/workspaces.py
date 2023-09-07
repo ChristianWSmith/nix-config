@@ -15,7 +15,6 @@ for bind in BINDS:
     if bind["dispatcher"] == "workspace":
         WORKSPACES.append(bind["arg"])
 WORKSPACES.sort()
-print(WORKSPACES)
 
 def reader(out_queue):
     command = ["socat", "-u", f"UNIX-CONNECT:/tmp/hypr/{os.getenv('HYPRLAND_INSTANCE_SIGNATURE')}/.socket2.sock", "-"]
