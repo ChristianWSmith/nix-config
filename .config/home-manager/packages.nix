@@ -123,7 +123,7 @@ in
     inkscape 
     audacity 
     handbrake
-    libreoffice-fresh
+    onlyoffice-bin
     meld
     swappy
 
