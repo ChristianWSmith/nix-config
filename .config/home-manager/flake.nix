@@ -12,18 +12,22 @@
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    gBar.url = "github:scorpion-26/gBar";
   };
 
-  outputs = { nixpkgs, home-manager, nixgl, ... }@inputs:
+  outputs = { nixpkgs, home-manager, nixgl, gBar, ... }@inputs:
     let
       system = "x86_64-linux";
+
       user = "christian";
       userHome = "/home/${user}";
       userFullName = "Christian Smith";
       userEmail = "smith.christian.william@gmail.com";
+
       iconTheme = "WhiteSur-dark";
       font = "Noto Sans";
       fontMono = "Noto Sans Mono";
+
       pkgs = import nixpkgs {
         inherit system;
         overlays = [ nixgl.overlay ];
@@ -32,7 +36,7 @@
     in {
       homeConfigurations."${user}" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        extraSpecialArgs = { inherit inputs user userHome userEmail userFullName iconTheme font fontMono pkgs; };
+        extraSpecialArgs = { inherit inputs gBar user userHome userEmail userFullName iconTheme font fontMono pkgs; };
         modules = [ ./home.nix ];
       };
     };

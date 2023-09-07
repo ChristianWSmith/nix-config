@@ -34,8 +34,11 @@ in
     package = pkgs.vscodium;
   };
 
-  home.packages = with pkgs; [
+  programs.gBar = {
+    enable = true;
+  };
 
+  home.packages = with pkgs; [
 
     # Python
     (python3.withPackages my-python-packages)
