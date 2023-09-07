@@ -92,6 +92,7 @@ in
       source=${userHome}/.config/hypr/binds.conf
       source=${userHome}/.config/hypr/windowrules.conf
       source=${userHome}/.config/hypr/environment.conf
+      source=/etc/workspacebinds.conf
       source=/etc/display.conf
     '';
   };

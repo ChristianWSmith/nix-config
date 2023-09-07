@@ -12,7 +12,7 @@
         ; :visible "${workspace.alive}"        
         :onclick "hyprctl dispatch workspace ${workspace.id}"
         (label 
-          :class "${workspace.active ? "workspace-current" : ""}"
+          :class "${workspace.active ? "workspace-current" : ""} ${workspace.alive ? "" : "workspace-dead"}"
           :height 23
           :width 36
           :valign "center"

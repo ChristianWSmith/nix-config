@@ -9,6 +9,12 @@ import os
 
 ADD = '+'
 REMOVE = '-'
+WORKSPACES = []
+BINDS = json.loads(subprocess.check_output(['hyprctl', 'binds', '-j']).decode('utf-8'))
+for bind in BINDS:
+    if bind["dispatcher"] == "workspace":
+        WORKSPACES.append(bind["arg"])
+WORKSPACES.sort()
 
 
 def reader(out_queue):
@@ -22,30 +28,33 @@ def reader(out_queue):
             out_queue.put((REMOVE, line.replace("destroyworkspace>>", "")))
 
 
-def writer(in_queue, workspaces, active_workspace):
+def writer(in_queue, live_workspaces, active_workspace):
     
     while True:
         message = []
-        for workspace in sorted(list(workspaces)):
-            if workspace == active_workspace:
-                message.append({'id': workspace, 'active': True})
+        for workspace in WORKSPACES:
+            if workspace in live_workspaces:
+                if workspace == active_workspace:
+                    message.append({'id': workspace, 'active': True, 'alive': True})
+                else:
+                    message.append({'id': workspace, 'active': False, 'alive': True})
             else:
-                message.append({'id': workspace, 'active': False})
+                message.append({'id': workspace, 'active': False, 'alive': False})
         stdout.write(f"{json.dumps(message)}\n")
         stdout.flush()
         
         add_remove, workspace = in_queue.get()
         if add_remove == ADD:
-            workspaces.add(workspace)
+            live_workspaces.add(workspace)
             active_workspace = workspace
         elif add_remove == REMOVE:
-            workspaces.discard(workspace)
+            live_workspaces.discard(workspace)
 
 
-workspaces = set(str(workspace['id']) for workspace in json.loads(subprocess.check_output(['hyprctl', 'workspaces', '-j']).decode('utf-8')))
-workspaces = workspaces.intersection({'1', '2', '3', '4', '5', '6', '7'})
+live_workspaces = set(str(workspace['id']) for workspace in json.loads(subprocess.check_output(['hyprctl', 'workspaces', '-j']).decode('utf-8')))
+live_workspaces = live_workspaces.intersection(set(WORKSPACES))
 active_workspace = str(json.loads(subprocess.check_output(['hyprctl', 'activeworkspace', '-j']).decode('utf-8'))['id'])
 in_out_queue = Queue()
-Thread(target=writer, args=(in_out_queue, workspaces, active_workspace,)).start()
+Thread(target=writer, args=(in_out_queue, live_workspaces, active_workspace,)).start()
 Thread(target=reader, args=(in_out_queue,)).start()
 

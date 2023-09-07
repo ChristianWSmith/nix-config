@@ -26,7 +26,15 @@
   padding: 0 0 0 0;
   border-radius: 5px;
   background-color: rgba(255, 255, 255, 0.3);
-  font-size: 1.5em;
+  font-weight: bolder;
+}
+
+.workspace-dead {
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.3);
+  font-weight: lighter;
 }
 
 .clock-text {
