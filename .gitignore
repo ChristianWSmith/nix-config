@@ -28,3 +28,7 @@
 # gtklock 
 !.config/gtklock
 !.config/gtklock/**
+
+# Templates
+!Templates
+!Templates/**
