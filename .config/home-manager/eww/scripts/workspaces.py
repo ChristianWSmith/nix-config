@@ -14,7 +14,9 @@ BINDS = json.loads(subprocess.check_output(['hyprctl', 'binds', '-j']).decode('u
 for bind in BINDS:
     if bind["dispatcher"] == "workspace":
         WORKSPACES.append(bind["arg"])
+WORKSPACES = [int(workspace) for workspace in WORKSPACES]
 WORKSPACES.sort()
+WORKSPACES = [str(workspace) for workspace in WORKSPACES]
 
 def reader(out_queue):
     command = ["socat", "-u", f"UNIX-CONNECT:/tmp/hypr/{os.getenv('HYPRLAND_INSTANCE_SIGNATURE')}/.socket2.sock", "-"]
