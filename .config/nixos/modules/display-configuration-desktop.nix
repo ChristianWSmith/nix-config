@@ -31,9 +31,9 @@
         bind = $mainMod, 5, workspace, 5
         bind = $mainMod, 6, workspace, 6
         bind = $mainMod, 7, workspace, 7
-        bind = $mainMod, 8, workspace, 7
-        bind = $mainMod, 9, workspace, 7
-        bind = $mainMod, 10, workspace, 7
+        bind = $mainMod, 8, workspace, 8
+        bind = $mainMod, 9, workspace, 9
+        bind = $mainMod, 0, workspace, 10
 
         bind = $mainMod SHIFT, 1, movetoworkspace, 1
         bind = $mainMod SHIFT, 2, movetoworkspace, 2
@@ -44,7 +44,7 @@
         bind = $mainMod SHIFT, 7, movetoworkspace, 7
         bind = $mainMod SHIFT, 8, movetoworkspace, 8
         bind = $mainMod SHIFT, 9, movetoworkspace, 9
-        bind = $mainMod SHIFT, 10, movetoworkspace, 10
+        bind = $mainMod SHIFT, 0, movetoworkspace, 10
       '';
     };
   };
