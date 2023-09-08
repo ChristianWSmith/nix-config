@@ -21,9 +21,10 @@
 .config/hypr/hyprland.conf
 
 # Rofi
-!.config/rofi
-!.config/rofi/**
-.config/rofi/config.rasi
+!.config/wlogout
+!.config/wlogout/**
+.config/wlogout/layout
+.config/wlogout/style.css
 
 # gtklock 
 !.config/gtklock

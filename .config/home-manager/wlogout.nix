@@ -49,15 +49,15 @@ in
       }
 
       #lock {
-        background-image: image(url("${userHome}/.nix-profile/share/icons/${iconTheme}/actions/symbolic/system-lock-screen-symbolic.svg"));
+        background-image: image(url("${userHome}/.config/wlogout/icons/lock.png"));
       }
 
       #shutdown {
-        background-image: image(url("${userHome}/.nix-profile/share/icons/${iconTheme}/actions/symbolic/system-shutdown-symbolic.svg"));
+        background-image: image(url("${userHome}/.config/wlogout/icons/shutdown.png"));
       }
 
       #reboot {
-          background-image: image(url("${userHome}/.nix-profile/share/icons/${iconTheme}/actions/symbolic/system-reboot-symbolic.svg"));
+        background-image: image(url("${userHome}/.config/wlogout/icons/reboot.png"));
       }
     '';
   };
