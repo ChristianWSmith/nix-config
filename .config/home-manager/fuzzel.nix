@@ -33,7 +33,8 @@ in
 	text = "ffffffff";
 	match = "33ccffee";
 	selection = "33ccffee";
-        selection-text = "ffffffff";
+        selection-text = "000000ff";
+	selection-match = "ffffffff";
 	border = "33ccffee";
       };
       border = {
