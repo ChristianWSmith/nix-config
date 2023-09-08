@@ -17,12 +17,13 @@
     ./default_applications.nix
     ./theme.nix
     ./eww.nix
-    ./rofi.nix
     ./mako.nix
     ./trayer.nix
     ./browser.nix
     ./git.nix
     ./hitbox.nix
+    ./fuzzel.nix
+    ./wlogout.nix
   ];
 
   home.file = {
