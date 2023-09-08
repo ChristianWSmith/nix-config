@@ -1,6 +1,7 @@
 {
   stdenv,
   lib,
+  zip
 }: let
   version = "2023-09-07";
 in
@@ -8,10 +9,14 @@ in
     pname = "nixsur-plymouth-theme";
     inherit version;
 
+    nativeBuildInputs = [
+      zip
+    ];
+
     sourceRoot = ".";
 
     src = [
-      ./nixsur
+      ./nixsur.tar.gz
     ];
 
     unpackPhase = ''
@@ -23,6 +28,7 @@ in
 
     installPhase = ''
       mkdir -p $out/share/plymouth/themes
+      tar xzf ./nixsur.tar.gz
       cp -r ./nixsur $out/share/plymouth/themes/
       chmod +w $out/share/plymouth/themes/nixsur/nixsur.plymouth
       echo "ImageDir=$out/share/plymouth/themes/nixsur" >> $out/share/plymouth/themes/nixsur/nixsur.plymouth

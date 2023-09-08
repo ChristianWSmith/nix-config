@@ -1,7 +1,0 @@
-[Plymouth Theme]
-Name=nixsur
-Description=display nix sur
-Comment=created By Christian Smith (ChristianWSmith)
-ModuleName=script
-
-[script]
