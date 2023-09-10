@@ -22,10 +22,6 @@
       userFullName = "Christian Smith";
       userEmail = "smith.christian.william@gmail.com";
 
-      iconTheme = "WhiteSur-dark";
-      font = "Noto Sans";
-      fontMono = "Noto Sans Mono";
-
       pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
@@ -33,7 +29,7 @@
     in {
       homeConfigurations."${user}" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        extraSpecialArgs = { inherit inputs user userHome userEmail userFullName iconTheme font fontMono pkgs; };
+        extraSpecialArgs = { inherit inputs user userHome userEmail userFullName pkgs; };
         modules = [ ./home.nix ];
       };
     };

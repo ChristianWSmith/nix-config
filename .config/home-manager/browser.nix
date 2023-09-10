@@ -10,7 +10,6 @@
         inputs.firefox-addons.packages."x86_64-linux".new-tab-override
       ];
       settings = {
-        "browser.tabs.inTitlebar" = 0;
         "browser.toolbars.bookmarks.visibility" = "always";
         "browser.bookmarks.addedImportButton" = false;
         "browser.startup.firstrunSkipsHomepage" = false;

@@ -7,14 +7,12 @@
 
   imports = [
     #./packages.nix
-    #./environment.nix
+    ./environment.nix
     ./shell.nix
     ./editor.nix
-    #./terminal.nix
     #./gammastep.nix
-    #./default-applications.nix
-    #./theme.nix
-    #./browser.nix
+    # ./theme.nix
+    ./browser.nix
     ./git.nix
     #./hitbox.nix
   ];
