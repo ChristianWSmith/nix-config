@@ -6,28 +6,20 @@
   home.stateVersion = "22.11";
 
   imports = [
-    ./packages.nix
-    ./environment.nix
+    #./packages.nix
+    #./environment.nix
     ./shell.nix
     ./editor.nix
-    ./terminal.nix
-    ./btop.nix
-    ./hyprland.nix
-    ./gammastep.nix
-    ./default_applications.nix
-    ./theme.nix
-    ./eww.nix
-    ./mako.nix
-    ./trayer.nix
-    ./browser.nix
+    #./terminal.nix
+    #./gammastep.nix
+    #./default-applications.nix
+    #./theme.nix
+    #./browser.nix
     ./git.nix
-    ./hitbox.nix
-    ./fuzzel.nix
-    ./wlogout.nix
+    #./hitbox.nix
   ];
 
   home.file = {
-    ".wallpapers".source = files/wallpapers;
     ".hushlogin".text = "";
   };
 

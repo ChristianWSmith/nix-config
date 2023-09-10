@@ -27,13 +27,6 @@
     enable = true;
     interactiveShellInit = ''
       set fish_greeting
-      if test (tty) = /dev/tty1;
-        while test -f ~/.tty1-gui-only;
-          hyprland-launcher;
-        end;
-      else;
-        yafetch;
-      end;
     '';
     functions = {
       nixos-up = ''
@@ -76,11 +69,9 @@
       gp = "git push";
       gs = "git status";
       gd = "git diff \"$argv\"";
-      nt = "terminal & disown";
       chx = "chmod +x \"$argv\"";
+      chw = "chmod +w \"$argv\"";
       nix-goto = "cd $(dirname $(readlink -f $(which $argv)))";
-      poweroff = "systemctl poweroff --no-wall";
-      reboot = "systemctl reboot -i --no-wall";
       bash = "BASH_BYPASS=1 /${pkgs.bashInteractive}/bin/bash";
     };
   };
