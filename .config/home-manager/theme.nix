@@ -1,8 +1,8 @@
-{ pkgs, userHome, iconTheme, theme, font, ... }:
+{ pkgs, ... }:
 {
   home.pointerCursor = {
-    package = pkgs.capitaine-cursors;
-    name = "capitaine-cursors";
+    package = pkgs.gnome.adwaita-icon-theme;
+    name = "Adwaita";
     size = 40;
     gtk.enable = true;
     x11 = {
@@ -13,15 +13,15 @@
   fonts.fontconfig.enable = true;
   gtk.enable = true;
   gtk.font = {
-    package = pkgs.noto-fonts;
-    name = "${font}";
+    package = pkgs.cantarell-fonts;
+    name = "Cantarell";
     size = 11;
   };
-  gtk.theme.package = pkgs.whitesur-gtk-theme;
-  gtk.theme.name = theme;
-  gtk.iconTheme.package = pkgs.whitesur-icon-theme;
-  gtk.iconTheme.name = iconTheme;
+  gtk.theme.package = pkgs.adw-gtk3;
+  gtk.theme.name = "adw-gtk3-dark";
+  gtk.iconTheme.package = pkgs.gnome.adwaita-icon-theme;
+  gtk.iconTheme.name = "Adwaita";
   qt.enable = true;
   qt.platformTheme = "gtk";
-  qt.style.name = theme;
+  qt.style.name = "adwaita-dark";
 }
