@@ -33,6 +33,7 @@ in
     enable = true;
     package = pkgs.vscodium;
   };
+  programs.chromium.enable = true;
 
   home.packages = with pkgs; [
 
