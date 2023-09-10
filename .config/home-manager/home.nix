@@ -1,4 +1,4 @@
-{ config, pkgs, user, userHome, lib, ... }:
+{ user, userHome, ... }:
 {
   home.username = user;
   home.homeDirectory = userHome;
@@ -10,6 +10,7 @@
     ./environment.nix
     ./shell.nix
     ./theme.nix
+    ./dconf.nix
     ./hitbox.nix
   ];
 
