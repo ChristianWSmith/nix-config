@@ -1,10 +1,11 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
+    gnome-extension-manager
     gnomeExtensions.just-perfection
   ];
   dconf.settings = {
-    "org/gnome/shel" = {
+    "org/gnome/shell" = {
       disable-user-extensions = false;
       enabled-extensions = [];
     };
@@ -26,6 +27,7 @@
     "org/gnome/mutter" = {
       dynamic-workspaces = true;
       workspaces-only-on-primary = true;
+      edge-tiling = true;
     };
     "org/gnome/desktop/session" = {
       idle-delay = 0;
@@ -36,6 +38,9 @@
     "org/gnome/settings-daemon/plugins/power" = {
       sleep-inactive-ac-type = "nothing";
       power-button-action = "nothing";
+      sleep-inactive-battery-type = "nothing";
+      power-saver-profile-on-low-battery = false;
+      idle-dim = false;
     };
     "org/gnome/system/location" = {
       enabled = true;

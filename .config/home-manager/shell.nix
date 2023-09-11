@@ -29,6 +29,10 @@
         home-manager switch -b backup --impure
         popd
       '';
+      full-up = ''
+        nixos-up "$argv"
+	nix-up "$argv"
+      '';
       nixos-gc = ''
         sudo nix-collect-garbage
         sudo nix-collect-garbage -d
