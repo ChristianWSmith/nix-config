@@ -3,16 +3,16 @@
   gtk = {
     enable = true;
     iconTheme = {
-      package = pkgs.gnome.adwaita-icon-theme;
-      name = "Adwaita";
+      package = pkgs.gnome.adwaita-icon-theme; # pkgs.whitesur-icon-theme;
+      name = "Adwaita"; # "WhiteSur-dark";
     };
     theme = {
-      package = pkgs.adw-gtk3;
-      name = "adw-gtk3-dark";
+      package = pkgs.adw-gtk3; # pkgs.whitesur-gtk-theme;
+      name = "adw-gtk3-dark"; # "WhiteSur-Dark";
     };
     cursorTheme = {
-      package = pkgs.gnome.adwaita-icon-theme;
-      name = "Adwaita";
+      package = pkgs.gnome.adwaita-icon-theme; # pkgs.capitaine-cursors;
+      name = "Adwaita"; # "capitaine-cursors";
       size = 40;
     };
     gtk3.extraConfig = {
@@ -26,8 +26,8 @@
       '';
     };
     font = {
-      package = pkgs.cantarell-fonts;
-      name = "Cantarell";
+      package = pkgs.cantarell-fonts; # pkgs.noto-fonts;
+      name = "Cantarell"; # "Noto Sans";
       size = 11;
     };
   };
