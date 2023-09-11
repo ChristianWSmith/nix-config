@@ -1,5 +1,13 @@
+{ pkgs, ... }:
 {
+  home.packages = with pkgs; [
+    gnomeExtensions.just-perfection
+  ];
   dconf.settings = {
+    "org/gnome/shel" = {
+      disable-user-extensions = false;
+      enabled-extensions = [];
+    };
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
       enable-hot-corners = false;
