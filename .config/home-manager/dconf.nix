@@ -7,11 +7,14 @@
   dconf.settings = {
     "org/gnome/shell" = {
       disable-user-extensions = false;
-      enabled-extensions = [];
+      enabled-extensions = [
+        "just-perfection-desktop@just-perfection"
+      ];
     };
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
       enable-hot-corners = false;
+      enable-animations = true;
     };
     "org/gnome/shell" = {
       favorite-apps = [
