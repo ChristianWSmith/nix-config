@@ -45,6 +45,7 @@
     };
     "org/gnome/shell/extensions/quick-settings-tweaks" = {
       user-removed-buttons = [ "DarkModeToggle" ];
+      input-always-show = true;
     };
     "org/gnome/shell/extensions/just-perfection" = {
       window-demands-attention-focus = true;
