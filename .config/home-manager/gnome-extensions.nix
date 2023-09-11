@@ -28,6 +28,9 @@
         "trayIconsReloaded@selfmade.pl"
         ];
     };
+    "org/gnome/shell/extensions/blur-my-shell/panel" = {
+      static-blur = true;
+    };
     "/org/gnome/shell/extensions/trayIconsReloaded" = {
       applications = ''[{"id":"discord.desktop","hidden":true}]'';
     };
