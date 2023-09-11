@@ -7,36 +7,32 @@
     '';
     functions = {
       nixos-up = ''
-        if ! test "$argv"
-	  echo "Usage: nixos-up <machine_profile> (flake)"
-	  return
-	end
         sudo nix-channel --update
-	cp -r ${userHome}/.config/nixos /tmp
-	if test "$argv[2]" = "flake"
-	  echo "updating flake.lock..."
+        cp -r ${userHome}/.config/nixos /tmp
+        if test "$argv[1]" = "flake"
+        echo "updating flake.lock..."
           nix flake update /tmp/nixos/
-	end
-	sudo nixos-rebuild switch --flake /tmp/nixos/#$argv[1]
-	if test "$argv[2]" = "flake"
+        end
+        sudo nixos-rebuild switch --flake /tmp/nixos/#default
+        if test "$argv[1]" = "flake"
           cp /tmp/nixos/flake.lock ${userHome}/.config/nixos/flake.lock
-	end
-	rm -rf /tmp/nixos
+        end
+        rm -rf /tmp/nixos
       '';
       nix-up = ''
         if test "$argv[1]" = "flake"
-	  echo "updating flake.lock..."
+          echo "updating flake.lock..."
           nix flake update ${userHome}/.config/home-manager/
-	end
+        end
         pushd $(pwd)
-	nix-channel --update
-	home-manager switch -b backup --impure
-	popd
+        nix-channel --update
+        home-manager switch -b backup --impure
+        popd
       '';
       nixos-gc = ''
         sudo nix-collect-garbage
-	sudo nix-collect-garbage -d
-	sudo /run/current-system/bin/switch-to-configuration boot
+        sudo nix-collect-garbage -d
+        sudo /run/current-system/bin/switch-to-configuration boot
       '';
       nix-gc = "nix-collect-garbage -d";
       full-gc = "nixos-gc && nix-gc";
