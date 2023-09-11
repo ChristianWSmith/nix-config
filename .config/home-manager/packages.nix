@@ -52,6 +52,7 @@
     # GUI Tools
     ffmpegthumbnailer
     gamescope
+    dconf2nix
 
     # Media
     vlc

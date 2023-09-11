@@ -53,7 +53,6 @@
         "org.gnome.Characters.desktop"
         "org.gnome.clocks.desktop"
         "org.gnome.seahorse.Application.desktop"
-        "org.gnome.Settings.desktop"
       ];
     };
     "org/gnome/desktop/wm/keybindings" = {
@@ -66,6 +65,7 @@
       switch-to-workspace-3 = [ "<Super>3" ];
       switch-to-workspace-4 = [ "<Super>4" ];
       close = [ "<Shift><Super>q" ];
+      toggle-fullscreen = [ "<Super>f" ];
     };
     "org/gnome/shell/keybindings" = {
       switch-to-application-1 = [];

@@ -4,6 +4,7 @@
     enable = true;
     interactiveShellInit = ''
       set fish_greeting
+      yafetch
     '';
     functions = {
       nixos-up = ''
