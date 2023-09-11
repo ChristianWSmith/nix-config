@@ -20,9 +20,12 @@
         ];
     };
     "org/gnome/mutter" = {
-      dynamic-workspaces = true;
+      dynamic-workspaces = false;
       workspaces-only-on-primary = true;
       edge-tiling = true;
+    };
+    "org/gnome/desktop/wm/preferences" = {
+      num-workspaces = 4;
     };
     "org/gnome/desktop/session" = {
       idle-delay = lib.hm.gvariant.mkUint32 0;
@@ -42,6 +45,16 @@
     };
     "org/gnome/desktop/datetime" = {
       automatic-timezone = true;
+    };
+    "org/gnome/desktop/search-providers" = {
+      disabled = [
+        "org.gnome.Nautilus.desktop"
+	"org.gnome.Calculator.desktop"
+	"org.gnome.Characters.desktop"
+	"org.gnome.clocks.desktop"
+	"org.gnome.seahorse.Application.desktop"
+	"org.gnome.Settings.desktop"
+      ];
     };
   };
 }

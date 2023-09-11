@@ -24,12 +24,12 @@
     };
     "org/gnome/shell/extensions/just-perfection" = {
       window-demands-attention-focus = true;
-      workspace-switcher-size = 15;
       search = false;
       panel-size = 28;
       activities-button-icon-path = "file://${userHome}/.assets/nixos-icon.svg";
       activities-button-label = true;
       workspace-popup = false;
+      workspaces-in-app-grid = false;
     };
     "org/gnome/shell/extensions/pano" = {
       send-notification-on-copy = false;
