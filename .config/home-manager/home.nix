@@ -10,7 +10,8 @@
     ./environment.nix
     ./shell.nix
     ./theme.nix
-    ./dconf.nix
+    ./gnome-base.nix
+    ./gnome-extensions.nix
     ./hitbox.nix
   ];
 

@@ -1,16 +1,6 @@
-{ pkgs, lib, ... }:
+{ lib, ... }:
 {
-  home.packages = with pkgs; [
-    gnome-extension-manager
-    gnomeExtensions.just-perfection
-  ];
   dconf.settings = {
-    "org/gnome/shell" = {
-      disable-user-extensions = false;
-      enabled-extensions = [
-        "just-perfection-desktop@just-perfection"
-      ];
-    };
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
       enable-hot-corners = false;
