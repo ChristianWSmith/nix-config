@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   home.packages = with pkgs; [
     gnome-extension-manager
@@ -30,7 +30,7 @@
       edge-tiling = true;
     };
     "org/gnome/desktop/session" = {
-      idle-delay = 0;
+      idle-delay = lib.hm.gvariant.mkUint32 0;
     };
     "org/gnome/desktop/screensaver" = {
       lock-enabled = false;
