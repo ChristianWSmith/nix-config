@@ -3,6 +3,7 @@
   home.packages = with pkgs; [
     gnome-extension-manager
     gnomeExtensions.just-perfection
+    gnomeExtensions.gnome-40-ui-improvements
     gnomeExtensions.blur-my-shell
     gnomeExtensions.tray-icons-reloaded
     gnomeExtensions.advanced-alttab-window-switcher
@@ -14,11 +15,11 @@
       enabled-extensions = [
         "just-perfection-desktop@just-perfection" 
         "blur-my-shell@aunetx" 
+        "gnome-ui-tune@itstime.tech"
+        "pano@elhan.io"
+        "advanced-alt-tab@G-dH.github.com"
         "drive-menu@gnome-shell-extensions.gcampax.github.com" 
         "trayIconsReloaded@selfmade.pl"
-        "pano@elhan.io"
-        "color-picker@tuberry"
-        "advanced-alt-tab@G-dH.github.com"
         ];
     };
     "org/gnome/shell/extensions/just-perfection" = {
@@ -26,8 +27,8 @@
       workspace-switcher-size = 15;
       search = false;
       panel-size = 28;
-      activities-button-icon-path = "${userHome}/.assets/nixos-icon.svg";
-      activities-button-label = false;
+      activities-button-icon-path = "file://${userHome}/.assets/nixos-icon.svg";
+      activities-button-label = true;
       workspace-popup = false;
     };
     "org/gnome/shell/extensions/pano" = {
@@ -39,6 +40,9 @@
       switcher-popup-ext-app-favorites = false;
       app-switcher-popup-fav-apps = false;
       app-switcher-popup-include-show-apps-icon = false;
+    };
+    "org/gnome/shell/extensions/gnome-ui-tune" = {
+      increase-thumbnails-size = "300%";
     };
   };
 }
