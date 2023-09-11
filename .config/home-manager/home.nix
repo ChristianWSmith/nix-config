@@ -16,6 +16,7 @@
   ];
 
   home.file = {
+    ".assets".source = ./files/assets;
     ".hushlogin".text = "";
   };
 

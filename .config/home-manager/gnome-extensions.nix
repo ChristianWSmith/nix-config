@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, userHome, ... }:
 {
   home.packages = with pkgs; [
     gnome-extension-manager
@@ -17,6 +17,8 @@
         "drive-menu@gnome-shell-extensions.gcampax.github.com" 
         "trayIconsReloaded@selfmade.pl"
         "pano@elhan.io"
+        "color-picker@tuberry"
+        "advanced-alt-tab@G-dH.github.com"
         ];
     };
     "org/gnome/shell/extensions/just-perfection" = {
@@ -24,10 +26,19 @@
       workspace-switcher-size = 15;
       search = false;
       panel-size = 28;
+      activities-button-icon-path = "${userHome}/.assets/nixos-icon.svg";
+      activities-button-label = false;
+      workspace-popup = false;
     };
     "org/gnome/shell/extensions/pano" = {
       send-notification-on-copy = false;
       play-audio-on-copy = false;
+    };
+    "org/gnome/shell/extensions/advanced-alt-tab-window-switcher" = {
+      hot-edge-position = 0;
+      switcher-popup-ext-app-favorites = false;
+      app-switcher-popup-fav-apps = false;
+      app-switcher-popup-include-show-apps-icon = false;
     };
   };
 }
