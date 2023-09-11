@@ -5,6 +5,7 @@
       color-scheme = "prefer-dark";
       enable-hot-corners = false;
       enable-animations = true;
+      clock-format = "12h";
     };
     "org/gnome/shell" = {
       favorite-apps = [
@@ -12,6 +13,7 @@
         "thunderbird.desktop"
         "discord.desktop"
         "steam.desktop"
+        "codium.desktop"
         "org.gnome.Console.desktop"
         "gnome-system-monitor.desktop"
         "org.gnome.Nautilus.desktop"
@@ -40,9 +42,6 @@
     };
     "org/gnome/desktop/datetime" = {
       automatic-timezone = true;
-    };
-    "org/gtk/settings/file-chooser" = {
-      clock-format = "12h";
     };
   };
 }

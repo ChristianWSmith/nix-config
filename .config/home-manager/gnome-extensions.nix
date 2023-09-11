@@ -16,6 +16,7 @@
         "blur-my-shell@aunetx" 
         "drive-menu@gnome-shell-extensions.gcampax.github.com" 
         "trayIconsReloaded@selfmade.pl"
+        "pano@elhan.io"
         ];
     };
     "org/gnome/shell/extensions/just-perfection" = {
@@ -23,6 +24,10 @@
       workspace-switcher-size = 15;
       search = false;
       panel-size = 28;
+    };
+    "org/gnome/shell/extensions/pano" = {
+      send-notification-on-copy = false;
+      play-audio-on-copy = false;
     };
   };
 }
