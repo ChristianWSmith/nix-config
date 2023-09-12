@@ -31,7 +31,7 @@
     "org/gnome/shell/extensions/blur-my-shell/panel" = {
       static-blur = true;
     };
-    "/org/gnome/shell/extensions/trayIconsReloaded" = {
+    "org/gnome/shell/extensions/trayIconsReloaded" = {
       applications = ''[{"id":"discord.desktop","hidden":true}]'';
     };
     "org/gnome/shell/extensions/rounded-window-corners" = {

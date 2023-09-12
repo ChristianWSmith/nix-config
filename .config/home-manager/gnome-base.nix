@@ -94,5 +94,25 @@
       binding = "<Super>b";
       name = "System Monitor";
     };
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4" = {
+      command = "dbus-send --session --type=method_call --print-reply --dest=org.gnome.SessionManager /org/gnome/SessionManager org.gnome.SessionManager.Shutdown";
+      binding = "<Shift><Super>e";
+      name = "Shutdown";
+    };
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5" = {
+      command = "dbus-send --session --type=method_call --print-reply --dest=org.gnome.SessionManager /org/gnome/SessionManager org.gnome.SessionManager.Reboot";
+      binding = "<Shift><Super>r";
+      name = "Reboot";
+    };
+    "org/gnome/settings-daemon/plugins/media-keys" = {
+      custom-keybindings = [ 
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/" 
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/" 
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/" 
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/"
+         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/"
+         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/"
+      ];
+    };
   };
 }
