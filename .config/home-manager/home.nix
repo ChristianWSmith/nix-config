@@ -1,7 +1,7 @@
-{ config, pkgs, user, userHome, iconTheme, ... }:
+{ user, ... }:
 {
-  home.username = user;
-  home.homeDirectory = userHome;
+  home.username = user.name;
+  home.homeDirectory = user.home;
 
   home.stateVersion = "22.11";
 
@@ -9,25 +9,14 @@
     ./packages.nix
     ./environment.nix
     ./shell.nix
-    ./editor.nix
-    ./terminal.nix
-    ./btop.nix
-    ./hyprland.nix
-    ./gammastep.nix
-    ./default_applications.nix
     ./theme.nix
-    ./eww.nix
-    ./mako.nix
-    ./trayer.nix
-    ./browser.nix
-    ./git.nix
+    ./gnome-base.nix
+    ./gnome-extensions.nix
     ./hitbox.nix
-    ./fuzzel.nix
-    ./wlogout.nix
   ];
 
   home.file = {
-    ".wallpapers".source = files/wallpapers;
+    ".assets".source = ./files/assets;
     ".hushlogin".text = "";
   };
 

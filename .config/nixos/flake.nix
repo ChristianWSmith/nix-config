@@ -17,22 +17,10 @@
     nixosConfigurations = {
       default = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit system; };
-	modules = [
-          ./default-configuration.nix
-	];
+	      modules = [
+          ./configuration.nix
+	      ];
       }; 
-      desktop = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit system; };
-	modules = [
-          ./desktop-configuration.nix
-	];
-      };
-      laptop = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit system; };
-	modules = [
-          ./laptop-configuration.nix
-	];
-      };
     };
   };
 }
