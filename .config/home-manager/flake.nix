@@ -7,35 +7,44 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixgl.url = "github:guibou/nixGL";
     firefox-addons = {
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { nixpkgs, home-manager, nixgl, ... }@inputs:
+  outputs = { nixpkgs, home-manager, ... }@inputs:
     let
       system = "x86_64-linux";
 
-      user = "christian";
-      userHome = "/home/${user}";
-      userFullName = "Christian Smith";
-      userEmail = "smith.christian.william@gmail.com";
+      user = {
+        name = "christian";
+        home = "/home/christian";
+        fullName = "Christian Smith";
+        email = "smith.christian.william@gmail.com";
+      };
 
-      iconTheme = "WhiteSur-dark";
-      font = "Noto Sans";
-      fontMono = "Noto Sans Mono";
+      theme = {
+        themePackage = pkgs.nordic;
+        themeName = "Nordic-darker";
+        iconThemePackage = pkgs.nordzy-icon-theme;
+        iconThemeName = "Nordzy-dark";
+        cursorThemePackage = pkgs.capitaine-cursors-themed;
+        cursorThemeName = "Capitaine Cursors (Palenight)";
+        cursorSize = 40;
+        fontPackage = pkgs.cantarell-fonts;
+        fontName = "Cantarell";
+        fontSize = 11;
+      };
 
       pkgs = import nixpkgs {
         inherit system;
-        overlays = [ nixgl.overlay ];
         config.allowUnfree = true;
       };
     in {
-      homeConfigurations."${user}" = home-manager.lib.homeManagerConfiguration {
+      homeConfigurations."${user.name}" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        extraSpecialArgs = { inherit inputs user userHome userEmail userFullName iconTheme font fontMono pkgs; };
+        extraSpecialArgs = { inherit inputs user theme pkgs; };
         modules = [ ./home.nix ];
       };
     };

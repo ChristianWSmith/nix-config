@@ -9,26 +9,9 @@
 !.config
 !.config/home-manager
 !.config/home-manager/**
-.config/home-manager/files/wallpapers/*
-!.config/home-manager/files/wallpapers/default.jpg
-.config/home-manager/eww/scripts/__pycache__
 !.config/nixos
 !.config/nixos/**
-
-# Hyprland
-!.config/hypr
-!.config/hypr/**
-.config/hypr/hyprland.conf
-
-# Rofi
-!.config/wlogout
-!.config/wlogout/**
-.config/wlogout/layout
-.config/wlogout/style.css
-
-# gtklock 
-!.config/gtklock
-!.config/gtklock/**
+.config/nixos/hardware.nix
 
 # Templates
 !Templates
