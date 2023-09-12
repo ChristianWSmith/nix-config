@@ -56,6 +56,7 @@
       input-always-show = true;
     };
     "org/gnome/shell/extensions/just-perfection" = {
+      window-preview-caption = false;
       activities-button-icon-monochrome = true;
       window-demands-attention-focus = true;
       search = false;

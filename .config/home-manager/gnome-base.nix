@@ -30,6 +30,7 @@
       edge-tiling = true;
     };
     "org/gnome/desktop/wm/preferences" = {
+      focus-mode = "sloppy";
       button-layout = "close,minimize,maximize:appmenu'";
       num-workspaces = 4;
       resize-with-right-button = true;
