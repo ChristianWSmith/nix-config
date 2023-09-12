@@ -33,7 +33,10 @@
   programs.vscode = {
     enable = true;
     package = pkgs.vscodium;
-    extensions = [ pkgs.vscode-extensions.bbenoist.nix ];
+    extensions = [ 
+      pkgs.vscode-extensions.bbenoist.nix 
+      pkgs.vscode-extensions.arcticicestudio.nord-visual-studio-code
+    ];
   };
   programs.chromium.enable = true;
 
