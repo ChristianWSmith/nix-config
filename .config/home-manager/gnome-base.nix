@@ -1,10 +1,13 @@
-{ lib, user, ... }:
+{ lib, user, theme, ... }:
 {
   dconf.settings = {
     "org/gnome/desktop/sound" = {
       allow-volume-above-100-percent = true;
     };
     "org/gnome/desktop/interface" = {
+      font-name = ''${theme.fontName} ${builtins.toString theme.fontSize}'';
+      monospace-font-name = ''${theme.monoFontName} ${builtins.toString theme.monoFontSize}'';
+      document-font-name = ''${theme.fontName} ${builtins.toString theme.fontSize}'';
       color-scheme = "prefer-dark";
       enable-hot-corners = false;
       enable-animations = true;
@@ -30,6 +33,7 @@
       edge-tiling = true;
     };
     "org/gnome/desktop/wm/preferences" = {
+      titlebar-font = ''${theme.fontName} Bold ${builtins.toString theme.fontSize}'';
       focus-mode = "sloppy";
       button-layout = "close,minimize,maximize:appmenu'";
       num-workspaces = 4;

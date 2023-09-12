@@ -32,9 +32,12 @@
         cursorThemePackage = pkgs.capitaine-cursors-themed;
         cursorThemeName = "Capitaine Cursors (Palenight)";
         cursorSize = 40;
-        fontPackage = pkgs.cantarell-fonts;
-        fontName = "Cantarell";
+        fontPackage = pkgs.rubik;
+        fontName = "Rubik";
         fontSize = 11;
+        monoFontPackage = pkgs.source-code-pro;
+        monoFontName = "Source Code Pro";
+        monoFontSize = 10;
       };
 
       pkgs = import nixpkgs {

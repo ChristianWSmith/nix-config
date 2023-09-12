@@ -1,4 +1,4 @@
-{ pkgs, inputs, user, ... }:
+{ pkgs, inputs, user, theme, ... }:
 {
   programs.firefox = {
     enable = true;
@@ -37,10 +37,23 @@
       pkgs.vscode-extensions.bbenoist.nix 
       pkgs.vscode-extensions.arcticicestudio.nord-visual-studio-code
     ];
+    userSettings = {
+      "workbench.colorTheme" = "Nord";
+      "editor.fontFamily" = "'${theme.monoFontName}', 'monospace', monospace";
+      "editor.fontLigatures" = false;
+      "editor.fontSize" = builtins.floor theme.monoFontSize * 16 / 12;
+    };
   };
   programs.chromium.enable = true;
 
   home.packages = with pkgs; [
+    # Theme Packages (possible overkill)
+    theme.themePackage
+    theme.iconThemePackage
+    theme.cursorThemePackage
+    theme.fontPackage
+    theme.monoFontPackage
+
     # Shells
     bashInteractive
 
