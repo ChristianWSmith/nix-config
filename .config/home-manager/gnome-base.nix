@@ -66,6 +66,10 @@
       switch-to-workspace-4 = [ "<Super>4" ];
       close = [ "<Shift><Super>q" ];
       toggle-fullscreen = [ "<Super>f" ];
+      move-to-monitor-up = [ "<Shift><Super>i" ];
+      move-to-monitor-down = [ "<Shift><Super>k" ];
+      move-to-monitor-left = [ "<Shift><Super>j" ];
+      move-to-monitor-right = [ "<Shift><Super>l" ];
     };
     "org/gnome/shell/keybindings" = {
       switch-to-application-1 = [];
