@@ -1,7 +1,7 @@
-{ user, userHome, ... }:
+{ user, ... }:
 {
-  home.username = user;
-  home.homeDirectory = userHome;
+  home.username = user.name;
+  home.homeDirectory = user.home;
 
   home.stateVersion = "22.11";
 

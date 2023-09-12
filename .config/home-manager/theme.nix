@@ -1,19 +1,19 @@
-{ pkgs, ... }:
+{ pkgs, theme, ... }:
 {
   gtk = {
     enable = true;
     iconTheme = {
-      package = pkgs.nordzy-icon-theme;
-      name = "Nordzy";
+      package = theme.iconThemePackage;
+      name = theme.iconThemeName;
     };
     theme = {
-      package = pkgs.nordic;
-      name = "Nordic";
+      package = theme.themePackage;
+      name = theme.themeName;
     };
     cursorTheme = {
-      package = pkgs.capitaine-cursors-themed;
-      name = "Capitaine Cursors (Nord)";
-      size = 40;
+      package = theme.cursorThemePackage;
+      name = theme.cursorThemeName;
+      size = theme.cursorSize;
     };
     gtk3.extraConfig = {
       Settings = ''
@@ -26,9 +26,9 @@
       '';
     };
     font = {
-      package = pkgs.cantarell-fonts;
-      name = "Cantarell";
-      size = 11;
+      package = theme.fontPackage;
+      name = theme.fontName;
+      size = theme.fontSize;
     };
   };
 
@@ -37,5 +37,5 @@
     platformTheme = "gtk";
   };
 
-  home.sessionVariables.GTK_THEME = "Nordic";
+  home.sessionVariables.GTK_THEME = theme.themeName;
 }

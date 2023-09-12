@@ -1,9 +1,6 @@
-{ lib, ... }:
+{ lib, user, ... }:
 {
   dconf.settings = {
-    "org/gnome/desktop/background" = {
-      # picture-uri = ""; # TODO: SVG BACKGROUND
-    };
     "org/gnome/desktop/sound" = {
       allow-volume-above-100-percent = true;
     };
@@ -40,7 +37,11 @@
     "org/gnome/desktop/session" = {
       idle-delay = lib.hm.gvariant.mkUint32 0;
     };
+    "org/gnome/desktop/background" = {
+      picture-uri = "file://${user.home}/.assets/wallpaper.jpg";
+    };
     "org/gnome/desktop/screensaver" = {
+      picture-uri = "file://${user.home}/.assets/wallpaper.jpg";
       lock-enabled = false;
     };
     "org/gnome/settings-daemon/plugins/power" = {

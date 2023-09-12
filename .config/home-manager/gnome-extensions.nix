@@ -1,4 +1,4 @@
-{ pkgs, lib, userHome, ... }:
+{ pkgs, lib, user, theme, ... }:
 {
   home.packages = with pkgs; [
     gnome-extension-manager
@@ -32,15 +32,7 @@
         ];
     };
     "org/gnome/shell/extensions/user-theme" = {
-      # name = ""; # Default
-      name = "Nordic";
-      # name = "Nordic-bluish-accent";
-      # name = "Nordic-bluish-accent-standard-buttons";
-      # name = "Nordic-darker";
-      # name = "Nordic-darker-standard-buttons";
-      # name = "Nordic-Polar";
-      # name = "Nordic-Polar-standard-buttons";
-      # name = "Nordic-standard-buttons";
+      name = theme.themeName;
     };
     "org/gnome/shell/extensions/blur-my-shell/panel" = {
       static-blur = true;
@@ -64,11 +56,11 @@
       input-always-show = true;
     };
     "org/gnome/shell/extensions/just-perfection" = {
-      activities-button-icon-monochrome = false;
+      activities-button-icon-monochrome = true;
       window-demands-attention-focus = true;
       search = false;
       panel-size = 28;
-      activities-button-icon-path = "file://${userHome}/.assets/nixos-icon.svg";
+      activities-button-icon-path = "file://${user.home}/.assets/nixos-icon-white.svg";
       activities-button-label = true;
       workspace-popup = false;
       workspaces-in-app-grid = false;

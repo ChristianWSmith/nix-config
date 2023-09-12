@@ -1,8 +1,8 @@
-{ pkgs, inputs, user, userHome, userFullName, userEmail, ... }:
+{ pkgs, inputs, user, ... }:
 {
   programs.firefox = {
     enable = true;
-    profiles."${user}" = {
+    profiles."${user.name}" = {
       extensions = [
         inputs.firefox-addons.packages."x86_64-linux".ublock-origin
         inputs.firefox-addons.packages."x86_64-linux".darkreader
@@ -14,8 +14,8 @@
 
   programs.git = {
     enable = true;
-    userEmail = userEmail;
-    userName = userFullName;
+    userEmail = user.email;
+    userName = user.fullName;
   };
 
   programs.neovim = {
@@ -27,7 +27,7 @@
 
   programs.thunderbird = {
     enable = true;
-    profiles."${userEmail}".isDefault = true;
+    profiles."${user.email}".isDefault = true;
   };
 
   programs.vscode = {
