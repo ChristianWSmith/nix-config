@@ -2,6 +2,7 @@
 {
   home.packages = with pkgs; [
     gnome-extension-manager
+    gnome.gnome-tweaks
     gnomeExtensions.just-perfection
     gnomeExtensions.gnome-40-ui-improvements
     gnomeExtensions.blur-my-shell
@@ -11,6 +12,7 @@
     gnomeExtensions.gtile
     gnomeExtensions.rounded-window-corners
     gnomeExtensions.quick-settings-tweaker
+    gnomeExtensions.custom-accent-colors
   ];
   dconf.settings = {
     "org/gnome/shell" = {
@@ -30,7 +32,15 @@
         ];
     };
     "org/gnome/shell/extensions/user-theme" = {
-      name = ""; # Default
+      # name = ""; # Default
+      name = "Nordic";
+      # name = "Nordic-bluish-accent";
+      # name = "Nordic-bluish-accent-standard-buttons";
+      # name = "Nordic-darker";
+      # name = "Nordic-darker-standard-buttons";
+      # name = "Nordic-Polar";
+      # name = "Nordic-Polar-standard-buttons";
+      # name = "Nordic-standard-buttons";
     };
     "org/gnome/shell/extensions/blur-my-shell/panel" = {
       static-blur = true;
@@ -39,9 +49,11 @@
       applications = ''[{"id":"discord.desktop","hidden":true}]'';
     };
     "org/gnome/shell/extensions/rounded-window-corners" = {
+      border-width = 1;
+      border-color = lib.hm.gvariant.mkTuple [0.0 0.0 0.0 1.0];
       custom-rounded-corner-settings = "@a{sv} {}";
       focused-shadow = "{'vertical_offset': 4, 'horizontal_offset': 0, 'blur_offset': 28, 'spread_radius': 4, 'opacity': 60}";
-      global-rounded-corner-settings = "{'padding': <{'left': <uint32 1>, 'right': <uint32 1>, 'top': <uint32 1>, 'bottom': <uint32 1>}>, 'keep_rounded_corners': <{'maximized': <false>, 'fullscreen': <false>}>, 'border_radius': <uint32 12>, 'smoothing': <uint32 0>, 'enabled': <true>}";
+      global-rounded-corner-settings = "{'padding': <{'left': <uint32 1>, 'right': <uint32 1>, 'top': <uint32 1>, 'bottom': <uint32 1>}>, 'keep_rounded_corners': <{'maximized': <false>, 'fullscreen': <false>}>, 'border_radius': <uint32 8>, 'smoothing': <uint32 0>, 'enabled': <true>}";
       settings-version = lib.hm.gvariant.mkUint32 5;
       skip-libadwaita-app = false;
       skip-libhandy-app = false;

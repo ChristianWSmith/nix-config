@@ -3,16 +3,16 @@
   gtk = {
     enable = true;
     iconTheme = {
-      package = pkgs.gnome.adwaita-icon-theme;
-      name = "Adwaita";
+      package = pkgs.nordzy-icon-theme;
+      name = "Nordzy";
     };
     theme = {
-      package = pkgs.adw-gtk3;
-      name = "adw-gtk3-dark";
+      package = pkgs.nordic;
+      name = "Nordic";
     };
     cursorTheme = {
-      package = pkgs.gnome.adwaita-icon-theme;
-      name = "Adwaita";
+      package = pkgs.capitaine-cursors-themed;
+      name = "Capitaine Cursors (Nord)";
       size = 40;
     };
     gtk3.extraConfig = {
@@ -35,8 +35,7 @@
   qt = {
     enable = true;
     platformTheme = "gtk";
-    style.name = "adwaita-dark";
   };
 
-  home.sessionVariables.GTK_THEME = "adw-gtk3-dark";
+  home.sessionVariables.GTK_THEME = "Nordic";
 }

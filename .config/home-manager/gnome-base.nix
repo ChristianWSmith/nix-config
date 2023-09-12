@@ -1,6 +1,12 @@
 { lib, ... }:
 {
   dconf.settings = {
+    "org/gnome/desktop/background" = {
+      # picture-uri = ""; # TODO: SVG BACKGROUND
+    };
+    "org/gnome/desktop/sound" = {
+      allow-volume-above-100-percent = true;
+    };
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
       enable-hot-corners = false;
@@ -20,12 +26,16 @@
         ];
     };
     "org/gnome/mutter" = {
+      attach-modal-dialogs = true;
+      center-new-windows = true;
       dynamic-workspaces = false;
       workspaces-only-on-primary = true;
       edge-tiling = true;
     };
     "org/gnome/desktop/wm/preferences" = {
+      button-layout = "'close,minimize,maximize:appmenu'";
       num-workspaces = 4;
+      resize-with-right-button = true;
     };
     "org/gnome/desktop/session" = {
       idle-delay = lib.hm.gvariant.mkUint32 0;
