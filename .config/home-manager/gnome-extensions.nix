@@ -30,7 +30,6 @@
         ];
     };
     "org/gnome/shell/extensions/user-theme" = {
-      # name = "Marwaita Color Dark";
       name = ""; # Default
     };
     "org/gnome/shell/extensions/blur-my-shell/panel" = {
