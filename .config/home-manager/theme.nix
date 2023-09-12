@@ -3,16 +3,20 @@
   gtk = {
     enable = true;
     iconTheme = {
-      package = pkgs.gnome.adwaita-icon-theme; # pkgs.whitesur-icon-theme;
-      name = "Adwaita"; # "WhiteSur-dark";
+      package = pkgs.gnome.adwaita-icon-theme;
+      name = "Adwaita";
     };
     theme = {
-      package = pkgs.adw-gtk3; # pkgs.whitesur-gtk-theme;
-      name = "adw-gtk3-dark"; # "WhiteSur-Dark";
+      # package = pkgs.marwaita;
+      # name = "Marwaita Color Dark";
+      package = pkgs.adw-gtk3;
+      name = "adw-gtk3-dark";
     };
     cursorTheme = {
-      package = pkgs.gnome.adwaita-icon-theme; # pkgs.capitaine-cursors;
-      name = "Adwaita"; # "capitaine-cursors";
+      package = pkgs.gnome.adwaita-icon-theme;
+      name = "Adwaita";
+      # package = pkgs.capitaine-cursors;
+      # name = "capitaine-cursors";
       size = 40;
     };
     gtk3.extraConfig = {
@@ -39,4 +43,5 @@
   };
 
   home.sessionVariables.GTK_THEME = "adw-gtk3-dark";
+  # home.sessionVariables.GTK_THEME = "Marwaita Color Dark";
 }

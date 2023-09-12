@@ -16,7 +16,8 @@
     "org/gnome/shell" = {
       disable-user-extensions = false;
       enabled-extensions = [
-        "just-perfection-desktop@just-perfection" 
+        "just-perfection-desktop@just-perfection"
+        "user-theme@gnome-shell-extensions.gcampax.github.com"
         "blur-my-shell@aunetx" 
         "gnome-ui-tune@itstime.tech"
         "rounded-window-corners@yilozt"
@@ -27,6 +28,10 @@
         "drive-menu@gnome-shell-extensions.gcampax.github.com" 
         "trayIconsReloaded@selfmade.pl"
         ];
+    };
+    "org/gnome/shell/extensions/user-theme" = {
+      # name = "Marwaita Color Dark";
+      name = ""; # Default
     };
     "org/gnome/shell/extensions/blur-my-shell/panel" = {
       static-blur = true;
@@ -48,6 +53,7 @@
       input-always-show = true;
     };
     "org/gnome/shell/extensions/just-perfection" = {
+      activities-button-icon-monochrome = false;
       window-demands-attention-focus = true;
       search = false;
       panel-size = 28;
