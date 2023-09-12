@@ -33,7 +33,7 @@
       edge-tiling = true;
     };
     "org/gnome/desktop/wm/preferences" = {
-      button-layout = "'close,minimize,maximize:appmenu'";
+      button-layout = "close,minimize,maximize:appmenu'";
       num-workspaces = 4;
       resize-with-right-button = true;
     };
