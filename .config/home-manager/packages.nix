@@ -51,7 +51,6 @@
     p7zip
 
     # GUI Tools
-    ffmpegthumbnailer
     gamescope
     dconf2nix
 

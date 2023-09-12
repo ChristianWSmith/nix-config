@@ -14,6 +14,14 @@
     };
   };
 
+  environment.systemPackages = [
+    pkgs.ffmpegthumbnailer
+  ];
+
+  environment.pathsToLink = [
+    "/share/thumbnailers"
+  ];
+
   environment.gnome.excludePackages = with pkgs; [
     gnome-photos
     gnome.gnome-music
