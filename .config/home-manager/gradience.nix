@@ -26,8 +26,10 @@ let
       echo "SHA256 is $SHA256"
       if gradience-cli presets | grep "$SHA256"; then
         echo "Monet already exists for SHA256: $SHA256"
+        PROMPT_LOGOUT="false"
       else
         gradience-cli monet --preset-name "$SHA256" --image-path "$WALLPAPER" --theme "$THEME"
+        PROMPT_LOGOUT="true"
       fi
       MONET=$(gradience-cli presets | grep "$SHA256" | sed "s@.*-> \(.*\)@\1@g")
       if ! [ -f "$MONET" ]; then
@@ -36,9 +38,10 @@ let
       fi
       gradience-cli flatpak-overrides -e both
       gradience-cli apply --preset-name "$SHA256" --gtk both
-      if zenity --question --title="Logout Now?" --text="Logout necessary to apply Gradience colors." --ok-label="Logout" --cancel-label="Later"
-      then
-        dbus-send --session --type=method_call --print-reply --dest=org.gnome.SessionManager /org/gnome/SessionManager org.gnome.SessionManager.Logout uint32:1
+      if [ "$PROMPT_LOGOUT" = "true" ]; then
+        if zenity --question --title="Logout Now?" --text="Logout necessary to apply Gradience colors." --ok-label=Yes --cancel-label=No; then
+          dbus-send --session --type=method_call --print-reply --dest=org.gnome.SessionManager /org/gnome/SessionManager org.gnome.SessionManager.Logout uint32:1
+        fi
       fi
     '';
   };
