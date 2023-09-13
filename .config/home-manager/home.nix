@@ -10,7 +10,11 @@
     ./environment.nix
     ./shell.nix
     ./theme.nix
-    ./gradience.nix
+
+      # TODO: Someday, we should try this again
+      # Firefox had a weird transparent bar.
+      # ./gradience.nix
+
     ./gnome-base.nix
     ./gnome-extensions.nix
     ./hitbox.nix
