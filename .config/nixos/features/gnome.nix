@@ -16,12 +16,9 @@
 
   environment.systemPackages = [
     pkgs.ffmpegthumbnailer
-    pkgs.rubik
-    pkgs.source-code-pro
   ];
 
   environment.pathsToLink = [
-    "/share/fonts"
     "/share/thumbnailers"
   ];
 

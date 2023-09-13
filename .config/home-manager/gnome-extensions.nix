@@ -1,6 +1,7 @@
 { pkgs, lib, user, theme, ... }:
 {
   home.packages = with pkgs; [
+    gradience
     gnome-extension-manager
     gnome.gnome-tweaks
     gnomeExtensions.just-perfection

@@ -35,7 +35,7 @@
     "org/gnome/desktop/wm/preferences" = {
       titlebar-font = ''${theme.fontName} Bold ${builtins.toString theme.fontSize}'';
       focus-mode = "sloppy";
-      button-layout = "close,minimize,maximize:appmenu'";
+      button-layout = "appmenu':close";
       num-workspaces = 4;
       resize-with-right-button = true;
     };
