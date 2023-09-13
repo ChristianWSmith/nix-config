@@ -35,10 +35,8 @@
     package = pkgs.vscodium;
     extensions = [ 
       pkgs.vscode-extensions.bbenoist.nix 
-      pkgs.vscode-extensions.arcticicestudio.nord-visual-studio-code
     ];
     userSettings = {
-      "workbench.colorTheme" = "Nord";
       "editor.fontFamily" = "'${theme.monoFontName}', 'monospace', monospace";
       "editor.fontLigatures" = false;
       "editor.fontSize" = builtins.floor theme.monoFontSize * 16 / 12;

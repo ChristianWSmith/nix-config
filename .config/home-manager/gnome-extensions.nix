@@ -1,7 +1,7 @@
 { pkgs, lib, user, theme, ... }:
 {
   home.packages = with pkgs; [
-    gradience
+    # gradience # TODO: maybe someday?
     gnome-extension-manager
     gnome.gnome-tweaks
     gnomeExtensions.just-perfection
@@ -13,7 +13,6 @@
     gnomeExtensions.gtile
     gnomeExtensions.rounded-window-corners
     gnomeExtensions.quick-settings-tweaker
-    gnomeExtensions.custom-accent-colors
   ];
   dconf.settings = {
     "org/gnome/shell" = {
