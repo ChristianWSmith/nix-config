@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, user, ... }:
 let
   autoGradience = pkgs.writeShellApplication {
     name = "auto-gradience";
@@ -36,7 +36,7 @@ let
         echo "Monet file does not exist $MONET"
         exit 1
       fi
-      gradience-cli flatpak-overrides -e both
+      mkdir -p ${user.home}/.mozilla/firefox/${user.name}/chrome/firefox-gnome-theme/
       gradience-cli apply --preset-name "$SHA256" --gtk both
       if [ "$PROMPT_LOGOUT" = "true" ]; then
         if zenity --question --title="Logout Now?" --text="Logout necessary to apply Gradience colors." --ok-label=Yes --cancel-label=No; then
@@ -50,6 +50,8 @@ in
   dconf.settings = {
     "com/github/GradienceTeam/Gradience" = {
       enabled-plugins = [ "firefox_gnome_theme" ];
+      user-flatpak-theming-gtk3 = true;
+      user-flatpak-theming-gtk4 = true;
     };
   };
   home.packages = [pkgs.gradience autoGradience];
