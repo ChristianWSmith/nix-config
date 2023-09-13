@@ -26,7 +26,7 @@
 
       theme = {
         themePackage = pkgs.adw-gtk3;
-        themeName = "adw-gtk3";
+        themeName = "adw-gtk3-dark";
         iconThemePackage = pkgs.gnome.adwaita-icon-theme;
         iconThemeName = "Adwaita";
         cursorThemePackage = pkgs.gnome.adwaita-icon-theme;
