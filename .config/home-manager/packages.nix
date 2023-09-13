@@ -40,6 +40,7 @@
       "editor.fontFamily" = "'${theme.monoFontName}', 'monospace', monospace";
       "editor.fontLigatures" = false;
       "editor.fontSize" = builtins.floor theme.monoFontSize * 16 / 12;
+      "git.openRepositoryInParentFolders" = "never";
     };
   };
   programs.chromium.enable = true;
