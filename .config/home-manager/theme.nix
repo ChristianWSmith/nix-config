@@ -34,7 +34,8 @@
 
   qt = {
     enable = true;
-    platformTheme = "gtk";
+    platformTheme = theme.qtPlatformTheme;
+    style.name = theme.qtStyleName;
   };
 
   home.sessionVariables.GTK_THEME = theme.themeName;

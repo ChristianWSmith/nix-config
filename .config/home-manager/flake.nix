@@ -38,6 +38,8 @@
         monoFontPackage = pkgs.source-code-pro;
         monoFontName = "Source Code Pro";
         monoFontSize = 10;
+        qtPlatformTheme = "gnome";
+        qtStyleName = "adwaita-dark";
       };
 
       pkgs = import nixpkgs {

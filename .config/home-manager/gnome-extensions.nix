@@ -1,7 +1,13 @@
 { pkgs, lib, user, theme, ... }:
 {
   home.packages = with pkgs; [
-    # gradience # TODO: maybe someday?
+    # TODO: Can this ever work?
+    # ((pkgs.gradience).overrideAttrs (attrs: {
+    #   postInstall = (attrs.postInstall or "") + ''
+    #     $out/bin/gradience-cli download -n "Nord Dark"
+    #     $out/bin/gradience-cli apply -n "Nord Dark"
+    #   '';
+    # }))
     gnome-extension-manager
     gnome.gnome-tweaks
     gnomeExtensions.just-perfection
@@ -36,9 +42,6 @@
     };
     "org/gnome/shell/extensions/blur-my-shell/panel" = {
       static-blur = true;
-    };
-    "org/gnome/shell/extensions/trayIconsReloaded" = {
-      applications = ''[{"id":"discord.desktop","hidden":true}]'';
     };
     "org/gnome/shell/extensions/rounded-window-corners" = {
       border-width = 1;
