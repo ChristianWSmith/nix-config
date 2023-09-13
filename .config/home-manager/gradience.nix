@@ -2,7 +2,7 @@
 let
   autoGradience = pkgs.writeShellApplication {
     name = "auto-gradience";
-    runtimeInputs = [ pkgs.gradience ];
+    runtimeInputs = with pkgs; [ gradience gnome.zenity dbus ];
     text = ''
       COLOR_SCHEME=$(dconf read /org/gnome/desktop/interface/color-scheme)
       echo "Color scheme is: $COLOR_SCHEME"
@@ -26,9 +26,9 @@ let
       echo "SHA256 is $SHA256"
       if gradience-cli presets | grep "$SHA256"; then
         echo "Monet already exists for SHA256: $SHA256"
-        exit 0
+      else
+        gradience-cli monet --preset-name "$SHA256" --image-path "$WALLPAPER" --theme "$THEME"
       fi
-      gradience-cli monet --preset-name "$SHA256" --image-path "$WALLPAPER" --theme "$THEME"
       MONET=$(gradience-cli presets | grep "$SHA256" | sed "s@.*-> \(.*\)@\1@g")
       if ! [ -f "$MONET" ]; then
         echo "Monet file does not exist $MONET"
@@ -36,9 +36,18 @@ let
       fi
       gradience-cli flatpak-overrides -e both
       gradience-cli apply --preset-name "$SHA256" --gtk both
+      if zenity --question --text="Logout now to apply color scheme?" --ok-label=Yes --cancel-label=No
+      then
+        dbus-send --session --type=method_call --print-reply --dest=org.gnome.SessionManager /org/gnome/SessionManager org.gnome.SessionManager.Logout uint32:1
+      fi
     '';
   };
 in
 {
+  dconf.settings = {
+    "com/github/GradienceTeam/Gradience" = {
+      enabled-plugins = [ "firefox_gnome_theme" ];
+    };
+  };
   home.packages = [pkgs.gradience autoGradience];
 }
