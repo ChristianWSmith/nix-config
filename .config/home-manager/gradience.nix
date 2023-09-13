@@ -36,7 +36,7 @@ let
       fi
       gradience-cli flatpak-overrides -e both
       gradience-cli apply --preset-name "$SHA256" --gtk both
-      if zenity --question --text="Logout now to apply color scheme?" --ok-label=Yes --cancel-label=No
+      if zenity --question --title="Logout Now?" --text="Logout necessary to apply Gradience colors." --ok-label="Logout" --cancel-label="Later"
       then
         dbus-send --session --type=method_call --print-reply --dest=org.gnome.SessionManager /org/gnome/SessionManager org.gnome.SessionManager.Logout uint32:1
       fi
