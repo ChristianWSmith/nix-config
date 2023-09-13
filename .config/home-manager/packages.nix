@@ -9,6 +9,9 @@
         inputs.firefox-addons.packages."x86_64-linux".vimium
         inputs.firefox-addons.packages."x86_64-linux".new-tab-override
       ];
+      settings = {
+        "extensions.activeThemeID" = "firefox-compact-dark@mozilla.org";
+      };
     };
   };
 
