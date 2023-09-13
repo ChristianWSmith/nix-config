@@ -1,13 +1,6 @@
 { pkgs, lib, user, theme, ... }:
 {
   home.packages = with pkgs; [
-    # TODO: Can this ever work?
-    # ((pkgs.gradience).overrideAttrs (attrs: {
-    #   postInstall = (attrs.postInstall or "") + ''
-    #     $out/bin/gradience-cli download -n "Nord Dark"
-    #     $out/bin/gradience-cli apply -n "Nord Dark"
-    #   '';
-    # }))
     gnome-extension-manager
     gnome.gnome-tweaks
     gnomeExtensions.just-perfection

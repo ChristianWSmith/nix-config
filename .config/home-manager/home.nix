@@ -10,6 +10,7 @@
     ./environment.nix
     ./shell.nix
     ./theme.nix
+    ./gradience.nix
     ./gnome-base.nix
     ./gnome-extensions.nix
     ./hitbox.nix

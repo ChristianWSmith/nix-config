@@ -44,9 +44,11 @@
     };
     "org/gnome/desktop/background" = {
       picture-uri = "file://${user.home}/.assets/wallpaper.jpg";
+      picture-uri-dark = "file://${user.home}/.assets/wallpaper.jpg";
     };
     "org/gnome/desktop/screensaver" = {
       picture-uri = "file://${user.home}/.assets/wallpaper.jpg";
+      picture-uri-dark = "file://${user.home}/.assets/wallpaper.jpg";
       lock-enabled = false;
     };
     "org/gnome/settings-daemon/plugins/power" = {
