@@ -6,21 +6,20 @@
   home.stateVersion = "22.11";
 
   imports = [
-    ./packages.nix
-    ./environment.nix
-    ./shell.nix
-    ./theme.nix
+    ./features/packages.nix
+    ./features/environment.nix
+    ./features/shell.nix
+    ./features/theme.nix
+    ./features/gnome-base.nix
+    ./features/gnome-extensions.nix
+    ./features/hitbox.nix
 
       # TODO: Someday, we should try this again
       # Firefox had a weird transparent bar.
-      # ./gradience.nix
+      # ./experimental/gradience.nix
 
       # TODO: Someday?
-      # ./firefox-gnome-theme.nix
-
-    ./gnome-base.nix
-    ./gnome-extensions.nix
-    ./hitbox.nix
+      # ./experimental/firefox-gnome-theme.nix
   ];
 
   home.file = {
