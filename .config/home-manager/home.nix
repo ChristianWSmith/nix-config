@@ -15,6 +15,9 @@
       # Firefox had a weird transparent bar.
       # ./gradience.nix
 
+      # TODO: Someday?
+      # ./firefox-gnome-theme.nix
+
     ./gnome-base.nix
     ./gnome-extensions.nix
     ./hitbox.nix

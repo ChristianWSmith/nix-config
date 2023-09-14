@@ -10,8 +10,9 @@
         inputs.firefox-addons.packages."x86_64-linux".new-tab-override
       ];
       settings = {
+        # TODO: this sets about:config settings through ~/.mozilla/firefox/<profile>/user.js
+        # this will conflict with firefox-gnome-theme if we ever enable it
         "extensions.activeThemeID" = "default-theme@mozilla.org";
-        "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
       };
     };
   };
