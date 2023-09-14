@@ -51,13 +51,6 @@
   programs.chromium.enable = true;
 
   home.packages = with pkgs; [
-    # Theme Packages (possible overkill)
-    theme.themePackage
-    theme.iconThemePackage
-    theme.cursorThemePackage
-    theme.fontPackage
-    theme.monoFontPackage
-
     # Shells
     bashInteractive
 
