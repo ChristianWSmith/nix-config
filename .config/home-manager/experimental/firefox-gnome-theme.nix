@@ -1,3 +1,6 @@
+# TODO: this worked, but fakeSha is a little annoying
+# This would also conflict with programs.firefox.settings as written
+
 { lib, pkgs, user, ... }:
 let
   firefoxGnomeTheme = (pkgs.stdenv.mkDerivation rec {

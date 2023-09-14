@@ -13,13 +13,6 @@
     ./features/gnome-base.nix
     ./features/gnome-extensions.nix
     ./features/hitbox.nix
-
-      # TODO: Someday, we should try this again
-      # Firefox had a weird transparent bar.
-      # ./experimental/gradience.nix
-
-      # TODO: Someday?
-      # ./experimental/firefox-gnome-theme.nix
   ];
 
   home.file = {

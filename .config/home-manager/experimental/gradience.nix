@@ -1,3 +1,6 @@
+# TODO: this didn't work great because generated color themes resulted
+# in firefox having a transparent top bar
+
 { pkgs, user, ... }:
 let
   autoGradience = pkgs.writeShellApplication {
