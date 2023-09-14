@@ -38,6 +38,7 @@
     enable = true;
     package = pkgs.vscodium;
     extensions = [ 
+      pkgs.vscode-extensions.kamikillerto.vscode-colorize
       pkgs.vscode-extensions.bbenoist.nix 
     ];
     userSettings = {
@@ -45,6 +46,7 @@
       "editor.fontLigatures" = false;
       "editor.fontSize" = builtins.floor theme.monoFontSize * 16 / 12;
       "git.openRepositoryInParentFolders" = "never";
+      "colorize.include" = [ "**" ];
     };
   };
   programs.chromium.enable = true;

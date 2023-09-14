@@ -18,6 +18,7 @@
       disable-user-extensions = false;
       enabled-extensions = [
         "just-perfection-desktop@just-perfection"
+        "gnomeExtensions.custom-accent-colors"
         "user-theme@gnome-shell-extensions.gcampax.github.com"
         "blur-my-shell@aunetx" 
         "gnome-ui-tune@itstime.tech"
@@ -50,6 +51,8 @@
     "org/gnome/shell/extensions/quick-settings-tweaks" = {
       user-removed-buttons = [ "DarkModeToggle" ];
       input-always-show = true;
+      datemenu-remove-notifications = false;
+      notifications-enabled = false;
     };
     "org/gnome/shell/extensions/just-perfection" = {
       window-preview-caption = false;
