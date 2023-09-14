@@ -1,11 +1,23 @@
 # TODO: this didn't work great because generated color themes resulted
 # in firefox having a transparent top bar
 
-{ pkgs, user, ... }:
+{ pkgs, lib, user, ... }:
 let
+  # TODO: If I want to use master branch
+  # gradience = pkgs.gradience.overrideAttrs (old: {
+  #   version = "git";
+  #   src = pkgs.fetchFromGitHub {
+  #     owner = "GradienceTeam";
+  #     repo = "Gradience";
+  #     rev = "master";
+  #     sha256 = lib.fakeSha256;
+  #   };
+  # });
+  gradience = pkgs.gradience;
+
   autoGradience = pkgs.writeShellApplication {
     name = "auto-gradience";
-    runtimeInputs = with pkgs; [ gradience gnome.zenity dbus ];
+    runtimeInputs = [ gradience pkgs.gnome.zenity pkgs.dbus ];
     text = ''
       COLOR_SCHEME=$(dconf read /org/gnome/desktop/interface/color-scheme)
       echo "Color scheme is: $COLOR_SCHEME"
