@@ -20,7 +20,9 @@ in
 {
   # TODO: This is kind of just pseudo-dotfile management. Yuck.
   home.file = {
-    "${user.home}/.mozilla/firefox/${user.name}/chrome/firefox-gnome-theme".source = "${firefoxGnomeTheme}/";
+    "${user.home}/.mozilla/firefox/${user.name}/chrome/firefox-gnome-theme/theme".source = "${firefoxGnomeTheme}/theme";
+    "${user.home}/.mozilla/firefox/${user.name}/chrome/firefox-gnome-theme/userChrome.css".source = "${firefoxGnomeTheme}/userChrome.css";
+    "${user.home}/.mozilla/firefox/${user.name}/chrome/firefox-gnome-theme/userContent.css".source = "${firefoxGnomeTheme}/userContent.css";
     "${user.home}/.mozilla/firefox/${user.name}/chrome/userChrome.css".text = ''
       @import "firefox-gnome-theme/userChrome.css"
     '';

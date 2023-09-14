@@ -9,9 +9,9 @@
         inputs.firefox-addons.packages."x86_64-linux".vimium
         inputs.firefox-addons.packages."x86_64-linux".new-tab-override
       ];
-      settings = {
-        "extensions.activeThemeID" = "default-theme@mozilla.org";
-      };
+      # settings = {
+      #   "extensions.activeThemeID" = "default-theme@mozilla.org";
+      # };
     };
   };
 
@@ -69,6 +69,8 @@
 
     # Media
     vlc
+    mpv
+    imv
     gst_all_1.gst-plugins-base
     gst_all_1.gst-plugins-good
     gst_all_1.gst-plugins-bad

@@ -13,6 +13,7 @@
     ./features/gnome-base.nix
     ./features/gnome-extensions.nix
     ./features/hitbox.nix
+    ./features/default-applications.nix
   ];
 
   home.file = {
