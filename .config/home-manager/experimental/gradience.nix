@@ -4,17 +4,26 @@
 { pkgs, lib, user, ... }:
 let
   # TODO: If I want to use master branch
-  # gradience = pkgs.gradience.overrideAttrs (old: {
-  #   version = "git";
-  #   src = pkgs.fetchFromGitHub {
-  #     fetchSubmodules = true;
-  #     owner = "GradienceTeam";
-  #     repo = "Gradience";
-  #     rev = "4f0a9ebc6dcd3fe6c3355f01482d450c9a0e144f";
-  #     sha256 = "sha256-TCNTD0/EqAnLSSHFrFa/HLpl4tez3e64TjNJky0GBEU=";
-  #   };
-  # });
-  gradience = (pkgs.callPackage ./gradience-package.nix {});
+  gradience = pkgs.gradience.overrideAttrs (old: {
+    version = "git";
+    src = pkgs.fetchFromGitHub {
+      fetchSubmodules = true;
+      owner = "GradienceTeam";
+      repo = "Gradience";
+      rev = "4f0a9ebc6dcd3fe6c3355f01482d450c9a0e144f";
+      sha256 = "sha256-TCNTD0/EqAnLSSHFrFa/HLpl4tez3e64TjNJky0GBEU=";
+    };
+    propagatedBuildInputs = with pkgs.python3Packages; [
+      anyascii
+      jinja2
+      lxml
+      material-color-utilities
+      pygobject3
+      svglib
+      yapsy
+      libsass
+    ];
+  });
   # gradience = pkgs.gradience;
 
   autoGradience = pkgs.writeShellApplication {

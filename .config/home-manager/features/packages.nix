@@ -87,5 +87,6 @@
     meld
     discord
     steam
+    gnome.gnome-boxes
   ];
 }
