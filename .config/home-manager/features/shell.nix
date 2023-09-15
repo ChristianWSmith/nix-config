@@ -50,6 +50,7 @@
       chx = "chmod +x \"$argv\"";
       chw = "chmod +w \"$argv\"";
       nix-goto = "cd $(dirname $(readlink -f $(which $argv)))";
+      rc2nix = "nix run github:pjones/plasma-manager";
     };
   };
 }
