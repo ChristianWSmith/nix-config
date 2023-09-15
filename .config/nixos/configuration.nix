@@ -13,7 +13,7 @@
       ./features/networking.nix
       ./features/bluetooth.nix
       ./features/users.nix
-      ./features/gnome.nix
+      ./features/plasma.nix
       ./features/steam.nix
     ];
 

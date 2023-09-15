@@ -9,9 +9,6 @@
     ./features/packages.nix
     ./features/environment.nix
     ./features/shell.nix
-    ./features/theme.nix
-    ./features/gnome-base.nix
-    ./features/gnome-extensions.nix
     ./features/hitbox.nix
   ];
 

@@ -3,11 +3,8 @@
   services = {
     xserver = {
       enable = true;
-      displayManager.gdm = {
-        enable = true;
-        wayland = true;
-      };
-      desktopManager.gnome.enable = true;
+      displayManager.sddm.enable = true;
+      desktopManager.plasma5.enable = true;
     };
     pipewire = {
       enable = true;
@@ -18,7 +15,7 @@
   };
 
   environment.systemPackages = [
-    pkgs.ffmpegthumbnailer
+    pkgs.ffmpegthumbs
   ];
 
   environment.pathsToLink = [
