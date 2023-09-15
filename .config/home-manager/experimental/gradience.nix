@@ -7,13 +7,15 @@ let
   # gradience = pkgs.gradience.overrideAttrs (old: {
   #   version = "git";
   #   src = pkgs.fetchFromGitHub {
+  #     fetchSubmodules = true;
   #     owner = "GradienceTeam";
   #     repo = "Gradience";
-  #     rev = "master";
-  #     sha256 = lib.fakeSha256;
+  #     rev = "4f0a9ebc6dcd3fe6c3355f01482d450c9a0e144f";
+  #     sha256 = "sha256-TCNTD0/EqAnLSSHFrFa/HLpl4tez3e64TjNJky0GBEU=";
   #   };
   # });
-  gradience = pkgs.gradience;
+  gradience = (pkgs.callPackage ./gradience-package.nix {});
+  # gradience = pkgs.gradience;
 
   autoGradience = pkgs.writeShellApplication {
     name = "auto-gradience";
