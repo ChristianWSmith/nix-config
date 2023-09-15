@@ -11,7 +11,6 @@
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nix-colors.url = "github:misterio77/nix-colors";
   };
 
   outputs = { nixpkgs, home-manager, ... }@inputs:
@@ -26,7 +25,6 @@
       };
 
       theme = {
-        colorScheme = inputs.nix-colors.colorSchemes.nord;
         themePackage = pkgs.adw-gtk3;
         themeName = "adw-gtk3-dark";
         iconThemePackage = pkgs.gnome.adwaita-icon-theme;

@@ -12,6 +12,7 @@
       enable-hot-corners = false;
       enable-animations = true;
       clock-format = "12h";
+      locate-pointer = true;
     };
     "org/gnome/shell" = {
       favorite-apps = [
@@ -38,6 +39,7 @@
       button-layout = "appmenu':close";
       num-workspaces = 4;
       resize-with-right-button = true;
+      auto-raise = true;
     };
     "org/gnome/desktop/session" = {
       idle-delay = lib.hm.gvariant.mkUint32 0;
