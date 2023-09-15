@@ -19,7 +19,6 @@
       enabled-extensions = [
         "just-perfection-desktop@just-perfection"
         "gnomeExtensions.custom-accent-colors"
-        "user-theme@gnome-shell-extensions.gcampax.github.com"
         "blur-my-shell@aunetx" 
         "gnome-ui-tune@itstime.tech"
         "rounded-window-corners@yilozt"
@@ -30,9 +29,6 @@
         "drive-menu@gnome-shell-extensions.gcampax.github.com" 
         "trayIconsReloaded@selfmade.pl"
         ];
-    };
-    "org/gnome/shell/extensions/user-theme" = {
-      name = theme.themeName;
     };
     "org/gnome/shell/extensions/blur-my-shell/panel" = {
       static-blur = true;
