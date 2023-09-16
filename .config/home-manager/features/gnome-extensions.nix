@@ -39,7 +39,7 @@
       stacked-tiling-mode-enabled = false;
       tabbed-tiling-mode-enabled = false;
       window-gap-size = lib.hm.gvariant.mkUint32 4;
-      window-gap-size-increment = lib.hm.gvariant.mkUint32 0;
+      window-gap-size-increment = lib.hm.gvariant.mkUint32 1;
     };
     "org/gnome/shell/extensions/forge/keybindings" = {
       con-split-horizontal = [];
