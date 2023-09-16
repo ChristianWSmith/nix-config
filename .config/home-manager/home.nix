@@ -1,7 +1,7 @@
-{ config, pkgs, user, userHome, iconTheme, ... }:
+{ config, pkgs, user, ... }:
 {
-  home.username = user;
-  home.homeDirectory = userHome;
+  home.username = user.name;
+  home.homeDirectory = user.home;
 
   home.stateVersion = "22.11";
 
@@ -14,7 +14,7 @@
     ./btop.nix
     ./hyprland.nix
     ./gammastep.nix
-    ./default_applications.nix
+    ./default-applications.nix
     ./theme.nix
     ./eww.nix
     ./mako.nix

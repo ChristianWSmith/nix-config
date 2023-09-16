@@ -1,4 +1,4 @@
-{ userHome, iconTheme, font, ... }:
+{ user, theme, ... }:
 {
   services.mako = {
     enable = true;
@@ -8,7 +8,7 @@
     borderSize = 1;
     borderRadius = 5;
     defaultTimeout = 5000;
-    font = "${font} 11";
-    iconPath = "${userHome}/.nix-profile/share/icons/${iconTheme}";
+    font = "${theme.fontName} 11";
+    iconPath = "${user.home}/.nix-profile/share/icons/${theme.iconThemeName}";
   };
 }

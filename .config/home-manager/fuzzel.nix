@@ -1,4 +1,4 @@
-{ pkgs, iconTheme, fontMono, ... }:
+{ pkgs, theme, ... }:
 let
   appLauncher = pkgs.writeShellScriptBin "app-launcher" ''
     pkill fuzzel
@@ -23,23 +23,23 @@ in
     enable = true;
     settings = {
       main = {
-        font = "${fontMono}:style=Bold:pixelsize=16";
+        font = "${theme.monoFontName}:style=Bold:pixelsize=16";
         prompt = ">  ";
-        icon-theme = iconTheme;
+        icon-theme = theme.iconThemeName;
         exit-on-keyboard-focus-loss = "no";
       };
       colors = {
         background = "111111cc";
-	text = "ffffffff";
-	match = "33ccffee";
-	selection = "33ccffee";
+        text = "ffffffff";
+        match = "33ccffee";
+        selection = "33ccffee";
         selection-text = "000000ff";
-	selection-match = "ffffffff";
-	border = "33ccffee";
+        selection-match = "ffffffff";
+        border = "33ccffee";
       };
       border = {
         width = 1;
-	radius = 5;
+        radius = 5;
       };
     };
   };

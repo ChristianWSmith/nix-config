@@ -1,7 +1,7 @@
-{ pkgs, userHome, iconTheme, ... }:
+{ pkgs, user, ... }:
 let
   powerMenu = pkgs.writeShellScriptBin "power-menu" ''
-    wlogout --layout ${userHome}/.config/wlogout/layout --css ${userHome}/.config/wlogout/style.css
+    wlogout --layout ${user.home}/.config/wlogout/layout --css ${user.home}/.config/wlogout/style.css
   '';
 in
 {
@@ -18,7 +18,7 @@ in
         "label" = "reboot";
         "action" = "reboot";
         "keybind" = "r";
-      }
+      } 
       {
         "label" = "shutdown";
         "action" = "poweroff";
@@ -49,15 +49,15 @@ in
       }
 
       #lock {
-        background-image: image(url("${userHome}/.config/wlogout/icons/lock.png"));
+        background-image: image(url("${user.home}/.config/wlogout/icons/lock.png"));
       }
 
       #shutdown {
-        background-image: image(url("${userHome}/.config/wlogout/icons/shutdown.png"));
+        background-image: image(url("${user.home}/.config/wlogout/icons/shutdown.png"));
       }
 
       #reboot {
-        background-image: image(url("${userHome}/.config/wlogout/icons/reboot.png"));
+        background-image: image(url("${user.home}/.config/wlogout/icons/reboot.png"));
       }
     '';
   };

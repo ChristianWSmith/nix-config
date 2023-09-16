@@ -2,7 +2,7 @@
 {
   programs.firefox = {
     enable = true;
-    profiles."${user}" = {
+    profiles."${user.name}" = {
       extensions = [
         inputs.firefox-addons.packages."x86_64-linux".ublock-origin
         inputs.firefox-addons.packages."x86_64-linux".darkreader

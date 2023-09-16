@@ -1,4 +1,4 @@
-{ pkgs, userHome, iconTheme, ... }:
+{ pkgs, user, theme, ... }:
 let
   toggleBar = pkgs.writeShellScriptBin "eww-toggle-bar" ''
     if [[ "$(eww windows)" == *"*bar"* ]]
@@ -17,9 +17,9 @@ let
     fi
   '';
   getIcon = pkgs.writeShellScriptBin "get-icon" ''
-    cache_dir=${userHome}/.get-icon-cache
-    cache=$cache_dir/${iconTheme}
-    icon_dir=${userHome}/.nix-profile/share/icons/${iconTheme}
+    cache_dir=${user.home}/.get-icon-cache
+    cache=$cache_dir/${theme.iconThemeName}
+    icon_dir=${user.home}/.nix-profile/share/icons/${theme.iconThemeName}
     query=$1
 
     if ! [ -d $cache_dir ]

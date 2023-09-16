@@ -1,4 +1,4 @@
-{ pkgs, fontMono, ... }:
+{ pkgs, theme, ... }:
 let
   launcher = pkgs.writeShellScriptBin "terminal" ''
     if [ "$1" == "" ]
@@ -16,7 +16,7 @@ in
     server.enable = true;
     settings = {
       main = {
-        font = "${fontMono}:pixelsize=16";
+        font = "${theme.monoFontName}:pixelsize=16";
       };
       colors = {
         alpha=0.8;

@@ -1,4 +1,4 @@
-{ pkgs, userHome, userEmail, ... }:
+{ pkgs, user, ... }:
 let
   my-python-packages = ps: with ps; [
     psutil
@@ -27,7 +27,7 @@ in
   };
   programs.thunderbird = {
     enable = true;
-    profiles."${userEmail}".isDefault = true;
+    profiles."${user.email}".isDefault = true;
   };
   programs.vscode = {
     enable = true;

@@ -1,4 +1,4 @@
-{ pkgs, userHome, ... }:
+{ pkgs, user, ... }:
 let
   launcher = pkgs.writeShellScriptBin "hyprland-launcher" ''
     . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
@@ -37,7 +37,7 @@ let
       then
         filename="recording-$(date +%s).mp4"
         notify-send "Screen recording started: ~/Videos/$filename"
-        wf-recorder -g "$dimensions" -f ${userHome}/Videos/$filename
+        wf-recorder -g "$dimensions" -f ${user.home}/Videos/$filename
       else
         notify-send "Screen recording cancelled."
       fi
@@ -56,17 +56,17 @@ let
     fi
   '';
   set-wallpaper = pkgs.writeShellScriptBin "set-wallpaper" ''
-    ln -sf $(readlink -f $1) ${userHome}/.active-wallpaper
+    ln -sf $(readlink -f $1) ${user.home}/.active-wallpaper
     pkill hyprpaper
     hyprpaper
   '';
   random-wallpaper = pkgs.writeShellScriptBin "random-wallpaper" ''
-    ln -sf $(echo ${userHome}/.wallpapers/$(ls ${userHome}/.wallpapers/ | sort -R | tail -1)) ${userHome}/.active-wallpaper
+    ln -sf $(echo ${user.home}/.wallpapers/$(ls ${user.home}/.wallpapers/ | sort -R | tail -1)) ${user.home}/.active-wallpaper
     pkill hyprpaper
   '';
   get-wallpapers = pkgs.writeShellScriptBin "eww-get-wallpapers" ''
-    wallpaper_dir=${userHome}/.config/home-manager/files/wallpapers
-    got_wallpapers=${userHome}/.got-wallpapers
+    wallpaper_dir=${user.home}/.config/home-manager/files/wallpapers
+    got_wallpapers=${user.home}/.got-wallpapers
     if [ -f $got_wallpapers ]
     then
       exit
@@ -84,12 +84,12 @@ in
     enable = true;
     xwayland.enable = true;
     extraConfig = ''
-      source=${userHome}/.config/hypr/autoexec.conf
-      source=${userHome}/.config/hypr/appearance.conf
-      source=${userHome}/.config/hypr/input.conf
-      source=${userHome}/.config/hypr/binds.conf
-      source=${userHome}/.config/hypr/windowrules.conf
-      source=${userHome}/.config/hypr/environment.conf
+      source=${user.home}/.config/hypr/autoexec.conf
+      source=${user.home}/.config/hypr/appearance.conf
+      source=${user.home}/.config/hypr/input.conf
+      source=${user.home}/.config/hypr/binds.conf
+      source=${user.home}/.config/hypr/windowrules.conf
+      source=${user.home}/.config/hypr/environment.conf
       source=/etc/workspacebinds.conf
       source=/etc/display.conf
     '';

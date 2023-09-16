@@ -17,23 +17,50 @@
     let
       system = "x86_64-linux";
 
-      user = "christian";
-      userHome = "/home/${user}";
-      userFullName = "Christian Smith";
-      userEmail = "smith.christian.william@gmail.com";
+      user = {
+        name = "christian";
+        home = "/home/christian";
+        fullName = "Christian Smith";
+        email = "smith.christian.william@gmail.com";
+      };
 
-      iconTheme = "WhiteSur-dark";
-      font = "Noto Sans";
-      fontMono = "Noto Sans Mono";
+      theme = {
+        # themePackage = pkgs.nordic;
+        # themeName = "Nordic-darker";
+        # iconThemePackage = pkgs.nordzy-icon-theme;
+        # iconThemeName = "Nordzy-dark";
+        # cursorThemePackage = pkgs.capitaine-cursors-themed;
+        # cursorThemeName = "Capitaine Cursors (Palenight)";
+        # cursorSize = 40;
+        # fontPackage = pkgs.noto-fonts;
+        # fontName = "Noto Sans";
+        # fontSize = 11;
+        
+	themePackage = pkgs.adw-gtk3;
+        themeName = "adw-gtk3-dark";
+        iconThemePackage = pkgs.papirus-icon-theme;
+        iconThemeName = "Papirus-Dark";
+        cursorThemePackage = pkgs.gnome.adwaita-icon-theme;
+        cursorThemeName = "Adwaita";
+        cursorSize = 40;
+        fontPackage = pkgs.noto-fonts;
+        fontName = "Noto Sans";
+        fontSize = 11;
+        monoFontPackage = pkgs.noto-sans;
+        monoFontName = "Noto Sans Mono";
+        monoFontSize = 10;
+        qtPlatformTheme = "gtk";
+        qtStyleName = "adwaita-dark";
+      };
 
       pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
       };
     in {
-      homeConfigurations."${user}" = home-manager.lib.homeManagerConfiguration {
+      homeConfigurations."${user.name}" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        extraSpecialArgs = { inherit inputs user userHome userEmail userFullName iconTheme font fontMono pkgs; };
+        extraSpecialArgs = { inherit inputs user theme pkgs; };
         modules = [ ./home.nix ];
       };
     };

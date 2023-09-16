@@ -9,8 +9,6 @@
 !.config
 !.config/home-manager
 !.config/home-manager/**
-.config/home-manager/files/wallpapers/*
-!.config/home-manager/files/wallpapers/default.jpg
 .config/home-manager/eww/scripts/__pycache__
 !.config/nixos
 !.config/nixos/**
