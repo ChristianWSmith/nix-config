@@ -9,7 +9,7 @@ let
       owner  = "rafaelmardojai";
       repo   = "firefox-gnome-theme";
       rev = "master";
-      sha256 = "sha256-D3wgXerkZgl2fS2HpqTsO+Z/EoqAqFIijN07wjbY+7U="; # lib.fakeSha256;
+      sha256 = "sha256-kWNuxFWEkK2LtxMi3I+L/55dTrAdtCaXyPalClclD8s="; # lib.fakeSha256;
     };  
     buildCommand = ''
       mkdir -p $out

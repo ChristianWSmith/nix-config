@@ -14,6 +14,8 @@
     ./features/gnome-extensions.nix
     ./features/hitbox.nix
     ./features/default-applications.nix
+
+    ./experimental/firefox-gnome-theme.nix
   ];
 
   home.file = {
