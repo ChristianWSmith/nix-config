@@ -6,11 +6,9 @@
   home.stateVersion = "22.11";
 
   imports = [
-    inputs.plasma-manager.homeManagerModules.plasma-manager
     ./features/packages.nix
     ./features/environment.nix
     ./features/shell.nix
-    ./features/plasma.nix
     ./features/hitbox.nix
 
   ];

@@ -11,13 +11,9 @@
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    plasma-manager = {
-      url = "github:pjones/plasma-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
-  outputs = { nixpkgs, home-manager, plasma-manager, ... }@inputs:
+  outputs = { nixpkgs, home-manager, ... }@inputs:
     let
       system = "x86_64-linux";
 
@@ -29,22 +25,21 @@
       };
 
       theme = {
-        colorScheme = inputs.nix-colors.colorSchemes.nord;
-        themePackage = pkgs.adw-gtk3;
-        themeName = "adw-gtk3-dark";
-        iconThemePackage = pkgs.gnome.adwaita-icon-theme;
-        iconThemeName = "Adwaita";
-        cursorThemePackage = pkgs.gnome.adwaita-icon-theme;
-        cursorThemeName = "Adwaita";
+        themePackage = pkgs.libsForQt5.breeze-gtk;
+        themeName = "breeze";
+        iconThemePackage = pkgs.libsForQt5.breeze-icons;
+        iconThemeName = "breeze";
+        cursorThemePackage = pkgs.libsForQt5.breeze-icons;
+        cursorThemeName = "breeze";
         cursorSize = 40;
-        fontPackage = pkgs.cantarell-fonts;
-        fontName = "Cantarell";
-        fontSize = 11;
-        monoFontPackage = pkgs.source-code-pro;
-        monoFontName = "Source Code Pro";
+        fontPackage = pkgs.noto-fonts;
+        fontName = "Noto Sans";
+        fontSize = 10;
+        monoFontPackage = pkgs.hack-font;
+        monoFontName = "Hack";
         monoFontSize = 10;
-        qtPlatformTheme = "gnome";
-        qtStyleName = "adwaita-dark";
+        qtPlatformTheme = "kde";
+        qtStyleName = "breeze";
       };
 
       pkgs = import nixpkgs {

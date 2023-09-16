@@ -46,6 +46,7 @@
       "editor.fontSize" = builtins.floor theme.monoFontSize * 16 / 12;
       "git.openRepositoryInParentFolders" = "never";
       "colorize.include" = [ "**" ];
+      "explorer.confirmDelete" = false;
     };
   };
   programs.chromium.enable = true;
@@ -65,7 +66,6 @@
 
     # GUI Tools
     gamescope
-    dconf2nix
 
     # Media
     vlc
@@ -76,7 +76,7 @@
  
     # Applications
     obs-studio
-    transmission-gtk
+    transmission-qt
     gimp 
     inkscape 
     audacity 
