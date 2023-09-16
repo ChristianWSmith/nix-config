@@ -3,8 +3,8 @@
 import psutil, subprocess
 from common import broker
 
-PATH_RECORDING = subprocess.check_output(['get-icon', 'media-record']).decode('utf-8')
-PATH_NOT_RECORDING = subprocess.check_output(['get-icon', 'screen-recorder']).decode('utf-8')
+PATH_RECORDING = subprocess.check_output(['get-icon', 'record-desktop-indicator-recording']).decode('utf-8')
+PATH_NOT_RECORDING = subprocess.check_output(['get-icon', 'record-desktop-indicator']).decode('utf-8')
 
 PATH_KEY = "path"
 
