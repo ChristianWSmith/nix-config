@@ -9,7 +9,7 @@
     gnomeExtensions.tray-icons-reloaded
     gnomeExtensions.advanced-alttab-window-switcher
     gnomeExtensions.pano
-    gnomeExtensions.gtile
+    gnomeExtensions.forge
     gnomeExtensions.rounded-window-corners
     gnomeExtensions.quick-settings-tweaker
   ];
@@ -24,11 +24,64 @@
         "rounded-window-corners@yilozt"
         "quick-settings-tweaks@qwreey"
         "advanced-alt-tab@G-dH.github.com"
-        "gTile@vibou"
         "pano@elhan.io"
         "drive-menu@gnome-shell-extensions.gcampax.github.com" 
         "trayIconsReloaded@selfmade.pl"
+        "forge@jmmaranan.com"
         ];
+    };
+    "org/gnome/shell/extensions/forge" = {
+      auto-split-enabled = true;
+      focus-border-toggle = false;
+      preview-hint-enabled = true;
+      quick-settings-enabled = false;
+      split-border-toggle = true;
+      stacked-tiling-mode-enabled = false;
+      tabbed-tiling-mode-enabled = false;
+      window-gap-size = lib.hm.gvariant.mkUint32 4;
+      window-gap-size-increment = lib.hm.gvariant.mkUint32 0;
+    };
+    "org/gnome/shell/extensions/forge/keybindings" = {
+      con-split-horizontal = [];
+      con-split-layout-toggle = [];
+      con-split-vertical = [];
+      con-stacked-layout-toggle = [];
+      con-tabbed-layout-toggle = [];
+      con-tabbed-showtab-decoration-toggle = [];
+      focus-border-toggle = [];
+      prefs-open = [];
+      prefs-tiling-toggle = [];
+      window-focus-down = [];
+      window-focus-left = [];
+      window-focus-right = [];
+      window-focus-up = [];
+      window-gap-size-decrease = [];
+      window-gap-size-increase = [];
+      window-move-down = [];
+      window-move-left = [];
+      window-move-right = [];
+      window-move-up = [];
+      window-resize-bottom-decrease = [];
+      window-resize-bottom-increase = [];
+      window-resize-left-decrease = [];
+      window-resize-left-increase = [];
+      window-resize-right-decrease = [];
+      window-resize-right-increase = [];
+      window-resize-top-decrease = [];
+      window-resize-top-increase = [];
+      window-snap-center = [];
+      window-snap-one-third-left = [];
+      window-snap-one-third-right = [];
+      window-snap-two-third-left = [];
+      window-snap-two-third-right = [];
+      window-swap-down = [];
+      window-swap-last-active = [];
+      window-swap-left = [];
+      window-swap-right = [];
+      window-swap-up = [];
+      window-toggle-always-float = [];
+      window-toggle-float = [ "<Super>s" ];
+      workspace-active-tile-toggle = [];
     };
     "org/gnome/shell/extensions/blur-my-shell/panel" = {
       static-blur = true;
@@ -73,63 +126,6 @@
     };
     "org/gnome/shell/extensions/gnome-ui-tune" = {
       increase-thumbnails-size = "300%";
-    };
-    "org/gnome/shell/extensions/gtile" = {
-      grid-sizes = "2x2";
-      show-icon = false;
-      auto-close-keyboard-shortcut = true;
-      show-toggle-tiling = [ "<Super>t" ];
-      show-toggle-tiling-alt = [ "" ];
-      autotile-main = [ "" ];
-      autotile-1 = [ "" ];
-      autotile-2 = [ "" ];
-      autotile-3 = [ "" ];
-      autotile-4 = [ "" ];
-      autotile-5 = [ "" ];
-      autotile-6 = [ "" ];
-      autotile-7 = [ "" ];
-      autotile-8 = [ "" ];
-      autotile-9 = [ "" ];
-      autotile-10 = [ "" ];
-      snap-to-neighbors = [ "" ];
-      preset-resize-1 = [ "" ];
-      preset-resize-2 = [ "" ];
-      preset-resize-3 = [ "" ];
-      preset-resize-4 = [ "" ];
-      preset-resize-5 = [ "" ];
-      preset-resize-6 = [ "" ];
-      preset-resize-7 = [ "" ];
-      preset-resize-8 = [ "" ];
-      preset-resize-9 = [ "" ];
-      preset-resize-10 = [ "" ];
-      preset-resize-11 = [ "" ];
-      preset-resize-12 = [ "" ];
-      preset-resize-13 = [ "" ];
-      preset-resize-14 = [ "" ];
-      preset-resize-15 = [ "" ];
-      preset-resize-16 = [ "" ];
-      preset-resize-17 = [ "" ];
-      preset-resize-18 = [ "" ];
-      preset-resize-19 = [ "" ];
-      preset-resize-20 = [ "" ];
-      preset-resize-21 = [ "" ];
-      preset-resize-22 = [ "" ];
-      preset-resize-23 = [ "" ];
-      preset-resize-24 = [ "" ];
-      preset-resize-25 = [ "" ];
-      preset-resize-26 = [ "" ];
-      preset-resize-27 = [ "" ];
-      preset-resize-28 = [ "" ];
-      preset-resize-29 = [ "" ];
-      preset-resize-30 = [ "" ];
-      move-left-vi = [ "" ];
-      move-right-vi = [ "" ];
-      move-up-vi = [ "" ];
-      move-down-vi = [ "" ];
-      resize-left-vi = [ "" ];
-      resize-right-vi = [ "" ];
-      resize-up-vi = [ "" ];
-      resize-down-vi = [ "" ];
     };
   };
 }
