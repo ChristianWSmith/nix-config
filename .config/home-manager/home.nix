@@ -16,6 +16,7 @@
     ./features/default-applications.nix
 
     ./experimental/firefox-gnome-theme.nix
+    ./experimental/gradience.nix
   ];
 
   home.file = {

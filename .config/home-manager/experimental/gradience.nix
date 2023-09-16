@@ -4,30 +4,32 @@
 { pkgs, lib, user, ... }:
 let
   # TODO: If I want to use master branch
-  gradience = pkgs.gradience.overrideAttrs (old: {
-    version = "git";
-    src = pkgs.fetchFromGitHub {
-      fetchSubmodules = true;
-      owner = "GradienceTeam";
-      repo = "Gradience";
-      rev = "4f0a9ebc6dcd3fe6c3355f01482d450c9a0e144f";
-      sha256 = "sha256-TCNTD0/EqAnLSSHFrFa/HLpl4tez3e64TjNJky0GBEU=";
-    };
-    propagatedBuildInputs = with pkgs.python3Packages; [
-      anyascii
-      jinja2
-      lxml
-      material-color-utilities
-      pygobject3
-      svglib
-      yapsy
-      libsass
-    ];
-  });
-  # gradience = pkgs.gradience;
+  # gradience = pkgs.gradience.overrideAttrs (old: {
+  #   version = "git";
+  #   src = pkgs.fetchFromGitHub {
+  #     fetchSubmodules = true;
+  #     owner = "GradienceTeam";
+  #     repo = "Gradience";
+  #     rev = "76c886e3f51e45f1c85270899e9c5942f98bb94e";
+  #     sha256 = "sha256-+xuiMJ3C99gQCocsV8l1RsPHuIuG5DNxZLz7Tlk235g="; # lib.fakeSha256; 
+  #   };
+  #   propagatedBuildInputs = with pkgs.python3Packages; [
+  #     anyascii
+  #     jinja2
+  #     lxml
+  #     material-color-utilities
+  #     pygobject3
+  #     svglib
+  #     yapsy
+  #     libsass
+  #   ];
+  # });
+  gradience = pkgs.gradience;
+
+  binName = "auto-gradience";
 
   autoGradience = pkgs.writeShellApplication {
-    name = "auto-gradience";
+    name = binName;
     runtimeInputs = [ gradience pkgs.gnome.zenity pkgs.dbus ];
     text = ''
       COLOR_SCHEME=$(dconf read /org/gnome/desktop/interface/color-scheme)
@@ -81,4 +83,14 @@ in
     };
   };
   home.packages = [pkgs.gradience autoGradience];
+  home.file = {
+    ".config/autostart/${binName}.desktop".text = ''
+      [Desktop Entry]
+      Type=Application
+      Name=Auto Gradience
+      Exec=${binName}
+      Hidden=true
+      Terminal=true
+    '';
+  };
 }
