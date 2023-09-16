@@ -31,7 +31,7 @@
       center-new-windows = true;
       dynamic-workspaces = false;
       workspaces-only-on-primary = true;
-      edge-tiling = true;
+      edge-tiling = false;
     };
     "org/gnome/desktop/wm/preferences" = {
       titlebar-font = ''${theme.fontName} Bold ${builtins.toString theme.fontSize}'';
