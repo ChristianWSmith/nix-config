@@ -27,7 +27,7 @@
   ];
 
   home.file = {
-    ".wallpapers".source = files/wallpapers;
+    ".assets".source = files/assets;
     ".hushlogin".text = "";
   };
 

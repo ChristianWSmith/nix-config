@@ -2,13 +2,7 @@
 let
   launcher = pkgs.writeShellScriptBin "hyprland-launcher" ''
     . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
-    OS=$(cat /etc/os-release | grep -e "^NAME=" | sed s/NAME=//g)
-    if [[ "$OS" == "NixOS" ]]
-    then
-      dbus-run-session ${pkgs.hyprland}/bin/Hyprland &> /dev/null
-    else
-      dbus-run-session nixGL ${pkgs.hyprland}/bin/Hyprland &> /dev/null
-    fi
+    dbus-run-session ${pkgs.hyprland}/bin/Hyprland &> /dev/null
   '';
   enableScreenSharing = pkgs.writeShellScriptBin "hyprland-enable-screen-sharing" ''
     systemctl --user stop xdg-desktop-portal

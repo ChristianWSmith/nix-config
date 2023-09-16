@@ -60,7 +60,7 @@
 	end
         pushd $(pwd)
 	nix-channel --update
-	home-manager switch -b backup --impure
+	home-manager switch -b backup
 	popd
       '';
       nixos-gc = ''

@@ -20,7 +20,7 @@
 !.config/hypr/**
 .config/hypr/hyprland.conf
 
-# Rofi
+# Wlogout
 !.config/wlogout
 !.config/wlogout/**
 .config/wlogout/layout

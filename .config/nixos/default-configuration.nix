@@ -4,7 +4,7 @@
 
   imports =
     [
-      ./modules/hardware-configuration-default.nix
+      ./hardware.nix
       ./modules/display-configuration-default.nix
       ./modules/gpu-configuration-default.nix
       ./modules/boot-configuration.nix

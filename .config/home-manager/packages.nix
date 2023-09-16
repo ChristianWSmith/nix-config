@@ -47,12 +47,6 @@ in
     # Shells
     bashInteractive
 
-    # nixGL
-    nixgl.auto.nixGLDefault
-    # pkgs.nixgl.auto.nixGLNvidia
-    # pkgs.auto.nixGLNvidiaBumblebee
-    # pkgs.nixGLIntel
-
     # Command Line Tools
     gvfs
     glib
