@@ -12,6 +12,7 @@
 .config/home-manager/eww/scripts/__pycache__
 !.config/nixos
 !.config/nixos/**
+.config/nixos/hardware.nix
 
 # Hyprland
 !.config/hypr
