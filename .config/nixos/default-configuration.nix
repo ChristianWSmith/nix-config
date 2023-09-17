@@ -14,7 +14,6 @@
       ./modules/networking-configuration.nix
       ./modules/programs-configuration.nix
       ./modules/users-configuration.nix
-      ./modules/tmpfs-configuration.nix
       ./modules/systemd-configuration.nix
     ];
 

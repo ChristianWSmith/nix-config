@@ -5,7 +5,7 @@
   imports =
     [
       ./hardware.nix
-      ./modules/display-configuration-laptop.nix
+      ./modules/display-configuration-default.nix
       ./modules/gpu-configuration.nix
       ./modules/boot-configuration.nix
       ./modules/services-configuration.nix
@@ -15,7 +15,6 @@
       ./modules/programs-configuration.nix
       ./modules/users-configuration.nix
       ./modules/printer-configuration.nix
-      ./modules/tmpfs-configuration.nix
       ./modules/systemd-configuration.nix
     ];
 

@@ -1,8 +1,8 @@
 { pkgs, ... }:
 let
-  xboxdrvRunFile = "/ram/hitbox_xboxdrv.run";
-  deviceMonitorRunFile = "/ram/hitbox_device_monitor.run";
-  pidFile = "/ram/hitbox.pid";
+  xboxdrvRunFile = "/tmp/hitbox_xboxdrv.run";
+  deviceMonitorRunFile = "/tmp/hitbox_device_monitor.run";
+  pidFile = "/tmp/hitbox.pid";
   hitbox = pkgs.writeShellScriptBin "hitbox" ''
 
 xboxdrv_keepalive () {

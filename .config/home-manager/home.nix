@@ -16,7 +16,6 @@
     ./features/theme.nix
     ./features/mako.nix
     ./features/gammastep.nix
-    ./features/trayer.nix
     ./features/browser.nix
     ./features/hitbox.nix
     ./features/fuzzel.nix
