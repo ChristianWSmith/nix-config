@@ -1,5 +1,9 @@
 {
   time.timeZone = "America/New_York";
+  services.xserver = {
+    layout = "us";
+    xkbVariant = "";
+  };
   i18n = {
     defaultLocale = "en_US.UTF-8";
     extraLocaleSettings = {
