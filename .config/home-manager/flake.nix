@@ -90,6 +90,10 @@
           infoRGB = theme.colorScheme.blueRGB;
           successRGB = theme.colorScheme.greenRGB;
           specialRGB = theme.colorScheme.magentaRGB;
+
+          newtForeground = "white";
+          newtBackground = "black";
+          newtAccent = "cyan";
         };
         borderWidth = 1;
         borderRadius = 5;
