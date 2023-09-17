@@ -81,6 +81,7 @@
           warningHex = theme.colorScheme.yellowHex;
           infoHex = theme.colorScheme.blueHex;
           successHex = theme.colorScheme.greenHex;
+          specialHex = theme.colorScheme.magentaHex;
           
           accentRGB = theme.colorScheme.cyanRGB;
           secondaryAccentRGB = theme.colorScheme.greenRGB;
@@ -88,6 +89,7 @@
           warningRGB = theme.colorScheme.yellowRGB;
           infoRGB = theme.colorScheme.blueRGB;
           successRGB = theme.colorScheme.greenRGB;
+          specialRGB = theme.colorScheme.magentaRGB;
         };
         borderWidth = 1;
         borderRadius = 5;
