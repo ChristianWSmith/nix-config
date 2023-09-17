@@ -23,7 +23,7 @@ in
     enable = true;
     settings = {
       main = {
-        font = "${theme.monoFontName}:style=Bold:pixelsize=16";
+        font = "${theme.monoFontName}:style=Bold:pixelsize=${builtins.toString theme.fontSizeUI}";
         prompt = ">  ";
         icon-theme = theme.iconThemeName;
         exit-on-keyboard-focus-loss = "no";

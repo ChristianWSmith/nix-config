@@ -16,7 +16,7 @@ in
     server.enable = true;
     settings = {
       main = {
-        font = "${theme.monoFontName}:pixelsize=16";
+        font = "${theme.monoFontName}:pixelsize=${builtins.toString theme.fontSizeUI}";
       };
       colors = {
         alpha=theme.colorScheme.transparencyBackgroundRGB;

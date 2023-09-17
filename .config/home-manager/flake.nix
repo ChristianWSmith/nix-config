@@ -95,6 +95,7 @@
         fontPackage = pkgs.noto-fonts;
         fontName = "Noto Sans";
         fontSize = 11;
+        fontSizeUI = 16;
         monoFontPackage = pkgs.noto-sans;
         monoFontName = "Noto Sans Mono";
         monoFontSize = 10;
