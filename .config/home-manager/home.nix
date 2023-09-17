@@ -6,24 +6,22 @@
   home.stateVersion = "22.11";
 
   imports = [
-    ./packages.nix
-    ./environment.nix
-    ./shell.nix
-    ./editor.nix
-    ./terminal.nix
-    ./btop.nix
-    ./hyprland.nix
-    ./gammastep.nix
-    ./default-applications.nix
-    ./theme.nix
-    ./eww.nix
-    ./mako.nix
-    ./trayer.nix
-    ./browser.nix
-    ./git.nix
-    ./hitbox.nix
-    ./fuzzel.nix
-    ./wlogout.nix
+    ./features/packages.nix
+    ./features/environment.nix
+    ./features/shell.nix
+    ./features/editor.nix
+    ./features/terminal.nix
+    ./features/hyprland.nix
+    ./features/default-applications.nix
+    ./features/theme.nix
+    ./features/mako.nix
+    ./features/gammastep.nix
+    ./features/trayer.nix
+    ./features/browser.nix
+    ./features/hitbox.nix
+    ./features/fuzzel.nix
+    ./features/wlogout.nix
+    ./features/waybar.nix
   ];
 
   home.file = {

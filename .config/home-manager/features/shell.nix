@@ -1,28 +1,5 @@
 { pkgs, user, ... }:
 {
-  programs.bash = {
-    enable = true;
-    initExtra = ''
-      if [[ $- == *i* ]] && [[ "$BASH_BYPASS" != "1" ]] && [[ "$buildCommandPath" != *"nix-shell"* ]]
-      then
-          /${pkgs.fish}/bin/fish
-          exit
-      else
-          unset BASH_BYPASS
-          bash_exit () {
-            unalias exit
-            if [ $# -eq 0 ]
-            then
-              exit 0
-            else
-              exit $@
-            fi
-          }
-          alias exit="bash_exit"
-      fi
-    '';
-  };
-
   programs.fish = {
     enable = true;
     interactiveShellInit = ''
@@ -81,7 +58,6 @@
       nix-goto = "cd $(dirname $(readlink -f $(which $argv)))";
       poweroff = "systemctl poweroff --no-wall";
       reboot = "systemctl reboot -i --no-wall";
-      bash = "BASH_BYPASS=1 /${pkgs.bashInteractive}/bin/bash";
     };
   };
 }

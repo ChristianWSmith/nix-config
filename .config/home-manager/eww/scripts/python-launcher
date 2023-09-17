@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-SCRIPT=$1
-INTERVAL=$2
-
-DIR=$(dirname $(readlink -f $0))
-
-python $DIR/$SCRIPT $INTERVAL

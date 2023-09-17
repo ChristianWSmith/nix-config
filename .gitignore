@@ -19,6 +19,10 @@
 !.config/hypr/**
 .config/hypr/hyprland.conf
 
+# Waybar
+!.config/waybar
+!.config/waybar/**
+
 # Wlogout
 !.config/wlogout
 !.config/wlogout/**

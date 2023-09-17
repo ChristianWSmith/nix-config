@@ -1,24 +1,24 @@
 { pkgs, user, ... }:
-let
-  my-python-packages = ps: with ps; [
-    psutil
-    pygobject3
-    xdg
-    requests
-    (buildPythonPackage rec {
-      pname = "pyalsaaudio";
-      version = "0.10.0";
-      format = "setuptools";
-      src = pythonPackages.fetchPypi {
-        inherit pname version;
-	sha256 = "sha256-4hF1UAor0xCuOGfnmRY53vweKlySzxufcIMpazRnOKs=";
-      };
-      doCheck = false;
-      buildInputs = [ pkgs.alsa-lib ];
-    })
-  ];
-in
 {
+  services.mpd = {
+    enable = true;
+    musicDirectory = "${user.home}/Music";
+  };
+ 
+  programs.git = {
+    enable = true;
+    userEmail = user.email;
+    userName = user.fullName;
+  };
+
+  programs.btop = {
+    enable = true;
+    settings = {
+      color_theme = "Default";
+      theme_background = false;
+    };
+  };
+  
   programs.imv = {
     enable = true;
     settings = {
@@ -35,10 +35,6 @@ in
   };
 
   home.packages = with pkgs; [
-
-    # Python
-    (python3.withPackages my-python-packages)
-
     # Fonts
     noto-fonts-emoji
     noto-fonts-cjk-sans
@@ -99,7 +95,6 @@ in
 
     # Files
     mpv
-    mpd
     zathura
     vlc
     gst_all_1.gst-plugins-base
