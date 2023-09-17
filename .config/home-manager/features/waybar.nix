@@ -49,6 +49,7 @@ in
           icon-size = 26;
           sort-by-app-id = true;
           all-outputs = true;
+          on-click = "activate";
         };
         mpd = {
           format = "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ";

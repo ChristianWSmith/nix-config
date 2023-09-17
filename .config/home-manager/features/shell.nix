@@ -1,9 +1,12 @@
-{ pkgs, user, ... }:
+{ pkgs, user, theme, ... }:
 {
   programs.fish = {
     enable = true;
     interactiveShellInit = ''
       set fish_greeting
+
+      
+
       if test (tty) = /dev/tty1;
         while test -f ~/.tty1-gui-only;
           hyprland-launcher;

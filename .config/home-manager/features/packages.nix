@@ -34,7 +34,7 @@
     package = pkgs.vscodium;
     extensions = [ 
       pkgs.vscode-extensions.kamikillerto.vscode-colorize
-      pkgs.vscode-extensions.bbenoist.nix 
+      pkgs.vscode-extensions.bbenoist.nix
     ];
     userSettings = {
       "editor.fontFamily" = "'${theme.monoFontName}', 'monospace', monospace";

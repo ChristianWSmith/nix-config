@@ -92,31 +92,27 @@
         borderWidth = 1;
         borderRadius = 5;
 
-        # themePackage = pkgs.nordic;
-        # themeName = "Nordic-darker";
-        # iconThemePackage = pkgs.nordzy-icon-theme;
-        # iconThemeName = "Nordzy-dark";
-        # cursorThemePackage = pkgs.capitaine-cursors-themed;
-        # cursorThemeName = "Capitaine Cursors (Palenight)";
-        # cursorSize = 40;
-        # fontPackage = pkgs.noto-fonts;
-        # fontName = "Noto Sans";
-        # fontSize = 11;
-
-	      themePackage = pkgs.adw-gtk3;
-        themeName = "adw-gtk3-dark";
-        iconThemePackage = pkgs.papirus-icon-theme;
-        iconThemeName = "Papirus-Dark";
-        cursorThemePackage = pkgs.gnome.adwaita-icon-theme;
-        cursorThemeName = "Adwaita";
-        cursorSize = 40;
         fontPackage = pkgs.noto-fonts;
         fontName = "Noto Sans";
         fontSize = 11;
         fontSizeUI = 16;
-        monoFontPackage = pkgs.noto-sans;
+        monoFontPackage = pkgs.noto-fonts;
         monoFontName = "Noto Sans Mono";
         monoFontSize = 10;
+
+        cursorThemePackage = pkgs.gnome.adwaita-icon-theme;
+        cursorThemeName = "Adwaita";
+        # cursorThemePackage = pkgs.capitaine-cursors-themed;
+        # cursorThemeName = "Capitaine Cursors (Palenight)";
+        cursorSize = 40;
+
+        # iconThemePackage = pkgs.papirus-icon-theme;
+        # iconThemeName = "Papirus-Dark";
+        iconThemePackage = pkgs.nordzy-icon-theme;
+        iconThemeName = "Nordzy-dark";
+
+	      themePackage = pkgs.adw-gtk3;
+        themeName = "adw-gtk3-dark";
         qtPlatformTheme = "gtk";
         qtStyleName = "adwaita-dark";
       };

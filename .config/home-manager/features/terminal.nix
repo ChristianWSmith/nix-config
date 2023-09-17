@@ -13,9 +13,9 @@ in
   home.packages = [ launcher ];
   programs.foot = {
     enable = true;
-    server.enable = true;
     settings = {
       main = {
+        shell = "${pkgs.fish}/bin/fish";
         font = "${theme.monoFontName}:pixelsize=${builtins.toString theme.fontSizeUI}";
       };
       colors = {
