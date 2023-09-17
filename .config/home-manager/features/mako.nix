@@ -3,8 +3,8 @@
   services.mako = {
     enable = true;
     anchor = "top-right";
-    backgroundColor = "#111111cc";
-    borderColor = "#33ccffee";
+    backgroundColor = "#${theme.colorScheme.background1Hex}${theme.colorScheme.transparencyBackgroundHex}";
+    borderColor = "#${theme.colorScheme.accentHex}${theme.colorScheme.transparencyForegroundHex}";
     borderSize = 1;
     borderRadius = 5;
     defaultTimeout = 3000;

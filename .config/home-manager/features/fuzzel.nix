@@ -29,17 +29,17 @@ in
         exit-on-keyboard-focus-loss = "no";
       };
       colors = {
-        background = "111111cc";
-        text = "ffffffff";
-        match = "33ccffee";
-        selection = "33ccffee";
-        selection-text = "000000ff";
-        selection-match = "ffffffff";
-        border = "33ccffee";
+        background = "${theme.colorScheme.background1Hex}${theme.colorScheme.transparencyBackgroundHex}";
+        text = "${theme.colorScheme.foreground1Hex}ff";
+        match = "${theme.colorScheme.accentHex}${theme.colorScheme.transparencyForegroundHex}";
+        selection = "${theme.colorScheme.accentHex}${theme.colorScheme.transparencyForegroundHex}";
+        selection-text = "${theme.colorScheme.background1Hex}ff";
+        selection-match = "${theme.colorScheme.foreground1Hex}ff";
+        border = "${theme.colorScheme.accentHex}${theme.colorScheme.transparencyForegroundHex}";
       };
       border = {
-        width = 1;
-        radius = 5;
+        width = theme.borderWidth;
+        radius = theme.borderRadius;
       };
     };
   };

@@ -1,4 +1,4 @@
-{ pkgs, user, ... }:
+{ pkgs, user, theme, ... }:
 let
   powerMenu = pkgs.writeShellScriptBin "power-menu" ''
     wlogout --layout ${user.home}/.config/wlogout/layout --css ${user.home}/.config/wlogout/style.css
@@ -30,13 +30,13 @@ in
         background-image: none;
       }
       window {
-        background-color: rgba(17, 17, 17, 0.8);
+        background-color: rgba(${theme.colorScheme.background1RGB}, ${theme.colorScheme.transparencyBackgroundRGB});
       }
       button {
         margin: 9px;
-        color: rgba(255, 255, 255, 1);
-        background-color: rgba(17, 17, 17, 0.8);
-        border: 1px solid rgba(89, 89, 89, 0.67);
+        color: rgba(${theme.colorScheme.foreground1RGB}, 1);
+        background-color: rgba(${theme.colorScheme.background1RGB}, ${theme.colorScheme.transparencyBackgroundRGB});
+        border: 1px solid rgba(${theme.colorScheme.background4RGB}, ${theme.colorScheme.transparencyBackgroundRGB});
         background-repeat: no-repeat;
         background-position: center;
         background-size: 25%;
@@ -44,7 +44,7 @@ in
       }
 
       button:hover {
-        border: 1px solid rgba(51, 204, 255, 0.93);
+        border: 1px solid rgba(${theme.colorScheme.accentRGB}, ${theme.colorScheme.transparencyForegroundRGB});
         outline-style: none;
       }
 
