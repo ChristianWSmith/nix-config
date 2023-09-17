@@ -8,8 +8,6 @@
         while test -f ~/.tty1-gui-only;
           hyprland-launcher;
         end;
-      else;
-        yafetch;
       end;
     '';
     functions = {

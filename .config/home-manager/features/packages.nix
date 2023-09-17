@@ -40,9 +40,6 @@
     noto-fonts-cjk-sans
     noto-fonts-cjk-serif
 
-    # Shells
-    bashInteractive
-
     # Command Line Tools
     gvfs
     glib
@@ -117,7 +114,6 @@
 
     # Internet
     discord
-    steam
 
     # GNOME Apps
     gnome.simple-scan
