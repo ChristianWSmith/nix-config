@@ -83,7 +83,6 @@
 
     # GUI Tools
     xorg.xrandr
-    hyprpaper
     grim
     rofimoji
     slurp 

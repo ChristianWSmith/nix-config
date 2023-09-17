@@ -16,9 +16,11 @@
 
 # Hyprland
 !.config/hypr
-!.config/hypr/**
-.config/hypr/appearance.conf
-.config/hypr/hyprland.conf
+!.config/hypr/autoexec.conf
+!.config/hypr/binds.conf
+!.config/hypr/environment.conf
+!.config/hypr/input.conf
+!.config/hypr/windowrules.conf
 
 # Wlogout
 !.config/wlogout
