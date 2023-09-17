@@ -31,8 +31,14 @@
         colorScheme = {
           transparencyBackgroundHex = "CC";
           transparencyForegroundHex = "EE";
+          transparencyHeavyShadeHex = "5C";
+          transparencyLightShadeHex = "14";
+
           transparencyBackgroundRGB = "0.8";
           transparencyForegroundRGB = "0.93";
+          transparencyHeavyShadeRGB = "0.36";
+          transparencyLightShadeRGB = "0.08";
+
           background1Hex = palette.base00;
           background2Hex = palette.base01;
           background3Hex = palette.base02;
@@ -41,6 +47,7 @@
           foreground3Hex = palette.base05;
           foreground2Hex = palette.base06;
           foreground1Hex = palette.base07;
+
           background1RGB = inputs.nix-colors.lib.conversions.hexToRGBString "," palette.base00;
           background2RGB = inputs.nix-colors.lib.conversions.hexToRGBString "," palette.base01;
           background3RGB = inputs.nix-colors.lib.conversions.hexToRGBString "," palette.base02;
@@ -49,6 +56,7 @@
           foreground3RGB = inputs.nix-colors.lib.conversions.hexToRGBString "," palette.base05;
           foreground2RGB = inputs.nix-colors.lib.conversions.hexToRGBString "," palette.base06;
           foreground1RGB = inputs.nix-colors.lib.conversions.hexToRGBString "," palette.base07;
+
           redHex = palette.base08;
           orangeHex = palette.base09;
           yellowHex = palette.base0A;
@@ -57,6 +65,7 @@
           blueHex = palette.base0D;
           magentaHex = palette.base0E;
           brownHex = palette.base0F;
+
           redRGB = inputs.nix-colors.lib.conversions.hexToRGBString "," palette.base08;
           orangeRGB = inputs.nix-colors.lib.conversions.hexToRGBString "," palette.base09;
           yellowRGB = inputs.nix-colors.lib.conversions.hexToRGBString "," palette.base0A;
@@ -67,9 +76,18 @@
           brownRGB = inputs.nix-colors.lib.conversions.hexToRGBString "," palette.base0F;
 
           accentHex = theme.colorScheme.cyanHex;
-          accentRGB = theme.colorScheme.cyanRGB;
           secondaryAccentHex = theme.colorScheme.greenHex;
+          dangerHex = theme.colorScheme.redHex;
+          warningHex = theme.colorScheme.yellowHex;
+          infoHex = theme.colorScheme.blueHex;
+          successHex = theme.colorScheme.greenHex;
+          
+          accentRGB = theme.colorScheme.cyanRGB;
           secondaryAccentRGB = theme.colorScheme.greenRGB;
+          dangerRGB = theme.colorScheme.redRGB;
+          warningRGB = theme.colorScheme.yellowRGB;
+          infoRGB = theme.colorScheme.blueRGB;
+          successRGB = theme.colorScheme.greenRGB;
         };
         borderWidth = 1;
         borderRadius = 5;

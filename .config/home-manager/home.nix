@@ -22,6 +22,7 @@
     ./features/wlogout.nix
     ./features/waybar.nix
     ./features/gtklock.nix
+    ./features/hyprpaper.nix
   ];
 
   home.file = {

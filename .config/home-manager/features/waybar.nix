@@ -1,4 +1,5 @@
-{ pkgs, ... }:
+# TODO: THEMEING
+{ pkgs, theme, ... }:
 let
   zenToggle = pkgs.writeShellScriptBin "zen-toggle" ''
     if pgrep waybar; then
@@ -13,17 +14,14 @@ in
     enable = true;
     settings = {
       mainBar = {
-        layer = "top"; # Waybar at top layer
-        position = "top"; # Waybar position (top|bottom|left|right)
-        height = 30; # Waybar height (to be removed for auto height)
+        layer = "top";
+        position = "top";
+        height = 30;
         margin = "5px 5px 0px 5px";
-        # width = 1280; # Waybar width
-        spacing = 2; # Gaps between modules (4px)
-        # Choose the order of the modules
+        spacing = 2;
         modules-left = ["hyprland/workspaces"];
         modules-center = ["wlr/taskbar"];
         modules-right = ["tray" "mpd" "pulseaudio" "network" "cpu" "memory" "battery" "clock"];
-        # Modules configuration
         "hyprland/workspaces" = {
           disable-scroll = true;
           all-outputs = false;
@@ -62,7 +60,7 @@ in
             on = " ";
           };
           random-icons = {
-            off = "<span color=\"#f53c3c\"></span> ";
+            off = "<span color=\"#${theme.colorScheme.dangerHex}\"></span> ";
             on = " ";
           };
           repeat-icons = {
@@ -137,18 +135,17 @@ in
     };
     style = ''
       * {
-        font-family: Noto Sans;
-        font-size: 16px;
+        font-family: ${theme.fontName};
+        font-size: ${builtins.toString theme.fontSizeUI}px;
         font-weight: bold;
         margin: 0px;
         padding: 0px;
       }
 
       window#waybar {
-        border-radius: 5px;
-        background-color: rgba(17, 17, 17, 0.8);
-        /* border-bottom: 3px solid rgba(100, 114, 125, 0.5); */
-        color: #ffffff;
+        border-radius: ${builtins.toString theme.borderRadius}px;
+        background-color: rgba(${theme.colorScheme.background1RGB}, ${theme.colorScheme.transparencyBackgroundRGB});
+        color: #${theme.colorScheme.foreground1Hex};
         transition-property: background-color;
         transition-duration: .5s;
       }
@@ -157,22 +154,13 @@ in
         opacity: 0.2;
       }
 
-      window#waybar.termite {
-        background-color: #3F3F3F;
-      }
-
-      window#waybar.chromium {
-        background-color: #000000;
-        border: none;
-      }
-
       button {
         box-shadow: inset 0 -3px transparent;
         border: none;
-        border-radius: 5px;
+        border-radius: ${builtins.toString theme.borderRadius}px;
         margin: 2px 2px 2px 0px;
         background-color: transparent;
-        color: #ffffff;
+        color: #${theme.colorScheme.foreground1Hex};
       }
 
       #workspaces button {
@@ -182,35 +170,22 @@ in
       button:hover,
       button.active,
       button.focused {
-        background: rgba(100, 114, 125, 0.5);
+        background: rgba(${theme.colorScheme.background4RGB}, ${theme.colorScheme.transparencyBackgroundRGB});
       }
 
       button.urgent {
-        background-color: #eb4d4b;
+        background-color: #${theme.colorScheme.dangerHex};
       }
 
       #clock,
       #battery,
       #cpu,
       #memory,
-      #disk,
-      #temperature,
-      #backlight,
       #network,
-      #idle_inhibitor,
       #pulseaudio,
-      #wireplumber,
-      #custom-media,
-      #custom-updates,
-      #custom-emoji,
-      #custom-colorpicker,
-      #custom-powerprofile,
-      #custom-screenshot,
-      #custom-clipboard,
-      #custom-powermenu,
       #tray,
       #mpd { 
-        color: #ffffff;
+        color: #${theme.colorScheme.foreground1Hex};
         padding: 0 5px;
         margin: 0px 3px;
       }
