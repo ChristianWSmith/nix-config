@@ -68,6 +68,8 @@
 
           accentHex = theme.colorScheme.cyanHex;
           accentRGB = theme.colorScheme.cyanRGB;
+          secondaryAccentHex = theme.colorScheme.greenHex;
+          secondaryAccentRGB = theme.colorScheme.greenRGB;
         };
         borderWidth = 1;
         borderRadius = 5;

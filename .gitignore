@@ -17,6 +17,7 @@
 # Hyprland
 !.config/hypr
 !.config/hypr/**
+.config/hypr/appearance.conf
 .config/hypr/hyprland.conf
 
 # Waybar

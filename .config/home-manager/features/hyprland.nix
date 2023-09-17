@@ -1,4 +1,4 @@
-{ pkgs, user, ... }:
+{ pkgs, user, theme, ... }:
 let
   launcher = pkgs.writeShellScriptBin "hyprland-launcher" ''
     . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
@@ -74,6 +74,67 @@ in
 {
   home.file = {
     ".tty1-gui-only".text = "";
+    ".config/hypr/appearance.conf".text = ''
+      blurls=waybar
+      layerrule=ignorezero, waybar
+
+      general {
+          gaps_in = 3
+          gaps_out = 5
+          border_size = 1
+          col.active_border = rgba(${theme.colorScheme.accentHex}${theme.colorScheme.transparencyForegroundHex}) rgba(${theme.colorScheme.secondaryAccentHex}${theme.colorScheme.transparencyForegroundHex}) 45deg
+          col.inactive_border = rgba(${theme.colorScheme.background4Hex}${theme.colorScheme.transparencyBackgroundHex})
+
+          layout = dwindle
+      }
+
+      decoration {
+          rounding = ${builtins.toString theme.borderRadius}
+
+          blur {
+              enabled = true
+              size = 3
+              passes = 1
+          }
+
+          drop_shadow = true
+          shadow_range = 4
+          shadow_render_power = 3
+          col.shadow = rgba(${theme.colorScheme.background1Hex}${theme.colorScheme.transparencyBackgroundHex})
+      }
+
+      animations {
+          enabled = true
+
+          bezier = myBezier, 0.05, 0.9, 0.1, 1.05
+
+          animation = windows, 1, 7, myBezier
+          animation = windowsOut, 1, 7, default, popin 80%
+          animation = border, 1, 10, default
+          animation = borderangle, 1, 8, default
+          animation = fade, 1, 7, default
+          animation = workspaces, 1, 6, myBezier, slide
+      }
+
+      dwindle {
+          pseudotile = true
+          preserve_split = true
+      }
+
+      master {
+          new_is_master = false
+      }
+
+      gestures {
+          workspace_swipe = false
+      }
+
+      misc {
+          disable_hyprland_logo = true
+          disable_splash_rendering = true
+          force_hypr_chan = false
+      }
+    '';
   };
   home.packages = [ launcher screenshot enableScreenSharing colorPicker notifyClipboard recordScreen set-wallpaper random-wallpaper get-wallpapers ];
   wayland.windowManager.hyprland = {
