@@ -30,10 +30,6 @@
 .config/wlogout/layout
 .config/wlogout/style.css
 
-# gtklock 
-!.config/gtklock
-!.config/gtklock/**
-
 # Templates
 !Templates
 !Templates/**
