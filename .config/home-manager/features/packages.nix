@@ -95,7 +95,6 @@
     libnotify
     pavucontrol 
     networkmanagerapplet
-    gtklock
     gamescope
     ffmpegthumbnailer
     obs-studio

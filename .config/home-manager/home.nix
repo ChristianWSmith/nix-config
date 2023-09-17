@@ -21,6 +21,7 @@
     ./features/fuzzel.nix
     ./features/wlogout.nix
     ./features/waybar.nix
+    ./features/gtklock.nix
   ];
 
   home.file = {
