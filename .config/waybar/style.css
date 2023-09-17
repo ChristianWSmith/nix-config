@@ -42,26 +42,23 @@ button {
     box-shadow: inset 0 -3px transparent;
     /* Avoid rounded borders under each button name */
     border: none;
-    border-radius: 0;
-}
-
-/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
-
-#workspaces button {
     border-radius: 5px;
     margin: 2px 2px 2px 0px;
-    padding: 0px 5px;
     background-color: transparent;
     color: #ffffff;
 }
 
-#workspaces button:hover,
-#workspaces button.active,
-#workspaces button.focused {
+#workspaces button {
+    padding: 0px 5px;
+}
+
+button:hover,
+button.active,
+button.focused {
     background: rgba(100, 114, 125, 0.5);
 }
 
-#workspaces button.urgent {
+button.urgent {
     background-color: #eb4d4b;
 }
 

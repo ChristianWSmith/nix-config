@@ -7,25 +7,36 @@
     "spacing": 2, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": ["hyprland/workspaces"],
-    "modules-center": [],
+    "modules-center": ["wlr/taskbar"],
     "modules-right": ["tray", "mpd", "pulseaudio", "network", "cpu", "memory", "battery", "clock"],
     // Modules configuration
-    // "hyprland/workspaces": {
-    //     "disable-scroll": true,
-    //     "all-outputs": true,
-    //     "warp-on-scroll": false,
-    //     "format": "{name}: {icon}",
-    //     "format-icons": {
-    //         "1": "",
-    //         "2": "",
-    //         "3": "",
-    //         "4": "",
-    //         "5": "",
-    //         "urgent": "",
-    //         "focused": "",
-    //         "default": ""
-    //     }
-    // },
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": false,
+        "warp-on-scroll": false,
+        "format": "{icon}",
+        "format-icons": {
+            "1": "1",
+            "2": "2",
+            "3": "3",
+            "4": "4",
+            "5": "5",
+	    "6": "",
+	    "7": "7",
+	    "8": "8",
+	    "9": "9",
+	    "10": "10",
+	    "11": "L",
+	    "12": "R",
+            "urgent": "",
+            "focused": "",
+            "default": ""
+        }
+    },
+    "wlr/taskbar": {
+        "icon-size": 26,
+	"sort-by-app-id": true
+    },
     "mpd": {
         "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
         "format-disconnected": "Disconnected ",
@@ -82,9 +93,9 @@
     },
     "network": {
         "format-wifi": "({signalStrength}%) ",
-        "format-ethernet": "",
-        "tooltip-format": "{ifname} via {gwaddr} ",
-        "format-linked": "(No IP) ",
+        "format-ethernet": "󰈀",
+        "tooltip-format": "{ifname} via {gwaddr} 󰈀",
+        "format-linked": "(No IP) ⚠",
         "format-disconnected": "Disconnected ⚠",
 	"on-click": "terminal nmtui"
     },

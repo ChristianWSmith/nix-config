@@ -11,8 +11,8 @@
     };
   };
   xdg.portal = {
-    enable = lib.mkForce false; # true;
-    extraPortals = lib.mkForce [ ]; #[ pkgs.xdg-desktop-portal-hyprland pkgs.xdg-desktop-portal-gtk ];
+    enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
   };
   hardware = {
     opengl.enable = true;
@@ -57,16 +57,6 @@
     power-profiles-daemon.enable = true;
   };
   systemd = {
-    user.services.xdg-desktop-portal-rewrite-launchers = {
-      partOf = lib.mkForce [ ];
-    };
-    user.services.xdg-desktop-portal = {
-      partOf = lib.mkForce [ ];
-    };
-    user.services.xdg-desktop-portal-hyprland = {
-      partOf = lib.mkForce [ ];
-      after = lib.mkForce [ ];
-    };
     user.services.polkit-gnome-authentication-agent-1 = {
       description = "polkit-gnome-authentication-agent-1";
       wantedBy = [ "graphical-session.target" ];
