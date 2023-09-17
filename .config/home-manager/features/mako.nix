@@ -5,8 +5,8 @@
     anchor = "top-center";
     backgroundColor = "#${theme.colorScheme.background1Hex}${theme.colorScheme.transparencyBackgroundHex}";
     borderColor = "#${theme.colorScheme.accentHex}${theme.colorScheme.transparencyForegroundHex}";
-    borderSize = lib.strings.toInt theme.borderWidth;
-    borderRadius = lib.strings.toInt theme.borderRadius;
+    borderSize = theme.borderWidth;
+    borderRadius = theme.borderRadius;
     defaultTimeout = 3000;
     font = "${theme.fontName} ${builtins.toString theme.fontSize}";
     iconPath = "${user.home}/.nix-profile/share/icons/${theme.iconThemeName}";

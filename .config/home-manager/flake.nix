@@ -69,8 +69,8 @@
           accentHex = theme.colorScheme.cyanHex;
           accentRGB = theme.colorScheme.cyanRGB;
         };
-        borderWidth = "1";
-        borderRadius = "5";
+        borderWidth = 1;
+        borderRadius = 5;
 
         # themePackage = pkgs.nordic;
         # themeName = "Nordic-darker";

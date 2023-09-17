@@ -38,8 +38,8 @@ in
         border = "${theme.colorScheme.accentHex}${theme.colorScheme.transparencyForegroundHex}";
       };
       border = {
-        width = theme.borderWidth;
-        radius = theme.borderRadius;
+        width = builtins.toString theme.borderWidth;
+        radius = builtins.toString theme.borderRadius;
       };
     };
   };
