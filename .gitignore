@@ -14,14 +14,6 @@
 !.config/nixos/**
 .config/nixos/hardware.nix
 
-# Hyprland
-!.config/hypr
-!.config/hypr/autoexec.conf
-!.config/hypr/binds.conf
-!.config/hypr/environment.conf
-!.config/hypr/input.conf
-!.config/hypr/windowrules.conf
-
 # Wlogout
 !.config/wlogout
 !.config/wlogout/**
