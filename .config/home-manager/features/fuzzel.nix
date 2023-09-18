@@ -31,10 +31,10 @@ in
       colors = {
         background = "${theme.colorScheme.background1Hex}${theme.colorScheme.transparencyBackgroundHex}";
         text = "${theme.colorScheme.foreground1Hex}ff";
-        match = "${theme.colorScheme.accentHex}${theme.colorScheme.transparencyForegroundHex}";
+        match = "${theme.colorScheme.dangerHex}${theme.colorScheme.transparencyForegroundHex}";
         selection = "${theme.colorScheme.accentHex}${theme.colorScheme.transparencyForegroundHex}";
         selection-text = "${theme.colorScheme.background1Hex}ff";
-        selection-match = "${theme.colorScheme.foreground1Hex}ff";
+        selection-match = "${theme.colorScheme.dangerHex}ff";
         border = "${theme.colorScheme.accentHex}${theme.colorScheme.transparencyForegroundHex}";
       };
       border = {

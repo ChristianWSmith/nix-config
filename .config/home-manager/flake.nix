@@ -114,8 +114,34 @@
 
         # iconThemePackage = pkgs.papirus-icon-theme;
         # iconThemeName = "Papirus-Dark";
-        iconThemePackage = pkgs.nordzy-icon-theme;
-        iconThemeName = "Nordzy-dark";
+        iconThemePackage = (pkgs.stdenv.mkDerivation rec {
+          name = "dark-icons";
+          foreground = "#f1f2f2";
+          background = "#333333";
+          src = pkgs.fetchFromGitLab {
+            owner  = "sixsixfive";
+            repo   = "DarK-icons";
+            rev = "22fce9e70988f6627e190852bb49e39dd9c82583";
+            sha256 = "sha256-diBD9y6gYSGq/yOPN9oRrXXoPtOIT4SVicW45D8YH2w=";
+          };
+          buildPhase = ''
+            for svg in $(find Dark-SRC -type f -name \*.svg); do
+            	sed -i 's/#f1f2f2/'#${foreground}'/g' $svg
+              sed -i 's/#333333/'#${background}'/g' $svg
+            done
+          '';
+          installPhase = ''
+            mkdir -p $out/share/icons/DarK
+            cp -r ./DarK-SRC/* $out/share/icons/DarK
+          '';
+        }).overrideAttrs (attrs: {
+          foreground = "${theme.colorScheme.foreground1Hex}";
+          background = "${theme.colorScheme.background1Hex}";
+        });
+
+        iconThemeName = "DarK";
+        # iconThemePackage = pkgs.nordzy-icon-theme;
+        # iconThemeName = "Nordzy-dark";
 
 	      themePackage = pkgs.adw-gtk3;
         themeName = "adw-gtk3-dark";
