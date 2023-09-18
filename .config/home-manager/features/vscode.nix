@@ -18,6 +18,9 @@
   };
 
   home.file = {
+    # nix-shell -p vsce nodejs_20
+    # cd mytheme
+    # vsce package
     "${user.home}/.vscode-oss/extensions/mytheme/package.json".text = ''
         {        
             "name": "theme-mytheme",
