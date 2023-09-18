@@ -1,4 +1,4 @@
-{ pkgs, inputs, user, ... }:
+{ pkgs, inputs, user, theme, ... }:
 {
   programs.firefox = {
     enable = true;
@@ -9,6 +9,9 @@
         inputs.firefox-addons.packages."x86_64-linux".vimium
         inputs.firefox-addons.packages."x86_64-linux".new-tab-override
       ];
+      # settings = {
+      #   "extensions.activeThemeID" = "default-theme@mozilla.org";
+      # };
     };
   };
 
@@ -33,8 +36,19 @@
   programs.vscode = {
     enable = true;
     package = pkgs.vscodium;
-    extensions = [ pkgs.vscode-extensions.bbenoist.nix ];
+    extensions = [ 
+      pkgs.vscode-extensions.kamikillerto.vscode-colorize
+      pkgs.vscode-extensions.bbenoist.nix 
+    ];
+    userSettings = {
+      "editor.fontFamily" = "'${theme.monoFontName}', 'monospace', monospace";
+      "editor.fontLigatures" = false;
+      "editor.fontSize" = builtins.floor theme.monoFontSize * 16 / 12;
+      "git.openRepositoryInParentFolders" = "never";
+      "colorize.include" = [ "**" ];
+    };
   };
+  programs.chromium.enable = true;
 
   home.packages = with pkgs; [
     # Shells
@@ -50,12 +64,13 @@
     p7zip
 
     # GUI Tools
-    ffmpegthumbnailer
     gamescope
     dconf2nix
 
     # Media
     vlc
+    mpv
+    imv
     gst_all_1.gst-plugins-base
     gst_all_1.gst-plugins-good
     gst_all_1.gst-plugins-bad
@@ -72,5 +87,6 @@
     meld
     discord
     steam
+    gnome.gnome-boxes
   ];
 }

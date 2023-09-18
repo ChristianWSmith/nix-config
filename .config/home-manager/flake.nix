@@ -25,16 +25,21 @@
       };
 
       theme = {
-        themePackage = pkgs.nordic;
-        themeName = "Nordic-darker";
-        iconThemePackage = pkgs.nordzy-icon-theme;
-        iconThemeName = "Nordzy-dark";
-        cursorThemePackage = pkgs.capitaine-cursors-themed;
-        cursorThemeName = "Capitaine Cursors (Palenight)";
+        themePackage = pkgs.adw-gtk3;
+        themeName = "adw-gtk3-dark";
+        iconThemePackage = pkgs.gnome.adwaita-icon-theme;
+        iconThemeName = "Adwaita";
+        cursorThemePackage = pkgs.gnome.adwaita-icon-theme;
+        cursorThemeName = "Adwaita";
         cursorSize = 40;
         fontPackage = pkgs.cantarell-fonts;
         fontName = "Cantarell";
         fontSize = 11;
+        monoFontPackage = pkgs.source-code-pro;
+        monoFontName = "Source Code Pro";
+        monoFontSize = 10;
+        qtPlatformTheme = "gnome";
+        qtStyleName = "adwaita-dark";
       };
 
       pkgs = import nixpkgs {

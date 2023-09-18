@@ -6,13 +6,17 @@
   home.stateVersion = "22.11";
 
   imports = [
-    ./packages.nix
-    ./environment.nix
-    ./shell.nix
-    ./theme.nix
-    ./gnome-base.nix
-    ./gnome-extensions.nix
-    ./hitbox.nix
+    ./features/packages.nix
+    ./features/environment.nix
+    ./features/shell.nix
+    ./features/theme.nix
+    ./features/gnome-base.nix
+    ./features/gnome-extensions.nix
+    ./features/hitbox.nix
+    ./features/default-applications.nix
+
+    ./experimental/firefox-gnome-theme.nix
+    ./experimental/gradience.nix
   ];
 
   home.file = {

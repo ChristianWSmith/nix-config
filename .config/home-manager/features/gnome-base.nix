@@ -1,14 +1,18 @@
-{ lib, user, ... }:
+{ lib, user, theme, ... }:
 {
   dconf.settings = {
     "org/gnome/desktop/sound" = {
       allow-volume-above-100-percent = true;
     };
     "org/gnome/desktop/interface" = {
+      font-name = ''${theme.fontName} ${builtins.toString theme.fontSize}'';
+      monospace-font-name = ''${theme.monoFontName} ${builtins.toString theme.monoFontSize}'';
+      document-font-name = ''${theme.fontName} ${builtins.toString theme.fontSize}'';
       color-scheme = "prefer-dark";
       enable-hot-corners = false;
       enable-animations = true;
       clock-format = "12h";
+      locate-pointer = true;
     };
     "org/gnome/shell" = {
       favorite-apps = [
@@ -27,21 +31,26 @@
       center-new-windows = true;
       dynamic-workspaces = false;
       workspaces-only-on-primary = true;
-      edge-tiling = true;
+      edge-tiling = false;
     };
     "org/gnome/desktop/wm/preferences" = {
-      button-layout = "close,minimize,maximize:appmenu'";
+      titlebar-font = ''${theme.fontName} Bold ${builtins.toString theme.fontSize}'';
+      focus-mode = "sloppy";
+      button-layout = "appmenu':close";
       num-workspaces = 4;
       resize-with-right-button = true;
+      auto-raise = true;
     };
     "org/gnome/desktop/session" = {
       idle-delay = lib.hm.gvariant.mkUint32 0;
     };
     "org/gnome/desktop/background" = {
       picture-uri = "file://${user.home}/.assets/wallpaper.jpg";
+      picture-uri-dark = "file://${user.home}/.assets/wallpaper.jpg";
     };
     "org/gnome/desktop/screensaver" = {
       picture-uri = "file://${user.home}/.assets/wallpaper.jpg";
+      picture-uri-dark = "file://${user.home}/.assets/wallpaper.jpg";
       lock-enabled = false;
     };
     "org/gnome/settings-daemon/plugins/power" = {
