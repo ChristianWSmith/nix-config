@@ -21,7 +21,7 @@ in
         spacing = 2;
         modules-left = ["hyprland/workspaces"];
         modules-center = ["wlr/taskbar"];
-        modules-right = ["tray" "mpd" "pulseaudio" "network" "cpu" "memory" "battery" "clock"];
+        modules-right = ["tray" "pulseaudio" "network" "cpu" "memory" "battery" "clock"];
         "hyprland/workspaces" = {
           disable-scroll = true;
           all-outputs = false;
@@ -50,32 +50,6 @@ in
           sort-by-app-id = true;
           all-outputs = true;
           on-click = "activate";
-        };
-        mpd = {
-          format = "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ";
-          format-disconnected = "Disconnected ";
-          format-stopped = "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon} Stopped ";
-          unknown-tag = "N/A";
-          interval = 2;
-          consume-icons = {
-            on = " ";
-          };
-          random-icons = {
-            off = "<span color=\"#${theme.colorScheme.dangerHex}\"></span> ";
-            on = " ";
-          };
-          repeat-icons = {
-            on = " ";
-          };
-          single-icons = {
-            on = "1 ";
-          };
-          state-icons = {
-            paused = "";
-            playing = "";
-          };
-          tooltip-format = "MPD (connected)";
-          tooltip-format-disconnected = "MPD (disconnected)";
         };
         tray = {
           spacing = 10;

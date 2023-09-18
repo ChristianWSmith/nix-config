@@ -1,10 +1,5 @@
 { pkgs, user, theme, ... }:
-{
-  services.mpd = {
-    enable = true;
-    musicDirectory = "${user.home}/Music";
-  };
- 
+{ 
   programs.git = {
     enable = true;
     userEmail = user.email;
