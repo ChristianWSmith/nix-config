@@ -9,11 +9,15 @@
 !.config
 !.config/home-manager
 !.config/home-manager/**
+<<<<<<< HEAD
 .config/home-manager/eww/scripts/__pycache__
+=======
+>>>>>>> main
 !.config/nixos
 !.config/nixos/**
 .config/nixos/hardware.nix
 
+<<<<<<< HEAD
 # Hyprland Extra
 !.config/hypr/extra.conf
 
@@ -23,6 +27,8 @@
 .config/wlogout/layout
 .config/wlogout/style.css
 
+=======
+>>>>>>> main
 # Templates
 !Templates
 !Templates/**

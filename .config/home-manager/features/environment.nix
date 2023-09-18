@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 { pkgs, theme, ... }:
 {
   home.sessionVariables = {
@@ -20,5 +21,11 @@
       checkbox=${theme.colorScheme.newtAccent},${theme.colorScheme.newtBackground}
       actcheckbox=${theme.colorScheme.newtBackground},${theme.colorScheme.newtAccent}
     '';
+=======
+{ pkgs, ... }:
+{
+  home.sessionVariables = {
+    NIXPKGS_ALLOW_UNFREE = "1";
+>>>>>>> main
   };
 }

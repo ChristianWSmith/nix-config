@@ -60,5 +60,5 @@ main $@
   '';
 in
 {
-  home.packages = [ hitbox ];
+  home.packages = [ hitbox pkgs.xboxdrv ];
 }
