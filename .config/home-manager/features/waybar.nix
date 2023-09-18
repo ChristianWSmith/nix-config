@@ -143,7 +143,8 @@ in
         padding: 0px;
       }
 
-      window#waybar {
+      window#waybar,
+      tooltip {
         border-radius: ${builtins.toString theme.borderRadius}px;
         background-color: rgba(${theme.colorScheme.background1RGB}, ${theme.colorScheme.transparencyBackgroundRGB});
         color: #${theme.colorScheme.foreground1Hex};
