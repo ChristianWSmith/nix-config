@@ -1,9 +1,4 @@
 {
-
-  services.xserver = {
-    layout = "us";
-    xkbVariant = "";
-  };
   time.timeZone = "America/New_York";
   services.xserver = {
     layout = "us";
