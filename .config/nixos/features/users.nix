@@ -1,14 +1,11 @@
 { pkgs, ... }:
 {
-  programs.fish.enable = true;
   users.users.christian = {
     isNormalUser = true;
     description = "Christian Smith";
     extraGroups = [ "networkmanager" "wheel" "scanner" "lp" ];
+    packages = with pkgs; [];
     shell = pkgs.fish;
   };
-  services.xserver.displayManager.autoLogin = {
-    user = "christian";
-    enable = true;  
-  };
+  programs.fish.enable = true;
 }

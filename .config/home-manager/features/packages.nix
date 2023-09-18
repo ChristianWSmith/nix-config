@@ -1,92 +1,115 @@
-{ pkgs, inputs, user, theme, ... }:
-{
-  programs.firefox = {
-    enable = true;
-    profiles."${user.name}" = {
-      extensions = [
-        inputs.firefox-addons.packages."x86_64-linux".ublock-origin
-        inputs.firefox-addons.packages."x86_64-linux".darkreader
-        inputs.firefox-addons.packages."x86_64-linux".vimium
-        inputs.firefox-addons.packages."x86_64-linux".new-tab-override
-      ];
-      # settings = {
-      #   "extensions.activeThemeID" = "default-theme@mozilla.org";
-      # };
-    };
-  };
 
+{ pkgs, user, theme, ... }:
+{ 
   programs.git = {
     enable = true;
     userEmail = user.email;
     userName = user.fullName;
   };
 
-  programs.neovim = {
+  programs.btop = {
     enable = true;
-    viAlias = true;
-    vimAlias = true;
-    defaultEditor = true;
+    settings = {
+      color_theme = "Default";
+      theme_background = false;
+    };
   };
-
+  
+  programs.imv = {
+    enable = true;
+    settings = {
+      options.overlay = true;
+    };
+  };
   programs.thunderbird = {
     enable = true;
     profiles."${user.email}".isDefault = true;
   };
-
-  programs.vscode = {
-    enable = true;
-    package = pkgs.vscodium;
-    extensions = [ 
-      pkgs.vscode-extensions.kamikillerto.vscode-colorize
-      pkgs.vscode-extensions.bbenoist.nix 
-    ];
-    userSettings = {
-      "editor.fontFamily" = "'${theme.monoFontName}', 'monospace', monospace";
-      "editor.fontLigatures" = false;
-      "editor.fontSize" = builtins.floor theme.monoFontSize * 16 / 12;
-      "git.openRepositoryInParentFolders" = "never";
-      "colorize.include" = [ "**" ];
-    };
-  };
-  programs.chromium.enable = true;
-
+  
   home.packages = with pkgs; [
-    # Shells
-    bashInteractive
-
-    # CLI Fun
-    yafetch
+    # Fonts
+    noto-fonts-emoji
+    noto-fonts-cjk-sans
+    noto-fonts-cjk-serif
 
     # Command Line Tools
+    gvfs
+    glib
+    gdb
+    lsof
+    pulseaudio 
+    alsa-utils
+    wget
+    yafetch 
+    starfetch 
+    lolcat 
+    figlet
     rar 
     zip 
     unzip 
     p7zip
+    imagemagick
+    jq
+    socat
+
+    # Daemon Tools
+    xboxdrv
+
+    # TUI Tools
+    ranger 
+    pulsemixer 
+    networkmanager
+    vimPlugins.yuck-vim
+    khal
 
     # GUI Tools
+    xorg.xrandr
+    grim
+    rofimoji
+    slurp 
+    wf-recorder
+    wl-clipboard 
+    cliphist 
+    hyprpicker
+    inotify-tools
+    libnotify
+    pavucontrol 
+    networkmanagerapplet
     gamescope
-    dconf2nix
+    ffmpegthumbnailer
+    obs-studio
+    blueberry
 
-    # Media
-    vlc
+    # Files
     mpv
-    imv
+    zathura
+    vlc
     gst_all_1.gst-plugins-base
     gst_all_1.gst-plugins-good
     gst_all_1.gst-plugins-bad
     gst_all_1.gst-plugins-ugly
- 
-    # Applications
-    obs-studio
+    cinnamon.nemo-with-extensions
+    cinnamon.nemo-emblems
+    cinnamon.nemo-fileroller
     transmission-gtk
+ 
+    # Editors
     gimp 
     inkscape 
     audacity 
     handbrake
     onlyoffice-bin
     meld
+    swappy
+
+    # Internet
     discord
-    steam
+
+    # GNOME Apps
+    gnome.simple-scan
+    gnome.cheese
+    gnome.gnome-font-viewer
+    evince
     gnome.gnome-boxes
   ];
 }

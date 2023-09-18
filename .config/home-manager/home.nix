@@ -1,4 +1,4 @@
-{ user, ... }:
+{ inputs, config, pkgs, user, ... }:
 {
   home.username = user.name;
   home.homeDirectory = user.home;
@@ -9,18 +9,25 @@
     ./features/packages.nix
     ./features/environment.nix
     ./features/shell.nix
-    ./features/theme.nix
-    ./features/gnome-base.nix
-    ./features/gnome-extensions.nix
-    ./features/hitbox.nix
+    ./features/editor.nix
+    ./features/terminal.nix
+    ./features/hyprland.nix
     ./features/default-applications.nix
-
-    ./experimental/firefox-gnome-theme.nix
-    ./experimental/gradience.nix
+    ./features/theme.nix
+    ./features/mako.nix
+    ./features/gammastep.nix
+    ./features/browser.nix
+    ./features/hitbox.nix
+    ./features/fuzzel.nix
+    ./features/wlogout.nix
+    ./features/waybar.nix
+    ./features/gtklock.nix
+    ./features/hyprpaper.nix
+    ./features/vscode.nix
   ];
 
   home.file = {
-    ".assets".source = ./files/assets;
+    ".assets".source = files/assets;
     ".hushlogin".text = "";
   };
 
