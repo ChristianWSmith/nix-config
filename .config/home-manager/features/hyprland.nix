@@ -136,9 +136,7 @@ in
       bind = $mainMod SHIFT, 9, movetoworkspace, 9
       bind = $mainMod SHIFT, 0, movetoworkspace, 10
     '';
-    ".config/hypr/environment.conf".text = ''
-
-    '';
+    ".config/hypr/environment.conf".text = '''';
     ".config/hypr/input.conf".text = ''
       input {
           kb_layout = us
@@ -169,7 +167,6 @@ in
     ".config/hypr/appearance.conf".text = ''
       blurls=waybar
       layerrule=ignorezero, waybar
-
       general {
           gaps_in = 3
           gaps_out = 5
@@ -179,27 +176,21 @@ in
 
           layout = dwindle
       }
-
       decoration {
           rounding = ${builtins.toString theme.borderRadius}
-
           blur {
               enabled = true
               size = 3
               passes = 1
           }
-
           drop_shadow = true
           shadow_range = 4
           shadow_render_power = 3
           col.shadow = rgba(${theme.colorScheme.background1Hex}${theme.colorScheme.transparencyBackgroundHex})
       }
-
       animations {
           enabled = true
-
           bezier = myBezier, 0.05, 0.9, 0.1, 1.05
-
           animation = windows, 1, 7, myBezier
           animation = windowsOut, 1, 7, default, popin 80%
           animation = border, 1, 10, default
@@ -207,20 +198,16 @@ in
           animation = fade, 1, 7, default
           animation = workspaces, 1, 6, myBezier, slide
       }
-
       dwindle {
           pseudotile = true
           preserve_split = true
       }
-
       master {
           new_is_master = false
       }
-
       gestures {
           workspace_swipe = false
       }
-
       misc {
           disable_hyprland_logo = true
           disable_splash_rendering = true
@@ -239,6 +226,7 @@ in
       source=${user.home}/.config/hypr/binds.conf
       source=${user.home}/.config/hypr/windowrules.conf
       source=${user.home}/.config/hypr/environment.conf
+      source=${user.home}/.config/hypr/extra.conf
       source=/etc/display.conf
     '';
   };
