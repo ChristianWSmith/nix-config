@@ -5,6 +5,9 @@ let
   '';
 in
 {
+  home.file = {
+    ".config/wlogout/icons".source = ../files/wlogout-icons;
+  };
   home.packages = [ powerMenu ];
   programs.wlogout = {
     enable = true;
