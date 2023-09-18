@@ -29,23 +29,7 @@
     enable = true;
     profiles."${user.email}".isDefault = true;
   };
-  programs.vscode = {
-    enable = true;
-    package = pkgs.vscodium;
-    extensions = [ 
-      pkgs.vscode-extensions.kamikillerto.vscode-colorize
-      pkgs.vscode-extensions.bbenoist.nix
-    ];
-    userSettings = {
-      "editor.fontFamily" = "'${theme.monoFontName}', 'monospace', monospace";
-      "editor.fontLigatures" = false;
-      "editor.fontSize" = builtins.floor theme.monoFontSize * 16 / 12;
-      "git.openRepositoryInParentFolders" = "never";
-      "colorize.include" = [ "*" ];
-      "explorer.confirmDelete" = false;
-    };
-  };
-
+  
   home.packages = with pkgs; [
     # Fonts
     noto-fonts-emoji

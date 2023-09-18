@@ -23,6 +23,7 @@
     ./features/waybar.nix
     ./features/gtklock.nix
     ./features/hyprpaper.nix
+    ./features/vscode.nix
   ];
 
   home.file = {
