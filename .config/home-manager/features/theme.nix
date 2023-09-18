@@ -64,11 +64,11 @@ let
     @define-color purple_3 #${theme.colorScheme.magentaHex};
     @define-color purple_4 #${theme.colorScheme.magentaHex};
     @define-color purple_5 #${theme.colorScheme.magentaHex};
-    @define-color maroon_1 #${theme.colorScheme.maroonHex};
-    @define-color maroon_2 #${theme.colorScheme.maroonHex};
-    @define-color maroon_3 #${theme.colorScheme.maroonHex};
-    @define-color maroon_4 #${theme.colorScheme.maroonHex};
-    @define-color maroon_5 #${theme.colorScheme.maroonHex};
+    @define-color brown_1 #${theme.colorScheme.brownHex};
+    @define-color brown_2 #${theme.colorScheme.brownHex};
+    @define-color brown_3 #${theme.colorScheme.brownHex};
+    @define-color brown_4 #${theme.colorScheme.brownHex};
+    @define-color brown_5 #${theme.colorScheme.brownHex};
     @define-color light_1 #${theme.colorScheme.foreground1Hex};
     @define-color light_2 #${theme.colorScheme.foreground1Hex};
     @define-color light_3 #${theme.colorScheme.foreground2Hex};
