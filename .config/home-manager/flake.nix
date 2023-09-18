@@ -25,7 +25,7 @@
         email = "smith.christian.william@gmail.com";
       };
 
-      palette = inputs.nix-colors.colorSchemes.nord.colors;
+      palette = inputs.nix-colors.colorSchemes.default-dark.colors;
 
       theme = {
         colorScheme = {
