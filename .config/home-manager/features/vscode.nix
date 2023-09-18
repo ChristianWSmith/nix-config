@@ -1,595 +1,140 @@
 { pkgs, user, theme, ... }:
 {
-    programs.vscode = {
-    enable = true;
-    package = pkgs.vscodium;
-    extensions = [ 
-      pkgs.vscode-extensions.kamikillerto.vscode-colorize
-      pkgs.vscode-extensions.bbenoist.nix
-    ];
-    userSettings = {
-      "editor.fontFamily" = "'${theme.monoFontName}', 'monospace', monospace";
-      "editor.fontLigatures" = false;
-      "editor.fontSize" = builtins.floor theme.monoFontSize * 16 / 12;
-      "git.openRepositoryInParentFolders" = "never";
-      "colorize.include" = [ "*" ];
-      "explorer.confirmDelete" = false;
+  programs.vscode = {
+  enable = true;
+  package = pkgs.vscodium;
+  extensions = [ 
+    pkgs.vscode-extensions.kamikillerto.vscode-colorize
+    pkgs.vscode-extensions.bbenoist.nix
+  ];
+  userSettings = {
+    "editor.fontFamily" = "'${theme.monoFontName}', 'monospace', monospace";
+    "editor.fontLigatures" = false;
+    "editor.fontSize" = builtins.floor theme.monoFontSize * 16 / 12;
+    "git.openRepositoryInParentFolders" = "never";
+    "colorize.include" = [ "*" ];
+    "explorer.confirmDelete" = false;
+    "workbench.colorCustomizations" = {		
+        "activityBar.activeBorder" = "#${theme.colorScheme.blueHex}";
+        "activityBar.background" = "#${theme.colorScheme.background1Hex}";
+        "activityBar.border" = "#${theme.colorScheme.background2Hex}";
+        "activityBar.foreground" = "#${theme.colorScheme.foreground3Hex}";
+        "activityBar.inactiveForeground" = "#${theme.colorScheme.foreground4Hex}";
+        "activityBarBadge.background" = "#${theme.colorScheme.blueHex}";
+        "activityBarBadge.foreground" = "#${theme.colorScheme.foreground1Hex}";
+        "badge.background" = "#${theme.colorScheme.background4Hex}";
+        "badge.foreground" = "#${theme.colorScheme.foreground1Hex}";
+        "button.background" = "#${theme.colorScheme.blueHex}";
+        "button.border" = "#${theme.colorScheme.foreground1Hex}${theme.colorScheme.transparencyLightShadeHex}";
+        "button.foreground" = "#${theme.colorScheme.foreground1Hex}";
+        "button.hoverBackground" = "#${theme.colorScheme.blueHex}";
+        "button.secondaryBackground" = "#${theme.colorScheme.background2Hex}";
+        "button.secondaryForeground" = "#${theme.colorScheme.foreground3Hex}";
+        "button.secondaryHoverBackground" = "#${theme.colorScheme.background3Hex}";
+        "chat.slashCommandBackground" = "#${theme.colorScheme.background3Hex}";
+        "chat.slashCommandForeground" = "#${theme.colorScheme.cyanHex}";
+        "checkbox.background" = "#${theme.colorScheme.background2Hex}";
+        "checkbox.border" = "#${theme.colorScheme.background3Hex}";
+        "debugToolBar.background" = "#${theme.colorScheme.background1Hex}";
+        "descriptionForeground" = "#${theme.colorScheme.foreground4Hex}";
+        "dropdown.background" = "#${theme.colorScheme.background2Hex}";
+        "dropdown.border" = "#${theme.colorScheme.background3Hex}";
+        "dropdown.foreground" = "#${theme.colorScheme.foreground3Hex}";
+        "dropdown.listBackground" = "#${theme.colorScheme.background1Hex}";
+        "editor.background" = "#${theme.colorScheme.background1Hex}";
+        "editor.findMatchBackground" = "#${theme.colorScheme.brownHex}";
+        "editor.foreground" = "#${theme.colorScheme.foreground3Hex}";
+        "editorGroup.border" = "#${theme.colorScheme.foreground1Hex}${theme.colorScheme.transparencyLightShadeHex}";
+        "editorGroupHeader.tabsBackground" = "#${theme.colorScheme.background1Hex}";
+        "editorGroupHeader.tabsBorder" = "#${theme.colorScheme.background2Hex}";
+        "editorGutter.addedBackground" = "#${theme.colorScheme.greenHex}";
+        "editorGutter.deletedBackground" = "#${theme.colorScheme.redHex}";
+        "editorGutter.modifiedBackground" = "#${theme.colorScheme.blueHex}";
+        "editorLineNumber.activeForeground" = "#${theme.colorScheme.foreground3Hex}";
+        "editorLineNumber.foreground" = "#${theme.colorScheme.foreground4Hex}";
+        "editorOverviewRuler.border" = "#${theme.colorScheme.background1Hex}";
+        "editorWidget.background" = "#${theme.colorScheme.background1Hex}";
+        "errorForeground" = "#${theme.colorScheme.redHex}";
+        "focusBorder" = "#${theme.colorScheme.blueHex}";
+        "foreground" = "#${theme.colorScheme.foreground3Hex}";
+        "icon.foreground" = "#${theme.colorScheme.foreground3Hex}";
+        "input.background" = "#${theme.colorScheme.background2Hex}";
+        "input.border" = "#${theme.colorScheme.background3Hex}";
+        "input.foreground" = "#${theme.colorScheme.foreground3Hex}";
+        "input.placeholderForeground" = "#${theme.colorScheme.foreground4Hex}";
+        "inputOption.activeBackground" = "#${theme.colorScheme.blueHex}${theme.colorScheme.transparencyBackgroundHex}";
+        "inputOption.activeBorder" = "#${theme.colorScheme.blueHex}";
+        "keybindingLabel.foreground" = "#${theme.colorScheme.foreground3Hex}";
+        "menu.background" = "#${theme.colorScheme.background1Hex}";
+        "notificationCenterHeader.background" = "#${theme.colorScheme.background1Hex}";
+        "notificationCenterHeader.foreground" = "#${theme.colorScheme.foreground3Hex}";
+        "notifications.background" = "#${theme.colorScheme.background1Hex}";
+        "notifications.border" = "#${theme.colorScheme.background2Hex}";
+        "notifications.foreground" = "#${theme.colorScheme.foreground3Hex}";
+        "panel.background" = "#${theme.colorScheme.background1Hex}";
+        "panel.border" = "#${theme.colorScheme.background2Hex}";
+        "panelInput.border" = "#${theme.colorScheme.background2Hex}";
+        "panelTitle.activeBorder" = "#${theme.colorScheme.blueHex}";
+        "panelTitle.activeForeground" = "#${theme.colorScheme.foreground3Hex}";
+        "panelTitle.inactiveForeground" = "#${theme.colorScheme.foreground4Hex}";
+        "peekViewEditor.background" = "#${theme.colorScheme.background1Hex}";
+        "peekViewEditor.matchHighlightBackground" = "#${theme.colorScheme.yellowHex}${theme.colorScheme.transparencyHeavyShadeHex}";
+        "peekViewResult.background" = "#${theme.colorScheme.background1Hex}";
+        "peekViewResult.matchHighlightBackground" = "#${theme.colorScheme.yellowHex}${theme.colorScheme.transparencyHeavyShadeHex}";
+        "pickerGroup.border" = "#${theme.colorScheme.background3Hex}";
+        "progressBar.background" = "#${theme.colorScheme.blueHex}";
+        "quickInput.background" = "#${theme.colorScheme.background1Hex}";
+        "quickInput.foreground" = "#${theme.colorScheme.foreground3Hex}";
+        "settings.dropdownBackground" = "#${theme.colorScheme.background2Hex}";
+        "settings.dropdownBorder" = "#${theme.colorScheme.background3Hex}";
+        "settings.headerForeground" = "#${theme.colorScheme.foreground1Hex}";
+        "settings.modifiedItemIndicator" = "#${theme.colorScheme.yellowHex}${theme.colorScheme.transparencyHeavyShadeHex}";
+        "sideBar.background" = "#${theme.colorScheme.background1Hex}";
+        "sideBar.border" = "#${theme.colorScheme.background2Hex}";
+        "sideBar.foreground" = "#${theme.colorScheme.foreground3Hex}";
+        "sideBarSectionHeader.background" = "#${theme.colorScheme.background1Hex}";
+        "sideBarSectionHeader.border" = "#${theme.colorScheme.background2Hex}";
+        "sideBarSectionHeader.foreground" = "#${theme.colorScheme.foreground3Hex}";
+        "sideBarTitle.foreground" = "#${theme.colorScheme.foreground3Hex}";
+        "statusBar.background" = "#${theme.colorScheme.background1Hex}";
+        "statusBar.border" = "#${theme.colorScheme.background2Hex}";
+        "statusBar.debuggingBackground" = "#${theme.colorScheme.blueHex}";
+        "statusBar.debuggingForeground" = "#${theme.colorScheme.foreground1Hex}";
+        "statusBar.focusBorder" = "#${theme.colorScheme.blueHex}";
+        "statusBar.foreground" = "#${theme.colorScheme.foreground3Hex}";
+        "statusBar.noFolderBackground" = "#${theme.colorScheme.background1Hex}";
+        "statusBarItem.focusBorder" = "#${theme.colorScheme.blueHex}";
+        "statusBarItem.prominentBackground" = "#${theme.colorScheme.background4Hex}";
+        "statusBarItem.remoteBackground" = "#${theme.colorScheme.blueHex}";
+        "statusBarItem.remoteForeground" = "#${theme.colorScheme.foreground1Hex}";
+        "tab.activeBackground" = "#${theme.colorScheme.background1Hex}";
+        "tab.activeBorder" = "#${theme.colorScheme.background1Hex}";
+        "tab.activeBorderTop" = "#${theme.colorScheme.blueHex}";
+        "tab.activeForeground" = "#${theme.colorScheme.foreground1Hex}";
+        "tab.border" = "#${theme.colorScheme.background2Hex}";
+        "tab.hoverBackground" = "#${theme.colorScheme.background1Hex}";
+        "tab.inactiveBackground" = "#${theme.colorScheme.background1Hex}";
+        "tab.inactiveForeground" = "#${theme.colorScheme.foreground4Hex}";
+        "tab.unfocusedActiveBorder" = "#${theme.colorScheme.background1Hex}";
+        "tab.unfocusedActiveBorderTop" = "#${theme.colorScheme.background2Hex}";
+        "tab.unfocusedHoverBackground" = "#${theme.colorScheme.background1Hex}";
+        "terminal.foreground" = "#${theme.colorScheme.foreground3Hex}";
+        "terminal.tab.activeBorder" = "#${theme.colorScheme.blueHex}";
+        "textBlockQuote.background" = "#${theme.colorScheme.background2Hex}";
+        "textBlockQuote.border" = "#${theme.colorScheme.background4Hex}";
+        "textCodeBlock.background" = "#${theme.colorScheme.background2Hex}";
+        "textLink.activeForeground" = "#${theme.colorScheme.cyanHex}";
+        "textLink.foreground" = "#${theme.colorScheme.cyanHex}";
+        "textSeparator.foreground" = "#${theme.colorScheme.background2Hex}";
+        "titleBar.activeBackground" = "#${theme.colorScheme.background1Hex}";
+        "titleBar.activeForeground" = "#${theme.colorScheme.foreground3Hex}";
+        "titleBar.border" = "#${theme.colorScheme.background2Hex}";
+        "titleBar.inactiveBackground" = "#${theme.colorScheme.background1Hex}";
+        "titleBar.inactiveForeground" = "#${theme.colorScheme.foreground4Hex}";
+        "welcomePage.tileBackground" = "#${theme.colorScheme.background2Hex}";
+        "welcomePage.progress.foreground" = "#${theme.colorScheme.blueHex}";
+        "widget.border" = "#${theme.colorScheme.background2Hex}";
+      };
     };
-  };
-
-  home.file = {
-    # nix-shell -p vsce nodejs_20
-    # cd mytheme
-    # vsce package
-    "${user.home}/.vscode-oss/extensions/mytheme/package.json".text = ''
-        {        
-            "name": "theme-mytheme",
-            "version": "0.0.1",
-            "engines": {
-                "vscode": ">=0.9.0-pre.1"
-            },
-            "publisher": "me",
-            "contributes": {
-                "themes": [
-                    {
-                        "label": "My Theme",
-                        "uiTheme": "vs-dark",
-                        "path": "./themes/mytheme.tmTheme"
-                    }
-                ]
-            }
-        }
-    '';
-    "${user.home}/.vscode-oss/extensions/mytheme/themes/mytheme.tmTheme".text = ''
-        <?xml version="1.0" encoding="UTF-8"?>
-        <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-        <plist version="1.0">
-        <dict>
-            <key>author</key>
-            <string>Template: Chris Kempson, Scheme: Chris Kempson (http://chriskempson.com)</string>
-            <key>name</key>
-            <string>Base16 Default Dark</string>
-            <key>semanticClass</key>
-            <string>theme.base16.default-dark</string>
-            <key>colorSpaceName</key>
-            <string>sRGB</string>
-            <key>gutterSettings</key>
-            <dict>
-                <key>background</key>
-                <string>#${theme.colorScheme.background2Hex}</string>
-                <key>divider</key>
-                <string>#${theme.colorScheme.background2Hex}</string>
-                <key>foreground</key>
-                <string>#${theme.colorScheme.background4Hex}</string>
-                <key>selectionBackground</key>
-                <string>#${theme.colorScheme.background3Hex}</string>
-                <key>selectionForeground</key>
-                <string>#${theme.colorScheme.foreground4Hex}</string>
-            </dict>
-            <key>settings</key>
-            <array>
-                <dict>
-                    <key>settings</key>
-                    <dict>
-                        <key>background</key>
-                        <string>#${theme.colorScheme.background1Hex}</string>
-                        <key>caret</key>
-                        <string>#${theme.colorScheme.foreground3Hex}</string>
-                        <key>foreground</key>
-                        <string>#${theme.colorScheme.foreground3Hex}</string>
-                        <key>invisibles</key>
-                        <string>#${theme.colorScheme.background4Hex}</string>
-                        <key>lineHighlight</key>
-                        <string>#${theme.colorScheme.background4Hex}55</string>
-                        <key>selection</key>
-                        <string>#${theme.colorScheme.background3Hex}</string>
-                    </dict>
-                </dict>
-                <dict>
-                    <key>name</key>
-                    <string>Text</string>
-                    <key>scope</key>
-                    <string>variable.parameter.function</string>
-                    <key>settings</key>
-                    <dict>
-                        <key>foreground</key>
-                        <string>#${theme.colorScheme.foreground3Hex}</string>
-                    </dict>
-                </dict>
-                <dict>
-                    <key>name</key>
-                    <string>Comments</string>
-                    <key>scope</key>
-                    <string>comment, punctuation.definition.comment</string>
-                    <key>settings</key>
-                    <dict>
-                        <key>foreground</key>
-                        <string>#${theme.colorScheme.background4Hex}</string>
-                    </dict>
-                </dict>
-                <dict>
-                    <key>name</key>
-                    <string>Punctuation</string>
-                    <key>scope</key>
-                    <string>punctuation.definition.string, punctuation.definition.variable, punctuation.definition.string, punctuation.definition.parameters, punctuation.definition.string, punctuation.definition.array</string>
-                    <key>settings</key>
-                    <dict>
-                        <key>foreground</key>
-                        <string>#${theme.colorScheme.foreground3Hex}</string>
-                    </dict>
-                </dict>
-                <dict>
-                    <key>name</key>
-                    <string>Delimiters</string>
-                    <key>scope</key>
-                    <string>none</string>
-                    <key>settings</key>
-                    <dict>
-                        <key>foreground</key>
-                        <string>#${theme.colorScheme.foreground3Hex}</string>
-                    </dict>
-                </dict>
-                <dict>
-                    <key>name</key>
-                    <string>Operators</string>
-                    <key>scope</key>
-                    <string>keyword.operator</string>
-                    <key>settings</key>
-                    <dict>
-                        <key>foreground</key>
-                        <string>#${theme.colorScheme.foreground3Hex}</string>
-                    </dict>
-                </dict>
-                <dict>
-                    <key>name</key>
-                    <string>Keywords</string>
-                    <key>scope</key>
-                    <string>keyword</string>
-                    <key>settings</key>
-                    <dict>
-                        <key>foreground</key>
-                        <string>#${theme.colorScheme.magentaHex}</string>
-                    </dict>
-                </dict>
-                <dict>
-                    <key>name</key>
-                    <string>Variables</string>
-                    <key>scope</key>
-                    <string>variable</string>
-                    <key>settings</key>
-                    <dict>
-                        <key>foreground</key>
-                        <string>#${theme.colorScheme.redHex}</string>
-                    </dict>
-                </dict>
-                <dict>
-                    <key>name</key>
-                    <string>Functions</string>
-                    <key>scope</key>
-                    <string>entity.name.function, meta.require, support.function.any-method</string>
-                    <key>settings</key>
-                    <dict>
-                        <key>foreground</key>
-                        <string>#${theme.colorScheme.blueHex}</string>
-                    </dict>
-                </dict>
-                <dict>
-                    <key>name</key>
-                    <string>Classes</string>
-                    <key>scope</key>
-                    <string>support.class, entity.name.class, entity.name.type.class</string>
-                    <key>settings</key>
-                    <dict>
-                        <key>foreground</key>
-                        <string>#${theme.colorScheme.yellowHex}</string>
-                    </dict>
-                </dict>
-                <dict>
-                    <key>name</key>
-                    <string>Classes</string>
-                    <key>scope</key>
-                    <string>meta.class</string>
-                    <key>settings</key>
-                    <dict>
-                        <key>foreground</key>
-                        <string>#${theme.colorScheme.foreground1Hex}</string>
-                    </dict>
-                </dict>
-                <dict>
-                    <key>name</key>
-                    <string>Methods</string>
-                    <key>scope</key>
-                    <string>keyword.other.special-method</string>
-                    <key>settings</key>
-                    <dict>
-                        <key>foreground</key>
-                        <string>#${theme.colorScheme.blueHex}</string>
-                    </dict>
-                </dict>
-                <dict>
-                    <key>name</key>
-                    <string>Storage</string>
-                    <key>scope</key>
-                    <string>storage</string>
-                    <key>settings</key>
-                    <dict>
-                        <key>foreground</key>
-                        <string>#${theme.colorScheme.magentaHex}</string>
-                    </dict>
-                </dict>
-                <dict>
-                    <key>name</key>
-                    <string>Support</string>
-                    <key>scope</key>
-                    <string>support.function</string>
-                    <key>settings</key>
-                    <dict>
-                        <key>foreground</key>
-                        <string>#${theme.colorScheme.cyanHex}</string>
-                    </dict>
-                </dict>
-                <dict>
-                    <key>name</key>
-                    <string>Strings, Inherited Class</string>
-                    <key>scope</key>
-                    <string>string, constant.other.symbol, entity.other.inherited-class</string>
-                    <key>settings</key>
-                    <dict>
-                        <key>foreground</key>
-                        <string>#${theme.colorScheme.greenHex}</string>
-                    </dict>
-                </dict>
-                <dict>
-                    <key>name</key>
-                    <string>Integers</string>
-                    <key>scope</key>
-                    <string>constant.numeric</string>
-                    <key>settings</key>
-                    <dict>
-                        <key>foreground</key>
-                        <string>#${theme.colorScheme.orangeHex}</string>
-                    </dict>
-                </dict>
-                <dict>
-                    <key>name</key>
-                    <string>Floats</string>
-                    <key>scope</key>
-                    <string>none</string>
-                    <key>settings</key>
-                    <dict>
-                        <key>foreground</key>
-                        <string>#${theme.colorScheme.orangeHex}</string>
-                    </dict>
-                </dict>
-                <dict>
-                    <key>name</key>
-                    <string>Boolean</string>
-                    <key>scope</key>
-                    <string>none</string>
-                    <key>settings</key>
-                    <dict>
-                        <key>foreground</key>
-                        <string>#${theme.colorScheme.orangeHex}</string>
-                    </dict>
-                </dict>
-                <dict>
-                    <key>name</key>
-                    <string>Constants</string>
-                    <key>scope</key>
-                    <string>constant</string>
-                    <key>settings</key>
-                    <dict>
-                        <key>foreground</key>
-                        <string>#${theme.colorScheme.orangeHex}</string>
-                    </dict>
-                </dict>
-                <dict>
-                    <key>name</key>
-                    <string>Tags</string>
-                    <key>scope</key>
-                    <string>entity.name.tag</string>
-                    <key>settings</key>
-                    <dict>
-                        <key>foreground</key>
-                        <string>#${theme.colorScheme.redHex}</string>
-                    </dict>
-                </dict>
-                <dict>
-                    <key>name</key>
-                    <string>Attributes</string>
-                    <key>scope</key>
-                    <string>entity.other.attribute-name</string>
-                    <key>settings</key>
-                    <dict>
-                        <key>foreground</key>
-                        <string>#${theme.colorScheme.orangeHex}</string>
-                    </dict>
-                </dict>
-                <dict>
-                    <key>name</key>
-                    <string>Attribute IDs</string>
-                    <key>scope</key>
-                    <string>entity.other.attribute-name.id, punctuation.definition.entity</string>
-                    <key>settings</key>
-                    <dict>
-                        <key>foreground</key>
-                        <string>#${theme.colorScheme.blueHex}</string>
-                    </dict>
-                </dict>
-                <dict>
-                    <key>name</key>
-                    <string>Selector</string>
-                    <key>scope</key>
-                    <string>meta.selector</string>
-                    <key>settings</key>
-                    <dict>
-                        <key>foreground</key>
-                        <string>#${theme.colorScheme.magentaHex}</string>
-                    </dict>
-                </dict>
-                <dict>
-                    <key>name</key>
-                    <string>Values</string>
-                    <key>scope</key>
-                    <string>none</string>
-                    <key>settings</key>
-                    <dict>
-                        <key>foreground</key>
-                        <string>#${theme.colorScheme.orangeHex}</string>
-                    </dict>
-                </dict>
-                <dict>
-                    <key>name</key>
-                    <string>Headings</string>
-                    <key>scope</key>
-                    <string>markup.heading punctuation.definition.heading, entity.name.section</string>
-                    <key>settings</key>
-                    <dict>
-                        <key>fontStyle</key>
-                        <string></string>
-                        <key>foreground</key>
-                        <string>#${theme.colorScheme.blueHex}</string>
-                    </dict>
-                </dict>
-                <dict>
-                    <key>name</key>
-                    <string>Units</string>
-                    <key>scope</key>
-                    <string>keyword.other.unit</string>
-                    <key>settings</key>
-                    <dict>
-                        <key>foreground</key>
-                        <string>#${theme.colorScheme.orangeHex}</string>
-                    </dict>
-                </dict>
-                <dict>
-                    <key>name</key>
-                    <string>Bold</string>
-                    <key>scope</key>
-                    <string>markup.bold, punctuation.definition.bold</string>
-                    <key>settings</key>
-                    <dict>
-                        <key>fontStyle</key>
-                        <string>bold</string>
-                        <key>foreground</key>
-                        <string>#${theme.colorScheme.yellowHex}</string>
-                    </dict>
-                </dict>
-                <dict>
-                    <key>name</key>
-                    <string>Italic</string>
-                    <key>scope</key>
-                    <string>markup.italic, punctuation.definition.italic</string>
-                    <key>settings</key>
-                    <dict>
-                        <key>fontStyle</key>
-                        <string>italic</string>
-                        <key>foreground</key>
-                        <string>#${theme.colorScheme.magentaHex}</string>
-                    </dict>
-                </dict>
-                <dict>
-                    <key>name</key>
-                    <string>Code</string>
-                    <key>scope</key>
-                    <string>markup.raw.inline</string>
-                    <key>settings</key>
-                    <dict>
-                        <key>foreground</key>
-                        <string>#${theme.colorScheme.greenHex}</string>
-                    </dict>
-                </dict>
-                <dict>
-                    <key>name</key>
-                    <string>Link Text</string>
-                    <key>scope</key>
-            <string>string.other.link, punctuation.definition.string.end.markdown</string>
-                    <key>settings</key>
-                    <dict>
-                        <key>foreground</key>
-                        <string>#${theme.colorScheme.redHex}</string>
-                    </dict>
-                </dict>
-                <dict>
-                    <key>name</key>
-                    <string>Link Url</string>
-                    <key>scope</key>
-                    <string>meta.link</string>
-                    <key>settings</key>
-                    <dict>
-                        <key>foreground</key>
-                        <string>#${theme.colorScheme.orangeHex}</string>
-                    </dict>
-                </dict>
-                <dict>
-                    <key>name</key>
-                    <string>Lists</string>
-                    <key>scope</key>
-                    <string>markup.list</string>
-                    <key>settings</key>
-                    <dict>
-                        <key>foreground</key>
-                        <string>#${theme.colorScheme.redHex}</string>
-                    </dict>
-                </dict>
-                <dict>
-                    <key>name</key>
-                    <string>Quotes</string>
-                    <key>scope</key>
-                    <string>markup.quote</string>
-                    <key>settings</key>
-                    <dict>
-                        <key>foreground</key>
-                        <string>#${theme.colorScheme.orangeHex}</string>
-                    </dict>
-                </dict>
-                <dict>
-                    <key>name</key>
-                    <string>Separator</string>
-                    <key>scope</key>
-                    <string>meta.separator</string>
-                    <key>settings</key>
-                    <dict>
-                        <key>background</key>
-                        <string>#${theme.colorScheme.background3Hex}</string>
-                        <key>foreground</key>
-                        <string>#${theme.colorScheme.foreground3Hex}</string>
-                    </dict>
-                </dict>
-                <dict>
-                    <key>name</key>
-                    <string>Inserted</string>
-                    <key>scope</key>
-                    <string>markup.inserted</string>
-                    <key>settings</key>
-                    <dict>
-                        <key>foreground</key>
-                        <string>#${theme.colorScheme.greenHex}</string>
-                    </dict>
-                </dict>
-                <dict>
-                    <key>name</key>
-                    <string>Deleted</string>
-                    <key>scope</key>
-                    <string>markup.deleted</string>
-                    <key>settings</key>
-                    <dict>
-                        <key>foreground</key>
-                        <string>#${theme.colorScheme.redHex}</string>
-                    </dict>
-                </dict>
-                <dict>
-                    <key>name</key>
-                    <string>Changed</string>
-                    <key>scope</key>
-                    <string>markup.changed</string>
-                    <key>settings</key>
-                    <dict>
-                        <key>foreground</key>
-                        <string>#${theme.colorScheme.magentaHex}</string>
-                    </dict>
-                </dict>
-                <dict>
-                    <key>name</key>
-                    <string>Colors</string>
-                    <key>scope</key>
-                    <string>constant.other.color</string>
-                    <key>settings</key>
-                    <dict>
-                        <key>foreground</key>
-                        <string>#${theme.colorScheme.cyanHex}</string>
-                    </dict>
-                </dict>
-                <dict>
-                    <key>name</key>
-                    <string>Regular Expressions</string>
-                    <key>scope</key>
-                    <string>string.regexp</string>
-                    <key>settings</key>
-                    <dict>
-                        <key>foreground</key>
-                        <string>#${theme.colorScheme.cyanHex}</string>
-                    </dict>
-                </dict>
-                <dict>
-                    <key>name</key>
-                    <string>Escape Characters</string>
-                    <key>scope</key>
-                    <string>constant.character.escape</string>
-                    <key>settings</key>
-                    <dict>
-                        <key>foreground</key>
-                        <string>#${theme.colorScheme.cyanHex}</string>
-                    </dict>
-                </dict>
-                <dict>
-                    <key>name</key>
-                    <string>Embedded</string>
-                    <key>scope</key>
-                    <string>punctuation.section.embedded, variable.interpolation</string>
-                    <key>settings</key>
-                    <dict>
-                        <key>foreground</key>
-                        <string>#${theme.colorScheme.magentaHex}</string>
-                    </dict>
-                </dict>
-                <dict>
-                    <key>name</key>
-                    <string>Illegal</string>
-                    <key>scope</key>
-                    <string>invalid.illegal</string>
-                    <key>settings</key>
-                    <dict>
-                        <key>background</key>
-                        <string>#${theme.colorScheme.redHex}</string>
-                        <key>foreground</key>
-                        <string>#${theme.colorScheme.foreground1Hex}</string>
-                    </dict>
-                </dict>
-                <dict>
-                    <key>name</key>
-                    <string>Broken</string>
-                    <key>scope</key>
-                    <string>invalid.broken</string>
-                    <key>settings</key>
-                    <dict>
-                        <key>background</key>
-                        <string>#${theme.colorScheme.orangeHex}</string>
-                        <key>foreground</key>
-                        <string>#${theme.colorScheme.background1Hex}</string>
-                    </dict>
-                </dict>
-                <dict>
-                    <key>name</key>
-                    <string>Deprecated</string>
-                    <key>scope</key>
-                    <string>invalid.deprecated</string>
-                    <key>settings</key>
-                    <dict>
-                        <key>background</key>
-                        <string>#${theme.colorScheme.brownHex}</string>
-                        <key>foreground</key>
-                        <string>#${theme.colorScheme.foreground1Hex}</string>
-                    </dict>
-                </dict>
-                <dict>
-                    <key>name</key>
-                    <string>Unimplemented</string>
-                    <key>scope</key>
-                    <string>invalid.unimplemented</string>
-                    <key>settings</key>
-                    <dict>
-                        <key>background</key>
-                        <string>#${theme.colorScheme.background4Hex}</string>
-                        <key>foreground</key>
-                        <string>#${theme.colorScheme.foreground1Hex}</string>
-                    </dict>
-                </dict>
-            </array>
-            <key>uuid</key>
-            <string>uuid</string>
-        </dict>
-        </plist>
-    '';
   };
 }
