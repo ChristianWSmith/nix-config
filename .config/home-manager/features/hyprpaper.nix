@@ -3,12 +3,12 @@
   home.packages = [ pkgs.hyprpaper ];
   home.file = {
     ".config/hypr/hyprpaper.conf".text = ''
-      preload = ~/.assets/wallpaper.png
+      preload = ~/.active-wallpaper
 
-      wallpaper = eDP-1,~/.assets/wallpaper.png
-      wallpaper = DP-1,~/.assets/wallpaper.png
-      wallpaper = DP-2,~/.assets/wallpaper.png
-      wallpaper = DP-3,~/.assets/wallpaper.png
+      wallpaper = eDP-1,~/.active-wallpaper
+      wallpaper = DP-1,~/.active-wallpaper
+      wallpaper = DP-2,~/.active-wallpaper
+      wallpaper = DP-3,~/.active-wallpaper
     '';
   };
 

@@ -59,9 +59,10 @@ let
   random-wallpaper = pkgs.writeShellScriptBin "random-wallpaper" ''
     ln -sf $(echo ${user.home}/.wallpapers/$(ls ${user.home}/.wallpapers/ | sort -R | tail -1)) ${user.home}/.active-wallpaper
     pkill hyprpaper
+    hyprpaper
   '';
-  get-wallpapers = pkgs.writeShellScriptBin "eww-get-wallpapers" ''
-    wallpaper_dir=${user.home}/.config/home-manager/files/wallpapers
+  get-wallpapers = pkgs.writeShellScriptBin "get-wallpapers" ''
+    wallpaper_dir=${user.home}/.wallpapers
     got_wallpapers=${user.home}/.got-wallpapers
     if [ -f $got_wallpapers ]
     then
@@ -74,9 +75,10 @@ in
 {
   home.file = {
     ".tty1-gui-only".text = "";
+    ".wallpapers/default.png".source = ../files/wallpapers/default.png;
     ".config/hypr/autoexec.conf".text = ''
       exec-once = foot --server
-      exec-once = hyprpaper
+      exec-once = random-wallpaper
       exec-once = waybar
       exec-once = hyprland-enable-screen-sharing
       exec-once = wl-paste --watch cliphist store
