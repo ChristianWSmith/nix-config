@@ -42,7 +42,7 @@
         "dropdown.foreground" = "#${theme.colorScheme.foreground3Hex}";
         "dropdown.listBackground" = "#${theme.colorScheme.background1Hex}";
         "editor.background" = "#${theme.colorScheme.background1Hex}";
-        "editor.findMatchBackground" = "#${theme.colorScheme.brownHex}";
+        "editor.findMatchBackground" = "#${theme.colorScheme.maroonHex}";
         "editor.foreground" = "#${theme.colorScheme.foreground3Hex}";
         "editorGroup.border" = "#${theme.colorScheme.foreground1Hex}${theme.colorScheme.transparencyLightShadeHex}";
         "editorGroupHeader.tabsBackground" = "#${theme.colorScheme.background1Hex}";

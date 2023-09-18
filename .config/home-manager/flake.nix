@@ -64,7 +64,7 @@
           cyanHex = palette.base0C;
           blueHex = palette.base0D;
           magentaHex = palette.base0E;
-          brownHex = palette.base0F;
+          maroonHex = palette.base0F;
 
           redRGB = inputs.nix-colors.lib.conversions.hexToRGBString "," palette.base08;
           orangeRGB = inputs.nix-colors.lib.conversions.hexToRGBString "," palette.base09;
@@ -73,7 +73,7 @@
           cyanRGB = inputs.nix-colors.lib.conversions.hexToRGBString "," palette.base0C;
           blueRGB = inputs.nix-colors.lib.conversions.hexToRGBString "," palette.base0D;
           magentaRGB = inputs.nix-colors.lib.conversions.hexToRGBString "," palette.base0E;
-          brownRGB = inputs.nix-colors.lib.conversions.hexToRGBString "," palette.base0F;
+          maroonRGB = inputs.nix-colors.lib.conversions.hexToRGBString "," palette.base0F;
 
           accentHex = theme.colorScheme.cyanHex;
           secondaryAccentHex = theme.colorScheme.greenHex;
