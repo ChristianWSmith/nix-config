@@ -42,6 +42,7 @@
       "editor.fontSize" = builtins.floor theme.monoFontSize * 16 / 12;
       "git.openRepositoryInParentFolders" = "never";
       "colorize.include" = [ "*" ];
+      "explorer.confirmDelete" = false;
     };
   };
 
