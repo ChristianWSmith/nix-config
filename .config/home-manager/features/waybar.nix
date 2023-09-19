@@ -29,7 +29,7 @@ in
         spacing = 2;
         modules-left = ["hyprland/workspaces"];
         modules-center = ["wlr/taskbar"];
-        modules-right = ["tray" "pulseaudio" "network" "cpu" "memory" "battery" "clock"];
+        modules-right = ["tray" "pulseaudio" "network" "battery" "clock"];
         "hyprland/workspaces" = {
           disable-scroll = true;
           all-outputs = false;
@@ -64,52 +64,66 @@ in
           tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
           format-alt = "{:%a %m/%d/%Y}";
         };
-        cpu = {
-          on-click = "terminal btop";
-          format = "{usage}% ";
-          tooltip = false;
-        };
-        memory = {
-          on-click = "terminal btop";
-          format = "{}% ";
-        };
         battery = {
           states = {
             warning = 30;
             critical = 15;
           };
-          format = "{capacity}% {icon}";
-          format-charging = "{capacity}% ";
-          format-plugged = "{capacity}% ";
+          format = "{icon}";
+          format-charging = "<span color=\"${theme.colorScheme.successHex}\">󰂄</span>";
+          format-plugged = "<span color=\"#${theme.colorScheme.successHex}\">󰂄</span>";
           format-alt = "{time} {icon}";
-          format-icons = ["" "" "" "" ""];
+          format-icons = [
+	    "<span color=\"#${theme.colorScheme.dangerHex}\">󰂎</span>"
+	    "<span color=\"#${theme.colorScheme.dangerHex}\">󰁺</span>"
+	    "<span color=\"#${theme.colorScheme.dangerHex}\">󰁻</span>"
+	    "<span color=\"#${theme.colorScheme.warningHex}\">󰁼</span>"
+	    "<span color=\"#${theme.colorScheme.warningHex}\">󰁽</span>"
+	    "<span color=\"#${theme.colorScheme.warningHex}\">󰁾</span>"
+	    "<span color=\"#${theme.colorScheme.warningHex}\">󰁿</span>"
+	    "<span color=\"#${theme.colorScheme.warningHex}\">󰂀</span>"
+	    "<span color=\"#${theme.colorScheme.successHex}\">󰂁</span>"
+	    "<span color=\"#${theme.colorScheme.successHex}\">󰂂</span>"
+	    "<span color=\"#${theme.colorScheme.successHex}\">󰁹</span>"
+	  ];
         };
         network = {
-          format-wifi = "({signalStrength}%) ";
-          format-ethernet = "";
-          tooltip-format = "{ifname} via {gwaddr} 󰈀";
-          format-linked = "(No IP) ⚠";
-          format-disconnected = "Disconnected ⚠";
-        on-click = "terminal nmtui";
+          format-wifi = "{icon}";
+          format-ethernet = "󰈀";
+          tooltip-format = "{ifname} via {gwaddr}";
+          format-linked = "(No IP) ";
+          format-disconnected = "Disconnected ";
+          on-click = "terminal nmtui";
+          format-icons = [
+	    "<span color=\"#${theme.colorScheme.dangerHex}\">󰤯</span>"
+	    "<span color=\"#${theme.colorScheme.warningHex}\">󰤟</span>"
+	    "<span color=\"#${theme.colorScheme.warningHex}\">󰤢</span>"
+	    "<span color=\"#${theme.colorScheme.successHex}\">󰤥</span>"
+	    "<span color=\"#${theme.colorScheme.successHex}\">󰤨</span>"
+	  ];
         };
         pulseaudio = {
-          format = "{volume}% {icon} {format_source}";
-          format-bluetooth = "{volume}% {icon} {format_source}";
-          format-bluetooth-muted = " {icon} {format_source}";
-          format-muted = " {format_source}";
-          format-source = " {volume}% ";
-          format-source-muted = "";
+          format = "{icon} {format_source}";
+          format-bluetooth = "{icon}<span color=\"${theme.colorScheme.cyanHex}\">󰂯</span> {format_source}";
+          format-bluetooth-muted = "{icon}<span color=\"${theme.colorScheme.cyanHex}\">󰂯</span> {format_source}";
+          format-muted = "<span color=\"#${theme.colorScheme.dangerHex}\">󰝟</span>";
+          format-source = "<span color=\"#${theme.colorScheme.successHex}\">󰍬</span>";
+          format-source-muted = "<span color=\"#${theme.colorScheme.dangerHex}\">󰍭</span>";
           format-icons = {
-            headphone = "";
-            hands-free = "";
-            headset = "";
-            phone = "";
-            portable = "";
-            car = "";
-            default = ["" "" ""];
+            headphone = "󰋋";
+            hands-free = "󰋎";
+            headset = "󰋎";
+            phone = "󰏲";
+            portable = "󰏲";
+            car = "󰄋";
+            default = [
+	      "<span color=\"#${theme.colorScheme.dangerHex}\">󰕿</span>"
+	      "<span color=\"#${theme.colorScheme.warningHex}\">󰖀</span>"
+	      "<span color=\"#${theme.colorScheme.successHex}\">󰕾</span>"
+	    ];
           };
           on-click = "terminal pulsemixer";
-        on-click-right = "pavucontrol";
+          on-click-right = "pavucontrol";
         };
       };
     };
@@ -166,8 +180,6 @@ in
 
       #clock,
       #battery,
-      #cpu,
-      #memory,
       #network,
       #pulseaudio,
       #tray,
@@ -191,7 +203,8 @@ in
     '';
   };
   home.packages = with pkgs; [
-    font-awesome
+    nerdfonts
+    # font-awesome
     zenToggle
   ];
 }
