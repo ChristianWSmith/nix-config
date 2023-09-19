@@ -1,5 +1,12 @@
 { pkgs, user, theme, ... }:
 let
+  extraConfig = pkgs.writeShellScriptBin "hyprland-extra-config" ''
+    if ! [ -f ${user.home}/.config/hypr/extra.conf ]; then
+      touch ${user.home}/.config/hypr/extra.conf
+      hyprctl reload
+    fi
+  '';
+
   launcher = pkgs.writeShellScriptBin "hyprland-launcher" ''
     . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
     ${pkgs.hyprland}/bin/Hyprland &> /dev/null
@@ -77,6 +84,7 @@ in
     ".tty1-gui-only".text = "";
     ".wallpapers/default.png".source = ../files/wallpapers/default.png;
     ".config/hypr/autoexec.conf".text = ''
+      exec-once = hyprland-extra-config
       exec-once = foot --server
       exec-once = random-wallpaper
       exec-once = waybar
@@ -217,7 +225,7 @@ in
       }
     '';
   };
-  home.packages = [ launcher screenshot enableScreenSharing colorPicker notifyClipboard recordScreen set-wallpaper random-wallpaper get-wallpapers ];
+  home.packages = [ launcher extraConfig screenshot enableScreenSharing colorPicker notifyClipboard recordScreen set-wallpaper random-wallpaper get-wallpapers ];
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
