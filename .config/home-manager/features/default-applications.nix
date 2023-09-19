@@ -1,8 +1,8 @@
 let
-  audioDefaults = [ "vlc.desktop" ];
-  videoDefaults = [ "vlc.desktop" ];
-  imageDefaults = [ "org.gnome.eog.desktop" ];
-  textDefaults = [ "org.gnome.TextEditor.desktop" ];
+  audioDefaults = [ "mpv.desktop" ];
+  videoDefaults = [ "mpv.desktop" ];
+  imageDefaults = [ "imv.desktop" ];
+  textDefaults = [ "codium.desktop" ];
   fontDefaults = [ "org.gnome.font-viewer.desktop" ];
 in
 {

@@ -78,7 +78,7 @@ in
         };
         network = {
           format-wifi = "({signalStrength}%) ";
-          format-ethernet = "󰈀";
+          format-ethernet = "";
           tooltip-format = "{ifname} via {gwaddr} 󰈀";
           format-linked = "(No IP) ⚠";
           format-disconnected = "Disconnected ⚠";
@@ -177,7 +177,7 @@ in
     '';
   };
   home.packages = with pkgs; [
-    nerdfonts
+    font-awesome
     zenToggle
   ];
 }
