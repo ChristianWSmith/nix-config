@@ -27,9 +27,19 @@ in
         height = 30;
         margin = "${builtins.toString theme.gapsOut}px ${builtins.toString theme.gapsOut}px 0px ${builtins.toString theme.gapsOut}px";
         spacing = 2;
-        modules-left = ["hyprland/workspaces"];
+        modules-left = ["custom/applauncher" "hyprland/workspaces"];
         modules-center = ["wlr/taskbar"];
-        modules-right = ["tray" "pulseaudio" "network" "battery" "clock"];
+        modules-right = ["tray" "pulseaudio" "network" "battery" "clock" "custom/powermenu"];
+	"custom/applauncher" = {
+	  return-type = "json";
+          exec = "echo {\\\"text\\\": \\\"󱄅\\\", \\\"tooltip\\\": \\\"Application Launcher\\\"}";
+          on-click = "app-launcher";
+	};
+	"custom/powermenu" = {
+	  return-type = "json";
+          exec = "echo {\\\"text\\\": \\\"󰐥\\\", \\\"tooltip\\\": \\\"Power Menu\\\"}";
+	  on-click = "power-menu";
+	};
         "hyprland/workspaces" = {
           disable-scroll = true;
           all-outputs = false;
@@ -137,37 +147,53 @@ in
 	transition: all .2s ease-in-out;
       }
 
+      .modules-left,
+      .modules-right,
       window#waybar,
       tooltip {
         border-radius: ${builtins.toString theme.borderRadius}px;
-        background-color: rgba(${theme.colorScheme.background1RGB}, ${theme.colorScheme.transparencyBackgroundRGB});
         color: #${theme.colorScheme.foreground1Hex};
         transition-property: background-color;
         transition-duration: .5s;
+      }
+
+      window#waybar {
+        background-color: rgba(0,0,0,0);
+      }
+
+      .modules-left,
+      .modules-right,
+      tooltip {
+        background-color: rgba(${theme.colorScheme.background1RGB}, ${theme.colorScheme.transparencyBackgroundRGB}); 
       }
 
       window#waybar.hidden {
         opacity: 0.2;
       }
 
+      #clock,
+      #battery,
+      #network,
+      #pulseaudio,
+      #tray,
+      #custom-applauncher,
+      #custom-powermenu,
       button {
         box-shadow: inset 0 -3px transparent;
         border: none;
         border-radius: ${builtins.toString theme.borderRadius}px;
-        margin: 2px 2px 2px 0px;
+        margin: 2px 0px 2px 0px;
         background-color: transparent;
         color: #${theme.colorScheme.foreground1Hex};
       }
 
-      #workspaces button {
-        padding: 0px 5px;
-      }
-
-      #workspaces button.active,
-      #workspaces button.focused {
-        padding: 0px 15px;
-      }
-
+      #clock,
+      #battery,
+      #network,
+      #pulseaudio,
+      #tray,
+      #custom-applauncher,
+      #custom-powermenu,
       button:hover,
       button.active,
       button.focused {
@@ -178,27 +204,44 @@ in
         background-color: #${theme.colorScheme.dangerHex};
       }
 
-      #clock,
-      #battery,
-      #network,
-      #pulseaudio,
-      #tray,
-      #mpd { 
-        color: #${theme.colorScheme.foreground1Hex};
-        padding: 0 5px;
-        margin: 0px 3px;
+      #custom-applauncher {
+        padding: 0px 11px 0px 6px;
+      }
+      
+      #custom-powermenu {
+        padding: 0px 9px 0px 8px;
       }
 
-      #window,
-      #workspaces {
+      #network {
+        padding: 0px 9px 0px 3px;
+      }
+
+      #battery {
+        padding: 0px 2px 0px 1px;
+      }
+
+      #pulseaudio,
+      #clock,
+      #tray {
+        padding: 0px 2px 0px 2px;
+      }
+
+      #workspaces button {
+        padding: 0px 5px;
+	margin-right: 2px;
+      }
+
+      #workspaces button.active,
+      #workspaces button.focused {
+        padding: 0px 15px;
       }
 
       .modules-left {
-        margin-left: 2px;
+	padding: 0px 0px 0px 2px;
       }
 
       .modules-right {
-        margin-right: 2px;
+	padding: 0px 2px 0px 2px;
       }
     '';
   };
