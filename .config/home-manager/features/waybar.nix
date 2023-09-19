@@ -112,6 +112,7 @@ in
         font-weight: bold;
         margin: 0px;
         padding: 0px;
+	transition: all .2s ease-in-out;
       }
 
       window#waybar,
@@ -138,6 +139,11 @@ in
 
       #workspaces button {
         padding: 0px 5px;
+      }
+
+      #workspaces button.active,
+      #workspaces button.focused {
+        padding: 0px 15px;
       }
 
       button:hover,
