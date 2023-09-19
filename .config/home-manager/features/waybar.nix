@@ -82,7 +82,6 @@ in
           format = "{icon}";
           format-charging = "<span color=\"${theme.colorScheme.successHex}\">󰂄</span>";
           format-plugged = "<span color=\"#${theme.colorScheme.successHex}\">󰂄</span>";
-          format-alt = "{time} {icon}";
           format-icons = [
 	    "<span color=\"#${theme.colorScheme.dangerHex}\">󰂎</span>"
 	    "<span color=\"#${theme.colorScheme.dangerHex}\">󰁺</span>"
@@ -99,10 +98,10 @@ in
         };
         network = {
           format-wifi = "{icon}";
-          format-ethernet = "󰈀";
+          format-ethernet = "<span color=\"#${theme.colorScheme.successHex}\">󰈀</span>";
           tooltip-format = "{ifname} via {gwaddr}";
-          format-linked = "(No IP) ";
-          format-disconnected = "Disconnected ";
+          format-linked = "<span color=\"#${theme.colorScheme.dangerHex}\"></span>";
+          format-disconnected = "<span color=\"#${theme.colorScheme.dangerHex}\"></span>";
           on-click = "terminal nmtui";
           format-icons = [
 	    "<span color=\"#${theme.colorScheme.dangerHex}\">󰤯</span>"
@@ -213,17 +212,17 @@ in
       }
 
       #network {
-        padding: 0px 9px 0px 3px;
+        padding: 0px 13px 0px 7px;
       }
 
-      #battery {
-        padding: 0px 2px 0px 1px;
+      #tray {
+        padding: 0px 5px 0px 5px;
       }
 
       #pulseaudio,
       #clock,
-      #tray {
-        padding: 0px 2px 0px 2px;
+      #battery {
+        padding: 0px 7px 0px 7px;
       }
 
       #workspaces button {
