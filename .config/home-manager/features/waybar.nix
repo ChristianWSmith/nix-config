@@ -204,7 +204,6 @@ in
   };
   home.packages = with pkgs; [
     nerdfonts
-    # font-awesome
     zenToggle
   ];
 }
