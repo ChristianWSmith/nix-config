@@ -14,6 +14,7 @@
     "git.openRepositoryInParentFolders" = "never";
     "colorize.include" = [ "*" ];
     "explorer.confirmDelete" = false;
+    "security.workspace.trust.untrustedFiles" = "open";
     "workbench.colorCustomizations" = {		
         "activityBar.activeBorder" = "#${theme.colorScheme.blueHex}";
         "activityBar.background" = "#${theme.colorScheme.background1Hex}";
