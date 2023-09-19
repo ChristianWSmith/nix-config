@@ -32,11 +32,13 @@ in
         modules-right = ["tray" "pulseaudio" "network" "battery" "clock" "custom/powermenu"];
 	"custom/applauncher" = {
 	  return-type = "json";
+	  format = "<span color=\"#${theme.colorScheme.accentHex}\">{}</span>";
           exec = "echo {\\\"text\\\": \\\"󱄅\\\", \\\"tooltip\\\": \\\"Application Launcher\\\"}";
           on-click = "app-launcher";
 	};
 	"custom/powermenu" = {
 	  return-type = "json";
+	  format = "<span color=\"#${theme.colorScheme.dangerHex}\">{}</span>";
           exec = "echo {\\\"text\\\": \\\"󰐥\\\", \\\"tooltip\\\": \\\"Power Menu\\\"}";
 	  on-click = "power-menu";
 	};
