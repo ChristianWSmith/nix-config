@@ -97,6 +97,8 @@
         };
         borderWidth = 1;
         borderRadius = 5;
+        gapsIn = 3;
+        gapsOut = 5;
 
         fontPackage = pkgs.noto-fonts;
         fontName = "Noto Sans";

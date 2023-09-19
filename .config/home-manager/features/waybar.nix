@@ -4,8 +4,16 @@ let
   zenToggle = pkgs.writeShellScriptBin "zen-toggle" ''
     if pgrep waybar; then
       pkill waybar
+      hyprctl keyword general:gaps_in 0
+      hyprctl keyword general:gaps_out 0
+      hyprctl keyword general:border_size 0
+      hyprctl keyword decoration:rounding 0
     else
       waybar & disown
+      hyprctl keyword general:gaps_in ${builtins.toString theme.gapsIn}
+      hyprctl keyword general:gaps_out ${builtins.toString theme.gapsOut}
+      hyprctl keyword general:border_size ${builtins.toString theme.borderWidth}
+      hyprctl keyword decoration:rounding ${builtins.toString theme.borderRadius}
     fi
   '';
 in
@@ -17,7 +25,7 @@ in
         layer = "top";
         position = "top";
         height = 30;
-        margin = "5px 5px 0px 5px";
+        margin = "${builtins.toString theme.gapsOut}px ${builtins.toString theme.gapsOut}px 0px ${builtins.toString theme.gapsOut}px";
         spacing = 2;
         modules-left = ["hyprland/workspaces"];
         modules-center = ["wlr/taskbar"];
