@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, ... }:
 {
   home.file = {
     ".config/ranger/rc.conf".text = ''
@@ -12,6 +12,7 @@
     '';
   };
   home.packages = with pkgs; [
+    # TODO: update this when ranger 1.9.4 releases
     (pkgs.ranger.overrideAttrs (old: {
       version = "git";
       src = fetchFromGitHub {
