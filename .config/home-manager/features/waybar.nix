@@ -69,7 +69,8 @@ in
           ignore-list = [ "wlogout" ];
         };
         tray = {
-          spacing = 10;
+          spacing = 2;
+          icon-size = 20;
         };
         clock = {
         format = "{:%I:%M %p}";
