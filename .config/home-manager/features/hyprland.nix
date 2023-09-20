@@ -8,7 +8,7 @@ let
   '';
 
   launcher = pkgs.writeShellScriptBin "hyprland-launcher" ''
-    . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
+    . "${user.home}/.nix-profile/etc/profile.d/hm-session-vars.sh"
     ${pkgs.hyprland}/bin/Hyprland &> /dev/null
   '';
   enableScreenSharing = pkgs.writeShellScriptBin "hyprland-enable-screen-sharing" ''
@@ -63,7 +63,7 @@ in
       exec-once = waybar
       exec-once = hyprland-enable-screen-sharing
       exec-once = wl-paste --watch cliphist store
-      exec-once = mkdir -p $HOME/Pictures $HOME/Documents $HOME/Videos $HOME/Music $HOME/Downloads $HOME/Templates $HOME/Desktop
+      exec-once = mkdir -p ${user.home}/Pictures ${user.home}/Documents ${user.home}/Videos ${user.home}/Music ${user.home}/Downloads ${user.home}/Templates ${user.home}/Desktop ${user.home}/Public
     '';
     ".config/hypr/binds.conf".text = ''
       $mainMod = SUPER
