@@ -30,18 +30,18 @@ in
         modules-left = ["custom/applauncher" "hyprland/workspaces"];
         modules-center = ["wlr/taskbar"];
         modules-right = ["tray" "pulseaudio" "network" "battery" "clock" "custom/powermenu"];
-	"custom/applauncher" = {
-	  return-type = "json";
-	  format = "<span color=\"#${theme.colorScheme.accentHex}\">{}</span>";
+        "custom/applauncher" = {
+          return-type = "json";
+          format = "<span color=\"#${theme.colorScheme.accentHex}\">{}</span>";
           exec = "echo {\\\"text\\\": \\\"󱄅\\\", \\\"tooltip\\\": \\\"Application Launcher\\\"}";
           on-click = "app-launcher";
-	};
-	"custom/powermenu" = {
-	  return-type = "json";
-	  format = "<span color=\"#${theme.colorScheme.dangerHex}\">{}</span>";
+        };
+        "custom/powermenu" = {
+          return-type = "json";
+          format = "<span color=\"#${theme.colorScheme.dangerHex}\">{}</span>";
           exec = "echo {\\\"text\\\": \\\"󰐥\\\", \\\"tooltip\\\": \\\"Power Menu\\\"}";
-	  on-click = "power-menu";
-	};
+          on-click = "power-menu";
+        };
         "hyprland/workspaces" = {
           disable-scroll = true;
           all-outputs = false;
@@ -67,6 +67,7 @@ in
           sort-by-app-id = true;
           all-outputs = true;
           on-click = "activate";
+          ignore-list = [ "wlogout" ];
         };
         tray = {
           spacing = 10;
@@ -85,18 +86,18 @@ in
           format-charging = "<span color=\"${theme.colorScheme.successHex}\">󰂄</span>";
           format-plugged = "<span color=\"#${theme.colorScheme.successHex}\">󰂄</span>";
           format-icons = [
-	    "<span color=\"#${theme.colorScheme.dangerHex}\">󰂎</span>"
-	    "<span color=\"#${theme.colorScheme.dangerHex}\">󰁺</span>"
-	    "<span color=\"#${theme.colorScheme.dangerHex}\">󰁻</span>"
-	    "<span color=\"#${theme.colorScheme.warningHex}\">󰁼</span>"
-	    "<span color=\"#${theme.colorScheme.warningHex}\">󰁽</span>"
-	    "<span color=\"#${theme.colorScheme.warningHex}\">󰁾</span>"
-	    "<span color=\"#${theme.colorScheme.warningHex}\">󰁿</span>"
-	    "<span color=\"#${theme.colorScheme.warningHex}\">󰂀</span>"
-	    "<span color=\"#${theme.colorScheme.successHex}\">󰂁</span>"
-	    "<span color=\"#${theme.colorScheme.successHex}\">󰂂</span>"
-	    "<span color=\"#${theme.colorScheme.successHex}\">󰁹</span>"
-	  ];
+            "<span color=\"#${theme.colorScheme.dangerHex}\">󰂎</span>"
+            "<span color=\"#${theme.colorScheme.dangerHex}\">󰁺</span>"
+            "<span color=\"#${theme.colorScheme.dangerHex}\">󰁻</span>"
+            "<span color=\"#${theme.colorScheme.warningHex}\">󰁼</span>"
+            "<span color=\"#${theme.colorScheme.warningHex}\">󰁽</span>"
+            "<span color=\"#${theme.colorScheme.warningHex}\">󰁾</span>"
+            "<span color=\"#${theme.colorScheme.warningHex}\">󰁿</span>"
+            "<span color=\"#${theme.colorScheme.warningHex}\">󰂀</span>"
+            "<span color=\"#${theme.colorScheme.successHex}\">󰂁</span>"
+            "<span color=\"#${theme.colorScheme.successHex}\">󰂂</span>"
+            "<span color=\"#${theme.colorScheme.successHex}\">󰁹</span>"
+          ];
         };
         network = {
           format-wifi = "{icon}";
@@ -106,12 +107,12 @@ in
           format-disconnected = "<span color=\"#${theme.colorScheme.dangerHex}\"></span>";
           on-click = "terminal nmtui";
           format-icons = [
-	    "<span color=\"#${theme.colorScheme.dangerHex}\">󰤯</span>"
-	    "<span color=\"#${theme.colorScheme.warningHex}\">󰤟</span>"
-	    "<span color=\"#${theme.colorScheme.warningHex}\">󰤢</span>"
-	    "<span color=\"#${theme.colorScheme.successHex}\">󰤥</span>"
-	    "<span color=\"#${theme.colorScheme.successHex}\">󰤨</span>"
-	  ];
+            "<span color=\"#${theme.colorScheme.dangerHex}\">󰤯</span>"
+            "<span color=\"#${theme.colorScheme.warningHex}\">󰤟</span>"
+            "<span color=\"#${theme.colorScheme.warningHex}\">󰤢</span>"
+            "<span color=\"#${theme.colorScheme.successHex}\">󰤥</span>"
+            "<span color=\"#${theme.colorScheme.successHex}\">󰤨</span>"
+          ];
         };
         pulseaudio = {
           format = "{icon} {format_source}";
@@ -128,10 +129,10 @@ in
             portable = "󰏲";
             car = "󰄋";
             default = [
-	      "<span color=\"#${theme.colorScheme.dangerHex}\">󰕿</span>"
-	      "<span color=\"#${theme.colorScheme.warningHex}\">󰖀</span>"
-	      "<span color=\"#${theme.colorScheme.successHex}\">󰕾</span>"
-	    ];
+              "<span color=\"#${theme.colorScheme.dangerHex}\">󰕿</span>"
+              "<span color=\"#${theme.colorScheme.warningHex}\">󰖀</span>"
+              "<span color=\"#${theme.colorScheme.successHex}\">󰕾</span>"
+            ];
           };
           on-click = "terminal pulsemixer";
           on-click-right = "pavucontrol";
