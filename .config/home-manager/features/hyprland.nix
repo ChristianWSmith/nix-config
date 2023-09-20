@@ -68,7 +68,7 @@ in
       $mainMod = SUPER
       bind = $mainMod, RETURN, exec, terminal
       bind = $mainMod, W, exec, $BROWSER
-      bind = $mainMod, E, exec, nemo
+      bind = $mainMod, E, exec, terminal ranger
       bind = $mainMod, S, exec, hyprland-screenshot
       bind = $mainMod, P, exec, hyprland-colorpicker
       bind = $mainMod, A, exec, terminal pulsemixer

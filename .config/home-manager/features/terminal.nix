@@ -19,6 +19,7 @@ in
     };
     shellIntegration.enableFishIntegration = true;
     settings = {
+      confirm_os_window_close = 0;
       foreground = "#${theme.colorScheme.foreground1Hex}";
       background = "#${theme.colorScheme.background1Hex}";
       background_opacity = "${theme.colorScheme.transparencyBackgroundRGB}";
