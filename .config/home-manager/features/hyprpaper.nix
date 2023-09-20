@@ -25,10 +25,11 @@ let
     fi
 
     download() {
-      wget -nc -O $1 $2
+      wget -nc -O $wallpaper_dir/$1 $2
     }
 
-    download $wallpaper_dir/garden.png https://tinyurl.com/26ey564k
+    download beach-gate.jpg https://tinyurl.com/2p9dfrb2
+    download garden.png https://tinyurl.com/26ey564k
     echo "$CURRENT_SHA" > $HOME/.got-wallpapers
   '';
 in
