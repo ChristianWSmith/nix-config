@@ -1,4 +1,3 @@
-# TODO: THEMEING
 { pkgs, theme, ... }:
 let
   zenToggle = pkgs.writeShellScriptBin "zen-toggle" ''
@@ -101,7 +100,7 @@ in
         };
         network = {
           format-wifi = "{icon}";
-          format-ethernet = "<span color=\"#${theme.colorScheme.successHex}\">󰈀</span>";
+          format-ethernet = "<span color=\"#${theme.colorScheme.successHex}\">󰤨</span>";
           tooltip-format = "{ifname} via {gwaddr}";
           format-linked = "<span color=\"#${theme.colorScheme.dangerHex}\"></span>";
           format-disconnected = "<span color=\"#${theme.colorScheme.dangerHex}\"></span>";
