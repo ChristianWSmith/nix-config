@@ -1,5 +1,16 @@
-{ user, theme, lib, ... }:
+{ pkgs, user, theme, lib, ... }:
+let
+  notifyClipboard = pkgs.writeShellScriptBin "notify-clipboard" ''
+    paste=$(wl-paste)
+
+    if [ "$paste" ]
+    then
+      notify-send "Clipboard: $paste"
+    fi
+  '';
+in
 {
+  home.packages = [ notifyClipboard ];
   services.mako = {
     enable = true;
     anchor = "top-center";

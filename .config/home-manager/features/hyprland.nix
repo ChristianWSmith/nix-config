@@ -50,34 +50,6 @@ let
     hyprpicker | tr -d '\n' | wl-copy
     notify-clipboard
   '';
-  notifyClipboard = pkgs.writeShellScriptBin "notify-clipboard" ''
-    paste=$(wl-paste)
-
-    if [ "$paste" ]
-    then
-      notify-send "Clipboard: $paste"
-    fi
-  '';
-  set-wallpaper = pkgs.writeShellScriptBin "set-wallpaper" ''
-    ln -sf $(readlink -f $1) ${user.home}/.active-wallpaper
-    pkill hyprpaper
-    hyprpaper
-  '';
-  random-wallpaper = pkgs.writeShellScriptBin "random-wallpaper" ''
-    ln -sf $(echo ${user.home}/.wallpapers/$(ls ${user.home}/.wallpapers/ | sort -R | tail -1)) ${user.home}/.active-wallpaper
-    pkill hyprpaper
-    hyprpaper
-  '';
-  get-wallpapers = pkgs.writeShellScriptBin "get-wallpapers" ''
-    wallpaper_dir=${user.home}/.wallpapers
-    got_wallpapers=${user.home}/.got-wallpapers
-    if [ -f $got_wallpapers ]
-    then
-      exit
-    fi
-    # wget -nc -O $wallpaper_dir/<image_name> <url>
-    touch $got_wallpapers
-  '';
 in
 {
   home.file = {
@@ -225,7 +197,7 @@ in
       }
     '';
   };
-  home.packages = [ launcher extraConfig screenshot enableScreenSharing colorPicker notifyClipboard recordScreen set-wallpaper random-wallpaper get-wallpapers ];
+  home.packages = [ launcher extraConfig screenshot enableScreenSharing colorPicker recordScreen ];
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
