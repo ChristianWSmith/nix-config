@@ -13,12 +13,23 @@ let
   getWallpapers = pkgs.writeShellScriptBin "get-wallpapers" ''
     wallpaper_dir=${user.home}/.wallpapers
     got_wallpapers=${user.home}/.got-wallpapers
-    if [ -f $got_wallpapers ]
-    then
+
+    CURRENT_SHA=$(sha256sum $(readlink -f $0) | cut -d' ' -f1)
+    LAST_SHA=$(cat $got_wallpapers)
+
+    if [ "$CURRENT_SHA" != "$LAST_SHA" ]; then
+      echo "Updating wallpapers..."
+    else
+      echo "Wallpapers up to date."
       exit
     fi
-    wget -nc -O $wallpaper_dir/garden.png https://tinyurl.com/26ey564k
-    touch $got_wallpapers
+
+    download() {
+      wget -nc -O $1 $2
+    }
+
+    download $wallpaper_dir/garden.png https://tinyurl.com/26ey564k
+    echo "$CURRENT_SHA" > $HOME/.got-wallpapers
   '';
 in
 {
