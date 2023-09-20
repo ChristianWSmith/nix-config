@@ -56,7 +56,6 @@
     xboxdrv
 
     # TUI Tools
-    ranger 
     pulsemixer 
     networkmanager
     vimPlugins.yuck-vim

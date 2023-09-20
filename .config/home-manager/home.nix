@@ -24,6 +24,7 @@
     ./features/gtklock.nix
     ./features/hyprpaper.nix
     ./features/vscode.nix
+    ./features/ranger.nix
   ];
 
   home.file = {
