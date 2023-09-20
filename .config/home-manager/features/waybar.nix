@@ -101,24 +101,24 @@ in
         };
         network = {
           format-wifi = "{icon}";
-          format-ethernet = "<span color=\"#${theme.colorScheme.successHex}\">󰤨</span>";
+          format-ethernet = "<span color=\"#${theme.colorScheme.successHex}\">󰣺</span>";
           tooltip-format = "{ifname} via {gwaddr}";
-          format-linked = "<span color=\"#${theme.colorScheme.dangerHex}\"></span>";
-          format-disconnected = "<span color=\"#${theme.colorScheme.dangerHex}\"></span>";
+          format-linked = "<span color=\"#${theme.colorScheme.dangerHex}\">󰣽</span>";
+          format-disconnected = "<span color=\"#${theme.colorScheme.dangerHex}\">󰣽</span>";
           on-click = "terminal nmtui";
           format-icons = [
-            "<span color=\"#${theme.colorScheme.dangerHex}\">󰤯</span>"
-            "<span color=\"#${theme.colorScheme.warningHex}\">󰤟</span>"
-            "<span color=\"#${theme.colorScheme.warningHex}\">󰤢</span>"
-            "<span color=\"#${theme.colorScheme.successHex}\">󰤥</span>"
-            "<span color=\"#${theme.colorScheme.successHex}\">󰤨</span>"
+            "<span color=\"#${theme.colorScheme.dangerHex}\">󰣾</span>"
+            "<span color=\"#${theme.colorScheme.warningHex}\">󰣴</span>"
+            "<span color=\"#${theme.colorScheme.warningHex}\">󰣶</span>"
+            "<span color=\"#${theme.colorScheme.successHex}\">󰣸</span>"
+            "<span color=\"#${theme.colorScheme.successHex}\">󰣺</span>"
           ];
         };
         pulseaudio = {
           format = "{icon} {format_source}";
           format-bluetooth = "{icon}<span color=\"${theme.colorScheme.cyanHex}\">󰂯</span> {format_source}";
           format-bluetooth-muted = "{icon}<span color=\"${theme.colorScheme.cyanHex}\">󰂯</span> {format_source}";
-          format-muted = "<span color=\"#${theme.colorScheme.dangerHex}\">󰝟</span>";
+          format-muted = "<span color=\"#${theme.colorScheme.dangerHex}\">󰝟</span> {format_source}";
           format-source = "<span color=\"#${theme.colorScheme.successHex}\">󰍬</span>";
           format-source-muted = "<span color=\"#${theme.colorScheme.dangerHex}\">󰍭</span>";
           format-icons = {
@@ -221,7 +221,7 @@ in
       }
 
       #network {
-        padding: 0px 13px 0px 7px;
+        padding: 0px 12px 0px 7px;
       }
 
       #tray {

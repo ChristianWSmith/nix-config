@@ -119,6 +119,16 @@ in
       bind = $mainMod SHIFT, 8, movetoworkspace, 8
       bind = $mainMod SHIFT, 9, movetoworkspace, 9
       bind = $mainMod SHIFT, 0, movetoworkspace, 10
+
+      bind = , xf86audioraisevolume, exec, wpctl set-volume @DEFAULT_SINK@ 10%+
+      bind = , xf86audiolowervolume, exec, wpctl set-volume @DEFAULT_SINK@ 10%-
+      bind = , xf86audiomicmute, exec, wpctl set-mute @DEFAULT_SOURCE@ toggle
+      bind = , xf86audiomute, exec, wpctl set-mute @DEFAULT_SINK@ toggle
+      # TODO: lets fill this out
+      # bind = , xf86rfkill, exec, airplane mode
+      # bind = , xf86brightnessup, exec, brightnessup
+      # bind = , xf86brightnessdown, exec, brightnessdown
+      # bind = , xf86webcam, exec, webcam
     '';
     ".config/hypr/environment.conf".text = '''';
     ".config/hypr/input.conf".text = ''
