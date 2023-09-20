@@ -57,7 +57,6 @@ in
     ".wallpapers/default.png".source = ../files/wallpapers/default.png;
     ".config/hypr/autoexec.conf".text = ''
       exec-once = hyprland-extra-config
-      exec-once = foot --server
       exec-once = get-wallpapers
       exec-once = random-wallpaper
       exec-once = waybar

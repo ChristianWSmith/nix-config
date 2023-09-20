@@ -1,43 +1,43 @@
-{ pkgs, theme, lib, ... }:
+{ pkgs, user, theme, ... }:
 let
   launcher = pkgs.writeShellScriptBin "terminal" ''
-    if [ "$1" == "" ]
-    then
-      footclient
+    if [ "$1" == "" ]; then
+      kitty
     else
-      footclient -E $(which $1) ''${@:2}
+      kitty $(which $1) ''${@:2}
     fi
   '';
 in
 {
   home.packages = [ launcher ];
-  programs.foot = {
+  programs.kitty = {
     enable = true;
+    font = {
+      name = theme.monoFontName;
+      package = theme.monoFontPackage;
+      size = builtins.floor theme.fontSizeUI / 16 * 12;
+    };
+    shellIntegration.enableFishIntegration = true;
     settings = {
-      main = {
-        shell = "${pkgs.fish}/bin/fish";
-        font = "${theme.monoFontName}:pixelsize=${builtins.toString theme.fontSizeUI}";
-      };
-      colors = {
-        alpha = theme.colorScheme.transparencyBackgroundRGB;
-        background = theme.colorScheme.background1Hex;
-        regular0 = theme.colorScheme.background1Hex;
-        regular1 = theme.colorScheme.redHex;
-        regular2 = theme.colorScheme.greenHex;
-        regular3 = theme.colorScheme.yellowHex;
-        regular4 = theme.colorScheme.blueHex;
-        regular5 = theme.colorScheme.magentaHex;
-        regular6 = theme.colorScheme.cyanHex;
-        regular7 = theme.colorScheme.foreground4Hex;
-        bright0 = theme.colorScheme.background4Hex;
-        bright1 = theme.colorScheme.redHex;
-        bright2 = theme.colorScheme.greenHex;
-        bright3 = theme.colorScheme.yellowHex;
-        bright4 = theme.colorScheme.blueHex;
-        bright5 = theme.colorScheme.magentaHex;
-        bright6 = theme.colorScheme.cyanHex;
-        bright7 = theme.colorScheme.foreground1Hex;
-      };
+      foreground = "#${theme.colorScheme.foreground1Hex}";
+      background = "#${theme.colorScheme.background1Hex}";
+      background_opacity = "${theme.colorScheme.transparencyBackgroundRGB}";
+      color0 = "#${theme.colorScheme.background1Hex}";
+      color1 = "#${theme.colorScheme.redHex}";
+      color2 = "#${theme.colorScheme.greenHex}";
+      color3 = "#${theme.colorScheme.yellowHex}";
+      color4 = "#${theme.colorScheme.blueHex}";
+      color5 = "#${theme.colorScheme.magentaHex}";
+      color6 = "#${theme.colorScheme.cyanHex}";
+      color7 = "#${theme.colorScheme.foreground4Hex}";
+      color8 = "#${theme.colorScheme.background4Hex}";
+      color9 = "#${theme.colorScheme.redHex}";
+      color10 = "#${theme.colorScheme.greenHex}";
+      color11 = "#${theme.colorScheme.yellowHex}";
+      color12 = "#${theme.colorScheme.blueHex}";
+      color13 = "#${theme.colorScheme.magentaHex}";
+      color14 = "#${theme.colorScheme.cyanHex}";
+      color15 = "#${theme.colorScheme.foreground1Hex}";
     };
   };
 }

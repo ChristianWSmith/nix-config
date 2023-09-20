@@ -2,7 +2,7 @@
 {
   home.sessionVariables = {
     SHELL = "${pkgs.fish}/bin/fish";
-    TERMINAL = "footclient";
+    TERMINAL = "kitty";
     BROWSER = "firefox";
     NIXPKGS_ALLOW_UNFREE = "1";
     NEWT_COLORS = ''

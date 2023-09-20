@@ -1,10 +1,17 @@
 { pkgs, user, theme, ... }:
 {
+  home.packages = with pkgs; [ eza ];
   programs.fish = {
     enable = true;
     interactiveShellInit = ''
       set fish_greeting
 
+      if test (tty) = /dev/tty1;
+        while test -f ~/.tty1-gui-only;
+          hyprland-launcher;
+        end;
+      end;
+      
       set fish_color_autosuggestion ${theme.colorScheme.background4Hex}
       set fish_color_cancel \x2d\x2dreverse
       set fish_color_command ${theme.colorScheme.successHex}
@@ -31,12 +38,10 @@
       set fish_pager_color_selected_description \x1d
       set fish_pager_color_selected_prefix \x1d
 
-      if test (tty) = /dev/tty1;
-        while test -f ~/.tty1-gui-only;
-          hyprland-launcher;
-        end;
-      end;
+      alias ls "eza --icons"
     '';
+
+    # TODO: switch some of these to shellAbbrs
     functions = {
       fish_prompt = ''
         set -l last_pipestatus $pipestatus
