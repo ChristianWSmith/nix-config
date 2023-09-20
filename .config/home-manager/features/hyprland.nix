@@ -58,6 +58,7 @@ in
     ".config/hypr/autoexec.conf".text = ''
       exec-once = hyprland-extra-config
       exec-once = foot --server
+      exec-once = get-wallpapers
       exec-once = random-wallpaper
       exec-once = waybar
       exec-once = hyprland-enable-screen-sharing
@@ -77,6 +78,7 @@ in
       bind = $mainMod, B, exec, terminal btop
       bind = $mainMod, Z, exec, zen-toggle
       bind = $mainMod, O, exec, emoji type
+      bind = $mainMod SHIFT, B, exec, random-wallpaper
 
       bind = $mainMod SHIFT, Q, killactive,
       bind = $mainMod SHIFT, E, exec, power-menu

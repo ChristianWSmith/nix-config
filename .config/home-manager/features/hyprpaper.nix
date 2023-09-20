@@ -17,7 +17,7 @@ let
     then
       exit
     fi
-    # wget -nc -O $wallpaper_dir/<image_name> <url>
+    wget -nc -O $wallpaper_dir/garden.png https://tinyurl.com/26ey564k
     touch $got_wallpapers
   '';
 in

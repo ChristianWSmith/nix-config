@@ -25,7 +25,7 @@
         email = "smith.christian.william@gmail.com";
       };
 
-      palette = inputs.nix-colors.colorSchemes.nord.colors;
+      palette = inputs.nix-colors.colorSchemes.material-darker.colors;
 
       theme = {
         colorScheme = {
@@ -112,10 +112,10 @@
         cursorThemeName = "Adwaita";
         cursorSize = 40;
         
-        iconThemePackage = pkgs.whitesur-icon-theme;
-        iconThemeName = "WhiteSur-dark";
+        iconThemePackage = pkgs.flat-remix-icon-theme;
+        iconThemeName = "Flat-Remix-Cyan-Dark";
 
-	      themePackage = pkgs.adw-gtk3;
+        themePackage = pkgs.adw-gtk3;
         themeName = "adw-gtk3-dark";
         qtPlatformTheme = "gtk";
         qtStyleName = "adwaita-dark";

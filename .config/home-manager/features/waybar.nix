@@ -145,7 +145,7 @@ in
         font-weight: bold;
         margin: 0px;
         padding: 0px;
-	transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
       }
 
       .modules-left,
@@ -179,7 +179,7 @@ in
       #tray,
       #custom-applauncher,
       #custom-powermenu,
-      button {
+      #workspaces button {
         box-shadow: inset 0 -3px transparent;
         border: none;
         border-radius: ${builtins.toString theme.borderRadius}px;
@@ -195,14 +195,20 @@ in
       #tray,
       #custom-applauncher,
       #custom-powermenu,
-      button:hover,
-      button.active,
-      button.focused {
+      #workspaces button:hover,
+      #workspaces button.active,
+      #workspaces button.focused {
         background: rgba(${theme.colorScheme.background4RGB}, ${theme.colorScheme.transparencyBackgroundRGB});
       }
 
-      button.urgent {
+      #workspaces button.urgent {
         background-color: #${theme.colorScheme.dangerHex};
+      }
+
+      #taskbar button:hover,
+      #taskbar button.active,
+      #taskbar button.focused {
+        background: rgba(${theme.colorScheme.foreground1RGB}, ${theme.colorScheme.transparencyLightShadeRGB});
       }
 
       #custom-applauncher {
@@ -229,7 +235,7 @@ in
 
       #workspaces button {
         padding: 0px 5px;
-	margin-right: 2px;
+        margin-right: 2px;
       }
 
       #workspaces button.active,
@@ -238,11 +244,11 @@ in
       }
 
       .modules-left {
-	padding: 0px 0px 0px 2px;
+        padding: 0px 0px 0px 2px;
       }
 
       .modules-right {
-	padding: 0px 2px 0px 2px;
+  padding: 0px 2px 0px 2px;
       }
     '';
   };
