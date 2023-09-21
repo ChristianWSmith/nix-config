@@ -205,6 +205,10 @@ in
       #workspaces button.urgent {
         background-color: #${theme.colorScheme.dangerHex};
       }
+    
+      #taskbar button {
+        margin: 0px 1px 0px 1px;
+      }
 
       #taskbar button:hover,
       #taskbar button.active,
@@ -226,6 +230,7 @@ in
 
       #tray {
         padding: 0px 5px 0px 5px;
+        margin-left: 2px;
       }
 
       #pulseaudio,
@@ -249,7 +254,7 @@ in
       }
 
       .modules-right {
-  padding: 0px 2px 0px 2px;
+        padding: 0px 2px 0px 0px;
       }
     '';
   };
