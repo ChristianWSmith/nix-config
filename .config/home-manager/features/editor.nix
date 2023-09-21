@@ -17,6 +17,12 @@ in
       nmap k <Down>
       nmap l <Right>
       nmap h <Insert>
+      :set number relativenumber
+      :set tabstop=2
+      :set shiftwidth=2
+      :set expandtab
+      :set autoindent
+      :syntax on
     '';
     plugins = [ pkgs.vimPlugins.yuck-vim pkgs.vimPlugins.scss-syntax-vim ];
   };
