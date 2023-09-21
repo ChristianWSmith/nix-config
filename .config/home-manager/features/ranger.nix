@@ -30,7 +30,13 @@ in
       copymap <RIGHT> l
     '';
   };
-  home.packages = with pkgs; [
+  home.packages = [
     ranger
+    pkgs.poppler_utils
+    pkgs.ffmpeg
+    pkgs.fontforge-gtk
+    pkgs.catdoc
+    pkgs.atool
+    pkgs.libarchive
   ];
 }
