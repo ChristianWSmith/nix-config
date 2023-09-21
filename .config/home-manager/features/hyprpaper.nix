@@ -28,7 +28,7 @@ let
     wallpaper_dir=${user.home}/.wallpapers
     got_wallpapers=${user.home}/.got-wallpapers
 
-    CURRENT_SHA=$(sha256sum $(readlink -f $0) | cut -d' ' -f1)
+    CURRENT_SHA="$(sha256sum $(readlink -f $0) | cut -d' ' -f1)$(sha256sum ${user.home}/.assets/wallpaper-list | cut -d' ' -f1)"
     LAST_SHA=$(cat $got_wallpapers)
 
     if [ "$CURRENT_SHA" != "$LAST_SHA" ]; then
@@ -41,9 +41,13 @@ let
     download() {
       wget -nc -O $wallpaper_dir/$1 $2
     }
-
-    download beach-gate.jpg https://tinyurl.com/2p9dfrb2
-    download garden.png https://tinyurl.com/26ey564k
+    
+    while IFS="" read -r p || [ -n "$p" ]; do
+      name=$(echo $p | cut -d' ' -f1)
+      url=$(echo $p | cut -d' ' -f2)
+      download $name $url
+    done < ${user.home}/.assets/wallpaper-list
+      
     echo "$CURRENT_SHA" > $HOME/.got-wallpapers
   '';
 in
