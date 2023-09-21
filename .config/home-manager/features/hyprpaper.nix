@@ -42,9 +42,9 @@ let
       wget -nc -O $wallpaper_dir/$1 $2
     }
     
-    while IFS="" read -r p || [ -n "$p" ]; do
-      name=$(echo $p | cut -d' ' -f1)
-      url=$(echo $p | cut -d' ' -f2)
+    while IFS="" read -r line || [ -n "$line" ]; do
+      name=$(echo $line | cut -d' ' -f1)
+      url=$(echo $line | cut -d' ' -f2)
       download $name $url
     done < ${user.home}/.assets/wallpaper-list
       
