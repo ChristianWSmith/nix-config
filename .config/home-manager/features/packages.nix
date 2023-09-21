@@ -100,6 +100,7 @@
     onlyoffice-bin
     meld
     swappy
+    galculator
 
     # Internet
     discord
