@@ -12,11 +12,6 @@ in
     vimAlias = true;
     defaultEditor = true;
     extraConfig = ''
-      nmap i <Up>
-      nmap j <Left>
-      nmap k <Down>
-      nmap l <Right>
-      nmap h <Insert>
       :set number relativenumber
       :set tabstop=2
       :set shiftwidth=2
