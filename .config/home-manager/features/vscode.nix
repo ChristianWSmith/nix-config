@@ -15,6 +15,7 @@
     "colorize.include" = [ "*" ];
     "explorer.confirmDelete" = false;
     "security.workspace.trust.untrustedFiles" = "open";
+    "terminal.integrated.enableImages" = true;
     "workbench.colorCustomizations" = {		
         "activityBar.activeBorder" = "#${theme.colorScheme.blueHex}";
         "activityBar.background" = "#${theme.colorScheme.background1Hex}";
