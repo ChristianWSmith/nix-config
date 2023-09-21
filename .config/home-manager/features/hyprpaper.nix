@@ -6,7 +6,21 @@ let
     hyprpaper
   '';
   randomWallpaper = pkgs.writeShellScriptBin "random-wallpaper" ''
-    ln -sf $(echo ${user.home}/.wallpapers/$(ls ${user.home}/.wallpapers/ | sort -R | tail -1)) ${user.home}/.active-wallpaper
+    current_wallpaper=$(basename $(readlink ${user.home}/.active-wallpaper))
+
+    if [ "$current_wallpaper" = "" ]; then
+      new_wallpaper=$(ls ${user.home}/.wallpapers | sort -R | tail -1)
+    else
+      new_wallpaper=$(ls ${user.home}/.wallpapers | grep -v $current_wallpaper | sort -R | tail -1)
+    fi
+
+    if [ "$new_wallpaper" = "" ]; then
+      new_wallpaper="${user.home}/.wallpapers/default.png"
+    else
+      new_wallpaper="${user.home}/.wallpapers/$new_wallpaper"
+    fi
+
+    ln -sf $new_wallpaper ${user.home}/.active-wallpaper
     pkill hyprpaper
     hyprpaper
   '';
