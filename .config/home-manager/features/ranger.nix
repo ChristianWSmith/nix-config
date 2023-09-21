@@ -36,7 +36,9 @@ in
     pkgs.ffmpeg
     pkgs.fontforge-gtk
     pkgs.catdoc
+    pkgs.catdocx
     pkgs.atool
     pkgs.libarchive
+    pkgs.xlsx2csv
   ];
 }
