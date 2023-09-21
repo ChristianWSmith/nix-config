@@ -16,9 +16,14 @@ let
     pkill fuzzel
     cliphist list | dmenu | cliphist decode | wl-copy
   '';
+  clipboardWipe = pkgs.writeShellScriptBin "clipboard-wipe" ''
+    if zenity --question --title="Clear Clipboard History?" --ok-label=Yes --cancel-label=No; then
+      cliphist wipe
+    fi
+  '';
 in
 {
-  home.packages = [ appLauncher dmenu emoji clipboard ];
+  home.packages = [ appLauncher dmenu emoji clipboard clipboardWipe pkgs.gnome.zenity ];
   programs.fuzzel = {
     enable = true;
     settings = {

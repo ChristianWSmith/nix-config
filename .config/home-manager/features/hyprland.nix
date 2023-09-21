@@ -79,6 +79,8 @@ in
       bind = $mainMod, Z, exec, zen-toggle
       bind = $mainMod, O, exec, emoji type
       bind = $mainMod SHIFT, B, exec, random-wallpaper
+      bind = $mainMod, C, exec, clipboard-picker
+      bind = $mainMod SHIFT, C, exec, clipboard-wipe
 
       bind = $mainMod SHIFT, Q, killactive,
       bind = $mainMod SHIFT, E, exec, power-menu
