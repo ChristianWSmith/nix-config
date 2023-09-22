@@ -26,7 +26,7 @@ in
         height = 30;
         margin = "${builtins.toString theme.gapsOut}px ${builtins.toString theme.gapsOut}px 0px ${builtins.toString theme.gapsOut}px";
         spacing = 2;
-        modules-left = ["custom/applauncher" "hyprland/workspaces"];
+        modules-left = ["custom/applauncher" "mpd" "hyprland/workspaces"];
         modules-center = ["wlr/taskbar"];
         modules-right = ["tray" "pulseaudio" "network" "battery" "clock" "custom/powermenu"];
         "custom/applauncher" = {
@@ -68,6 +68,36 @@ in
           on-click = "activate";
           ignore-list = [ "wlogout" ];
         };
+        mpd = {
+          on-click = "terminal ncmpcpp";
+          format = "{stateIcon} {consumeIcon} {randomIcon} {repeatIcon} {singleIcon}";
+          format-disconnected = "<span color=\"#${theme.colorScheme.dangerHex}\">Disconnected</span>";
+          format-stopped = "<span color=\"#${theme.colorScheme.dangerHex}\">󰓛</span> {consumeIcon} {randomIcon} {repeatIcon} {singleIcon}";
+          unknown-tag = "N/A";
+          interval = 2;
+          consume-icons = {
+            off = "<span color=\"#${theme.colorScheme.dangerHex}\">󰆐</span>";
+            on = "<span color=\"#${theme.colorScheme.successHex}\">󰆐</span>";
+          };
+          random-icons = {
+            off = "<span color=\"#${theme.colorScheme.dangerHex}\">󰒟</span>";
+            on = "<span color=\"#${theme.colorScheme.successHex}\">󰒟</span>";
+          };
+          repeat-icons = {
+            off = "<span color=\"#${theme.colorScheme.dangerHex}\">󰕇</span>";
+            on = "<span color=\"#${theme.colorScheme.successHex}\">󰕇</span>";
+          };
+          single-icons = {
+            off = "<span color=\"#${theme.colorScheme.dangerHex}\">󰎤</span>";
+            on = "<span color=\"#${theme.colorScheme.successHex}\">󰎤</span>";
+          };
+          state-icons = {
+            paused = "<span color=\"#${theme.colorScheme.warningHex}\">󰏤</span>";
+            playing = "<span color=\"#${theme.colorScheme.successHex}\">󰐊</span>";
+          };
+          tooltip-format = "MPD (connected)";
+          tooltip-format-disconnected = "MPD (disconnected)";
+        };
         tray = {
           spacing = 2;
           icon-size = 20;
@@ -83,7 +113,7 @@ in
             critical = 15;
           };
           format = "{icon}";
-          format-charging = "<span color=\"${theme.colorScheme.successHex}\">󰂄</span>";
+          format-charging = "<span color=\"#${theme.colorScheme.successHex}\">󰂄</span>";
           format-plugged = "<span color=\"#${theme.colorScheme.successHex}\">󰂄</span>";
           format-icons = [
             "<span color=\"#${theme.colorScheme.dangerHex}\">󰂎</span>"
@@ -180,6 +210,7 @@ in
       #tray,
       #custom-applauncher,
       #custom-powermenu,
+      #mpd,
       #workspaces button {
         box-shadow: inset 0 -3px transparent;
         border: none;
@@ -196,6 +227,7 @@ in
       #tray,
       #custom-applauncher,
       #custom-powermenu,
+      #mpd,
       #workspaces button:hover,
       #workspaces button.active,
       #workspaces button.focused {
@@ -231,6 +263,10 @@ in
       #tray {
         padding: 0px 5px 0px 5px;
         margin-left: 2px;
+      }
+
+      #mpd {
+        padding: 0px 10px 0px 6px;
       }
 
       #pulseaudio,

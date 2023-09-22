@@ -25,6 +25,7 @@
     ./features/hyprpaper.nix
     ./features/vscode.nix
     ./features/ranger.nix
+    ./features/mpd.nix
   ];
 
   home.file = {

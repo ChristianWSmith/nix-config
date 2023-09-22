@@ -81,6 +81,7 @@ in
       bind = $mainMod SHIFT, B, exec, random-wallpaper
       bind = $mainMod, C, exec, clipboard-picker
       bind = $mainMod SHIFT, C, exec, clipboard-wipe
+      bind = $mainMod, M, exec, terminal ncmpcpp
 
       bind = $mainMod SHIFT, Q, killactive,
       bind = $mainMod SHIFT, E, exec, power-menu
