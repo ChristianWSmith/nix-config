@@ -39,9 +39,21 @@
       set fish_pager_color_selected_prefix \x1d
 
       alias ls "eza --icons"
+      alias nix-gc "nix-collect-garbage -d"
+      alias full-gc "nixos-gc && nix-gc"
+      alias ga "git add"
+      alias gr "git restore"
+      alias gc "git commit -m"
+      alias gp "git push"
+      alias gs "git status"
+      alias gd "git diff"
+      alias nt "terminal & disown"
+      alias chx "chmod +x"
+      alias chw "chmod +w"
+      alias poweroff "systemctl poweroff --no-wall"
+      alias reboot "systemctl reboot -i --no-wall"
     '';
 
-    # TODO: switch some of these to shellAbbrs
     functions = {
       fish_prompt = ''
         set -l last_pipestatus $pipestatus
@@ -136,19 +148,7 @@
         sudo nix-collect-garbage -d
         sudo /run/current-system/bin/switch-to-configuration boot
       '';
-      nix-gc = "nix-collect-garbage -d";
-      full-gc = "nixos-gc && nix-gc";
-      ga = "git add $argv";
-      gr = "git restore $argv";
-      gc = "git commit -m \"$argv\"";
-      gp = "git push";
-      gs = "git status";
-      gd = "git diff \"$argv\"";
-      nt = "terminal & disown";
-      chx = "chmod +x \"$argv\"";
       nix-goto = "cd $(dirname $(readlink -f $(which $argv)))";
-      poweroff = "systemctl poweroff --no-wall";
-      reboot = "systemctl reboot -i --no-wall";
     };
   };
 }

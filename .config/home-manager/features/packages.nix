@@ -58,7 +58,6 @@
     # TUI Tools
     pulsemixer 
     networkmanager
-    vimPlugins.yuck-vim
     khal
 
     # GUI Tools
@@ -101,6 +100,7 @@
     meld
     swappy
     galculator
+    libsForQt5.kdenlive
 
     # Internet
     discord
