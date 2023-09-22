@@ -25,7 +25,7 @@ in
         position = "top";
         height = 30;
         margin = "${builtins.toString theme.gapsOut}px ${builtins.toString theme.gapsOut}px 0px ${builtins.toString theme.gapsOut}px";
-        spacing = 2;
+        spacing = 0;
         modules-left = ["custom/applauncher" "mpd" "hyprland/workspaces"];
         modules-center = ["wlr/taskbar"];
         modules-right = ["tray" "pulseaudio" "network" "battery" "clock" "custom/powermenu"];
@@ -101,7 +101,7 @@ in
           tooltip-format-disconnected = "MPD (disconnected)";
         };
         tray = {
-          spacing = 2;
+          spacing = 0;
           icon-size = 20;
         };
         clock = {
@@ -217,7 +217,7 @@ in
         box-shadow: inset 0 -3px transparent;
         border: none;
         border-radius: ${builtins.toString theme.borderRadius}px;
-        margin: 2px 0px 2px 0px;
+        margin: 2px 1px 2px 1px;
         background-color: transparent;
         color: #${theme.colorScheme.foreground1Hex};
       }
@@ -264,7 +264,6 @@ in
 
       #tray {
         padding: 0px 5px 0px 5px;
-        margin-left: 2px;
       }
 
       #mpd {
@@ -279,7 +278,6 @@ in
 
       #workspaces button {
         padding: 0px 5px;
-        margin-right: 2px;
       }
 
       #workspaces button.active,
@@ -288,11 +286,11 @@ in
       }
 
       .modules-left {
-        padding: 0px 0px 0px 2px;
+        padding: 0px 1px 0px 1px;
       }
 
       .modules-right {
-        padding: 0px 2px 0px 0px;
+        padding: 0px 1px 0px 1px;
       }
     '';
   };
