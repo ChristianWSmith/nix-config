@@ -70,6 +70,8 @@ in
         };
         mpd = {
           on-click = "terminal ncmpcpp";
+          on-click-right = "mpc next";
+          on-click-middle = "mpc toggle";
           format = "{stateIcon} {consumeIcon} {randomIcon} {repeatIcon} {singleIcon}";
           format-disconnected = "<span color=\"#${theme.colorScheme.dangerHex}\">Disconnected</span>";
           format-stopped = "<span color=\"#${theme.colorScheme.dangerHex}\">󰓛</span> {consumeIcon} {randomIcon} {repeatIcon} {singleIcon}";

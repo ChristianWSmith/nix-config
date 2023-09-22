@@ -1,5 +1,6 @@
 { pkgs, user, ... }:
 {
+  home.packages = [ pkgs.mpc-cli ];
   programs.ncmpcpp = {
     enable = true;
     mpdMusicDir = "${user.home}/Music";
