@@ -97,7 +97,7 @@ in
             paused = "<span color=\"#${theme.colorScheme.warningHex}\">󰏤</span>";
             playing = "<span color=\"#${theme.colorScheme.successHex}\">󰐊</span>";
           };
-          tooltip-format = "MPD (connected)";
+          tooltip-format = "{artist} - {album} - {title}";
           tooltip-format-disconnected = "MPD (disconnected)";
         };
         tray = {
