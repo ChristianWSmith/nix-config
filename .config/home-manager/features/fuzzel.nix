@@ -11,14 +11,19 @@ let
   emoji = pkgs.writeShellScriptBin "emoji" ''
     pkill fuzzel
     rofimoji --selector fuzzel --action $1
+    if [ "$action" = "copy" ]; then
+      notify-clipboard
+    fi
   '';
   clipboard = pkgs.writeShellScriptBin "clipboard-picker" ''
     pkill fuzzel
     cliphist list | dmenu | cliphist decode | wl-copy
+    notify-clipboard
   '';
   clipboardWipe = pkgs.writeShellScriptBin "clipboard-wipe" ''
     if zenity --question --title="Clear Clipboard History?" --ok-label=Yes --cancel-label=No; then
       cliphist wipe
+      notify-send "Clipboard history wiped."
     fi
   '';
 in

@@ -64,9 +64,7 @@
 
     # GUI Tools
     xorg.xrandr
-    grim
     rofimoji
-    slurp 
     wf-recorder
     wl-clipboard 
     cliphist 
@@ -100,7 +98,6 @@
     handbrake
     onlyoffice-bin
     meld
-    swappy
     galculator
     libsForQt5.kdenlive
 

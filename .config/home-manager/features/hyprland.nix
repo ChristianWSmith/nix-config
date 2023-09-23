@@ -6,47 +6,18 @@ let
       hyprctl reload
     fi
   '';
-
   launcher = pkgs.writeShellScriptBin "hyprland-launcher" ''
     . "${user.home}/.nix-profile/etc/profile.d/hm-session-vars.sh"
     dbus-run-session ${pkgs.hyprland}/bin/Hyprland &> /dev/null
   '';
-  enableScreenSharing = pkgs.writeShellScriptBin "hyprland-enable-screen-sharing" ''
+  startPortals = pkgs.writeShellScriptBin "start-portals" ''
     systemctl --user import-environment DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
     dbus-update-activation-environment
     dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
     systemctl --user start xdg-desktop-portal
     systemctl --user start xdg-desktop-portal-hyprland
   '';
-  screenshot = pkgs.writeShellScriptBin "hyprland-screenshot" ''
-    sleep 1
-    dimensions=$(slurp -d)
-    if [ "$dimensions" ]
-    then
-      grim -g "$dimensions" - | swappy -f -
-    fi
-  '';
-  recordScreen = pkgs.writeShellScriptBin "record-screen" ''
-    PIDFILE="/tmp/record-screen.pid"
-    if ps -p $(cat $PIDFILE);
-    then
-      kill -SIGINT $(pgrep wf-recorder)
-      notify-send "Screen recording ended."
-    else
-      echo "$$" > $PIDFILE
-      sleep 1
-      dimensions=$(slurp -d)
-      if [ "$dimensions" ]
-      then
-        filename="recording-$(date +%s).mp4"
-        notify-send "Screen recording started: ~/Videos/$filename"
-        wf-recorder -g "$dimensions" -f ${user.home}/Videos/$filename
-      else
-        notify-send "Screen recording cancelled."
-      fi
-    fi
-  '';
-  colorPicker = pkgs.writeShellScriptBin "hyprland-colorpicker" ''
+  colorPicker = pkgs.writeShellScriptBin "wayland-colorpicker" ''
     hyprpicker | tr -d '\n' | wl-copy
     notify-clipboard
   '';
@@ -61,7 +32,7 @@ in
       exec-once = get-wallpapers
       exec-once = random-wallpaper
       exec-once = waybar
-      exec-once = hyprland-enable-screen-sharing
+      exec-once = start-portals
       exec-once = wl-paste --watch cliphist store
       exec-once = mkdir -p ${user.home}/Pictures ${user.home}/Documents ${user.home}/Videos ${user.home}/Music ${user.home}/Downloads ${user.home}/Templates ${user.home}/Desktop ${user.home}/Public
     '';
@@ -70,8 +41,8 @@ in
       bind = $mainMod, RETURN, exec, terminal
       bind = $mainMod, W, exec, $BROWSER
       bind = $mainMod, E, exec, terminal ranger
-      bind = $mainMod, S, exec, hyprland-screenshot
-      bind = $mainMod, P, exec, hyprland-colorpicker
+      bind = $mainMod, S, exec, wayland-screenshot
+      bind = $mainMod, P, exec, wayland-colorpicker
       bind = $mainMod, A, exec, terminal pulsemixer
       bind = $mainMod, D, exec, app-launcher
       bind = $mainMod, T, exec, system-tray
@@ -212,7 +183,7 @@ in
       }
     '';
   };
-  home.packages = [ launcher extraConfig screenshot enableScreenSharing colorPicker recordScreen ];
+  home.packages = [ launcher extraConfig startPortals colorPicker ];
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;

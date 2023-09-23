@@ -26,6 +26,7 @@
     ./features/vscode.nix
     ./features/ranger.nix
     ./features/mpd.nix
+    ./features/screenshot.nix
   ];
 
   home.file = {
