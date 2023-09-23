@@ -16,7 +16,8 @@
     ./features/theme.nix
     ./features/mako.nix
     ./features/gammastep.nix
-    ./features/browser.nix
+    ./features/firefox.nix
+    ./features/chromium.nix
     ./features/hitbox.nix
     ./features/fuzzel.nix
     ./features/wlogout.nix
@@ -27,6 +28,7 @@
     ./features/ranger.nix
     ./features/mpd.nix
     ./features/screenshot.nix
+    ./features/web-apps.nix
   ];
 
   home.file = {

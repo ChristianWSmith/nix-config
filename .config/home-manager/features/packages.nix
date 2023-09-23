@@ -1,8 +1,6 @@
 
 { pkgs, user, theme, ... }:
 { 
-  programs.chromium.enable = true;
-
   programs.git = {
     enable = true;
     userEmail = user.email;
