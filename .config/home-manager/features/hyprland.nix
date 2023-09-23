@@ -127,9 +127,8 @@ in
       }
     '';
     ".config/hypr/windowrules.conf".text = ''
-      windowrulev2 = move 100% 100%,class:(trayer),title:(panel)
-      windowrulev2 = float,class:(trayer),title:(panel)
-      windowrulev2 = pin,class:(trayer),title:(panel)
+      windowrulev2 = tile,class:(Chromium-browser),title:(www.messenger.com_/login)
+      windowrulev2 = tile,class:(Chromium-browser),title:(www.discord.com_/login)
       windowrulev2 = float,class:(wlogout),title:(wlogout)
       windowrulev2 = noanim,class:(wlogout),title:(wlogout)
     '';
