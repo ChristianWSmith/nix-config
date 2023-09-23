@@ -29,6 +29,7 @@
     ./features/mpd.nix
     ./features/screenshot.nix
     ./features/web-apps.nix
+    ./features/google-drive.nix
   ];
 
   home.file = {

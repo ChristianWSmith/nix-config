@@ -52,9 +52,6 @@
     jq
     socat
 
-    # Daemon Tools
-    xboxdrv
-
     # TUI Tools
     pulsemixer 
     networkmanager
