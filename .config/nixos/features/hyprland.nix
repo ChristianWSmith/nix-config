@@ -1,8 +1,9 @@
 { pkgs, lib, ... }:
 let
+  portalPackages = [ pkgs.xdg-desktop-portal pkgs.xdg-desktop-portal-hyprland ];
   joinedPortals = pkgs.buildEnv {
     name = "xdg-portals";
-    paths = [ pkgs.xdg-desktop-portal pkgs.xdg-desktop-portal-hyprland ];
+    paths = portalPackages;
     pathsToLink = [ "/share/xdg-desktop-portal/portals" "/share/applications" ];
   };
 in
@@ -62,19 +63,17 @@ in
     };
     geoclue2.enable = true;
     power-profiles-daemon.enable = true;
-    dbus.packages = [ pkgs.xdg-desktop-portal pkgs.xdg-desktop-portal-hyprland ];
+    dbus.packages = portalPackages;
   };
   environment = {
     systemPackages = [ joinedPortals ];
     pathsToLink = [ "/share/applications" ];
     sessionVariables = {
-      # GTK_USE_PORTAL = mkIf cfg.gtkUsePortal "1";
-      # NIXOS_XDG_OPEN_USE_PORTAL = mkIf cfg.xdgOpenUsePortal "1";
       XDG_DESKTOP_PORTAL_DIR = "${joinedPortals}/share/xdg-desktop-portal/portals";
     };
   };
   systemd = {
-    packages = [ pkgs.xdg-desktop-portal pkgs.xdg-desktop-portal-hyprland ]; 
+    packages = portalPackages; 
     user.services.xdg-desktop-portal = {
       description = "Portal service";
       partOf = lib.mkForce [];
@@ -89,7 +88,6 @@ in
       description = "Portal service (Hyprland implementation)";
       partOf = lib.mkForce [];
       after = lib.mkForce [];
-#ConditionEnvironment=WAYLAND_DISPLAY
       serviceConfig = {
         Type = "dbus";
         BusName = "org.freedesktop.impl.portal.desktop.hyprland";
