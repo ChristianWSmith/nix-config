@@ -1,4 +1,11 @@
 { pkgs, lib, ... }:
+let
+  joinedPortals = pkgs.buildEnv {
+    name = "xdg-portals";
+    paths = [ pkgs.xdg-desktop-portal pkgs.xdg-desktop-portal-hyprland ];
+    pathsToLink = [ "/share/xdg-desktop-portal/portals" "/share/applications" ];
+  };
+in
 {
   programs = {
     gnome-disks.enable = true;
@@ -11,8 +18,8 @@
     };
   };
   xdg.portal = {
-    enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
+    enable = lib.mkForce false;
+    extraPortals = lib.mkForce [ ];
   };
   hardware = {
     opengl.enable = true;
@@ -55,14 +62,48 @@
     };
     geoclue2.enable = true;
     power-profiles-daemon.enable = true;
+    dbus.packages = [ pkgs.xdg-desktop-portal pkgs.xdg-desktop-portal-hyprland ];
+  };
+  environment = {
+    systemPackages = [ joinedPortals ];
+    pathsToLink = [ "/share/applications" ];
+    sessionVariables = {
+      # GTK_USE_PORTAL = mkIf cfg.gtkUsePortal "1";
+      # NIXOS_XDG_OPEN_USE_PORTAL = mkIf cfg.xdgOpenUsePortal "1";
+      XDG_DESKTOP_PORTAL_DIR = "${joinedPortals}/share/xdg-desktop-portal/portals";
+    };
   };
   systemd = {
+    packages = [ pkgs.xdg-desktop-portal pkgs.xdg-desktop-portal-hyprland ]; 
+    user.services.xdg-desktop-portal = {
+      description = "Portal service";
+      partOf = lib.mkForce [];
+      serviceConfig = {
+        Type = "dbus";
+        BusName = "org.freedesktop.portal.Desktop";
+        ExecStart = "${pkgs.xdg-desktop-portal}/libexec/xdg-desktop-portal";
+        Slice = "session.slice";
+      };
+    };
+    user.services.xdg-desktop-portal-hyprland = {
+      description = "Portal service (Hyprland implementation)";
+      partOf = lib.mkForce [];
+      after = lib.mkForce [];
+#ConditionEnvironment=WAYLAND_DISPLAY
+      serviceConfig = {
+        Type = "dbus";
+        BusName = "org.freedesktop.impl.portal.desktop.hyprland";
+        ExecStart = "${pkgs.xdg-desktop-portal-hyprland}/libexec/xdg-desktop-portal-hyprland";
+        Restart = "on-failure";
+        Slice = "session.slice";
+      };
+    };
     user.services.polkit-gnome-authentication-agent-1 = {
       description = "polkit-gnome-authentication-agent-1";
       wantedBy = [ "graphical-session.target" ];
       wants = [ "graphical-session.target" ];
       after = [ "graphical-session.target" ];
-      serviceConfig = {
+       serviceConfig = {
           Type = "simple";
           ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
           Restart = "on-failure";

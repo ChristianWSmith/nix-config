@@ -9,7 +9,7 @@ let
 
   launcher = pkgs.writeShellScriptBin "hyprland-launcher" ''
     . "${user.home}/.nix-profile/etc/profile.d/hm-session-vars.sh"
-    ${pkgs.hyprland}/bin/Hyprland &> /dev/null
+    dbus-run-session ${pkgs.hyprland}/bin/Hyprland &> /dev/null
   '';
   enableScreenSharing = pkgs.writeShellScriptBin "hyprland-enable-screen-sharing" ''
     systemctl --user import-environment DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
