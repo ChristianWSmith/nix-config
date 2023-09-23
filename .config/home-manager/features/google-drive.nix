@@ -31,7 +31,21 @@ let
       echo "GoogleDrive rclone config does not exist."
     fi 
   '';
+  backupSteamShaderCache = pkgs.writeShellScriptBin "backup-steam-shader-cache" ''
+    mkdir -p ${user.home}/GoogleDrive/shadercache
+    rsync --info=progress2 --info=name0 -a ${user.home}/.steam/steam/steamapps/shadercache/ ${user.home}/GoogleDrive/shadercache
+  '';
+  restoreSteamShaderCache = pkgs.writeShellScriptBin "restore-steam-shader-cache" ''
+    mkdir -p ${user.home}/GoogleDrive/shadercache
+    rsync --info=progress2 --info=name0 -a ${user.home}/GoogleDrive/shadercache/ ${user.home}/.steam/steam/steamapps/shadercache
+  '';
 in
 {
-  home.packages = [ pkgs.rclone mountGoogleDrive unmountGoogleDrive ];
+  home.packages = [ 
+    pkgs.rclone 
+    mountGoogleDrive 
+    unmountGoogleDrive 
+    backupSteamShaderCache 
+    restoreSteamShaderCache 
+  ];
 }
