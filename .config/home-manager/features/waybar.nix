@@ -69,8 +69,8 @@ in
           ignore-list = [ "wlogout" ];
         };
         mpd = {
-          on-click = "terminal ncmpcpp";
-          on-click-right = "mpc next";
+          on-click = "mpdevil";
+          on-click-right = "terminal ncmpcpp";
           on-click-middle = "mpc toggle";
           format = "{stateIcon} {consumeIcon} {randomIcon} {repeatIcon} {singleIcon}";
           format-disconnected = "<span color=\"#${theme.colorScheme.dangerHex}\">Disconnected</span>";
@@ -166,8 +166,8 @@ in
               "<span color=\"#${theme.colorScheme.successHex}\">󰕾</span>"
             ];
           };
-          on-click = "terminal pulsemixer";
-          on-click-right = "pavucontrol";
+          on-click = "pavucontrol";
+          on-click-right = "terminal pulsemixer";
         };
       };
     };
