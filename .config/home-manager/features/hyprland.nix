@@ -35,7 +35,7 @@ in
       exec-once = start-portals
       exec-once = wl-paste --watch cliphist store
       exec-once = mount-google-drive
-      exec-once = mkdir -p ${user.home}/Pictures ${user.home}/Documents ${user.home}/Videos ${user.home}/Music ${user.home}/Downloads ${user.home}/Templates ${user.home}/Desktop ${user.home}/Public
+      exec-once = mkdir -p ${user.home}/Pictures ${user.home}/Documents ${user.home}/Videos ${user.home}/Music ${user.home}/Downloads ${user.home}/Templates ${user.home}/Desktop ${user.home}/Public ${user.home}/GitHub
     '';
     ".config/hypr/binds.conf".text = ''
       $mainMod = SUPER
