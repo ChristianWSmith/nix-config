@@ -4,15 +4,28 @@ let
     pyinotify
   ];
 
+  pythonPackage = pkgs.python3.withPackages hitboxPythonPackages;
+
   hitbox = pkgs.writeShellScriptBin "hitbox" ''
-    python3 ${user.home}/.assets/hitbox.py
+    ${pythonPackage}/bin/python ${user.home}/.assets/hitbox.py ${pkgs.xboxdrv}/bin/xboxdrv
   '';
 in
 {
   home.packages = with pkgs; [
-    (python3.withPackages hitboxPythonPackages)
+    pythonPackage
     hitbox
     xboxdrv
   ];
+  systemd.user.services.hitbox = {
+    Unit = {
+      Description = "DragonRise PCB Hitbox Daemon";
+    };
+    Service = {
+      Type = "simple";
+      ExecStart = "${user.home}/.nix-profile/bin/hitbox";
+      Restart = "on-failure";
+      RestartSec = 1;
+    };
+  };
 }
 
