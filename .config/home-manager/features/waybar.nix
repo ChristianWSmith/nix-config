@@ -26,7 +26,7 @@ in
         height = 30;
         margin = "${builtins.toString theme.gapsOut}px ${builtins.toString theme.gapsOut}px 0px ${builtins.toString theme.gapsOut}px";
         spacing = 0;
-        modules-left = ["custom/applauncher" "mpd" "hyprland/workspaces"];
+        modules-left = ["custom/applauncher" "custom/files" "mpd" "hyprland/workspaces"];
         modules-center = ["wlr/taskbar"];
         modules-right = ["tray" "pulseaudio" "network" "battery" "clock" "custom/powermenu"];
         "custom/applauncher" = {
@@ -34,6 +34,13 @@ in
           format = "<span color=\"#${theme.colorScheme.accentHex}\">{}</span>";
           exec = "echo {\\\"text\\\": \\\"󱄅\\\", \\\"tooltip\\\": \\\"Application Launcher\\\"}";
           on-click = "app-launcher";
+        };
+        "custom/files" = {
+          return-type = "json";
+          format = "<span color=\"#${theme.colorScheme.foreground1Hex}\">{}</span>";
+          exec = "echo {\\\"text\\\": \\\"󰝰\\\", \\\"tooltip\\\": \\\"Files\\\"}";
+          on-click = "nemo";
+          on-click-right = "terminal ranger";
         };
         "custom/powermenu" = {
           return-type = "json";
@@ -211,6 +218,7 @@ in
       #pulseaudio,
       #tray,
       #custom-applauncher,
+      #custom-files,
       #custom-powermenu,
       #mpd,
       #workspaces button {
@@ -228,6 +236,7 @@ in
       #pulseaudio,
       #tray,
       #custom-applauncher,
+      #custom-files,
       #custom-powermenu,
       #mpd,
       #workspaces button:hover,
@@ -250,9 +259,11 @@ in
         background: rgba(${theme.colorScheme.foreground1RGB}, ${theme.colorScheme.transparencyLightShadeRGB});
       }
 
-      #custom-applauncher {
+      #custom-applauncher,
+      #custom-files {
         padding: 0px 11px 0px 6px;
       }
+      
       
       #custom-powermenu {
         padding: 0px 9px 0px 8px;
