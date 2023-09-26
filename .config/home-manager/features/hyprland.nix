@@ -131,6 +131,7 @@ in
       windowrulev2 = tile,class:(Chromium-browser),title:(www.discord.com_/login)
       windowrulev2 = float,class:(wlogout),title:(wlogout)
       windowrulev2 = noanim,class:(wlogout),title:(wlogout)
+      windowrulev2 = noanim,class:(Rofi),title:(rofi)
     '';
     ".config/hypr/appearance.conf".text = ''
       blurls=waybar
