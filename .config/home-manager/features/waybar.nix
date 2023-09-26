@@ -33,7 +33,7 @@ in
           return-type = "json";
           format = "<span color=\"#${theme.colorScheme.accentHex}\">{}</span>";
           exec = "echo {\\\"text\\\": \\\"󱄅\\\", \\\"tooltip\\\": \\\"Application Launcher\\\"}";
-          on-click = "vdal";
+          on-click = "gui-app-launcher";
           on-click-right = "app-launcher";
         };
         "custom/files" = {

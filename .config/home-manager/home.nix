@@ -30,6 +30,7 @@
     ./features/screenshot.nix
     ./features/web-apps.nix
     ./features/google-drive.nix
+    ./features/rofi.nix
   ];
 
   home.file = {

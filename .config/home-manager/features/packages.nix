@@ -104,7 +104,5 @@
     gnome.gnome-font-viewer
     evince
     gnome.gnome-boxes
-
-    inputs.vdal.defaultPackage.x86_64-linux
   ];
 }
