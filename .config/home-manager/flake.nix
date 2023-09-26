@@ -12,6 +12,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-colors.url = "github:misterio77/nix-colors";
+    vdal.url = "github:ChristianWSmith/vdal";
   };
 
   outputs = { nixpkgs, home-manager, ... }@inputs:

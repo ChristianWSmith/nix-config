@@ -1,5 +1,4 @@
-
-{ pkgs, user, theme, ... }:
+{ inputs, pkgs, user, theme, ... }:
 { 
   programs.git = {
     enable = true;
@@ -105,5 +104,7 @@
     gnome.gnome-font-viewer
     evince
     gnome.gnome-boxes
+
+    inputs.vdal.defaultPackage.x86_64-linux
   ];
 }
