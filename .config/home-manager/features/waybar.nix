@@ -28,7 +28,7 @@ in
         spacing = 0;
         modules-left = ["custom/applauncher" "custom/files" "mpd" "hyprland/workspaces"];
         modules-center = ["wlr/taskbar"];
-        modules-right = ["tray" "pulseaudio" "network" "battery" "clock" "custom/powermenu"];
+        modules-right = ["tray" "pulseaudio" "network" "battery" "clock" "custom/closewindow" "custom/powermenu"];
         "custom/applauncher" = {
           return-type = "json";
           format = "<span color=\"#${theme.colorScheme.accentHex}\">{}</span>";
@@ -42,6 +42,12 @@ in
           exec = "echo {\\\"text\\\": \\\"󰝰\\\", \\\"tooltip\\\": \\\"Files\\\"}";
           on-click = "nemo";
           on-click-right = "terminal ranger";
+        };
+        "custom/closewindow" = {
+          return-type = "json";
+          format = "<span color=\"#${theme.colorScheme.warningHex}\">{}</span>";
+          exec = "echo {\\\"text\\\": \\\"󰅖\\\", \\\"tooltip\\\": \\\"Close Window\\\"}";
+          on-click = "kill -9 $(hyprprop | jq -r '.pid')";
         };
         "custom/powermenu" = {
           return-type = "json";
@@ -220,6 +226,7 @@ in
       #tray,
       #custom-applauncher,
       #custom-files,
+      #custom-closewindow,
       #custom-powermenu,
       #mpd,
       #workspaces button {
@@ -238,6 +245,7 @@ in
       #tray,
       #custom-applauncher,
       #custom-files,
+      #custom-closewindow,
       #custom-powermenu,
       #mpd,
       #workspaces button:hover,
@@ -266,6 +274,7 @@ in
       }
       
       
+      #custom-closewindow,
       #custom-powermenu {
         padding: 0px 9px 0px 8px;
       }

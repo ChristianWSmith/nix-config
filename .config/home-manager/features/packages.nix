@@ -104,5 +104,7 @@
     gnome.gnome-font-viewer
     evince
     gnome.gnome-boxes
+
+    (callPackage ../packages/hyprprop.nix {})
   ];
 }
