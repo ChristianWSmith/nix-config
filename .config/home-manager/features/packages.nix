@@ -105,6 +105,7 @@
     evince
     gnome.gnome-boxes
 
+    yed
     (callPackage ../packages/hyprprop.nix {})
   ];
 }

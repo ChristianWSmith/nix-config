@@ -28,7 +28,7 @@
     ./features/ranger.nix
     ./features/mpd.nix
     ./features/screenshot.nix
-    ./features/web-apps.nix
+    ./features/extra-desktop-files.nix
     ./features/google-drive.nix
     ./features/rofi.nix
   ];

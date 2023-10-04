@@ -23,7 +23,19 @@
       Icon=discord
       Type=Application
       Categories=Network;InstantMessaging;
-      Path=${pkgs.discord}/bin 
+      Path=${pkgs.chromium}/bin 
+    '';
+    ".local/share/applications/yed.desktop".text = ''
+      [Desktop Entry]
+      Name=yEd
+      StartupWMClass=yEd
+      Comment=yEd
+      Exec=${pkgs.yed}/bin/yed
+      GenericName=yEd
+      Icon=${pkgs.yed}/yed/icons/yed128.png
+      Type=Application
+      Categories=Office;
+      Path=${pkgs.yed}/bin
     '';
   };
 }
