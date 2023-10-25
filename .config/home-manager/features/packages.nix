@@ -54,7 +54,7 @@
     # TUI Tools
     pulsemixer 
     networkmanager
-    khal
+    # khal
 
     # GUI Tools
     xorg.xrandr
