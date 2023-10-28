@@ -94,6 +94,7 @@
     meld
     galculator
     libsForQt5.kdenlive
+    obsidian
 
     # Internet
     discord
