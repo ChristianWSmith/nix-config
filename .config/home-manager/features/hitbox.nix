@@ -1,18 +1,11 @@
 { pkgs, user, ... }:
 let
-  hitboxPythonPackages = ps: with ps; [
-    pyinotify
-  ];
-
-  pythonPackage = pkgs.python3.withPackages hitboxPythonPackages;
-
   hitbox = pkgs.writeShellScriptBin "hitbox" ''
-    ${pythonPackage}/bin/python ${user.home}/.assets/hitbox.py ${pkgs.xboxdrv}/bin/xboxdrv
+    ${user.home}/.assets/hitbox.py ${pkgs.xboxdrv}/bin/xboxdrv
   '';
 in
 {
   home.packages = with pkgs; [
-    pythonPackage
     hitbox
     xboxdrv
   ];

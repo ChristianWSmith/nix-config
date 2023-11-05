@@ -1,4 +1,12 @@
 { inputs, pkgs, user, theme, ... }:
+let
+  pythonPackages = ps: with ps; [
+    matplotlib
+    pyinotify
+  ];
+
+  pythonPackage = pkgs.python3.withPackages pythonPackages;
+in
 { 
   programs.git = {
     enable = true;
@@ -50,6 +58,7 @@
     imagemagick
     jq
     socat
+    pythonPackage
 
     # TUI Tools
     pulsemixer 
