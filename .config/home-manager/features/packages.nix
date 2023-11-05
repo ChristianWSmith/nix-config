@@ -56,6 +56,7 @@ in
     unzip 
     p7zip
     imagemagick
+    ghostscript
     jq
     socat
     pythonPackage
