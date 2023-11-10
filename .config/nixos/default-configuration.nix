@@ -11,6 +11,7 @@
     ./features/networking.nix
     ./features/users.nix
     ./features/hyprland.nix
+    ./features/virtualization.nix
   ];
 
   nixpkgs.config.allowUnfree = true;

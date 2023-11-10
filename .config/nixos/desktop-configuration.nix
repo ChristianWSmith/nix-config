@@ -12,6 +12,7 @@
     ./features/users.nix
     ./features/printer.nix
     ./features/hyprland.nix
+    ./features/virtualization.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
